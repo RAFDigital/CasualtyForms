@@ -1,0 +1,13 @@
+# Ignore everything by default
+
+/*
+
+# Apart from themes/ and plugins/
+
+!themes/
+!plugins/
+
+# And some files
+
+!README.md
+!.gitignore
