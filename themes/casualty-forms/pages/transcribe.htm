@@ -1,0 +1,26 @@
+title = "Transcribe"
+url = "/transcribe/:code?"
+layout = "default"
+
+[account]
+paramCode = "code"
+==
+<div class="jumbotron">
+    <div class="container">
+        <h1>Transcribe</h1>
+
+        {% if user %}
+            <p>Hello {{ user.name }}.</p>
+        {% else %}
+            <p>Nobody is logged in.</p>
+        {% endif %}
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="page-header">
+        {% component 'account' %}
+    </div>
+
+</div>
