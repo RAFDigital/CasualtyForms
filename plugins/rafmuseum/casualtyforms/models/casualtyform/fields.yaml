@@ -1,0 +1,38 @@
+fields:
+    rank:
+        label: Rank
+        oc.commentPosition: ''
+        span: full
+        type: text
+    first_name:
+        label: 'First Name'
+        oc.commentPosition: ''
+        span: full
+        type: text
+    regiment_corps:
+        label: Regiment/Corps
+        oc.commentPosition: ''
+        span: full
+        type: text
+    report_date_first:
+        label: 'Date of First Report'
+        oc.commentPosition: ''
+        mode: datetime
+        span: auto
+        type: datepicker
+    report_date_last:
+        label: 'Date of Last Report'
+        oc.commentPosition: ''
+        mode: datetime
+        span: auto
+        type: datepicker
+    death_date:
+        label: 'Date of Death'
+        oc.commentPosition: ''
+        mode: datetime
+        span: full
+        type: datepicker
+    details:
+        label: 'Casualty Details'
+        span: full
+        type: checkbox

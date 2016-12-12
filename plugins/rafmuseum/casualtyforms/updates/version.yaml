@@ -1,0 +1,11 @@
+1.0.1:
+    - 'Initialize plugin.'
+1.0.2:
+    - 'Created table rafmuseum_casualtyforms_form'
+    - builder_table_create_rafmuseum_casualtyforms_form.php
+1.0.3:
+    - 'Updated table rafmuseum_casualtyforms_form'
+    - builder_table_update_rafmuseum_casualtyforms_form.php
+1.0.4:
+    - 'Updated table rafmuseum_casualtyforms_form'
+    - builder_table_update_rafmuseum_casualtyforms_forms.php

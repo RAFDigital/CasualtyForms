@@ -1,0 +1,11 @@
+plugin:
+    name: 'rafmuseum.casualtyforms::lang.plugin.name'
+    description: 'rafmuseum.casualtyforms::lang.plugin.description'
+    author: 'RAF Museum'
+    icon: oc-icon-asterisk
+    homepage: ''
+navigation:
+    main-menu-item:
+        label: 'Casualty Forms'
+        url: rafmuseum/casualtyforms/forms
+        icon: icon-asterisk
