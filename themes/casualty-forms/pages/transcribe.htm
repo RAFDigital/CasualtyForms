@@ -1,9 +1,12 @@
 title = "Transcribe"
 url = "/transcribe/:code?"
 layout = "default"
+is_hidden = 0
 
 [account]
 paramCode = "code"
+
+[transcriptionform]
 ==
 <div class="jumbotron">
     <div class="container">
@@ -11,6 +14,8 @@ paramCode = "code"
 
         {% if user %}
             <p>Hello {{ user.name }}.</p>
+            
+            {% component 'transcriptionform' %}
         {% else %}
             <p>Nobody is logged in.</p>
         {% endif %}

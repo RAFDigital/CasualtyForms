@@ -9,3 +9,6 @@
 1.0.4:
     - 'Updated table rafmuseum_casualtyforms_form'
     - builder_table_update_rafmuseum_casualtyforms_forms.php
+1.0.5:
+    - 'Updated table rafmuseum_casualtyforms_forms'
+    - builder_table_update_rafmuseum_casualtyforms_forms_2.php
