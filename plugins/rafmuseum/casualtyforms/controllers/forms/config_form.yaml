@@ -1,6 +1,6 @@
 name: Forms
-form: $/rafmuseum/casualtyforms/models/casualtyform/fields.yaml
 modelClass: RafMuseum\CasualtyForms\Models\CasualtyForm
+form: $/rafmuseum/casualtyforms/models/casualtyform/fields.yaml
 defaultRedirect: rafmuseum/casualtyforms/forms
 create:
     redirect: 'rafmuseum/casualtyforms/forms/update/:id'
@@ -8,3 +8,4 @@ create:
 update:
     redirect: rafmuseum/casualtyforms/forms
     redirectClose: rafmuseum/casualtyforms/forms
+preview: {  }
