@@ -1,4 +1,4 @@
-<?php namespace RafMuseum\TranscriptionForm\Components;
+<?php namespace RafMuseum\Transcription\Components;
 
 use Cms\Classes\ComponentBase;
 use Input;
@@ -12,7 +12,7 @@ class TranscriptionForm extends ComponentBase
     {
         return [
             'name' => 'Trasncription Form',
-            'description' => 'Whatever'
+            'description' => 'Transcription web form.'
         ];
     }
 

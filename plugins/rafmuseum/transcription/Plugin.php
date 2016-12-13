@@ -1,4 +1,4 @@
-<?php namespace RafMuseum\TranscriptionForm;
+<?php namespace RafMuseum\Transcription;
 
 use System\Classes\PluginBase;
 
@@ -7,7 +7,7 @@ class Plugin extends PluginBase
     public function registerComponents()
     {
         return [
-            'RafMuseum\TranscriptionForm\Components\TranscriptionForm' => 'transcriptionform'
+            'RafMuseum\Transcription\Components\TranscriptionForm' => 'transcriptionform'
         ];
     }
 

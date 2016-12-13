@@ -1,0 +1,6 @@
+plugin:
+    name: 'rafmuseum.transcription::lang.plugin.name'
+    description: 'rafmuseum.transcription::lang.plugin.description'
+    author: 'RAF Museum'
+    icon: oc-icon-copy
+    homepage: ''
