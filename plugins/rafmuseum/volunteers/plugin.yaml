@@ -1,0 +1,6 @@
+plugin:
+    name: 'rafmuseum.volunteers::lang.plugin.name'
+    description: 'rafmuseum.volunteers::lang.plugin.description'
+    author: 'RAF Museum'
+    icon: oc-icon-user
+    homepage: ''
