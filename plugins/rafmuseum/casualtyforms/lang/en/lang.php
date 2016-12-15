@@ -1,6 +1,6 @@
 <?php return [
     'plugin' => [
         'name' => 'Casualty Forms',
-        'description' => ''
+        'description' => 'Casualty forms database.'
     ]
 ];

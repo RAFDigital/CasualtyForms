@@ -1,6 +1,6 @@
 <?php return [
     'plugin' => [
         'name' => 'Volunteers',
-        'description' => ''
+        'description' => 'Extention of the users table.'
     ]
 ];
