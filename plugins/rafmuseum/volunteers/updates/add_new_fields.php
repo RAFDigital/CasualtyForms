@@ -16,9 +16,10 @@ class AddNewFields extends Migration
 
     public function down()
     {
-        $table->dropDown([
-            'forms_transcribed'
-        ]);
+        Schema::table('users', function($table)
+        {
+            $table->dropDown(['forms_transcribed']);
+        });
     }
 
 }
