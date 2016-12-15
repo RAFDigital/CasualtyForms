@@ -4,8 +4,8 @@
 
 # Apart from themes/ and plugins/
 
-!themes/casualty-forms/
-!plugins/rafmuseum/
+!themes/
+!plugins/
 
 # And some files
 
