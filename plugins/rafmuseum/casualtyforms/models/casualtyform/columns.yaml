@@ -7,3 +7,6 @@ columns:
         label: 'First Name'
         type: text
         searchable: true
+    needs_review:
+        label: 'Needs Review'
+        type: switch
