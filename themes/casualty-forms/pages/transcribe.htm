@@ -14,8 +14,6 @@ paramCode = "code"
 
         {% if user %}
             <p>Hello {{ user.name }}.</p>
-            
-            {% component 'transcriptionform' %}
         {% else %}
             <p>Nobody is logged in.</p>
         {% endif %}
@@ -24,6 +22,10 @@ paramCode = "code"
 
 <div class="container">
 
-    {% component 'account' %}
+    {% if user %}
+        {% component 'transcriptionform' %}
+    {% else %}
+        {% component 'account' %}
+    {% endif %}
 
 </div>
