@@ -7,6 +7,11 @@
 !themes/
 !plugins/
 
+# Ignore some system themes and plugins
+
+themes/demo/
+plugins/october/
+
 # And some files
 
 !README.md
