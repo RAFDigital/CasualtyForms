@@ -1,31 +1,20 @@
-title = "Transcribe"
-url = "/transcribe/:code?"
+title = "Transcribe List"
+url = "/transcribe/:page?"
 layout = "default"
 is_hidden = 0
 
-[account]
-paramCode = "code"
-
-[transcriptionform]
+[session]
+security = "user"
+redirect = "signin"
 ==
 <div class="jumbotron">
     <div class="container">
         <h1>Transcribe</h1>
 
-        {% if user %}
-            <p>Hello {{ user.name }}.</p>
-        {% else %}
-            <p>Nobody is logged in.</p>
-        {% endif %}
+        <p>Hello {{ user.name }}.</p>
     </div>
 </div>
 
 <div class="container">
-
-    {% if user %}
-        {% component 'transcriptionform' %}
-    {% else %}
-        {% component 'account' %}
-    {% endif %}
-
+    {% partial 'casualty-forms/list' %}
 </div>
