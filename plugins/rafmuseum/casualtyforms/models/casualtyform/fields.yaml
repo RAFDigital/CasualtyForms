@@ -36,8 +36,12 @@ fields:
         label: 'Casualty Details'
         span: full
         type: checkbox
-    needs_review:
-        label: 'Needs review'
+    approved:
+        label: Approved
         span: auto
-        default: 1
+        default: 0
+        type: checkbox
+    completed:
+        label: Completed
+        span: auto
         type: checkbox

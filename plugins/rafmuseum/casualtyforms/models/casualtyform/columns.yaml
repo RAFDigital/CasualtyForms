@@ -1,4 +1,8 @@
 columns:
+    id:
+        label: ID
+        type: number
+        sortable: true
     rank:
         label: Rank
         type: text
@@ -7,6 +11,9 @@ columns:
         label: 'First Name'
         type: text
         searchable: true
-    needs_review:
-        label: 'Needs Review'
+    approved:
+        label: Approved
+        type: switch
+    completed:
+        label: Completed
         type: switch
