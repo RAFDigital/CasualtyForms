@@ -1,8 +1,10 @@
 [builderDetails]
+modelClass = "RafMuseum\CasualtyForms\Models\CasualtyForm"
 identifierValue = "{{ :id }}"
 modelKeyColumn = "id"
+displayColumn = "first_name"
 notFoundMessage = "Record not found"
-=
+==
 {% set record = builderDetails.record %}
 {% set displayColumn = builderDetails.displayColumn %}
 {% set notFoundMessage = builderDetails.notFoundMessage %}

@@ -3,11 +3,11 @@ modelClass = "RafMuseum\CasualtyForms\Models\CasualtyForm"
 scope = "-"
 displayColumn = "first_name"
 noRecordsMessage = "No records found"
-detailsPage = "-"
+detailsPage = "transcribe-form"
+detailsKeyColumn = "id"
 detailsUrlParameter = "id"
 pageNumber = "{{ :page }}"
 ==
-
 {% set records = builderList.records %}
 {% set displayColumn = builderList.displayColumn %}
 {% set noRecordsMessage = builderList.noRecordsMessage %}

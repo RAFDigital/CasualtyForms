@@ -1,0 +1,20 @@
+title = "Transcribe List"
+url = "/transcribe/list/:page?"
+layout = "default"
+is_hidden = 0
+
+[session]
+security = "user"
+redirect = "signin"
+==
+<div class="jumbotron">
+    <div class="container">
+        <h1>Transcribe</h1>
+
+        <p>Hello {{ user.name }}.</p>
+    </div>
+</div>
+
+<div class="container">
+    {% partial 'casualty-forms/list' %}
+</div>
