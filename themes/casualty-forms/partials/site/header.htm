@@ -16,6 +16,7 @@
                 <li class="separator hidden-xs"></li>
                 <li class="{% if this.page.id == 'home' %}active{% endif %}"><a href="{{ 'home'|page }}">Home</a></li>
                 <li class="{% if this.page.id == 'transcribe' %}active{% endif %}"><a href="{{ 'transcribe-list'|page }}">Transcribe</a></li>
+                <li class="float-right"><a href="#">{{ user.name }}</a></li>
             </ul>
         </div>
     </div>

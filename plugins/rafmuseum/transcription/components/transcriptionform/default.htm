@@ -1,4 +1,6 @@
 <form data-request="onSave">
+    <p>Record {{ record.id }}</p>
+
     <div class="form-group">
         <label for="casualtyRank">Rank</label>
         <input
@@ -6,7 +8,8 @@
             type="text"
             class="form-control"
             id="casualtyRank"
-            placeholder="Enter the rank on the form" />
+            placeholder="Enter the rank on the form"
+            value="{{ record.rank }}"/>
     </div>
 
     <div class="form-group">
@@ -16,8 +19,11 @@
             type="text"
             class="form-control"
             id="casualtyName"
-            placeholder="Enter the name on the form" />
+            placeholder="Enter the name on the form"
+            value="{{ record.first_name }}"/>
     </div>
+
+    <input type="hidden" name="id" value="{{ record.id }}" />
 
     <button type="submit" class="btn btn-default">Save</button>
 

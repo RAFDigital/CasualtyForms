@@ -4,6 +4,7 @@ use Cms\Classes\ComponentBase;
 use Input;
 use Flash;
 use Redirect;
+use Log;
 use RafMuseum\CasualtyForms\Models\CasualtyForm;
 
 class TranscriptionForm extends ComponentBase
@@ -18,13 +19,15 @@ class TranscriptionForm extends ComponentBase
 
     public function onSave()
     {
-        $casualtyForm = new CasualtyForm();
+        // Get the right Casualty Form.
+        $casualtyForm = CasualtyForm::find(Input::get('id'));
+        // Update the values.
         $casualtyForm->first_name = Input::get('first_name');
         $casualtyForm->rank = Input::get('rank');
 
-        $casualtyForm->save();
+        $casualtyForm->update();
 
-        Flash::success('Form added.');
+        Flash::success('Form transcribed.');
 
         return Redirect::back();
     }

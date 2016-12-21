@@ -10,7 +10,7 @@ notFoundMessage = "Record not found"
 {% set notFoundMessage = builderDetails.notFoundMessage %}
 
 {% if record %}
-    {{ attribute(record, displayColumn) }}
+    {% component 'transcriptionform' %}
 {% else %}
     {{ notFoundMessage }}
 {% endif %}
