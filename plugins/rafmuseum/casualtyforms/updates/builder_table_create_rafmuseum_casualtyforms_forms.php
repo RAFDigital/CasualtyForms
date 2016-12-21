@@ -7,22 +7,24 @@ class BuilderTableCreateRafmuseumCasualtyformsForm extends Migration
 {
     public function up()
     {
-        Schema::create('rafmuseum_casualtyforms_form', function($table)
+        Schema::create('rafmuseum_casualtyforms_forms', function($table)
         {
             $table->engine = 'InnoDB';
-            $table->increments('id');
-            $table->string('rank');
-            $table->string('first_name');
+            $table->increments('id')->unsigned(false);
+            $table->string('rank')->nullable();
+            $table->string('first_name')->nullable();
             $table->string('regiment_corps')->nullable();
             $table->date('report_date_first')->nullable();
             $table->date('report_date_last')->nullable();
             $table->date('death_date')->nullable();
-            $table->boolean('details');
+            $table->boolean('details')->nullable();
+            $table->integer('completed_by_id')->nullable();
+            $table->integer('approved_by_id')->nullable();
         });
     }
-    
+
     public function down()
     {
-        Schema::dropIfExists('rafmuseum_casualtyforms_form');
+        Schema::dropIfExists('rafmuseum_casualtyforms_forms');
     }
 }
