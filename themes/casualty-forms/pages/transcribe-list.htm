@@ -29,10 +29,10 @@ redirect = "signin"
     <!-- Tab panes -->
     <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="transcribe">
-            {% partial 'casualty-forms/list' %}
+            {% partial 'casualty-forms/list' scope="scopeToTranscribe" %}
         </div>
         <div role="tabpanel" class="tab-pane" id="approve">
-            {% partial 'casualty-forms/list' %}
+            {% partial 'casualty-forms/list' scope="scopeToApprove" %}
         </div>
     </div>
 </div>
