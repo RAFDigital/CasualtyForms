@@ -14,9 +14,15 @@
         <div class="collapse navbar-collapse navbar-main-collapse">
             <ul class="nav navbar-nav">
                 <li class="separator hidden-xs"></li>
-                <li class="{% if this.page.id == 'home' %}active{% endif %}"><a href="{{ 'home'|page }}">Home</a></li>
-                <li class="{% if this.page.id == 'transcribe' %}active{% endif %}"><a href="{{ 'transcribe-list'|page }}">Transcribe</a></li>
-                <li class="float-right"><a href="#">{{ user.name }}</a></li>
+                <li class="{% if this.page.id == 'home' %}active{% endif %}">
+                    <a href="{{ 'home'|page }}">Home</a>
+                </li>
+                <li class="{% if this.page.id == 'transcribe-list' %}active{% endif %}">
+                    <a href="{{ 'transcribe-list'|page }}">Transcribe</a>
+                </li>
+                <li class="{% if this.page.id == 'volunteer' %}active{% endif %}">
+                    <a href="{{ 'volunteer'|page }}">{% if user %}{{ user.name }}{% else %}Volunteer{% endif %}</a>
+                </li>
             </ul>
         </div>
     </div>

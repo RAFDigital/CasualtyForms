@@ -24,7 +24,7 @@ class TranscriptionForm extends ComponentBase
         // Update the values.
         $casualtyForm->first_name = Input::get('first_name');
         $casualtyForm->rank = Input::get('rank');
-
+        // Update model.
         $casualtyForm->update();
 
         Flash::success('Form transcribed.');

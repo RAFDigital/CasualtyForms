@@ -1,0 +1,24 @@
+title = "Volunteer"
+url = "/volunteer"
+layout = "default"
+is_hidden = 0
+
+[account]
+paramCode = "code"
+
+[session]
+security = "all"
+==
+<div class="jumbotron">
+    <div class="container">
+        <h1>Volunteer</h1>
+    </div>
+</div>
+
+<div class="container">
+    {% component 'account' %}
+
+    <p>
+        <a data-request="onLogout" data-request-data="redirect: '/'" href="#">Sign out</a>
+    </p>
+</div>
