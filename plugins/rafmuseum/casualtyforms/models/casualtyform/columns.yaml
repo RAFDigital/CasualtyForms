@@ -11,9 +11,9 @@ columns:
         label: 'First Name'
         type: text
         searchable: true
-    approved:
-        label: Approved
-        type: switch
-    completed:
-        label: Completed
-        type: switch
+    'completed_by[name]':
+        label: 'Completed by'
+        type: text
+    'approved_by[name]':
+        label: 'Approved by'
+        type: text

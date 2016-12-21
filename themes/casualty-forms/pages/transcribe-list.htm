@@ -16,5 +16,23 @@ redirect = "signin"
 </div>
 
 <div class="container">
-    {% partial 'casualty-forms/list' %}
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active">
+            <a href="#transcribe" aria-controls="transcribe" role="tab" data-toggle="tab">Transcribe</a>
+        </li>
+        <li role="presentation">
+            <a href="#approve" aria-controls="approve" role="tab" data-toggle="tab">Approve</a>
+        </li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="transcribe">
+            {% partial 'casualty-forms/list' %}
+        </div>
+        <div role="tabpanel" class="tab-pane" id="approve">
+            {% partial 'casualty-forms/list' %}
+        </div>
+    </div>
 </div>

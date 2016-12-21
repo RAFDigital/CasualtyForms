@@ -36,12 +36,19 @@ fields:
         label: 'Casualty Details'
         span: full
         type: checkbox
-    approved:
-        label: Approved
+    completed_by:
+        label: 'Completed By'
+        oc.commentPosition: ''
+        nameFrom: name
+        descriptionFrom: description
+        emptyOption: 'Not yet complete'
         span: auto
-        default: 0
-        type: checkbox
-    completed:
-        label: Completed
+        type: relation
+    approved_by:
+        label: 'Approved By'
+        oc.commentPosition: ''
+        nameFrom: name
+        descriptionFrom: description
+        emptyOption: 'Not yet approved'
         span: auto
-        type: checkbox
+        type: relation

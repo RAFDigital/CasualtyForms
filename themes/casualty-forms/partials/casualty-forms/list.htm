@@ -24,7 +24,7 @@ pageNumber = "{{ :page }}"
                     <a href="{{ detailsPage|page({ (detailsUrlParameter): attribute(record, detailsKeyColumn) }) }}">
                 {% endif %}
 
-                {{ attribute(record, displayColumn) }}
+                {{ attribute(record, displayColumn) }} {{ record.first_name }}
 
                 {% if detailsPage %}
                     </a>

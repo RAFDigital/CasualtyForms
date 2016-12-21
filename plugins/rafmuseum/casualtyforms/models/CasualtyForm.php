@@ -18,9 +18,10 @@ class CasualtyForm extends Model
     /*
      * Relationships
      */
-    //  public $belongsTo = [
-    //     'user' => ['RainLab\User\Models\User', 'key' => 'completed_by']
-    // ];
+    public $belongsTo = [
+        'completed_by' => ['RainLab\User\Models\User', 'table' => 'users'],
+        'approved_by' => ['RainLab\User\Models\User', 'table' => 'users']
+    ];
 
     /*
      * Disable timestamps by default.
