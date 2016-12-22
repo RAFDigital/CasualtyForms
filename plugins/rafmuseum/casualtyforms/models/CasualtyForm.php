@@ -1,6 +1,7 @@
 <?php namespace RafMuseum\CasualtyForms\Models;
 
 use Model;
+use RainLab\User\Components\Session;
 
 /**
  * Model
@@ -36,7 +37,11 @@ class CasualtyForm extends Model
      */
     public function scopeToApprove($query)
     {
-        return $query->whereNotNull('completed_by_id');
+        // We need to get the current user out of the session.
+        $session = new Session();
+        $user = $session->user();
+        // Get the completed forms not completed by the current user.
+        return $query->where('completed_by_id', '!=', $user->id);
     }
 
     /*
