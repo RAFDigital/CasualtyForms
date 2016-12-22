@@ -17,19 +17,19 @@ fields:
     report_date_first:
         label: 'Date of First Report'
         oc.commentPosition: ''
-        mode: datetime
+        mode: date
         span: auto
         type: datepicker
     report_date_last:
         label: 'Date of Last Report'
         oc.commentPosition: ''
-        mode: datetime
+        mode: date
         span: auto
         type: datepicker
     death_date:
         label: 'Date of Death'
         oc.commentPosition: ''
-        mode: datetime
+        mode: date
         span: full
         type: datepicker
     details:
