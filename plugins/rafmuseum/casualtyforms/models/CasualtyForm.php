@@ -44,6 +44,19 @@ class CasualtyForm extends Model
         return $query->where('completed_by_id', '!=', $user->id);
     }
 
+    /**
+     * Get the total records for each.
+     */
+     public function getTotals($query)
+     {
+         $totals = array(
+             'toTranscribe' => $query->whereNull('completed_by_id'),
+            'toApprove' => $query->where('completed_by_id', '!=', $user->id)
+        );
+
+        return $totals;
+     }
+
     /*
      * Disable timestamps by default.
      * Remove this line if timestamps are defined in the database table.

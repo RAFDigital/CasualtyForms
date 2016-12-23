@@ -28,7 +28,9 @@
                     <li><a href="{{ 'transcribe-list'|page({ stage: 'approve', page: 0 }) }}">Approve</a></li>
                     <li role="separator" class="divider"></li>
                     <li><a href="{{ 'volunteer'|page }}">Account</a></li>
-                    <li><a data-request="onLogout" data-request-data="redirect: '/'" href="#">Sign out</a></li>
+                    {% if user %}
+                        <li><a data-request="onLogout" data-request-data="redirect: '/'" href="#">Sign out</a></li>
+                    {% endif %}
                   </ul>
                 </li>
             </ul>
