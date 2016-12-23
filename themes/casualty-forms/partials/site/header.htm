@@ -17,11 +17,19 @@
                 <li class="{% if this.page.id == 'home' %}active{% endif %}">
                     <a href="{{ 'home'|page }}">Home</a>
                 </li>
-                <li class="{% if this.page.id == 'transcribe-list' %}active{% endif %}">
-                    <a href="{{ 'transcribe-list'|page }}">Transcribe</a>
-                </li>
-                <li class="{% if this.page.id == 'volunteer' %}active{% endif %}">
-                    <a href="{{ 'volunteer'|page }}">{% if user %}{{ user.name }}{% else %}Volunteer{% endif %}</a>
+
+                <li class="dropdown {% if this.page.id == 'transcribe-list' %}active{% endif %}">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                      Volunteer <span class="caret"></span>
+                  </a>
+
+                  <ul class="dropdown-menu">
+                    <li><a href="{{ 'transcribe-list'|page({ stage: 'transcribe', page: 0 }) }}">Transcribe</a></li>
+                    <li><a href="{{ 'transcribe-list'|page({ stage: 'approve', page: 0 }) }}">Approve</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="{{ 'volunteer'|page }}">Account</a></li>
+                    <li><a data-request="onLogout" data-request-data="redirect: '/'" href="#">Sign out</a></li>
+                  </ul>
                 </li>
             </ul>
         </div>
