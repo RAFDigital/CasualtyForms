@@ -9,6 +9,10 @@ redirect = "volunteer"
 
 [transcriptionform]
 ==
+function onStart() {
+    $this['transcriptionStage'] = $this->param('stage');
+}
+==
 <div class="jumbotron">
     <div class="container">
         <h1>Transcribe</h1>

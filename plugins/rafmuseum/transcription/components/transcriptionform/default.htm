@@ -42,10 +42,17 @@
         <label for="casualtyDetails">Casualty form details</label>
     </div>
 
-    <input type="hidden" name="completed_by" value="{{ user.id }}" />
     <input type="hidden" name="id" value="{{ record.id }}" />
 
-    <button type="submit" class="btn btn-default">Save</button>
+    {% if transcriptionStage == 'transcribe'%}
+        <input type="hidden" name="completed_by" value="{{ user.id }}" />
+        <button type="submit" class="btn btn-primary">Save</button>
+        <a href="{{ 'transcribe-list'|page({ stage: 'transcribe' }) }}" class="btn btn-default">Cancel</a>
+    {% elseif transcriptionStage == 'approve' %}
+        <input type="hidden" name="approved_by" value="{{ user.id }}" />
+        <button type="submit" class="btn btn-success">Approve</button>
+        <a href="{{ 'transcribe-list'|page({ stage: 'approve' }) }}" class="btn btn-default">Cancel</a>
+    {% endif %}
 
     {% flash success %}
         <p>{{ message }}</p>
