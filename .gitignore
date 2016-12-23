@@ -12,7 +12,8 @@
 themes/demo/
 plugins/october/
 
-# And some files
+# Include some system files and theme config.
 
 !README.md
 !.gitignore
+!config/casualtyforms.php
