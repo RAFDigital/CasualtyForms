@@ -1,0 +1,10 @@
+name: Logs
+form: $/rafmuseum/usertimelogs/models/usertimelog/fields.yaml
+modelClass: RafMuseum\UserTimelogs\Models\UserTimelog
+defaultRedirect: rafmuseum/usertimelogs/logs
+create:
+    redirect: 'rafmuseum/usertimelogs/logs/update/:id'
+    redirectClose: rafmuseum/usertimelogs/logs
+update:
+    redirect: rafmuseum/usertimelogs/logs
+    redirectClose: rafmuseum/usertimelogs/logs

@@ -1,0 +1,20 @@
+fields:
+    user_id:
+        label: User
+        oc.commentPosition: ''
+        nameFrom: name
+        descriptionFrom: description
+        span: full
+        type: relation
+    signin_time:
+        label: 'Sign in time'
+        oc.commentPosition: ''
+        mode: datetime
+        span: auto
+        type: datepicker
+    signout_time:
+        label: 'Sign out time'
+        oc.commentPosition: ''
+        mode: datetime
+        span: auto
+        type: datepicker

@@ -1,0 +1,11 @@
+columns:
+    user_id:
+        label: 'User Id'
+        type: number
+        searchable: true
+    signin_time:
+        label: 'Sign in time'
+        type: time
+    signout_time:
+        label: 'Sign out time'
+        type: time

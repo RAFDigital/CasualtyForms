@@ -6,7 +6,8 @@ First clone the repo.
 
     git clone git@gitlab.com:DannyEdwards/casualty-forms.git
 
-Now cd into the project's directory and install October CMS, then run the php installer.
+Now cd into the project's directory and install October CMS, then run the php
+installer.
 
     cd casualty-forms/
     curl -s https://octobercms.com/api/installer | php
@@ -17,6 +18,12 @@ in the next stage. Run the set up command, then update and migrate database.
     php artisan october:install
     php artisan october:update
 
-Set the correct file and directory owner to the apache user (www-data) if required.
+Set the correct file and directory owner to the apache user (www-data) if
+required.
 
-    sudo chown -R www-data *
+    sudo chown -R www-data:[your user] *
+
+If you want to develop using a code editor, enable write permissions for your
+system's group.
+
+    sudo chmod -R g+w *

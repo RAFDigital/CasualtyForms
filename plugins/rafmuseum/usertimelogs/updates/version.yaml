@@ -1,0 +1,5 @@
+1.0.1:
+    - 'Initialize plugin.'
+1.0.2:
+    - 'Created table rafmuseum_usertimelogs_logs'
+    - builder_table_create_rafmuseum_usertimelogs_logs.php

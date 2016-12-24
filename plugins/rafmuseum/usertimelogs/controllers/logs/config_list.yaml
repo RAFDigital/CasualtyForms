@@ -1,0 +1,11 @@
+list: $/rafmuseum/usertimelogs/models/usertimelog/columns.yaml
+modelClass: RafMuseum\UserTimelogs\Models\UserTimelog
+title: Logs
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'
+recordUrl: 'rafmuseum/usertimelogs/logs/update/:id'

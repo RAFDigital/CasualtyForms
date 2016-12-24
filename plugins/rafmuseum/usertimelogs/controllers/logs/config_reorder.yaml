@@ -1,0 +1,4 @@
+title: Logs
+modelClass: RafMuseum\UserTimelogs\Models\UserTimelog
+toolbar:
+    buttons: reorder_toolbar

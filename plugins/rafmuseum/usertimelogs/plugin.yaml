@@ -1,0 +1,11 @@
+plugin:
+    name: 'rafmuseum.usertimelogs::lang.plugin.name'
+    description: 'rafmuseum.usertimelogs::lang.plugin.description'
+    author: RafMuseum
+    icon: oc-icon-clock-o
+    homepage: ''
+navigation:
+    main-menu-item:
+        label: 'Volunteer Times'
+        url: rafmuseum/usertimelogs/logs
+        icon: icon-clock-o
