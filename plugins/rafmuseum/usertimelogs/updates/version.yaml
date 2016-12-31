@@ -3,3 +3,6 @@
 1.0.2:
     - 'Created table rafmuseum_usertimelogs_logs'
     - builder_table_create_rafmuseum_usertimelogs_logs.php
+1.0.3:
+    - 'Updated table rafmuseum_usertimelogs_logs'
+    - builder_table_update_rafmuseum_usertimelogs_logs.php

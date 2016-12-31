@@ -9,6 +9,22 @@ paramCode = "code"
 [session]
 security = "all"
 ==
+use RafMuseum\UserTimelogs\Clock;
+
+function onStart() {
+    //trace_log($this['user']);
+}
+
+function onSignin() {
+    // Clock in.
+    return Clock::in($this->account);
+}
+
+function onLogout() {
+    // Clock out.
+    return Clock::out($this->session);
+}
+==
 <div class="jumbotron">
     <div class="container">
         <h1>Volunteer</h1>
@@ -18,7 +34,9 @@ security = "all"
 <div class="container">
     {% component 'account' %}
 
-    <p>
-        <a data-request="onLogout" data-request-data="redirect: '/'" href="#">Sign out</a>
-    </p>
+    {% if user %}
+        <p>
+            <a data-request="onLogout" data-request-data="redirect: '/'" href="#">Sign out</a>
+        </p>
+    {% endif %}
 </div>

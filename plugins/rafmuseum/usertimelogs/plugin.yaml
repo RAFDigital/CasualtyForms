@@ -1,7 +1,7 @@
 plugin:
     name: 'rafmuseum.usertimelogs::lang.plugin.name'
     description: 'rafmuseum.usertimelogs::lang.plugin.description'
-    author: RafMuseum
+    author: 'RAF Museum'
     icon: oc-icon-clock-o
     homepage: ''
 navigation:

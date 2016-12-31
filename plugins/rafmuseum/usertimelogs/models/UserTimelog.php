@@ -19,7 +19,7 @@ class UserTimelog extends Model
      * Relationships
      */
     public $belongsTo = [
-        'user_id' => ['RainLab\User\Models\User', 'table' => 'users']
+        'user' => ['RainLab\User\Models\User', 'table' => 'users']
     ];
 
     /*

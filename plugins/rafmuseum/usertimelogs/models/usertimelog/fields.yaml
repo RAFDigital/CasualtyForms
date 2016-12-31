@@ -1,5 +1,5 @@
 fields:
-    user_id:
+    user:
         label: User
         oc.commentPosition: ''
         nameFrom: name
