@@ -9,3 +9,12 @@ navigation:
         label: 'Volunteer Times'
         url: rafmuseum/usertimelogs/logs
         icon: icon-clock-o
+        sideMenu:
+            side-menu-item:
+                label: Logs
+                url: rafmuseum/usertimelogs/logs
+                icon: icon-book
+            side-menu-item2:
+                label: 'Log Totals'
+                url: rafmuseum/usertimelogs/logtotals
+                icon: icon-calculator

@@ -1,0 +1,10 @@
+columns:
+    user_id:
+        label: 'User ID'
+        type: number
+    name:
+        label: 'Volunteer Name'
+        type: text
+    time_logged:
+        label: 'Total Time Logged'
+        type: number

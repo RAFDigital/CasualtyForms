@@ -1,11 +1,21 @@
 columns:
     user_id:
-        label: 'User Id'
+        label: 'User ID'
         type: number
         searchable: true
+    name:
+        label: 'Volunteer name'
+        type: text
+        searchable: true
+        select: name
+        relation: user
     signin_time:
         label: 'Sign in time'
-        type: time
+        type: datetime
     signout_time:
         label: 'Sign out time'
-        type: time
+        type: datetime
+    time_logged:
+        label: 'Time Logged'
+        type: number
+        select: 'timediff (signout_time, signin_time)'

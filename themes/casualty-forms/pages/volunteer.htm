@@ -9,10 +9,10 @@ paramCode = "code"
 [session]
 security = "all"
 ==
-use RafMuseum\UserTimelogs\Clock;
+use RafMuseum\UserTimelogs\Classes\Clock;
 
 function onStart() {
-    //trace_log($this['user']);
+    //trace_log($this->session);
 }
 
 function onSignin() {
