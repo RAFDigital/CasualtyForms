@@ -9,7 +9,9 @@ notFoundMessage = "Record not found"
 {% set displayColumn = builderDetails.displayColumn %}
 {% set notFoundMessage = builderDetails.notFoundMessage %}
 
-<img alt="Form image" src="{{ config.formimages.url }}_1CF7221.jpg" width="100%" />
+<canvas id="image-zoom">
+    <img id="form-image" src="{{ config.formimages.url }}{{ config.formimages.filename }}" />
+</canvas>
 
 {% if record %}
     {% component 'transcriptionform' %}
