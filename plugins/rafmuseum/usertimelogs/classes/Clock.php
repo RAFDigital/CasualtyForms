@@ -2,7 +2,6 @@
 
 use RafMuseum\UserTimelogs\Models\UserTimelog;
 use Redirect;
-use Flash;
 
 class Clock
 {
