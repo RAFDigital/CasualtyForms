@@ -5,9 +5,6 @@ is_hidden = 0
 
 [account]
 paramCode = "code"
-
-[session]
-security = "all"
 ==
 use RafMuseum\UserTimelogs\Classes\Clock;
 
@@ -18,11 +15,6 @@ function onStart() {
 function onSignin() {
     // Clock in.
     return Clock::in($this->account);
-}
-
-function onLogout() {
-    // Clock out.
-    return Clock::out($this->session);
 }
 ==
 <div class="jumbotron">
@@ -35,8 +27,6 @@ function onLogout() {
     {% component 'account' %}
 
     {% if user %}
-        <p>
-            <a data-request="onLogout" data-request-data="redirect: '/'" href="#">Sign out</a>
-        </p>
+        <p><a href="{{ 'signout'|page }}">Sign out</a></p>
     {% endif %}
 </div>

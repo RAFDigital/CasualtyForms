@@ -1,4 +1,3 @@
-==
 <!-- Nav -->
 <nav id="layout-nav" class="navbar navbar-inverse navbar-fixed-top navbar-autohide" role="navigation">
     <div class="container">
@@ -29,7 +28,7 @@
                     <li role="separator" class="divider"></li>
                     <li><a href="{{ 'volunteer'|page }}">Account</a></li>
                     {% if user %}
-                        <li><a data-request="onLogout" data-request-data="redirect: '/'" href="#">Sign out</a></li>
+                        <li><a href="{{ 'signout'|page }}">Sign out</a></li>
                     {% endif %}
                   </ul>
                 </li>

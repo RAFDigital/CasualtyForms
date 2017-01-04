@@ -1,6 +1,8 @@
 <?php namespace RafMuseum\UserTimelogs\Classes;
 
 use RafMuseum\UserTimelogs\Models\UserTimelog;
+use Redirect;
+use Flash;
 
 class Clock
 {
@@ -27,6 +29,9 @@ class Clock
     {
         trace_log('Clock out.', date('Y-m-d H:i:s'));
 
+        // Redirect if the user is already logged out.
+        if( ! $session->user() ) return Redirect::to('/');
+
         // Get the logged in user.
         $user = $session->user();
 
@@ -38,7 +43,10 @@ class Clock
         $activeTimeLog->signout_time = date('Y-m-d H:i:s');
         $activeTimeLog->save();
 
-        // Return the logout function from the session.
-        return $session->onLogout();
+        // Use session onLogout to logout.
+        $session->onLogout();
+
+        // Done, redirect home.
+        return  Redirect::to('/');
     }
 }
