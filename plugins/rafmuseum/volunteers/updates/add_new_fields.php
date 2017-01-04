@@ -10,7 +10,7 @@ class AddNewFields extends Migration
     {
         Schema::table('users', function($table)
         {
-            $table->integer('forms_transcribed')->default(0);
+            $table->timestamp('last_activity')->nullable();
         });
     }
 
@@ -18,7 +18,7 @@ class AddNewFields extends Migration
     {
         Schema::table('users', function($table)
         {
-            $table->dropColumn(['forms_transcribed']);
+            $table->dropColumn(['last_activity']);
         });
     }
 

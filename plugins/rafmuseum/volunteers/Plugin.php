@@ -22,9 +22,9 @@ class Plugin extends PluginBase
     {
         UsersController::extendFormFields(function($form, $model, $context) {
             $form->addTabFields([
-                'forms_transcribed' => [
-                    'label' => 'Forms transcribed',
-                    'type' => 'number',
+                'last_activity' => [
+                    'label' => 'Last Activity',
+                    'type' => 'datepicker',
                     'tab' => 'Volunteers'
                 ]
             ]);
