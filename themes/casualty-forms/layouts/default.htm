@@ -1,4 +1,6 @@
 description = "Default layout"
+
+[session]
 ==
 function onStart() {
     $this['config'] = config('casualtyforms');
@@ -23,6 +25,8 @@ function onStart() {
         {% styles %}
     </head>
     <body>
+        <!-- Flash -->
+        {% partial 'site/flash' %}
 
         <!-- Header -->
         <header id="layout-header">
