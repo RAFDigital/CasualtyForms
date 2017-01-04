@@ -12,11 +12,11 @@ class BuilderTableCreateRafmuseumUsertimelogsLogs extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->integer('user_id');
-            $table->time('signin_time');
-            $table->time('signout_time');
+            $table->timestamp('signin_time')->nullable(false)->useCurrent();
+            $table->timestamp('signout_time')->nullable();
         });
     }
-    
+
     public function down()
     {
         Schema::dropIfExists('rafmuseum_usertimelogs_logs');

@@ -17,7 +17,6 @@ class Clock
         // Build the timelog object and save it.
         $timeLog = new UserTimelog();
         $timeLog->user_id = $user['id'];
-        $timeLog->signin_time = date('Y-m-d H:i:s');
         $timeLog->save();
 
         // Return the default sign in object.
