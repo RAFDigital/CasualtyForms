@@ -1,20 +1,8 @@
-Demo Theme
-==========
+RAF Museum Casualty Forms Theme
+===============================
 
-OctoberCMS demo theme that demonstrates the basic core functionality and utilizes the accompanying demo plugin. It is a great theme to copy when building a site from scratch. 
-
-The theme acts as a reference implementation for default component markup when distributing plugins.
-
-Have fun!
-
-## Clean up instructions
-
-If you clone this theme to use as a starting point. You may follow these instructions to clean up:
-
-1. Delete the `pages/ajax.htm` and `pages/plugins.htm` files.
-2. Delete the `partials/calcresult.htm` partial file.
-3. Delete the `partials/explain/` directory and contents.
-4. Delete the `content/placeholder/` directory and contents.
+This is a theme for the RAF Museum's Casualty Forms project, built off the
+Demo theme by OctoberCMS.
 
 ## Combining CSS and JavaScript
 

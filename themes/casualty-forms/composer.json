@@ -1,19 +1,14 @@
 {
-    "name": "october/demo-theme",
+    "name": "rafmuseum/casualtyforms-theme",
     "type": "october-theme",
-    "description": "Demo OctoberCMS theme",
-    "keywords": ["october", "cms", "demo", "theme"],
+    "description": "RAF Museum Casualty Forms theme",
+    "keywords": ["october", "rafmuseum", "casualtyforms", "theme"],
     "license": "MIT",
     "authors": [
         {
-            "name": "Alexey Bobkov",
-            "email": "aleksey.bobkov@gmail.com",
-            "role": "Co-founder"
-        },
-        {
-            "name": "Samuel Georges",
-            "email": "daftspunky@gmail.com",
-            "role": "Co-founder"
+            "name": "Dan Edwards",
+            "email": "igneosaur@gmail.com",
+            "role": "Developer"
         }
     ],
     "require": {
