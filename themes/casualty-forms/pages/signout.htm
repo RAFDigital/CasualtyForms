@@ -1,5 +1,5 @@
 title = "Sign out"
-url = "/volunteer/signout"
+url = "/volunteer/signout/:timeout?"
 is_hidden = 0
 
 [session]
@@ -8,6 +8,6 @@ use RafMuseum\UserTimelogs\Classes\Clock;
 
 function onStart() {
     // Clock out.
-    return Clock::out($this->session);
+    return Clock::out($this->session, $this->param('timeout'));
 }
 ==

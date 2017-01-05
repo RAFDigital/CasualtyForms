@@ -1,0 +1,6 @@
+plugin:
+    name: 'rafmuseum.processes::lang.plugin.name'
+    description: 'rafmuseum.processes::lang.plugin.description'
+    author: 'RAF Museum'
+    icon: oc-icon-gears
+    homepage: ''

@@ -2,13 +2,12 @@
 
 use RafMuseum\UserTimelogs\Models\UserTimelog;
 use Redirect;
+use Flash;
 
 class Clock
 {
     public static function in($account)
     {
-        trace_log('Clock in.', date('Y-m-d H:i:s'));
-
         // First sign in.
         $signIn = $account->onSignin();
 
@@ -20,14 +19,16 @@ class Clock
         $timeLog->user_id = $user['id'];
         $timeLog->save();
 
+        // Update the user `last_activity` to now.
+        $user->last_activity = date("Y-m-d H:i:s");
+        $user->update();
+
         // Return the default sign in object.
         return $signIn;
     }
 
-    public static function out($session)
+    public static function out($session, $timeout)
     {
-        trace_log('Clock out.', date('Y-m-d H:i:s'));
-
         // Redirect if the user is already logged out.
         if( ! $session->user() ) return Redirect::to('/');
 
@@ -44,6 +45,10 @@ class Clock
 
         // Use session onLogout to logout.
         $session->onLogout();
+
+        if( $timeout) {
+            Flash::warning("You have been logged out due to inactivity");
+        }
 
         // Done, redirect home.
         return  Redirect::to('/');
