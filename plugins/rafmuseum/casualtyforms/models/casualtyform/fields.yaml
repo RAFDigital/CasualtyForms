@@ -2,12 +2,25 @@ fields:
     rank:
         label: Rank
         oc.commentPosition: ''
+        options:
+            '2nd Leiut.': '2nd Leuit.'
+            Leiut.: Leiut.
+            Captain: Captain
+            Major: Major
+            Lt.-Col.: Lt.-Col.
+            Colonel: Colonel
         span: full
-        type: text
-    first_name:
-        label: 'First Name'
+        placeholder: 'Select rank'
+        type: dropdown
+    first_names:
+        label: 'First Names'
         oc.commentPosition: ''
-        span: full
+        span: auto
+        type: text
+    surname:
+        label: Surname
+        oc.commentPosition: ''
+        span: auto
         type: text
     regiment_corps:
         label: Regiment/Corps
@@ -32,8 +45,8 @@ fields:
         mode: date
         span: full
         type: datepicker
-    details:
-        label: 'Casualty Details'
+    medical_information:
+        label: 'Medical Information'
         span: full
         type: checkbox
     completed_by:
