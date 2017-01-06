@@ -47,7 +47,7 @@ class Clock
         $session->onLogout();
 
         if( $timeout) {
-            Flash::warning("You have been logged out due to inactivity");
+            Flash::warning("You have been logged out due to inactivity.");
         }
 
         // Done, redirect home.

@@ -1,20 +1,35 @@
 <form data-request="onSave">
     <div class="form-group">
         <label for="casualtyRank">Rank</label>
-        <input id="casualtyRank" name="rank" type="text" class="form-control"
-            placeholder="Enter the rank on the form" value="{{ record.rank }}"/>
+        <select id="casualtyRank" class="form-control" name="rank">
+            <option disabled selected>- Select the rank from the form -</option>
+            <option {% if record.rank == "2nd Leiut."%}selected{% endif %}>2nd Leiut.</option>
+            <option {% if record.rank == "Leiut."%}selected{% endif %}>Leiut.</option>
+            <option {% if record.rank == "Captain"%}selected{% endif %}>Captain</option>
+            <option {% if record.rank == "Major"%}selected{% endif %}>Major</option>
+            <option {% if record.rank == "Lt.-Col."%}selected{% endif %}>Lt.-Col.</option>
+            <option {% if record.rank == "Colonel"%}selected{% endif %}>Colonel</option>
+        </select>
+    </div>
+
+    <div class="row">
+        <div class="form-group col-sm-6">
+            {% partial 'transcriptionform::textfield'
+                id="casualtyFnames" name="first_names" label="First names"
+                recordValue=record.first_names %}
+        </div>
+
+        <div class="form-group col-sm-6">
+            {% partial 'transcriptionform::textfield'
+                id="casualtySurname" name="surname" label="Surname"
+                recordValue=record.surname %}
+        </div>
     </div>
 
     <div class="form-group">
-        <label for="casualtyName">First name</label>
-        <input id="casualtyName" name="first_name" type="text" class="form-control"
-            placeholder="Enter the name on the form" value="{{ record.first_name }}"/>
-    </div>
-
-    <div class="form-group">
-        <label for="casualtyRegimentCorps">Regiment/Corps</label>
-        <input id="casualtyRegimentCorps" name="regiment_corps" type="text" class="form-control"
-            placeholder="Enter the name on the form" value="{{ record.regiment_corps }}"/>
+        {% partial 'transcriptionform::textfield'
+            id="casualtyRegimentCorps" name="regiment_corps" label="Regiment/Corps"
+            recordValue=record.regiment_corps %}
     </div>
 
     <div class="row">
@@ -38,8 +53,8 @@
     </div>
 
     <div class="form-group">
-        <input id="casualtyDetails" type="checkbox" name="details" value="{{ record.details }}" />
-        <label for="casualtyDetails">Casualty form details</label>
+        <input id="medicalInfo" type="checkbox" name="medical_information" value="{{ record.medical_information }}" />
+        <label for="medicalInfo">Medical information</label>
     </div>
 
     <input type="hidden" name="id" value="{{ record.id }}" />

@@ -1,0 +1,23 @@
+<label for="{{ id }}">{{ label }}</label>
+
+<div class="input-group">
+    <input id="{{ id }}" name="{{ name }}" type="text" class="form-control"
+        placeholder="Enter the {{ label }} on the form" value="{{ recordValue }}"
+        {% if recordValue == '?' %}readonly{% endif %}/>
+
+    <div class="input-group-btn">
+        <button type="button" class="btn btn-default dropdown-toggle"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="caret"></span>
+        </button>
+
+        <ul class="dropdown-menu dropdown-menu-right">
+            <li>
+                <a class="toggle-illegible {% if recordValue == '?' %}marked{% endif %}" href="#">
+                    <span class="{% if recordValue == '?' %}hidden{% endif %}">Mark illegible</span>
+                    <span class="{% if recordValue != '?' %}hidden{% endif %}">Enter details</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

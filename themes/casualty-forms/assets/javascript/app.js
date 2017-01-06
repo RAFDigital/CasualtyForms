@@ -50,35 +50,54 @@ jQuery(document).ready(function($){
 
 
 /**
- * InactivityTimeout
- * Module for the inactivity timeout.
+ * ToggleIllegible
+ * Module for the toggling of illegible fields.
  */
-var InactivityTimeout = (function(exports) {
+var ToggleIllegible = (function(exports) {
     'use strict';
 
     /* Vars. */
-    var inactivityTime = 5*1000,
-        timeout = setTimeout(userLogout, inactivityTime);
+    var TOGGLE_ILLEGIBLE_CLASS = '.toggle-illegible',
+        ILLEGIBLE_CHAR = '?',
+        INPUT_GROUP_CLASS = '.input-group',
+        FORM_CONTROL_CLASS = '.form-control';
 
     /**
      * Function to action the user logout.
      */
-    function userLogout() {
-        //alert('Your session has timed out.');
-        console.log('Your session has timed out.');
+    function toggleIllegibleClick(event) {
+        var $this = $(this),
+            $input = $this.parents(INPUT_GROUP_CLASS).find(FORM_CONTROL_CLASS);
+
+        $this.toggleClass('marked');
+        $this.find('span').toggleClass('hidden');
+
+        // Change the input.
+        if( $this.hasClass('marked') ) {
+            $input.val(ILLEGIBLE_CHAR).prop('readonly', true);
+        } else {
+            $input.val('').prop('readonly', false);
+        }
+
+        event.preventDefault();
     }
 
     /**
      * Event handler for mousemove to detect inactivity.
      */
-    document.onclick = function() {
-        console.log('Reset timeout.');
-        clearTimeout(timeout);
-        timeout = setTimeout(userLogout, inactivityTime);
-    }
+    jQuery(document).ready(function($) {
+        var $illegibleToggles = $(TOGGLE_ILLEGIBLE_CLASS);
+
+        if( $illegibleToggles.length > 0 ) {
+            // If we have some toggles on the page add the event listeners.
+            $illegibleToggles.each(function(index) {
+                $(this).click(toggleIllegibleClick);
+            });
+        }
+    });
 
   return exports;
-}(InactivityTimeout || {}));
+}(ToggleIllegible || {}));
 
 
 /**
