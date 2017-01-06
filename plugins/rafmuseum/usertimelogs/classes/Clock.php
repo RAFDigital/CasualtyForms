@@ -39,8 +39,8 @@ class Clock
         $activeTimeLog = UserTimeLog::where('user_id', $user['id'])
             ->whereNull('signout_time')->first();
 
-        // Update it with logout time.
-        $activeTimeLog->signout_time = date('Y-m-d H:i:s');
+        // Update it with logout time (or last activity time if timedout).
+        $activeTimeLog->signout_time = $timeout ? $user->last_activity : date('Y-m-d H:i:s');
         $activeTimeLog->save();
 
         // Use session onLogout to logout.
