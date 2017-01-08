@@ -27,3 +27,9 @@ If you want to develop using a code editor, enable write permissions for your
 system's group.
 
     sudo chmod -R g+w *
+
+For the scheduled tasks to work you will need to add one entry into your crontab
+file. Edit your crontab file by executing `crontab -e` then add the following
+line to the end of the file.
+
+    * * * * * php /path/to/artisan schedule:run >> /dev/null 2>&1
