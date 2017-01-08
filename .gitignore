@@ -12,6 +12,10 @@
 themes/demo/
 plugins/october/
 
+# Ignore some dev plugins.
+
+plugins/bedard/debugbar/
+
 # Include some system files and theme config.
 
 !README.md
