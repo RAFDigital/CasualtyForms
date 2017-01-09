@@ -9,3 +9,8 @@ navigation:
         label: 'Casualty Forms'
         url: rafmuseum/casualtyforms/forms
         icon: icon-asterisk
+        sideMenu:
+            side-menu-item:
+                label: 'All Forms'
+                url: rafmuseum/casualtyforms/forms
+                icon: icon-file-text
