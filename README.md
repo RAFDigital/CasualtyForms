@@ -2,6 +2,8 @@
 
 ## Installation
 
+### Core
+
 First clone the repo.
 
     git clone git@gitlab.com:DannyEdwards/casualty-forms.git
@@ -18,6 +20,8 @@ in the next stage. Run the set up command, then update and migrate database.
     php artisan october:install
     php artisan october:update
 
+### Permissions
+
 Set the correct file and directory owner to the apache user (www-data) if
 required.
 
@@ -28,8 +32,16 @@ system's group.
 
     sudo chmod -R g+w *
 
+### Scheduled tasks
+
 For the scheduled tasks to work you will need to add one entry into your crontab
 file. Edit your crontab file by executing `crontab -e` then add the following
 line to the end of the file.
 
     * * * * * php /path/to/artisan schedule:run >> /dev/null 2>&1
+
+### Mail
+
+The mail is currently being sent with `sendmail`. Install on the server using your `apt-get` package manager.
+
+    sudo apt-get install sendmail
