@@ -40,8 +40,8 @@ class CasualtyForm extends Model
         // We need to get the current user out of the session.
         $session = new Session();
         $user = $session->user();
-        // Get the completed forms not completed by the current user.
-        return $query->where('completed_by_id', '!=', $user->id);
+        // Get the completed forms not completed by the current user and not completed.
+        return $query->where('completed_by_id', '!=', $user->id)->whereNull('approved_by_id');
     }
 
     /**
@@ -51,7 +51,7 @@ class CasualtyForm extends Model
      {
          $totals = array(
              'toTranscribe' => $query->whereNull('completed_by_id'),
-            'toApprove' => $query->where('completed_by_id', '!=', $user->id)
+            'toApprove' => $query->where('completed_by_id', '!=', $user->id)->whereNull('approved_by_id')
         );
 
         return $totals;

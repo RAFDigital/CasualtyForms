@@ -31,6 +31,6 @@ class TranscriptionForm extends ComponentBase
 
         Flash::success('Form transcribed.');
 
-        return Redirect::back();
+        return Redirect::to('/volunteer/transcribe/list');
     }
 }
