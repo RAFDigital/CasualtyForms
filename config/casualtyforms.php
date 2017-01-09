@@ -12,7 +12,7 @@ return [
     */
 
     'formimages' => array(
-        'url' => '/casualty-forms/storage/app/media/Forms/',
+        'url' => '/storage/app/media/Forms/',
         'filename' => '_1CF7221.jpg'
     ),
 
