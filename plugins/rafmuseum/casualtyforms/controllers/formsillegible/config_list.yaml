@@ -1,7 +1,6 @@
-title: Forms
-modelClass: RafMuseum\CasualtyForms\Models\CasualtyForm
 list: $/rafmuseum/casualtyforms/models/casualtyform/all.yaml
-recordUrl: 'rafmuseum/casualtyforms/forms/update/:id'
+modelClass: RafMuseum\CasualtyForms\Models\CasualtyForm
+title: FormsIllegible
 noRecordsMessage: 'backend::lang.list.no_records'
 showSetup: true
 showCheckboxes: true
@@ -9,3 +8,4 @@ toolbar:
     buttons: list_toolbar
     search:
         prompt: 'backend::lang.list.search_prompt'
+recordUrl: 'rafmuseum/casualtyforms/formsillegible/update/:id'

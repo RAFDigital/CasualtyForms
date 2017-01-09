@@ -1,4 +1,4 @@
-list: $/rafmuseum/usertimelogs/models/usertimelog/columns.yaml
+list: $/rafmuseum/usertimelogs/models/usertimelog/all.yaml
 modelClass: RafMuseum\UserTimelogs\Models\UserTimelog
 title: Logs
 noRecordsMessage: 'backend::lang.list.no_records'

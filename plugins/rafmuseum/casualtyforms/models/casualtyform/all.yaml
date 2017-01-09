@@ -12,7 +12,7 @@ columns:
         type: text
         searchable: true
     surname:
-        label: 'Surname'
+        label: Surname
         type: text
         searchable: true
     'completed_by[name]':

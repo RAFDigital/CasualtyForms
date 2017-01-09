@@ -1,0 +1,10 @@
+name: FormsIllegible
+form: $/rafmuseum/casualtyforms/models/casualtyform/fields.yaml
+modelClass: RafMuseum\CasualtyForms\Models\CasualtyForm
+defaultRedirect: rafmuseum/casualtyforms/formsillegible
+create:
+    redirect: 'rafmuseum/casualtyforms/formsillegible/update/:id'
+    redirectClose: rafmuseum/casualtyforms/formsillegible
+update:
+    redirect: rafmuseum/casualtyforms/formsillegible
+    redirectClose: rafmuseum/casualtyforms/formsillegible
