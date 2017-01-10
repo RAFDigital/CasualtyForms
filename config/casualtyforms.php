@@ -12,7 +12,8 @@ return [
     */
 
     'formimages' => array(
-        'url' => '/storage/app/media/Forms/',
+        'url' => '/storage/app/media/Forms',
+        'dir' => '/Forms',
         'filename' => '_1CF7221.jpg'
     ),
 

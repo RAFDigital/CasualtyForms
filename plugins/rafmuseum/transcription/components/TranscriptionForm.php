@@ -20,16 +20,30 @@ class TranscriptionForm extends ComponentBase
     {
         // Get all the inputs.
         $inputs = Input::get();
-        // Get the right Casualty Form.
+
+        // Get the right Casualty Form to update.
         $casualtyForm = CasualtyForm::find($inputs['id']);
+
         // Update the values.
         foreach($inputs as $key => $value) {
             $casualtyForm[$key] = $value ? $value : null;
         }
+
+        // Now get the number of any forms completed by the user.
+        $formsCompleted = CasualtyForm::where(
+            'completed_by_id', $inputs['completed_by']
+        )->count();
+
         // Update model.
         $casualtyForm->update();
 
         Flash::success('Form transcribed.');
+
+        if($formsCompleted == '0' || $formsCompleted == '20') {
+            // Redirect to survey page if this is the first, or 20th
+            // form transcribed.
+            return Redirect::to('/volunteer/survey');
+        }
 
         return Redirect::to('/volunteer/transcribe/list');
     }
