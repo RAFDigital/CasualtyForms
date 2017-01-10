@@ -15,6 +15,19 @@ columns:
         label: Surname
         type: text
         searchable: true
+    regiment_corps:
+        label: Regiment/Corps
+        type: text
+        searchable: true
+    report_date_first:
+        label: 'Report Date First'
+        type: date
+    report_date_last:
+        label: 'Report Date Last'
+        type: date
+    death_date:
+        label: 'Death Date'
+        type: date
     'completed_by[name]':
         label: 'Completed by'
         type: text

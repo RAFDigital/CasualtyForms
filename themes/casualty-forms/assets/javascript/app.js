@@ -58,7 +58,7 @@ var ToggleIllegible = (function(exports) {
 
     /* Vars. */
     var TOGGLE_ILLEGIBLE_CLASS = '.toggle-illegible',
-        ILLEGIBLE_CHAR = '?',
+        ILLEGIBLE_CHAR = { text: '?', date: '0001-01-01' },
         INPUT_GROUP_CLASS = '.input-group',
         FORM_CONTROL_CLASS = '.form-control';
 
@@ -74,7 +74,7 @@ var ToggleIllegible = (function(exports) {
 
         // Change the input.
         if( $this.hasClass('marked') ) {
-            $input.val(ILLEGIBLE_CHAR).prop('readonly', true);
+            $input.val(ILLEGIBLE_CHAR[$input[0].type]).prop('readonly', true);
         } else {
             $input.val('').prop('readonly', false);
         }

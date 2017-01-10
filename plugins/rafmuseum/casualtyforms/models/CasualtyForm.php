@@ -41,7 +41,8 @@ class CasualtyForm extends Model
         $session = new Session();
         $user = $session->user();
         // Get the completed forms not completed by the current user and not completed.
-        return $query->where('completed_by_id', '!=', $user->id)->whereNull('approved_by_id');
+        return $query->where('completed_by_id', '!=', $user->id)
+                     ->whereNull('approved_by_id');
     }
 
     /**
@@ -50,8 +51,9 @@ class CasualtyForm extends Model
      public function getTotals($query)
      {
          $totals = array(
-             'toTranscribe' => $query->whereNull('completed_by_id'),
-            'toApprove' => $query->where('completed_by_id', '!=', $user->id)->whereNull('approved_by_id')
+            'toTranscribe' => $query->whereNull('completed_by_id'),
+            'toApprove' => $query->where('completed_by_id', '!=', $user->id)
+                                 ->whereNull('approved_by_id')
         );
 
         return $totals;

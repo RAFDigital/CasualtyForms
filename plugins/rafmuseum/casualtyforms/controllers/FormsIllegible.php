@@ -20,8 +20,10 @@ class FormsIllegible extends Controller
     public function listExtendQuery($query)
     {
         // We just want forms with illegible fields here.
-        $query->where('first_names', '?')
-            ->orWhere('surname', '?')
-            ->get();
+        $query->where('rank', '?')
+              ->orWhere('first_names', '?')
+              ->orWhere('surname', '?')
+              ->orWhere('report_date_first', '0001-01-01')
+              ->get();
     }
 }
