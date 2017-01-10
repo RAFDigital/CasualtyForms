@@ -17,7 +17,13 @@ class Page extends ComponentBase
     public function onRun()
     {
         // Assign the project config vars.
-        $this->page['config'] =  config('casualtyforms');
+        $this->page['config'] = array(
+            'casualtyforms' => config('casualtyforms'),
+            'cms' => config('cms')
+        );
+
+        // Get some global page vars going.
+        $this->page['url'] = url();
 
         // Get the current user.
         $user = $this->page['user'];

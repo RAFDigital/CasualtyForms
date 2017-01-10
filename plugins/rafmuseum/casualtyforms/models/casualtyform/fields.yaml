@@ -65,3 +65,7 @@ fields:
         emptyOption: 'Not yet approved'
         span: auto
         type: relation
+    id:
+        span: full
+        path: $/rafmuseum/transcription/components/transcriptionform/imagezoom.htm
+        type: partial
