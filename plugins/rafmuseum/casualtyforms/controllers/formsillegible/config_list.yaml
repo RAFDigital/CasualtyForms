@@ -1,4 +1,4 @@
-list: $/rafmuseum/casualtyforms/models/casualtyform/all.yaml
+list: $/rafmuseum/casualtyforms/models/casualtyform/columns.yaml
 modelClass: RafMuseum\CasualtyForms\Models\CasualtyForm
 title: FormsIllegible
 noRecordsMessage: 'backend::lang.list.no_records'

@@ -1,6 +1,6 @@
 title: Forms
 modelClass: RafMuseum\CasualtyForms\Models\CasualtyForm
-list: $/rafmuseum/casualtyforms/models/casualtyform/all.yaml
+list: $/rafmuseum/casualtyforms/models/casualtyform/columns.yaml
 recordUrl: 'rafmuseum/casualtyforms/forms/update/:id'
 noRecordsMessage: 'backend::lang.list.no_records'
 showSetup: true
