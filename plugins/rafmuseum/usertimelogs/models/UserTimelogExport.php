@@ -19,17 +19,36 @@ use Backend\Models\ExportModel;
     {
         $logs = new UserTimelog;
 
+        // Let's include the related columns.
+        $logs = $logs->with([
+            'user' => function($query){ $query->addSelect(['id', 'name']); }
+        ]);
+
         // Do a different query based on options.
         // if($this->approved_forms_only) {
         //     $logs = $logs->whereNotNull('approved_by_id')->get();
         // } else {
-            $logs = $logs->all();
+            $logs = $logs->get();
         //}
 
         $logs->each(function($log) use ($columns) {
             $log->addVisible($columns);
         });
 
-        return $logs->toArray();
+        // Here we convert the relations into json for export.
+        $collection = collect($logs->toArray());
+
+        $data = $collection->map(function ($item) {
+            if(is_array($item)){
+                foreach($item as $key => $value) {
+                    if(is_array($value)) {
+                        $item[$key] = json_encode($value);
+                    }
+                }
+            }
+            return $item;
+        });
+
+        return $data->toArray();
     }
 }

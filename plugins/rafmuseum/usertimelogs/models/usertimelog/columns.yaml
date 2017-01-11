@@ -3,7 +3,7 @@ columns:
         label: 'User ID'
         type: number
         searchable: true
-    name:
+    user:
         label: 'Volunteer name'
         type: text
         searchable: true
