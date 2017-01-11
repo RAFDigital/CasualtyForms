@@ -10,11 +10,6 @@ class CasualtyForm extends Model
 {
     use \October\Rain\Database\Traits\Validation;
 
-    /**
-     * @var string The database table used by the model.
-     */
-    public $table = 'rafmuseum_casualtyforms_forms';
-
     /*
      * Validation
      */
@@ -28,6 +23,11 @@ class CasualtyForm extends Model
         'completed_by' => ['RainLab\User\Models\User', 'table' => 'users'],
         'approved_by' => ['RainLab\User\Models\User', 'table' => 'users']
     ];
+
+    /**
+     * @var string The database table used by the model.
+     */
+    public $table = 'rafmuseum_casualtyforms_forms';
 
     /**
      * Scope a query to only include forms that aren't complete.

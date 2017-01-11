@@ -1,0 +1,5 @@
+fields:
+    some_option:
+        label: Some option
+        type: checkbox
+        default: true

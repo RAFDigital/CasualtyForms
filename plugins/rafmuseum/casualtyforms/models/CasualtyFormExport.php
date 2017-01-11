@@ -29,6 +29,7 @@ use Backend\Models\ExportModel;
         $forms->each(function($form) use ($columns) {
             $form->addVisible($columns);
         });
+
         return $forms->toArray();
     }
 }
