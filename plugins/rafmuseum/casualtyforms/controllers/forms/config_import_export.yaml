@@ -1,6 +1,4 @@
 export:
-    # useList: all
-    # fileName: export.csv
-    title: Export forms
+    title: Export all forms
     modelClass: RafMuseum\CasualtyForms\Models\CasualtyFormExport
     list: $/rafmuseum/casualtyforms/models/casualtyform/columns.yaml
