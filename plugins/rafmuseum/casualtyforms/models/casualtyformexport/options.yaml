@@ -1,0 +1,5 @@
+fields:
+    approved_forms_only:
+        label: Export only approved forms
+        type: checkbox
+        default: true
