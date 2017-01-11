@@ -19,6 +19,7 @@ class UserTimelog extends Model
      * Relationships
      */
     public $belongsTo = [
+        // `user_id` in table.
         'user' => ['RainLab\User\Models\User', 'table' => 'users']
     ];
 

@@ -28,9 +28,13 @@ columns:
     death_date:
         label: 'Death Date'
         type: date
-    'completed_by[name]':
-        label: 'Completed by'
+    completed_by:
+        label: 'Completed By'
         type: text
-    'approved_by[name]':
-        label: 'Approved by'
+        select: name
+        relation: completed_by
+    approved_by:
+        label: 'Approved By'
         type: text
+        select: name
+        relation: approved_by

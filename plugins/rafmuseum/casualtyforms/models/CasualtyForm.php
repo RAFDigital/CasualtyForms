@@ -20,7 +20,9 @@ class CasualtyForm extends Model
      * Relationships
      */
     public $belongsTo = [
+        // `completed_by_id` in table.
         'completed_by' => ['RainLab\User\Models\User', 'table' => 'users'],
+        // `approved_by_id` in table.
         'approved_by' => ['RainLab\User\Models\User', 'table' => 'users']
     ];
 
