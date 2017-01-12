@@ -29,10 +29,14 @@ class TranscriptionForm extends ComponentBase
             $casualtyForm[$key] = $value ? $value : null;
         }
 
+        $formsCompleted = null;
+
         // Now get the number of any forms completed by the user.
-        $formsCompleted = CasualtyForm::where(
-            'completed_by_id', $inputs['completed_by']
-        )->count();
+        if( isset($inputs['completed_by']) ) {
+            $formsCompleted = CasualtyForm::where(
+                'completed_by_id', $inputs['completed_by']
+            )->count();
+        }
 
         // Update model.
         $casualtyForm->update();
