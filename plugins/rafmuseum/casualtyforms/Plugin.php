@@ -1,6 +1,7 @@
 <?php namespace RafMuseum\CasualtyForms;
 
 use System\Classes\PluginBase;
+use View;
 
 class Plugin extends PluginBase
 {
@@ -15,7 +16,7 @@ class Plugin extends PluginBase
     public function registerMailTemplates()
     {
         return [
-            'rafmuseum.casualtyforms::mail.message' => 'Test message email.'
+            'rafmuseum.casualtyforms::mail.illegible-forms' => 'Illegible forms notification email.'
         ];
     }
 
@@ -27,6 +28,10 @@ class Plugin extends PluginBase
 
     public function register()
     {
+        // Register global vars for email template.
+        View::share('site_url', url());
+
+        // Register a console command.
         $this->registerConsoleCommand('rafmuseum.mycommand', 'RafMuseum\CasualtyForms\Console\MyCommand');
     }
 }
