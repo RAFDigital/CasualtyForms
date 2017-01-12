@@ -23,7 +23,10 @@ class FormsIllegible extends Controller
         $query->where('rank', '?')
               ->orWhere('first_names', '?')
               ->orWhere('surname', '?')
+              ->orWhere('regiment_corps', '?')
               ->orWhere('report_date_first', '0001-01-01')
+              ->orWhere('report_date_last', '0001-01-01')
+              ->orWhere('death_date', '0001-01-01')
               ->get();
     }
 }
