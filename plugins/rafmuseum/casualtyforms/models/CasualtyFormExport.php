@@ -27,7 +27,7 @@ use Backend\Models\ExportModel;
 
         // Do a different query based on options.
         if($this->approved_forms_only) {
-            $forms = $forms->whereNotNull('approved_by_id')->get();
+            $forms = $forms->approved()->get();
         } else {
             $forms = $forms->get();
         }

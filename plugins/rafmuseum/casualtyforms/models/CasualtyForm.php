@@ -53,6 +53,14 @@ class CasualtyForm extends Model
     }
 
     /**
+     * Scope a query to only include approved forms.
+     */
+    public function scopeApproved($query)
+    {
+        return $query->whereNotNull('approved_by_id');
+    }
+
+    /**
      * Get the total records for each.
      */
      public function getTotals($query)
