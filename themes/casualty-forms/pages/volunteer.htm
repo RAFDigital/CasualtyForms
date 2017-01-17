@@ -5,7 +5,11 @@ is_hidden = 0
 
 [account]
 paramCode = "code"
+
+[resetPassword]
+paramCode = "code"
 ==
+<?php
 use RafMuseum\UserTimelogs\Classes\Clock;
 
 function onStart() {
@@ -16,6 +20,7 @@ function onSignin() {
     // Clock in.
     return Clock::in($this->account);
 }
+?>
 ==
 <div class="jumbotron">
     <div class="container">
@@ -28,5 +33,25 @@ function onSignin() {
 
     {% if user %}
         <p><a href="{{ 'signout'|page }}">Sign out</a></p>
+    {% else %}
+        <a href="#" data-toggle="modal" data-target="#password-modal">Forgotten password?</a>
     {% endif %}
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="password-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">Forgotten password</h4>
+            </div>
+
+            <div class="modal-body">
+                {% component 'resetPassword' %}
+            </div>
+        </div>
+    </div>
 </div>
