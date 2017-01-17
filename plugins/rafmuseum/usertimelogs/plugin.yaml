@@ -6,7 +6,7 @@ plugin:
     homepage: ''
 navigation:
     main-menu-item:
-        label: 'Volunteer Times'
+        label: 'Volunteer Timelogs'
         url: rafmuseum/usertimelogs/logs
         icon: icon-clock-o
         sideMenu:
