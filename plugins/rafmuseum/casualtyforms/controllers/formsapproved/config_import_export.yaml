@@ -1,5 +1,5 @@
 export:
-    title: Export completed forms
+    title: Export Approved Forms
     modelClass: RafMuseum\CasualtyForms\Models\CasualtyFormExport
     list: $/rafmuseum/casualtyforms/models/casualtyform/columns.yaml
     form: $/rafmuseum/casualtyforms/models/casualtyformexport/options.yaml

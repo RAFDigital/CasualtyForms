@@ -1,0 +1,10 @@
+name: Approved Forms
+form: $/rafmuseum/casualtyforms/models/casualtyform/fields.yaml
+modelClass: RafMuseum\CasualtyForms\Models\CasualtyForm
+defaultRedirect: rafmuseum/casualtyforms/formsapproved
+create:
+    redirect: 'rafmuseum/casualtyforms/formsapproved/update/:id'
+    redirectClose: rafmuseum/casualtyforms/formsapproved
+update:
+    redirect: rafmuseum/casualtyforms/formsapproved
+    redirectClose: rafmuseum/casualtyforms/formsapproved

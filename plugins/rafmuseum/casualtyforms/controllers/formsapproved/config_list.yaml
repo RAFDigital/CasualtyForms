@@ -1,6 +1,6 @@
 list: $/rafmuseum/casualtyforms/models/casualtyform/columns.yaml
 modelClass: RafMuseum\CasualtyForms\Models\CasualtyForm
-title: FormsApproved
+title: Approved Forms
 noRecordsMessage: 'backend::lang.list.no_records'
 showSetup: true
 showCheckboxes: true
@@ -8,3 +8,4 @@ toolbar:
     buttons: list_toolbar
     search:
         prompt: 'backend::lang.list.search_prompt'
+#recordUrl: 'rafmuseum/casualtyforms/formsapproved/update/:id'

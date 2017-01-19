@@ -1,6 +1,6 @@
-title: Illegible Forms
 list: $/rafmuseum/casualtyforms/models/casualtyform/columns.yaml
 modelClass: RafMuseum\CasualtyForms\Models\CasualtyForm
+title: Illegible Forms
 noRecordsMessage: 'backend::lang.list.no_records'
 showSetup: true
 showCheckboxes: true
