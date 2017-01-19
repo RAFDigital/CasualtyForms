@@ -1,6 +1,6 @@
-name: FormsIllegible
-form: $/rafmuseum/casualtyforms/models/casualtyform/fields.yaml
+name: Illegible Forms
 modelClass: RafMuseum\CasualtyForms\Models\CasualtyForm
+form: $/rafmuseum/casualtyforms/models/casualtyform/fields.yaml
 defaultRedirect: rafmuseum/casualtyforms/formsillegible
 create:
     redirect: 'rafmuseum/casualtyforms/formsillegible/update/:id'
@@ -8,3 +8,4 @@ create:
 update:
     redirect: rafmuseum/casualtyforms/formsillegible
     redirectClose: rafmuseum/casualtyforms/formsillegible
+preview: {  }

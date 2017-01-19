@@ -1,4 +1,4 @@
-title: FormsIllegible
+title: Illegible Forms
 modelClass: RafMuseum\CasualtyForms\Models\CasualtyForm
 toolbar:
     buttons: reorder_toolbar
