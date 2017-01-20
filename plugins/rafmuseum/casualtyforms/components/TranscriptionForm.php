@@ -1,4 +1,4 @@
-<?php namespace RafMuseum\Transcription\Components;
+<?php namespace RafMuseum\CasualtyForms\Components;
 
 use Cms\Classes\ComponentBase;
 use Input;

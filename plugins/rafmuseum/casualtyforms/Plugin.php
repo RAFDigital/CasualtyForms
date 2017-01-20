@@ -7,6 +7,9 @@ class Plugin extends PluginBase
 {
     public function registerComponents()
     {
+        return [
+            'RafMuseum\CasualtyForms\Components\TranscriptionForm' => 'transcriptionform'
+        ];
     }
 
     public function registerSettings()
