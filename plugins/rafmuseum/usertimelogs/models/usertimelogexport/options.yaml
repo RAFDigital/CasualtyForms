@@ -1,5 +1,5 @@
 fields:
-    some_option:
-        label: Some option
+    log_totals:
+        label: Export log totals
         type: checkbox
         default: true

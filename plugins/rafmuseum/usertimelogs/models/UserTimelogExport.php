@@ -10,7 +10,7 @@ use Backend\Models\ExportModel;
     /**
      * @var array Fillable fields
      */
-    protected $fillable = ['approved_forms_only'];
+    protected $fillable = ['log_totals'];
 
     /**
      * Export the data.
@@ -25,11 +25,11 @@ use Backend\Models\ExportModel;
         ]);
 
         // Do a different query based on options.
-        // if($this->approved_forms_only) {
-        //     $logs = $logs->whereNotNull('approved_by_id')->get();
-        // } else {
+        if($this->log_totals) {
+            $logs = $logs->logTotals()->get();
+        } else {
             $logs = $logs->get();
-        //}
+        }
 
         $logs->each(function($log) use ($columns) {
             $log->addVisible($columns);

@@ -3,13 +3,19 @@
 use Backend\Classes\Controller;
 use BackendMenu;
 use DB;
+use RafMuseum\UserTimelogs\Models\UserTimelog;
 
 class LogTotals extends Controller
 {
-    public $implement = ['Backend\Behaviors\ListController','Backend\Behaviors\ReorderController'];
+    public $implement = [
+        'Backend\Behaviors\ListController',
+        'Backend\Behaviors\ReorderController',
+        'Backend\Behaviors\ImportExportController'
+    ];
 
     public $listConfig = 'config_list.yaml';
     public $reorderConfig = 'config_reorder.yaml';
+    public $importExportConfig = 'config_import_export.yaml';
 
     public function __construct()
     {
@@ -19,12 +25,6 @@ class LogTotals extends Controller
 
     public function listExtendQuery($query)
     {
-        // Big ol' custom query for the user timelog totals.
-        // These have to have corresponding columns in the totals.yaml to display.
-        $query->select(
-            'user_id',
-            DB::raw('(select name from `users` where `rafmuseum_usertimelogs_logs`.`user_id` = `users`.`id`) as `name`'),
-            DB::raw('SEC_TO_TIME(SUM(TIME_TO_SEC(signout_time) - TIME_TO_SEC(signin_time))) as time_logged')
-        )->groupBy('user_id')->get();
+        $query->logTotals()->get();
     }
 }
