@@ -67,5 +67,5 @@ fields:
         type: relation
     id:
         span: full
-        path: $/rafmuseum/transcription/components/transcriptionform/imagezoom.htm
+        path: $/rafmuseum/casualtyforms/components/transcriptionform/imagezoom.htm
         type: partial
