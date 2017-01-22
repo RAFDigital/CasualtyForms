@@ -6,6 +6,10 @@ use Flash;
 
 class Clock
 {
+    /**
+     * For clocking users times in.
+     * @param object $account
+     */
     public static function in($account)
     {
         // First sign in.
@@ -27,7 +31,12 @@ class Clock
         return $signIn;
     }
 
-    public static function out($session, $timeout)
+    /**
+     * For clocking users times out again.
+     * @param object $session
+     * @param string $type
+     */
+    public static function out($session, $type)
     {
         // Redirect if the user is already logged out.
         if( ! $session->user() ) return Redirect::to('/');
@@ -40,14 +49,18 @@ class Clock
             ->whereNull('signout_time')->first();
 
         // Update it with logout time (or last activity time if timedout).
-        $activeTimeLog->signout_time = $timeout ? $user->last_activity : date('Y-m-d H:i:s');
+        $activeTimeLog->signout_time = $type ? $user->last_activity : date('Y-m-d H:i:s');
         $activeTimeLog->save();
 
         // Use session onLogout to logout.
         $session->onLogout();
 
-        if( $timeout) {
+        if( $type == 'timeout') {
             Flash::warning("You have been logged out due to inactivity.");
+        }
+
+        if( $type == 'banned' ) {
+            Flash::error("Your user has been banned from transcribing.");
         }
 
         // Done, redirect home.

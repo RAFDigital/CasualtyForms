@@ -40,11 +40,18 @@ class Page extends ComponentBase
             // Check if user has exeeded time limit.
             if( $interval >= $timeoutLimit ) {
                 // Sign them out.
-                return Redirect::to('volunteer/signout/timeout');
+                return Redirect::to('/volunteer/signout/timeout');
             } else {
                 // If not, update the last activity to now.
                 $user->last_activity = date("Y-m-d H:i:s");
                 $user->update();
+            }
+
+            // Checked if user is banned.
+            foreach($user->groups as $group) {
+                if($group->code == 'banned') {
+                    return Redirect::to('/volunteer/signout/banned');
+                }
             }
         }
     }
