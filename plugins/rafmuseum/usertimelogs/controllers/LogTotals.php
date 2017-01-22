@@ -2,8 +2,6 @@
 
 use Backend\Classes\Controller;
 use BackendMenu;
-use DB;
-use RafMuseum\UserTimelogs\Models\UserTimelog;
 
 class LogTotals extends Controller
 {
