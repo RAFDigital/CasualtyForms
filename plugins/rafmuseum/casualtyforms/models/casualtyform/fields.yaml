@@ -3,8 +3,8 @@ fields:
         label: Rank
         oc.commentPosition: ''
         options:
-            '2nd Leiut.': '2nd Leuit.'
-            Leiut.: Leiut.
+            '2nd Lieut.': '2nd Leuit.'
+            Lieut.: Lieut.
             Captain: Captain
             Major: Major
             Lt.-Col.: Lt.-Col.
