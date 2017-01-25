@@ -101,11 +101,18 @@ var ImageZoom = (function(exports) {
         },false);
 
         function zoom(clicks) {
-            var pt = ctx.transformedPoint(lastX,lastY);
-            ctx.translate(pt.x, pt.y);
-            var factor = Math.pow(scaleFactor,clicks);
-            ctx.scale(factor,factor);
-            ctx.translate(-pt.x, -pt.y);
+            // Get this to see how zoomed we are.
+            var transform = ctx.getTransform();
+
+            // Check if the image is zoomed out too much.
+            if(transform.a >= 1 || clicks > 0) {
+                // Do the translation.
+                var pt = ctx.transformedPoint(lastX,lastY);
+                var factor = Math.pow(scaleFactor,clicks);
+                ctx.translate(pt.x, pt.y);
+                ctx.scale(factor,factor);
+                ctx.translate(-pt.x, -pt.y);
+            }
 
             redraw(ctx);
         }
