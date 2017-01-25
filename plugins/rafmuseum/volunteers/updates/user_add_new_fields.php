@@ -12,7 +12,7 @@ class AddNewFields extends Migration
         {
             $table->string('age')->nullable();
             $table->string('sex')->nullable();
-            $table->string('location')->nullable();
+            $table->string('country_id')->nullable();
             $table->string('ethnicity')->nullable();
             $table->timestamp('last_activity')->nullable();
         });
@@ -22,7 +22,7 @@ class AddNewFields extends Migration
     {
         Schema::table('users', function($table)
         {
-            $table->dropColumn(['age', 'sex', 'location', 'ethnicity', 'last_activity']);
+            $table->dropColumn(['age', 'sex', 'country_id', 'ethnicity', 'last_activity']);
         });
     }
 }

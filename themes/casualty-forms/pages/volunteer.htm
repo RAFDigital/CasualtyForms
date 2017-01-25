@@ -3,7 +3,7 @@ url = "/volunteer/account"
 layout = "default"
 is_hidden = 0
 
-[account]
+[volunteeraccount]
 paramCode = "code"
 
 [resetPassword]
@@ -18,7 +18,7 @@ function onStart() {
 
 function onSignin() {
     // Clock in.
-    return Clock::in($this->account);
+    return Clock::in($this->volunteeraccount);
 }
 ?>
 ==
@@ -29,7 +29,7 @@ function onSignin() {
 </div>
 
 <div class="container">
-    {% component 'account' %}
+    {% component 'volunteeraccount' %}
 
     {% if user %}
         <p><a href="{{ 'signout'|page }}">Sign out</a></p>

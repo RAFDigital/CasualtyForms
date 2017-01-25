@@ -2,6 +2,7 @@
 
 use Yaml;
 use File;
+use Page;
 use System\Classes\PluginBase;
 use Rainlab\User\Controllers\Users as UsersController;
 use Rainlab\User\Models\User as UsersModel;
@@ -33,10 +34,11 @@ class Plugin extends PluginBase
     public function boot()
     {
         UsersModel::extend(function($model) {
+            $model->implement = ['RainLab.Location.Behaviors.LocationModel'];
+
             $model->addFillable([
                 'age',
                 'sex',
-                'location',
                 'ethnicity'
             ]);
         });
