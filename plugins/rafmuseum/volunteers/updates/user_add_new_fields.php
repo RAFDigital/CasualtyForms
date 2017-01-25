@@ -22,11 +22,7 @@ class AddNewFields extends Migration
     {
         Schema::table('users', function($table)
         {
-            $table->dropColumn(['date_of_birth']);
-            $table->dropColumn(['sex']);
-            $table->dropColumn(['location']);
-            $table->dropColumn(['ethnicity']);
-            $table->dropColumn(['last_activity']);
+            $table->dropColumn(['date_of_birth', 'sex', 'location', 'ethnicity', 'last_activity']);
         });
     }
 
