@@ -1,5 +1,7 @@
 <?php namespace RafMuseum\Volunteers;
 
+use Yaml;
+use File;
 use System\Classes\PluginBase;
 use Rainlab\User\Controllers\Users as UsersController;
 use Rainlab\User\Models\User as UsersModel;
@@ -30,61 +32,19 @@ class Plugin extends PluginBase
 
     public function boot()
     {
-        UsersController::extendFormFields(function($form, $model, $context) {
-            $form->addTabFields([
-                'age' => [
-                    'label' => 'Age',
-                    'type' => 'dropdown',
-                    'emptyOption' => 'Select age (optional)',
-                    'options' => array(
-                        'u18' => 'Under 18',
-                        '18-24' => '18 - 24',
-                        '25-34' => '25 - 34',
-                        '35-44' => '35 - 44',
-                        '45-59' => '35 - 59',
-                        '60+' => '60 plus'
-                    ),
-                    'tab' => $this->name
-                ],
-                'sex' => [
-                    'label' => 'Sex',
-                    'type' => 'dropdown',
-                    'emptyOption' => 'Select sex (optional)',
-                    'options' => array(
-                        'male' => 'Male',
-                        'female' => 'Female',
-                        'other' => 'Other',
-                    ),
-                    'tab' => $this->name
-                ],
-                'location' => [
-                    'label' => 'Location',
-                    'type' => 'dropdown',
-                    'emptyOption' => 'Select location (optional)',
-                    'options' => Countries::$list,
-                    'tab' => $this->name
-                ],
-                'ethnicity' => [
-                    'label' => 'Ethnicity',
-                    'type' => 'dropdown',
-                    'emptyOption' => 'Select ethnicity (optional)',
-                    // https://en.wikipedia.org/wiki/Classification_of_ethnicity_in_the_United_Kingdom#Ethnicity_categories
-                    'options' => array(
-                        'white' => 'White',
-                        'mixed' => 'Mixed / multiple ethnic groups',
-                        'asian' => 'Asian / Asian British',
-                        'black' => 'Black / African / Caribbean / Black British',
-                        'other' => 'Other ethnic group'
-                    ),
-                    'tab' => $this->name
-                ],
-                'last_activity' => [
-                    'label' => 'Last Activity',
-                    'type' => 'text',
-                    'disabled' => true,
-                    'tab' => $this->name
-                ]
+        UsersModel::extend(function($model) {
+            $model->addFillable([
+                'age',
+                'sex',
+                'location',
+                'ethnicity'
             ]);
+        });
+
+        UsersController::extendFormFields(function($form, $model, $context) {
+            $configFile = __DIR__ . '/config/volunteer_fields.yaml';
+            $config = Yaml::parse(File::get($configFile));
+            $form->addTabFields($config);
         });
     }
 }
