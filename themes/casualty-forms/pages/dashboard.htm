@@ -1,0 +1,20 @@
+title = "Dashboard"
+url = "/volunteer/dashboard"
+layout = "default"
+is_hidden = 0
+
+[session]
+security = "user"
+redirect = "volunteer"
+
+[dashboard]
+==
+<div class="jumbotron">
+    <div class="container">
+        <h1>Dashboard</h1>
+    </div>
+</div>
+
+<div class="container">
+    {% component 'dashboard' %}
+</div>

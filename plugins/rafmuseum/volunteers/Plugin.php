@@ -23,7 +23,8 @@ class Plugin extends PluginBase
     public function registerComponents()
     {
         return [
-            'RafMuseum\Volunteers\Components\VolunteerAccount' => 'volunteeraccount'
+            'RafMuseum\Volunteers\Components\VolunteerAccount' => 'volunteeraccount',
+            'RafMuseum\Volunteers\Components\Dashboard' => 'dashboard'
         ];
     }
 
