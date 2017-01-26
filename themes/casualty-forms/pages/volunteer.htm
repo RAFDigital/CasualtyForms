@@ -11,8 +11,12 @@ paramCode = "code"
 ==
 <div class="jumbotron">
     <div class="container">
-        <h1>{{ user.name }}</h1>
-        <p>Update your account details.</p>
+        {% if user %}
+            <h1>{{ user.name }}</h1>
+            <p>Update yout account details.</p>
+        {% else %}
+            <h1>Your account</h1>
+        {% endif %}
     </div>
 </div>
 
