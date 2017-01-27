@@ -6,12 +6,12 @@
             <label for="casualtyRank">Rank</label>
             <select id="casualtyRank" class="form-control" name="rank">
                 <option disabled selected>- Select the rank from the form -</option>
-                <option {% if record.rank == "2nd Lieut."%}selected{% endif %}>2nd Lieut.</option>
-                <option {% if record.rank == "Lieut."%}selected{% endif %}>Lieut.</option>
-                <option {% if record.rank == "Captain"%}selected{% endif %}>Captain</option>
-                <option {% if record.rank == "Major"%}selected{% endif %}>Major</option>
-                <option {% if record.rank == "Lt.-Col."%}selected{% endif %}>Lt.-Col.</option>
-                <option {% if record.rank == "Colonel"%}selected{% endif %}>Colonel</option>
+                <option {% if form.rank == "2nd Lieut."%}selected{% endif %}>2nd Lieut.</option>
+                <option {% if form.rank == "Lieut."%}selected{% endif %}>Lieut.</option>
+                <option {% if form.rank == "Captain"%}selected{% endif %}>Captain</option>
+                <option {% if form.rank == "Major"%}selected{% endif %}>Major</option>
+                <option {% if form.rank == "Lt.-Col."%}selected{% endif %}>Lt.-Col.</option>
+                <option {% if form.rank == "Colonel"%}selected{% endif %}>Colonel</option>
             </select>
         </div>
 
@@ -20,7 +20,7 @@
                 id="casualtyRegimentCorps"
                 name="regiment_corps"
                 label="Regiment/Corps"
-                recordValue=record.regiment_corps %}
+                recordValue=form.regiment_corps %}
         </div>
     </div>
 
@@ -30,7 +30,7 @@
                 id="casualtyFnames"
                 name="first_names"
                 label="Christian names"
-                recordValue=record.first_names %}
+                recordValue=form.first_names %}
         </div>
 
         <div class="form-group col-sm-4">
@@ -38,7 +38,7 @@
                 id="casualtySurname"
                 name="surname"
                 label="Surname"
-                recordValue=record.surname %}
+                recordValue=form.surname %}
         </div>
     </div>
 
@@ -48,7 +48,7 @@
                 id="casualtyReportDateFirst"
                 name="report_date_first"
                 label="Date of first report"
-                recordValue=record.report_date_first %}
+                recordValue=form.report_date_first %}
         </div>
 
         <div class="form-group col-sm-4">
@@ -56,7 +56,7 @@
                 id="casualtyReportDateLast"
                 name="report_date_last"
                 label="Date of last report"
-                recordValue=record.report_date_last %}
+                recordValue=form.report_date_last %}
         </div>
 
         <div class="form-group col-sm-4">
@@ -64,25 +64,23 @@
                 id="casualtyDeathDate"
                 name="death_date"
                 label="Date of death"
-                recordValue=record.death_date %}
+                recordValue=form.death_date %}
         </div>
     </div>
 
     <div class="form-group">
-        <input id="medicalInfo" type="checkbox" name="medical_information" value="{{ record.medical_information }}" />
+        <input id="medicalInfo" type="checkbox" name="medical_information" value="{{ form.medical_information }}" />
         <label for="medicalInfo">Medical information <small>Advisory text</small></label>
     </div>
 
-    <input type="hidden" name="id" value="{{ record.id }}" />
+    <input type="hidden" name="id" value="{{ form.id }}" />
 
-    {% if transcriptionStage == 'transcribe'%}
+    {% if stage == 'new'%}
         <input type="hidden" name="completed_by" value="{{ user.id }}" />
         <button type="submit" class="btn btn-primary">Save</button>
-        <a href="{{ 'transcribe-list'|page({ stage: 'transcribe' }) }}" class="btn btn-default">Cancel</a>
-    {% elseif transcriptionStage == 'approve' %}
+    {% elseif stage == 'approve' %}
         <input type="hidden" name="approved_by" value="{{ user.id }}" />
         <button type="submit" class="btn btn-success">Approve</button>
-        <a href="{{ 'transcribe-list'|page({ stage: 'approve' }) }}" class="btn btn-default">Cancel</a>
     {% endif %}
 
     {% flash success %}

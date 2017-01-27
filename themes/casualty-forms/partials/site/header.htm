@@ -24,8 +24,8 @@
 
                     <ul class="dropdown-menu">
                         <!-- <li><a href="{{ 'dashboard'|page }}">Dashboard</a></li> -->
-                        <li><a href="{{ 'transcribe-list'|page({ stage: 'transcribe', page: 0 }) }}">Transcribe</a></li>
-                        <li><a href="{{ 'transcribe-list'|page({ stage: 'approve', page: 0 }) }}">Approve</a></li>
+                        <li><a href="{{ 'transcribe'|page({ stage: 'new' }) }}">Transcribe</a></li>
+                        <li><a href="{{ 'transcribe'|page({ stage: 'approve' }) }}">Approve</a></li>
 
                         {% if not user %}
                             <li role="separator" class="divider"></li>
@@ -43,7 +43,7 @@
                         </a>
 
                         <ul class="dropdown-menu">
-                            <li><a href="{{ 'volunteer'|page }}">Account</a></li>
+                            <li><a href="{{ 'account'|page }}">Account</a></li>
                             <li><a href="{{ 'signout'|page }}">Sign out</a></li>
                         </ul>
                     </li>

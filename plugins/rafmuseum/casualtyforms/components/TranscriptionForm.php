@@ -17,17 +17,40 @@ class TranscriptionForm extends ComponentBase
 
     public function onRun()
     {
-        // Get the form here ay.
+        $stage = $this->property('stage');
+
+        if( $stage == 'new') {
+            // See if there are any started forms to finish.
+            $form = CasualtyForm::toFinish()->first();
+        } elseif( $stage == 'approve' ) {
+            // Get a form that needs approving.
+            $form = CasualtyForm::toApprove()->first();
+        }
+
+        if( ! $form && $stage == 'new' ) {
+            // If there are no started forms, create a new one.
+            $form = new CasualtyForm();
+            $form->started_by_id = $this->page['user']['id'];
+            $form->save();
+
+            // Need to check for images here.
+        }
+
+        // Make some vars available in the front end.
+        $this->page['form'] = $form;
+        $this->page['stage'] = $stage;
     }
 
     public function onSave()
     {
         // Get the right Casualty Form to update.
         $casualtyForm = CasualtyForm::find(post('id'));
-        // $casualtyForm = new CasualtyForm();
 
         // Update the values.
-        $casualtyForm->fill(post());
+        // $casualtyForm->fill(post()); // Annoyingly doesn't work.
+        foreach(post() as $key => $value) {
+            $casualtyForm[$key] = $value ? $value : null;
+        }
 
         $formsCompleted = null;
 
@@ -40,7 +63,6 @@ class TranscriptionForm extends ComponentBase
 
         // Update model.
         $casualtyForm->update();
-        // $casualtyForm->save();
 
         Flash::success('Form transcribed.');
 
@@ -50,6 +72,6 @@ class TranscriptionForm extends ComponentBase
             return Redirect::to('/volunteer/survey');
         }
 
-        return Redirect::to('/volunteer/transcribe/list');
+        return Redirect::to('/volunteer');
     }
 }

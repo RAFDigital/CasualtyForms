@@ -29,6 +29,7 @@ class CasualtyForm extends Model
         'report_date_last',
         'death_date',
         'medical_information',
+        'started_by_id',
         'completed_by_id',
         'approved_by_id'
     ];
@@ -37,6 +38,8 @@ class CasualtyForm extends Model
      * Relationships
      */
     public $belongsTo = [
+        // `started_by_id` in table.
+        'started_by' => ['RainLab\User\Models\User', 'table' => 'users'],
         // `completed_by_id` in table.
         'completed_by' => ['RainLab\User\Models\User', 'table' => 'users'],
         // `approved_by_id` in table.
@@ -47,6 +50,19 @@ class CasualtyForm extends Model
      * @var string The database table used by the model.
      */
     public $table = 'rafmuseum_casualtyforms_forms';
+
+    /**
+     * Scope a query to only include forms that have been created but not complete.
+     */
+    public function scopeToFinish($query)
+    {
+        // We need to get the current user out of the session.
+        $session = new Session();
+        $user = $session->user();
+        // Get the forms that have been started but not finished.
+        return $query->where('started_by_id', $user->id)
+                     ->whereNull('completed_by_id');
+    }
 
     /**
      * Scope a query to only include forms that aren't complete.
@@ -76,18 +92,4 @@ class CasualtyForm extends Model
     {
         return $query->whereNotNull('approved_by_id');
     }
-
-    /**
-     * Get the total records for each.
-     */
-     public function getTotals($query)
-     {
-         $totals = array(
-            'toTranscribe' => $query->whereNull('completed_by_id'),
-            'toApprove' => $query->where('completed_by_id', '!=', $user->id)
-                                 ->whereNull('approved_by_id')
-        );
-
-        return $totals;
-     }
 }

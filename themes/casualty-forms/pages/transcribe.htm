@@ -1,0 +1,29 @@
+title = "Transcribe"
+url = "/volunteer/transcribe/:stage"
+layout = "default"
+is_hidden = 0
+
+[session]
+security = "user"
+redirect = "account"
+
+[transcriptionform]
+stage = "{{ :stage }}"
+==
+<div class="jumbotron">
+    <div class="container">
+        <h1>Transcribe {{ stage }}</h1>
+
+        {% if form %}
+            <p>Form ID: {{ form.id }}</p>
+        {% else %}
+            <p>There are no forms to approve currently.</p>
+        {% endif %}
+    </div>
+</div>
+
+<div class="container">
+    {% if form %}
+        {% component 'transcriptionform' %}
+    {% endif %}
+</div>
