@@ -1,7 +1,6 @@
 <?php namespace RafMuseum\CasualtyForms\Components;
 
 use Cms\Classes\ComponentBase;
-use Input;
 use Flash;
 use Redirect;
 use RafMuseum\CasualtyForms\Models\CasualtyForm;
@@ -16,30 +15,32 @@ class TranscriptionForm extends ComponentBase
         ];
     }
 
+    public function onRun()
+    {
+        // Get the form here ay.
+    }
+
     public function onSave()
     {
-        // Get all the inputs.
-        $inputs = Input::get();
-
         // Get the right Casualty Form to update.
-        $casualtyForm = CasualtyForm::find($inputs['id']);
+        $casualtyForm = CasualtyForm::find(post('id'));
+        // $casualtyForm = new CasualtyForm();
 
         // Update the values.
-        foreach($inputs as $key => $value) {
-            $casualtyForm[$key] = $value ? $value : null;
-        }
+        $casualtyForm->fill(post());
 
         $formsCompleted = null;
 
         // Now get the number of any forms completed by the user.
-        if( isset($inputs['completed_by']) ) {
+        if( post('completed_by') ) {
             $formsCompleted = CasualtyForm::where(
-                'completed_by_id', $inputs['completed_by']
+                'completed_by_id', post('completed_by')
             )->count();
         }
 
         // Update model.
         $casualtyForm->update();
+        // $casualtyForm->save();
 
         Flash::success('Form transcribed.');
 

@@ -16,6 +16,23 @@ class CasualtyForm extends Model
     public $rules = [
     ];
 
+    /**
+     * @var array The attributes that are mass assignable.
+     */
+    protected $fillable = [
+        'id',
+        'rank',
+        'first__names',
+        'surname',
+        'regiment_corps',
+        'report_date_first',
+        'report_date_last',
+        'death_date',
+        'medical_information',
+        'completed_by_id',
+        'approved_by_id'
+    ];
+
     /*
      * Relationships
      */
