@@ -22,7 +22,7 @@ class CasualtyForm extends Model
     protected $fillable = [
         'id',
         'rank',
-        'first__names',
+        'first_names',
         'surname',
         'regiment_corps',
         'report_date_first',
