@@ -31,8 +31,11 @@ class TranscriptionForm extends ComponentBase
             // If there are no started forms, create a new one.
             $form = new CasualtyForm();
             $form->started_by_id = $this->page['user']['id'];
-            // Need to check for images here.
             $form->save();
+
+            // Need to check for images here.
+            $form->filename = $this->idToFilename($form->id);
+            $form->update();
         }
 
         // Make some vars available in the front end.
@@ -72,5 +75,14 @@ class TranscriptionForm extends ComponentBase
         }
 
         return Redirect::to('/volunteer');
+    }
+
+    protected function idToFilename($id)
+    {
+        // Get first number group and sequence number.
+        $group = floor($id / 10000) + 1;
+        $sequence = sprintf('%04d', $id);
+
+        return '/Forms/_' . $group . 'CF' . $sequence . '.jpg';
     }
 }

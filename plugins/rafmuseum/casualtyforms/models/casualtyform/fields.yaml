@@ -1,8 +1,10 @@
 fields:
-    id:
+    filename:
+        label: 'Media finder'
+        oc.commentPosition: ''
+        mode: image
         span: full
-        path: $/rafmuseum/casualtyforms/components/transcriptionform/imagezoom.htm
-        type: partial
+        type: mediafinder
     rank:
         label: Rank
         oc.commentPosition: ''
@@ -75,5 +77,5 @@ fields:
         nameFrom: name
         descriptionFrom: description
         emptyOption: 'Not yet approved'
-        span: auto
+        span: full
         type: relation

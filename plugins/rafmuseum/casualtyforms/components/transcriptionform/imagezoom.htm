@@ -1,15 +1,3 @@
-<?php
-// Overriding the value to 1.
-// Also {{ record.id }} below.
-$value = 1;
-// This is for the backend form.
-$imageUrl = url(
-    config('cms.storage.media.path') .
-    config('casualtyforms.formimages.dir') .
-    '/' . $value . '.jpg'
-);
-?>
-
 <style>
 #image-zoom {
     display:block;
@@ -34,8 +22,8 @@ $imageUrl = url(
 </style>
 
 <canvas id="image-zoom">
-    <?= "<img class='form-image' src='$imageUrl' />" ?>
-    <img class="form-image" src="{{ url }}{{ config.cms.storage.media.path }}{{ config.casualtyforms.formimages.dir }}/1.jpg" />
+    <img class="form-image"
+        src="{{ url }}{{ config.cms.storage.media.path }}{{ form.filename }}" />
 </canvas>
 
 <script>
