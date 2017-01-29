@@ -31,9 +31,8 @@ class TranscriptionForm extends ComponentBase
             // If there are no started forms, create a new one.
             $form = new CasualtyForm();
             $form->started_by_id = $this->page['user']['id'];
-            $form->save();
-
             // Need to check for images here.
+            $form->save();
         }
 
         // Make some vars available in the front end.

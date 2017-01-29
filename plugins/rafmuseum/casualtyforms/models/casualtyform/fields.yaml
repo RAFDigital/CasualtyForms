@@ -1,4 +1,8 @@
 fields:
+    id:
+        span: full
+        path: $/rafmuseum/casualtyforms/components/transcriptionform/imagezoom.htm
+        type: partial
     rank:
         label: Rank
         oc.commentPosition: ''
@@ -13,7 +17,7 @@ fields:
         placeholder: 'Select rank'
         type: dropdown
     first_names:
-        label: 'First Names'
+        label: 'Christian Names'
         oc.commentPosition: ''
         span: auto
         type: text
@@ -49,6 +53,14 @@ fields:
         label: 'Medical Information'
         span: full
         type: checkbox
+    started_by:
+        label: 'Started By'
+        oc.commentPosition: ''
+        nameFrom: name
+        descriptionFrom: description
+        emptyOption: 'Not yet approved'
+        span: auto
+        type: relation
     completed_by:
         label: 'Completed By'
         oc.commentPosition: ''
@@ -65,7 +77,3 @@ fields:
         emptyOption: 'Not yet approved'
         span: auto
         type: relation
-    id:
-        span: full
-        path: $/rafmuseum/casualtyforms/components/transcriptionform/imagezoom.htm
-        type: partial

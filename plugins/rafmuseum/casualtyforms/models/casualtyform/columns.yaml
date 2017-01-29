@@ -8,7 +8,7 @@ columns:
         type: text
         searchable: true
     first_names:
-        label: 'First Names'
+        label: 'Christian Names'
         type: text
         searchable: true
     surname:
@@ -28,6 +28,11 @@ columns:
     death_date:
         label: 'Death Date'
         type: date
+    started_by:
+        label: 'Started By'
+        type: text
+        select: name
+        relation: started_by
     completed_by:
         label: 'Completed By'
         type: text
@@ -38,3 +43,6 @@ columns:
         type: text
         select: name
         relation: approved_by
+    filename:
+        label: 'Filename'
+        type: text
