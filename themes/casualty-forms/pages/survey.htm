@@ -1,10 +1,17 @@
 title = "Volunteer Survey"
-url = "/volunteer/survey"
+url = "/volunteer/survey/:completed"
 layout = "default"
 is_hidden = 0
+==
+function onStart() {
+    $this['completed'] = $this->param('completed');
+}
 ==
 <div class="jumbotron">
     <div class="container">
         <h1>Survey</h1>
+        <p>You have just completed your {{ completed }}st transcription for us!
+            fancy filling out this survey?</p>
+        </p>
     </div>
 </div>

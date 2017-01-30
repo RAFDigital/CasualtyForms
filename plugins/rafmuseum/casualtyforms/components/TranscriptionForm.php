@@ -17,6 +17,11 @@ class TranscriptionForm extends ComponentBase
 
     public function onRun()
     {
+        // Add the toggle control for this page.
+        $this->addCss('/themes/casualty-forms/assets/vendor/bootstrap-toggle/css/bootstrap-toggle.min.css');
+        $this->addJs('/themes/casualty-forms/assets/vendor/bootstrap-toggle/js/bootstrap-toggle.min.js');
+
+        // Get the transcription stage ('new' or 'approve').
         $stage = $this->property('stage');
 
         if( $stage == 'new') {
@@ -54,13 +59,18 @@ class TranscriptionForm extends ComponentBase
             $casualtyForm[$key] = $value ? $value : null;
         }
 
+        // Stupid case for the checkbox.
+        if( ! post('medical_information') ) {
+            $casualtyForm['medical_information'] = 0;
+        }
+
         $formsCompleted = null;
 
         // Now get the number of any forms completed by the user.
         if( post('completed_by') ) {
             $formsCompleted = CasualtyForm::where(
                 'completed_by_id', post('completed_by')
-            )->count();
+            )->count() + 1; // Add one to include this one.
         }
 
         // Update model.
@@ -68,10 +78,10 @@ class TranscriptionForm extends ComponentBase
 
         Flash::success('Form transcribed.');
 
-        if($formsCompleted == '0' || $formsCompleted == '20') {
+        if($formsCompleted == '1' || $formsCompleted == '20') {
             // Redirect to survey page if this is the first, or 20th
             // form transcribed.
-            return Redirect::to('/volunteer/survey');
+            return Redirect::to('/volunteer/survey/' . $formsCompleted);
         }
 
         return Redirect::to('/volunteer');

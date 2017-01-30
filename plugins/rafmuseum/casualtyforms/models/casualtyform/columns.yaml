@@ -26,8 +26,11 @@ columns:
         label: 'Report Date Last'
         type: date
     death_date:
-        label: 'Death Date'
+        label: 'Date of Death'
         type: date
+    medical_information:
+        label: 'Medical Information'
+        type: switch
     started_by:
         label: 'Started By'
         type: text
@@ -44,5 +47,5 @@ columns:
         select: name
         relation: approved_by
     filename:
-        label: 'Filename'
+        label: Filename
         type: text

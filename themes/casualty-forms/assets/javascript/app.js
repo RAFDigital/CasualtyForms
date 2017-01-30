@@ -4,11 +4,10 @@
 
 $(document).tooltip({
     selector: "[data-toggle=tooltip]"
-})
-
+});
 
 /*
- * Auto hide navbar
+ * Auto hide navbar and other jQuery objects.
  */
 jQuery(document).ready(function($){
     var $header = $('.navbar-autohide'),
@@ -17,6 +16,11 @@ jQuery(document).ready(function($){
         currentTop = 0,
         scrollDelta = 10,
         scrollOffset = 150;
+
+    $('#medicalInfo').bootstrapToggle({
+        on: 'Yes',
+        off: 'No'
+    });
 
     $(window).on('scroll', function(){
         if (!scrolling) {
