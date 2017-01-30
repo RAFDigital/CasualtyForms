@@ -38,8 +38,20 @@ class TranscriptionForm extends ComponentBase
             $form->started_by_id = $this->page['user']['id'];
             $form->save();
 
-            // Need to check for images here.
+            // Create the expected filename.
             $form->filename = $this->idToFilename($form->id);
+
+            // Get the full file path.
+            $filePath = base_path() . config('cms.storage.media.path') . $form->filename;
+
+            // Check if it exists.
+            if ( ! file_exists($filePath)) {
+                // Nuke it, tell the user, and move on.
+                $form->delete();
+                Flash::error('The image file for form ' . $form->id . ' is missing.');
+                return Redirect::to('/volunteer');
+            }
+
             $form->update();
         }
 
@@ -110,10 +122,13 @@ class TranscriptionForm extends ComponentBase
      */
     protected function idToFilename($id)
     {
+        // Get the imagefile config.
+        $imageFile = config('casualtyforms.imagefile');
         // Get first number group and sequence number.
         $group = floor($id / 10000) + 1;
         $sequence = sprintf('%04d', $id);
 
-        return '/Forms/_' . $group . 'CF' . $sequence . '.jpg';
+        return $imageFile['dir'] . DIRECTORY_SEPARATOR . $imageFile['prefix'] .
+               $group . $imageFile['separator'] . $sequence . $imageFile['type'];
     }
 }

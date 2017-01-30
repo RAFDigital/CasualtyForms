@@ -11,10 +11,11 @@ return [
     |
     */
 
-    'formimages' => array(
-        'url' => '/storage/app/media/Forms',
+    'imagefile' => array(
         'dir' => '/Forms',
-        'filename' => '_1CF7221.jpg'
+        'prefix' => '_',
+        'separator' => 'CF',
+        'type' => '.jpg'
     ),
 
     // 15 mins, converted to seconds.
