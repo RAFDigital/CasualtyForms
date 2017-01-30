@@ -15,12 +15,13 @@ jQuery(document).ready(function($){
         previousTop = 0,
         currentTop = 0,
         scrollDelta = 10,
-        scrollOffset = 150;
+        scrollOffset = 150,
+        $medicalInfo;
 
-    $('#medicalInfo').bootstrapToggle({
-        on: 'Yes',
-        off: 'No'
-    });
+    // Initialising the toggle button.
+    if ($medicalInfo = $('#medicalInfo').length > 0) {
+        $medicalInfo.bootstrapToggle({on: 'Yes', off: 'No'});
+    }
 
     $(window).on('scroll', function(){
         if (!scrolling) {
