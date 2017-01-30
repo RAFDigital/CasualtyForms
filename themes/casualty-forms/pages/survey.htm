@@ -7,11 +7,19 @@ function onStart() {
     $this['completed'] = $this->param('completed');
 }
 ==
+{% set surveyLink = config.casualtyforms.surveys[completed] %}
+
 <div class="jumbotron">
     <div class="container">
         <h1>Survey</h1>
-        <p>You have just completed your {{ completed }}st transcription for us!
-            fancy filling out this survey?</p>
+        <p>You have completed {{ completed }} transcription{% if completed > 1 %}s{% endif %}
+            for us! fancy filling out this survey?</p>
         </p>
     </div>
+</div>
+
+<div class="container">
+    {% if surveyLink %}
+        <a href="{{ surveyLink }}" target="_new">Survey link here.</a>
+    {% endif %}
 </div>

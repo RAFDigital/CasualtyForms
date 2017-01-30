@@ -11,6 +11,7 @@ return [
     |
     */
 
+    // Image file contruction info.
     'imagefile' => array(
         'dir' => '/Forms',
         'prefix' => '_',
@@ -19,6 +20,12 @@ return [
     ),
 
     // 15 mins, converted to seconds.
-    'timeoutLimit' => 15 * 60
+    'timeoutLimit' => 15 * 60,
+
+    // Survey links and thresholds.
+    'surveys' => array(
+        1 => 'https://www.surveymonkey.com/#first',
+        20 => 'https://www.surveymonkey.com/#twentyth'
+    ),
 
 ];

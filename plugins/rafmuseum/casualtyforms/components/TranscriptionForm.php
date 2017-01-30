@@ -107,9 +107,8 @@ class TranscriptionForm extends ComponentBase
 
         Flash::success('Form transcribed.');
 
-        if ($formsCompleted == '1' || $formsCompleted == '20') {
-            // Redirect to survey page if this is the first, or 20th
-            // form transcribed.
+        if (in_array($formsCompleted, array_keys(config('casualtyforms.surveys')))) {
+            // Redirect to survey page if based on config settings.
             return Redirect::to('/volunteer/survey/' . $formsCompleted);
         }
 
