@@ -93,7 +93,7 @@ var ImageZoom = (function(exports) {
             var transform = ctx.getTransform();
 
             // Check if the image is zoomed out too much.
-            if(transform.a >= 1 || clicks > 0) {
+            if (transform.a >= 1 || clicks > 0) {
                 // Do the translation.
                 var pt = ctx.transformedPoint(lastX,lastY);
                 var factor = Math.pow(scaleFactor,clicks);
@@ -203,7 +203,7 @@ var ImageZoom = (function(exports) {
      */
     window.onload = function() {
         // Initialise the zoom panel if it's present on the page.
-        if( canvas ) initialise();
+        if (canvas) initialise();
     }
 
   return exports;

@@ -39,7 +39,7 @@ class Clock
     public static function out($session, $type)
     {
         // Redirect if the user is already logged out.
-        if( ! $session->user() ) return Redirect::to('/');
+        if (! $session->user()) return Redirect::to('/');
 
         // Get the logged in user.
         $user = $session->user();
@@ -55,11 +55,11 @@ class Clock
         // Use session onLogout to logout.
         $session->onLogout();
 
-        if( $type == 'timeout') {
+        if ($type == 'timeout') {
             Flash::warning("You have been logged out due to inactivity.");
         }
 
-        if( $type == 'banned' ) {
+        if ($type == 'banned') {
             Flash::error("Your user has been banned from transcribing.");
         }
 

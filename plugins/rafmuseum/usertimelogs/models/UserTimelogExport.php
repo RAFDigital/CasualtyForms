@@ -10,7 +10,11 @@ use Backend\Models\ExportModel;
     /**
      * @var array Fillable fields
      */
-    protected $fillable = ['log_totals'];
+    protected $fillable = [
+        'log_totals',
+        'from_date',
+        'to_date'
+    ];
 
     /**
      * Export the data.
@@ -24,12 +28,19 @@ use Backend\Models\ExportModel;
             'user' => function($query){ $query->addSelect(['id', 'name']); }
         ]);
 
-        // Do a different query based on options.
-        if($this->log_totals) {
-            $logs = $logs->logTotals()->get();
-        } else {
-            $logs = $logs->get();
+        // From date and to date.
+        if ($this->from_date && $this->to_date) {
+            $logs = $logs->whereBetween('signin_time', [
+                $this->from_date,
+                $this->to_date
+            ]);
         }
+
+        // Do a different query based on options.
+        if ($this->log_totals) $logs = $logs->logTotals();
+
+        // Ok send the query.
+        $logs = $logs->get();
 
         $logs->each(function($log) use ($columns) {
             $log->addVisible($columns);
@@ -39,9 +50,9 @@ use Backend\Models\ExportModel;
         $collection = collect($logs->toArray());
 
         $data = $collection->map(function ($item) {
-            if(is_array($item)){
+            if (is_array($item)){
                 foreach($item as $key => $value) {
-                    if(is_array($value)) {
+                    if (is_array($value)) {
                         $item[$key] = json_encode($value);
                     }
                 }

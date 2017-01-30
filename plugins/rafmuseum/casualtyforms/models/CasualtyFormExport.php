@@ -26,7 +26,7 @@ use Backend\Models\ExportModel;
         ]);
 
         // Do a different query based on options.
-        if($this->approved_forms_only) {
+        if ($this->approved_forms_only) {
             $forms = $forms->approved()->get();
         } else {
             $forms = $forms->get();
@@ -40,9 +40,9 @@ use Backend\Models\ExportModel;
         $collection = collect($forms->toArray());
 
         $data = $collection->map(function ($item) {
-            if(is_array($item)){
+            if (is_array($item)){
                 foreach($item as $key => $value) {
-                    if(is_array($value)) {
+                    if (is_array($value)) {
                         $item[$key] = json_encode($value);
                     }
                 }

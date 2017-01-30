@@ -2,3 +2,4 @@ export:
     title: Export Logs
     modelClass: RafMuseum\UserTimelogs\Models\UserTimelogExport
     list: $/rafmuseum/usertimelogs/models/usertimelog/columns.yaml
+    form: $/rafmuseum/usertimelogs/models/usertimelog/options.yaml

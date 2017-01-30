@@ -28,7 +28,7 @@ class Page extends ComponentBase
         // Get the current user.
         $user = $this->page['user'];
 
-        if( $user ) {
+        if ($user) {
             // Get the timeout limit from config.
             $timeoutLimit = config('casualtyforms.timeoutLimit');
 
@@ -38,7 +38,7 @@ class Page extends ComponentBase
             $interval = ($now - $lastActivity);
 
             // Check if user has exeeded time limit.
-            if( $interval >= $timeoutLimit ) {
+            if ($interval >= $timeoutLimit) {
                 // Sign them out.
                 return Redirect::to('/volunteer/signout/timeout');
             } else {
@@ -49,7 +49,7 @@ class Page extends ComponentBase
 
             // Checked if user is banned.
             foreach($user->groups as $group) {
-                if($group->code == 'banned') {
+                if ($group->code == 'banned') {
                     return Redirect::to('/volunteer/signout/banned');
                 }
             }

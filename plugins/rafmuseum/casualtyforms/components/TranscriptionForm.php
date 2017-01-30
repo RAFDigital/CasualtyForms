@@ -24,15 +24,15 @@ class TranscriptionForm extends ComponentBase
         // Get the transcription stage ('new' or 'approve').
         $stage = $this->property('stage');
 
-        if( $stage == 'new') {
+        if ($stage == 'new') {
             // See if there are any started forms to finish.
             $form = CasualtyForm::toFinish()->first();
-        } elseif( $stage == 'approve' ) {
+        } elseif ($stage == 'approve') {
             // Get a form that needs approving.
             $form = CasualtyForm::toApprove()->first();
         }
 
-        if( ! $form && $stage == 'new' ) {
+        if (! $form && $stage == 'new') {
             // If there are no started forms, create a new one.
             $form = new CasualtyForm();
             $form->started_by_id = $this->page['user']['id'];
@@ -72,19 +72,19 @@ class TranscriptionForm extends ComponentBase
         }
 
         // Stupid case for the checkbox.
-        if( ! post('medical_information') ) {
+        if (! post('medical_information')) {
             $casualtyForm['medical_information'] = 0;
         }
 
         // And additional form.
-        if( $additionalPage ) {
+        if ($additionalPage) {
             $casualtyForm['additional_page'] = 1;
         }
 
         $formsCompleted = null;
 
         // Now get the number of any forms completed by the user.
-        if( post('completed_by') ) {
+        if (post('completed_by')) {
             $formsCompleted = CasualtyForm::where(
                 'completed_by_id', post('completed_by')
             )->count() + 1; // Add one to include this one.
@@ -95,7 +95,7 @@ class TranscriptionForm extends ComponentBase
 
         Flash::success('Form transcribed.');
 
-        if($formsCompleted == '1' || $formsCompleted == '20') {
+        if ($formsCompleted == '1' || $formsCompleted == '20') {
             // Redirect to survey page if this is the first, or 20th
             // form transcribed.
             return Redirect::to('/volunteer/survey/' . $formsCompleted);
