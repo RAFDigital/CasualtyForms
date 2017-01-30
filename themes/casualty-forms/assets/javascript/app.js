@@ -19,8 +19,10 @@ jQuery(document).ready(function($){
         $medicalInfo;
 
     // Initialising the toggle button.
-    if ($medicalInfo = $('#medicalInfo').length > 0) {
-        $medicalInfo.bootstrapToggle({on: 'Yes', off: 'No'});
+    $medicalInfo = $('#medicalInfo');
+
+    if ($medicalInfo.length > 0) {
+        $medicalInfo.bootstrapToggle({ on: 'Yes', off: 'No' });
     }
 
     $(window).on('scroll', function(){

@@ -3,12 +3,14 @@
     <div class="row">
         <div class="form-group col-md-6">
             <label for="accountName">Full Name</label>
-            <input name="name" type="text" class="form-control" id="accountName" value="{{ form_value('name') }}">
+            <input name="name" type="text" class="form-control" id="accountName"
+                value="{{ form_value('name') }}" required>
         </div>
 
         <div class="form-group col-md-6">
             <label for="accountEmail">Email</label>
-            <input name="email" type="email" class="form-control" id="accountEmail" value="{{ form_value('email') }}">
+            <input name="email" type="email" class="form-control" id="accountEmail"
+                value="{{ form_value('email') }}" required>
         </div>
     </div>
 
