@@ -29,6 +29,16 @@ class Plugin extends PluginBase
         //$schedule->command('rafmuseum:mycommand')->everyMinute();
     }
 
+    public function registerReportWidgets()
+    {
+        return [
+            'RafMuseum\CasualtyForms\ReportWidgets\Instructions' => [
+                'label'   => 'Instructions',
+                'context' => 'dashboard'
+            ]
+        ];
+    }
+
     public function register()
     {
         // Register global vars for email template.
