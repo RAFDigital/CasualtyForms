@@ -48,7 +48,19 @@ class TranscriptionForm extends ComponentBase
         $this->page['stage'] = $stage;
     }
 
-    public function onSave()
+    /**
+     * Save the current form as additional page.
+     */
+    public function onSaveAdditional()
+    {
+        return $this->onSave(true);
+    }
+
+    /**
+     * Save the current form.
+     * @param bool $additionalPage If this record is an "Additional page"
+     */
+    public function onSave($additionalPage = false)
     {
         // Get the right Casualty Form to update.
         $casualtyForm = CasualtyForm::find(post('id'));
@@ -62,6 +74,11 @@ class TranscriptionForm extends ComponentBase
         // Stupid case for the checkbox.
         if( ! post('medical_information') ) {
             $casualtyForm['medical_information'] = 0;
+        }
+
+        // And additional form.
+        if( $additionalPage ) {
+            $casualtyForm['additional_page'] = 1;
         }
 
         $formsCompleted = null;
@@ -87,6 +104,10 @@ class TranscriptionForm extends ComponentBase
         return Redirect::to('/volunteer');
     }
 
+    /**
+     * This converts the plain ID into the correct filename structure.
+     * @param int $id The recrod ID
+     */
     protected function idToFilename($id)
     {
         // Get first number group and sequence number.

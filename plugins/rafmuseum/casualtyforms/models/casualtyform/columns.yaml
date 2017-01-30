@@ -49,3 +49,6 @@ columns:
     filename:
         label: Filename
         type: text
+    additional_page:
+        label: 'Additional Page'
+        type: switch

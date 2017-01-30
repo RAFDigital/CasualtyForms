@@ -53,7 +53,11 @@ fields:
         type: datepicker
     medical_information:
         label: 'Medical Information'
-        span: full
+        span: auto
+        type: checkbox
+    additional_page:
+        label: 'Additional Page'
+        span: auto
         type: checkbox
     started_by:
         label: 'Started By'

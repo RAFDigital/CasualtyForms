@@ -23,6 +23,7 @@ class BuilderTableCreateRafmuseumCasualtyformsForm extends Migration
             $table->integer('completed_by_id')->nullable();
             $table->integer('approved_by_id')->nullable();
             $table->string('filename')->nullable();
+            $table->boolean('additional_page')->default(0);
             $table->timestamps();
         });
     }
