@@ -21,46 +21,48 @@
     </tr>
 </table>
 
-<h2>Leaderboards</h2>
+{% if leadApprovals is not empty %}
+    <h2>Form approvals</h2>
 
-<h3>Form approvals</h3>
-
-<table class="table">
-    <tr>
-        <th>Rank</td>
-        <th>User</th>
-        <th>Forms approved</th>
-    </tr>
-
-    {% for index, leadApproval in leadApprovals %}
+    <table class="table">
         <tr>
-            <td>
-                {{ index + 1 }}
-                {% if index == 0 %}<i class="icon-trophy"></i>{% endif %}
-            </td>
-            <td>{{ leadApproval.completed_by.name }}</td>
-            <td>{{ leadApproval.total }}</td>
+            <th>Rank</td>
+            <th>User</th>
+            <th>Forms approved</th>
         </tr>
-    {% endfor %}
-</table>
 
-<h3>Hours logged</h3>
+        {% for index, leadApproval in leadApprovals %}
+            <tr>
+                <td>
+                    {{ index + 1 }}
+                    {% if index == 0 %}<i class="icon-trophy"></i>{% endif %}
+                </td>
+                <td>{{ leadApproval.completed_by.name }}</td>
+                <td>{{ leadApproval.total }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endif %}
 
-<table class="table">
-    <tr>
-        <th>Rank</td>
-        <th>User</th>
-        <th>Hours logged</th>
-    </tr>
+{% if leadHours is not empty %}
+    <h2>Hours logged</h2>
 
-    {% for index, leadHour in leadHours %}
+    <table class="table">
         <tr>
-            <td>
-                {{ index + 1 }}
-                {% if index == 0 %}<i class="icon-trophy"></i>{% endif %}
-            </td>
-            <td>{{ leadHour.user.name }}</td>
-            <td>{{ leadHour.time_logged }}</td>
+            <th>Rank</td>
+            <th>User</th>
+            <th>Hours logged</th>
         </tr>
-    {% endfor %}
-</table>
+
+        {% for index, leadHour in leadHours %}
+            <tr>
+                <td>
+                    {{ index + 1 }}
+                    {% if index == 0 %}<i class="icon-trophy"></i>{% endif %}
+                </td>
+                <td>{{ leadHour.user.name }}</td>
+                <td>{{ leadHour.time_logged }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endif %}
