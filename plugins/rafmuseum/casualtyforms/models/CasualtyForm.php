@@ -1,5 +1,6 @@
 <?php namespace RafMuseum\CasualtyForms\Models;
 
+use DB;
 use Model;
 use RainLab\User\Components\Session;
 
@@ -83,8 +84,7 @@ class CasualtyForm extends Model
     public function scopeCompleted($query)
     {
         // Not approved but completed.
-        return $query->whereNull('approved_by_id')
-                     ->whereNotNull('completed_by_id');
+        return $query->whereNotNull('completed_by_id');
     }
 
     /**
@@ -93,5 +93,20 @@ class CasualtyForm extends Model
     public function scopeApproved($query)
     {
         return $query->whereNotNull('approved_by_id');
+    }
+
+    /**
+     * Scope a query to only include approved forms.
+     */
+    public function scopeApprovedByCompletor($query)
+    {
+        return $query->with(['completed_by' => function($query){
+                        $query->addSelect(['id', 'name']);
+                     }])
+                     ->select(
+                         'completed_by_id',
+                         DB::raw('count(*) as `total`'))
+                     ->whereNotNull('approved_by_id')
+                     ->groupBy('completed_by_id');
     }
 }

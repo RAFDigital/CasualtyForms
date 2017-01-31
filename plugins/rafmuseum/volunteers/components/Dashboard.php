@@ -9,17 +9,27 @@ class Dashboard extends ComponentBase
     public function componentDetails()
     {
         return [
-            'name'        => 'Dashboard Component',
+            'name' => 'Dashboard Component',
             'description' => 'Overview of volunteer progress.'
         ];
     }
 
     public function onRun()
     {
-        // Get the user.
-        $user = $this->page['user'];
-
         // Total progress.
+        $this->page['progress'] = $this->getTotals();
+
+        // Forms approved leaderboard.
+        $this->page['leadApprovals'] = CasualtyForm::approvedByCompletor()
+                                   ->orderBy('total', 'DESC')
+                                   ->limit(10)->get();
+    }
+
+    /**
+     * Get the overview totals for transcriptions.
+     */
+    protected function getTotals()
+    {
         $progress = array('approved' => 0, 'completed' => 0, 'total' => 0);
 
         // Iterate through all the files. This *may* be slow...
@@ -29,12 +39,11 @@ class Dashboard extends ComponentBase
             FilesystemIterator::SKIP_DOTS
         );
 
+        // Add 'em all in.
         $progress['total'] = iterator_count($fi);
         $progress['completed'] = CasualtyForm::completed()->count();
         $progress['approved'] = CasualtyForm::approved()->count();
 
-        $this->page['progress'] = $progress;
-
-        // Leaderboard.
+        return $progress;
     }
 }
