@@ -65,14 +65,6 @@ class CasualtyForm extends Model
     }
 
     /**
-     * Scope a query to only include forms that aren't complete.
-     */
-    public function scopeToTranscribe($query)
-    {
-        return $query->whereNull('completed_by_id');
-    }
-
-    /**
      * Scope a query to only include completed forms.
      */
     public function scopeToApprove($query)
@@ -83,6 +75,16 @@ class CasualtyForm extends Model
         // Get the completed forms not completed by the current user and not completed.
         return $query->where('completed_by_id', '!=', $user->id)
                      ->whereNull('approved_by_id');
+    }
+
+    /**
+     * Scope a query to only include completed forms.
+     */
+    public function scopeCompleted($query)
+    {
+        // Not approved but completed.
+        return $query->whereNull('approved_by_id')
+                     ->whereNotNull('completed_by_id');
     }
 
     /**

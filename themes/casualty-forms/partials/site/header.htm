@@ -10,6 +10,7 @@
             </button>
             <a class="navbar-brand" href="{{ 'home'|page }}">Casualty Forms</a>
         </div>
+
         <div class="collapse navbar-collapse navbar-main-collapse">
             <ul class="nav navbar-nav">
                 <li class="separator hidden-xs"></li>
@@ -23,7 +24,7 @@
                     </a>
 
                     <ul class="dropdown-menu">
-                        <!-- <li><a href="{{ 'dashboard'|page }}">Dashboard</a></li> -->
+                        <li><a href="{{ 'volunteer'|page }}">Dashboard</a></li>
                         <li><a href="{{ 'transcribe'|page({ stage: 'new' }) }}">Transcribe</a></li>
                         <li><a href="{{ 'transcribe'|page({ stage: 'approve' }) }}">Approve</a></li>
 

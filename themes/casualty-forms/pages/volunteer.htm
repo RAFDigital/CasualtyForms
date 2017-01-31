@@ -4,18 +4,19 @@ layout = "default"
 is_hidden = 0
 
 [session]
-security = "user"
-redirect = "account"
+[dashboard]
 ==
 <div class="jumbotron">
     <div class="container">
-        <h1>Transcribe</h1>
+        <h1>Dashboard</h1>
 
-        <p>Hello {{ user.name }}.</p>
+        {% if user %}
+            <a href="{{ 'transcribe'|page({ stage: 'new' }) }}" class="btn btn-primary">Transcribe</a>
+            <a href="{{ 'transcribe'|page({ stage: 'approve' }) }}" class="btn btn-success">Approve</a>
+        {% endif %}
     </div>
 </div>
 
 <div class="container">
-    <a href="{{ 'transcribe'|page({ stage: 'new' }) }}" class="btn btn-default">Transcribe</a>
-    <a href="{{ 'transcribe'|page({ stage: 'approve' }) }}" class="btn btn-default">Approve</a>
+    {% component 'dashboard' %}
 </div>

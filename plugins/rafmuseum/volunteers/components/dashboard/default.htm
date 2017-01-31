@@ -1,3 +1,24 @@
-<p>This is the default markup for component Dashboard</p>
+<h2>Total progress</h2>
 
-<small>You can delete this file if you want</small>
+{% set percentComplete = progress.completed / progress.total * 100 %}
+{% set percentApproved = progress.approved / progress.total * 100 %}
+
+<div class="progress">
+    <div class="progress-bar progress-bar-success" style="width: {{ percentApproved }}%">
+        <span class="sr-only">{{ percentApproved }}% Approved</span>
+    </div>
+
+    <div class="progress-bar progress-bar-active" style="width: {{ percentComplete - percentApproved }}%">
+        <span class="sr-only">{{ percentComplete }}% Completed</span>
+    </div>
+</div>
+
+<table class="progress-labels">
+    <tr>
+        <td class="text-left text-success">{{ progress.approved }} approved</td>
+        <td class="text-center text-primary">{{ progress.completed }} copmleted</td>
+        <td class="text-right text-muted">{{ progress.total - progress.completed }} remaining</td>
+    </tr>
+</table>
+
+<!-- <h2>Leaderboard</h2> -->
