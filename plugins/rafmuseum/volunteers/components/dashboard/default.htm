@@ -23,7 +23,7 @@
 
 <h2>Leaderboards</h2>
 
-<h3>Forms approvals</h3>
+<h3>Form approvals</h3>
 
 <table class="table">
     <tr>
@@ -38,8 +38,29 @@
                 {{ index + 1 }}
                 {% if index == 0 %}<i class="icon-trophy"></i>{% endif %}
             </td>
-            <td>{{ leadApprovals.completed_by.name }}</td>
-            <td>{{ leadApprovals.total }}</td>
+            <td>{{ leadApproval.completed_by.name }}</td>
+            <td>{{ leadApproval.total }}</td>
+        </tr>
+    {% endfor %}
+</table>
+
+<h3>Hours logged</h3>
+
+<table class="table">
+    <tr>
+        <th>Rank</td>
+        <th>User</th>
+        <th>Hours logged</th>
+    </tr>
+
+    {% for index, leadHour in leadHours %}
+        <tr>
+            <td>
+                {{ index + 1 }}
+                {% if index == 0 %}<i class="icon-trophy"></i>{% endif %}
+            </td>
+            <td>{{ leadHour.user.name }}</td>
+            <td>{{ leadHour.time_logged }}</td>
         </tr>
     {% endfor %}
 </table>
