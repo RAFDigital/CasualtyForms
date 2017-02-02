@@ -11,18 +11,21 @@ $(document).tooltip({
  */
 jQuery(document).ready(function($){
     var $header = $('.navbar-autohide'),
+        $medicalInfo = $('#medicalInfo'),
+        $datePickers = $('input[type="datepicker"]'),
         scrolling = false,
         previousTop = 0,
         currentTop = 0,
         scrollDelta = 10,
-        scrollOffset = 150,
-        $medicalInfo;
+        scrollOffset = 150;
 
-    // Initialising the toggle button.
-    $medicalInfo = $('#medicalInfo');
-
+    // Initialise the bootstrap components.
     if ($medicalInfo.length > 0) {
         $medicalInfo.bootstrapToggle({ on: 'Yes', off: 'No' });
+    }
+
+    if ($datePickers.length > 0) {
+        $datePickers.datepicker({ format: "yyyy-mm-dd" });
     }
 
     $(window).on('scroll', function(){
@@ -65,7 +68,7 @@ var ToggleIllegible = (function(exports) {
 
     /* Vars. */
     var TOGGLE_ILLEGIBLE_CLASS = '.toggle-illegible',
-        ILLEGIBLE_CHAR = { text: '?', date: '0001-01-01' },
+        ILLEGIBLE_CHAR = { text: '?', datepicker: '0001-01-01' },
         INPUT_GROUP_CLASS = '.input-group',
         FORM_CONTROL_CLASS = '.form-control';
 
@@ -81,7 +84,7 @@ var ToggleIllegible = (function(exports) {
 
         // Change the input.
         if( $this.hasClass('marked') ) {
-            $input.val(ILLEGIBLE_CHAR[$input[0].type]).prop('readonly', true);
+            $input.val(ILLEGIBLE_CHAR[$input.attr('type')]).prop('readonly', true);
         } else {
             $input.val('').prop('readonly', false);
         }

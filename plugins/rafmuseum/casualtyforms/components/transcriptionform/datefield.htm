@@ -1,10 +1,10 @@
 <label for="{{ id }}">{{ label }}</label>
 
 <div class="input-group">
-    <input id="{{ id }}" name="{{ name }}"
-        type="date" class="form-control" placeholder="Enter the date on the form"
+    <input id="{{ id }}" name="{{ name }}" type="datepicker" class="form-control"
+        placeholder="Enter the date on the form" data-date-end-date="1920-01-31"
         value="{% if recordValue != '0001-01-01' %}{{ recordValue }}{% endif %}"
-        max="1920-01-31" {% if recordValue == '0001-01-01' %}readonly{% endif %}/>
+        {% if recordValue == '0001-01-01' %}readonly{% endif %}/>
     <div class="input-group-btn">
         <button type="button" class="btn btn-default dropdown-toggle"
             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
