@@ -18,7 +18,7 @@ class TranscriptionForm extends ComponentBase
     public function onRun()
     {
         // Add necessary files for this page.
-        $this->addTranscriptionLibs();
+        $this->addComponentAssets();
 
         // Get the transcription stage ('new' or 'approve').
         $stage = $this->property('stage');
@@ -133,20 +133,17 @@ class TranscriptionForm extends ComponentBase
     /**
      * Adds the css and js files required for the transcription form.
      */
-    protected function addTranscriptionLibs()
+    protected function addComponentAssets()
     {
-        // Asset location.
-        $vendorAssets = '/themes/casualty-forms/assets/vendor';
-
-        // Add in the image zoon lib.
-        $this->addJs('/themes/casualty-forms/assets/javascript/lib/ImageZoom.js');
-
         // Add the toggle control for this page.
-        $this->addCss($vendorAssets . '/bootstrap-toggle/css/bootstrap-toggle.min.css');
-        $this->addJs($vendorAssets . '/bootstrap-toggle/js/bootstrap-toggle.min.js');
+        $this->addCss('assets/vendor/bootstrap-toggle/css/bootstrap-toggle.min.css');
+        $this->addJs('assets/vendor/bootstrap-toggle/js/bootstrap-toggle.min.js');
 
         // Add the datepicker.
-        $this->addCss($vendorAssets . '/bootstrap-datepicker/css/bootstrap-datepicker3.css');
-        $this->addJs($vendorAssets . '/bootstrap-datepicker/js/bootstrap-datepicker.min.js');
+        $this->addCss('assets/vendor/bootstrap-datepicker/css/bootstrap-datepicker3.css');
+        $this->addJs('assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js');
+
+        // Add js libs for the transcription form component.
+        $this->addJs('assets/js/transcriptionform.js');
     }
 }
