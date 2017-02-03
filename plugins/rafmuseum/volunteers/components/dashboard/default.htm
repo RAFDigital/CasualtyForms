@@ -9,14 +9,14 @@
     </div>
 
     <div class="progress-bar progress-bar-active" style="width: {{ percentComplete - percentApproved }}%">
-        <span class="sr-only">{{ percentComplete }}% Completed</span>
+        <span class="sr-only">{{ percentComplete }}% Transcribed</span>
     </div>
 </div>
 
 <table class="progress-labels">
     <tr>
         <td class="text-left text-success">{{ progress.approved }} approved</td>
-        <td class="text-center text-primary">{{ progress.completed }} completed</td>
+        <td class="text-center text-primary">{{ progress.completed }} transcribed</td>
         <td class="text-right text-muted">{{ progress.total - progress.completed }} remaining</td>
     </tr>
 </table>

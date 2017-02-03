@@ -4,7 +4,6 @@
  */
 jQuery(document).ready(function($) {
     // Initialise the bootstrap components.
-    $('#medicalInfo').bootstrapToggle({ on: 'Yes', off: 'No' });
     $('input[type="datepicker"]').datepicker({ format: "yyyy-mm-dd" });
 });
 
