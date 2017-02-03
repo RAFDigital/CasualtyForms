@@ -35,6 +35,8 @@ class CasualtyForm extends Model
         'approved_by_id'
     ];
 
+    protected $jsonable = ['rank'];
+
     /*
      * Relationships
      */
