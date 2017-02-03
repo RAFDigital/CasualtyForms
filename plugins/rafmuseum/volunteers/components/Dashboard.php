@@ -1,6 +1,5 @@
 <?php namespace RafMuseum\Volunteers\Components;
 
-use FilesystemIterator;
 use Cms\Classes\ComponentBase;
 use RafMuseum\CasualtyForms\Models\CasualtyForm;
 use RafMuseum\UserTimelogs\Models\UserTimelog;
@@ -38,15 +37,8 @@ class Dashboard extends ComponentBase
     {
         $progress = array('approved' => 0, 'completed' => 0, 'total' => 0);
 
-        // Iterate through all the files. This *may* be slow...
-        $fi = new FilesystemIterator(
-            base_path() . config('cms.storage.media.path') .
-            config('casualtyforms.imagefile.dir'),
-            FilesystemIterator::SKIP_DOTS
-        );
-
-        // Add 'em all in.
-        $progress['total'] = iterator_count($fi);
+        // Get all the progress attributes.
+        $progress['total'] = CasualtyForm::countFiles();
         $progress['completed'] = CasualtyForm::completed()->count();
         $progress['approved'] = CasualtyForm::approved()->count();
 

@@ -1,8 +1,8 @@
 <?php namespace RafMuseum\CasualtyForms\Components;
 
-use Cms\Classes\ComponentBase;
 use Flash;
 use Redirect;
+use Cms\Classes\ComponentBase;
 use RafMuseum\CasualtyForms\Models\CasualtyForm;
 
 class TranscriptionForm extends ComponentBase
@@ -45,9 +45,17 @@ class TranscriptionForm extends ComponentBase
 
             // Check if it exists.
             if ( ! file_exists($filePath)) {
-                // Nuke it, tell the user, and move on.
+                // Nuke it.
                 $form->delete();
-                Flash::error('The image file for form ' . $form->id . ' is missing.');
+
+                // Let's see if this is THE END, let the user know either way.
+                if ($form->id > $form->countFiles()) {
+                    Flash::info('All forms have been transcribed, thank you.');
+                } else {
+                    Flash::error('The image file for form ' . $form->id . ' is missing.');
+                }
+
+                // Move on, mate, it's over.
                 return Redirect::to('/volunteer');
             }
 
@@ -60,18 +68,9 @@ class TranscriptionForm extends ComponentBase
     }
 
     /**
-     * Save the current form as additional page.
-     */
-    public function onSaveAdditional()
-    {
-        return $this->onSave(true);
-    }
-
-    /**
      * Save the current form.
-     * @param bool $additionalPage If this record is an "Additional page"
      */
-    public function onSave($additionalPage = false)
+    public function onSave()
     {
         // Get the right Casualty Form to update.
         $casualtyForm = CasualtyForm::find(post('id'));
@@ -85,11 +84,6 @@ class TranscriptionForm extends ComponentBase
         // Stupid case for the checkbox.
         if (! post('medical_information')) {
             $casualtyForm['medical_information'] = 0;
-        }
-
-        // And additional form.
-        if ($additionalPage) {
-            $casualtyForm['additional_page'] = 1;
         }
 
         $formsCompleted = null;

@@ -1,7 +1,9 @@
 <?php namespace RafMuseum\CasualtyForms\Models;
 
+use FilesystemIterator;
 use DB;
 use Model;
+use Cache;
 use RainLab\User\Components\Session;
 
 /**
@@ -110,5 +112,30 @@ class CasualtyForm extends Model
                          DB::raw('count(*) as `total`'))
                      ->whereNotNull('approved_by_id')
                      ->groupBy('completed_by_id');
+    }
+
+    /**
+     * Scope a query to only include approved forms.
+     */
+    public static function countFiles($flush = false)
+    {
+        // Flush the cache if requested.
+        if ($flush) Cache::flush();
+
+        // Cache the file count for performance.
+        $fileCount = Cache::rememberForever('fileCount', function() {
+            // Iterate through all the files. This *may* be slow...
+            $fi = new FilesystemIterator(
+                base_path() . config('cms.storage.media.path') .
+                config('casualtyforms.imagefile.dir'),
+                FilesystemIterator::SKIP_DOTS
+            );
+
+            // Count.
+            return iterator_count($fi);
+        });
+
+        // Return the file count.
+        return $fileCount;
     }
 }
