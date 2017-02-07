@@ -8,7 +8,8 @@ class Plugin extends PluginBase
     public function registerComponents()
     {
         return [
-            'RafMuseum\CasualtyForms\Components\TranscriptionForm' => 'transcriptionform'
+            'RafMuseum\CasualtyForms\Components\TranscriptionForm' => 'transcriptionform',
+            'RafMuseum\CasualtyForms\Components\Search' => 'search'
         ];
     }
 

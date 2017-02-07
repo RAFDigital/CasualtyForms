@@ -19,12 +19,12 @@ class Dashboard extends ComponentBase
         // Total progress.
         $this->page['progress'] = $this->getProgress();
 
-        // Forms approved leaderboard.
+        // Forms approved leaderboard (top 10).
         $this->page['leadApprovals'] = CasualtyForm::approvedByCompletor()
                                        ->orderBy('total', 'DESC')
                                        ->limit(10)->get();
 
-        // Hours logged leaderboard.
+        // Hours logged leaderboard (top 10).
         $this->page['leadHours'] = UserTimelog::logTotals()
                                    ->orderBy('time_logged', 'DESC')
                                    ->limit(10)->get();
