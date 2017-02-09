@@ -116,6 +116,7 @@ class CasualtyForm extends Model
 
     /**
      * Scope a query to only include approved forms.
+     * @param  bool $flush To flush the cache or not.
      */
     public static function countFiles($flush = false)
     {

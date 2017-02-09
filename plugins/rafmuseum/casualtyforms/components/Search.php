@@ -12,8 +12,14 @@ class Search extends ComponentBase
         ];
     }
 
-    public function defineProperties()
+    /**
+     * Submit the search form.
+     */
+    public function onSubmit()
     {
-        return [];
+        // Get the search term.
+        $term = post('term');
+
+        trace_log($term);
     }
 }
