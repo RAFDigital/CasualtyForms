@@ -31,6 +31,42 @@
     font-family: sans-serif;
   }
 }
+.table {
+  table-layout: fixed;
+}
+.table tr:first-child td {
+  border-top: none;
+}
+.table tr:hover {
+  background: #f9f9f9;
+}
+.alert {
+  margin-bottom: 0;
+}
+.alert-error {
+  background-color: #f2dede;
+  border-color: #ebccd1;
+  color: #a94442;
+}
+.alert-error hr {
+  border-top-color: #e4b9c0;
+}
+.alert-error .alert-link {
+  color: #843534;
+}
+.form-control[readonly] {
+  color: transparent;
+}
+.progress {
+  margin-bottom: 0;
+}
+.progress-labels {
+  font-size: 20px;
+  width: 100%;
+}
+[data-toggle="tooltip"] {
+  border-bottom: 1px dashed #555555;
+}
 .callout {
   margin-bottom: 25px;
   padding: 20px;
@@ -392,7 +428,7 @@
 }
 .navbar-header .navbar-brand {
   padding-left: 55px;
-  background-image: url('../images/october.png');
+  background-image: url('../images/raf_roundel.png');
   background-size: auto 60%;
   background-repeat: no-repeat;
   background-position: 7px 50%;
@@ -444,8 +480,29 @@
   background: #000000;
 }
 .navbar-collapse:not(.in):not(.collapsing) .navbar-nav li > a:hover:after {
-  background: #e67e22;
+  background: #ce1126;
 }
 body {
   padding-top: 70px;
+}
+.jumbotron {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/rfc_3.jpg') no-repeat top;
+  background-size: cover;
+  color: #cccccc;
+}
+.jumbotron-home {
+  height: 92vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/rfc_6.jpg');
+  background-position: left;
+}
+.jumbotron-home .container {
+  margin-top: 50px;
+  text-align: center;
+  width: 600px;
+}
+.search-result {
+  background: #f9f9f9;
+}
+.search-result:hover {
+  background: #eeeeee;
 }
