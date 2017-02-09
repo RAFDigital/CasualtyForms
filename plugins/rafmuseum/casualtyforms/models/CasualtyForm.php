@@ -115,6 +115,22 @@ class CasualtyForm extends Model
     }
 
     /**
+     * Scope for searching various fields.
+     * @param  array $tags The search field array.
+     */
+    public function scopeSearch($query, $tags) {
+        // All results have to be approved.
+        $query->whereNotNull('approved_by_id');
+
+        // Go through each of the fields and search.
+        foreach($tags as $field => $tag) {
+            $query->orWhere($field, 'LIKE', '%' . $tag . '%');
+        }
+
+        return $query;
+    }
+
+    /**
      * Scope a query to only include approved forms.
      * @param  bool $flush To flush the cache or not.
      */
