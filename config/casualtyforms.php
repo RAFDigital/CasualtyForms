@@ -25,7 +25,7 @@ return [
     // Survey links and thresholds.
     'surveys' => array(
         1 => 'https://www.surveymonkey.com/#first',
-        20 => 'https://www.surveymonkey.com/#twentyth'
+        //20 => 'https://www.surveymonkey.com/#twentyth',
     ),
 
 ];
