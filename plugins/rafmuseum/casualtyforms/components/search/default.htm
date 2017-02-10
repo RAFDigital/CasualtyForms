@@ -7,7 +7,7 @@
                     <h2>{{ result.first_names }} {{ result.surname }}</h2>
 
                     {% if result.rank %}
-                        <p>Rank: {{ result.rank|json_encode }}</p>
+                        <p>Rank: {% for i, rank in result.rank %}{% if i > 0 %}, {% endif %}{{ rank }}{% endfor %}</p>
                     {% endif %}
 
                     {% if result.regiment_corps %}
