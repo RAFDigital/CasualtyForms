@@ -7,7 +7,7 @@
                     <h2>{{ result.first_names }} {{ result.surname }}</h2>
 
                     {% if result.rank %}
-                        <p>Rank: {% for i, rank in result.rank %}{% if i > 0 %}, {% endif %}{{ rank }}{% endfor %}</p>
+                        <p>Rank: {{ result.rank|join(', ') }}</p>
                     {% endif %}
 
                     {% if result.regiment_corps %}
