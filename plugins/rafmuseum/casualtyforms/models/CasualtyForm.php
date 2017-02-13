@@ -104,7 +104,7 @@ class CasualtyForm extends Model
      */
     public function scopeApprovedByCompletor($query)
     {
-        return $query->with(['completed_by' => function($query){
+        return $query->with(['completed_by' => function($query) {
                         $query->addSelect(['id', 'name']);
                      }])
                      ->select(
@@ -118,14 +118,28 @@ class CasualtyForm extends Model
      * Scope for searching various fields.
      * @param  array $tags The search field array.
      */
-    public function scopeSearch($query, $tags) {
+    public function scopeSearch($query, $tags)
+    {
         // All results have to be approved.
         $query->whereNotNull('approved_by_id');
 
-        // Go through each of the fields and search.
-        foreach($tags as $field => $tag) {
-            $query->orWhere($field, 'LIKE', '%' . $tag . '%');
-        }
+        // WHERE `approved_by_id` NOT NULL AND (x OR y OR ...)
+        $query->where(function($query)use($tags) {
+            $firstField = true; // First flag.
+
+            // Go through each of the fields and search.
+            foreach($tags as $field => $tag) {
+                if($firstField) {
+                    // The first field query needs to be a plain where.
+                    $query->where($field, 'LIKE', "%$tag%");
+
+                    $firstField = false;
+                } else {
+                    $query->orWhere($field, 'LIKE', "%$tag%");
+                }
+
+            }
+        });
 
         return $query;
     }
