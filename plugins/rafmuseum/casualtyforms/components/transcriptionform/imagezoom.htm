@@ -1,27 +1,26 @@
 <style>
-#image-zoom {
+.image-zoom {
     display:block;
     margin:1em auto;
-    background:#eee;
+    background:#eee url('../../plugins/rafmuseum/casualtyforms/assets/images/imagezoom-loader.gif') no-repeat center;
     border:1px solid #ccc;
     width: 100%;
     height: 600px;
 }
 
-#image-zoom:hover {
+.image-zoom:hover {
     cursor: -moz-grab;
     cursor: -webkit-grab;
     cursor: grab;
 }
 
-#image-zoom:active {
+.image-zoom:active {
     cursor: -moz-grabbing;
     cursor: -webkit-grabbing;
     cursor: grabbing;
 }
 </style>
 
-<canvas id="image-zoom">
-    <img class="form-image"
-        src="{{ url }}{{ config.cms.storage.media.path }}{{ form.filename }}" />
+<canvas class="image-zoom">
+    <img class="form-image" src="{{ imgSrc }}" />
 </canvas>

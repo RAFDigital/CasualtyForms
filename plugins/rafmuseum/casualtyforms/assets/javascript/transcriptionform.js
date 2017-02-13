@@ -5,6 +5,12 @@
 jQuery(document).ready(function($) {
     // Initialise the bootstrap components.
     $('input[type="datepicker"]').datepicker({ format: "yyyy-mm-dd" });
+
+    // This one needs to be done when all images are loaded.
+    window.onload = function() {
+        // Instantiate the image zooms.
+        $('.image-zoom').imagezoom();
+    }
 });
 
 /**
@@ -54,26 +60,23 @@ var ToggleIllegible = (function(exports) {
         }
     });
 
-  return exports;
+    return exports;
 }(ToggleIllegible || {}));
 
 /**
  * ImageZoom
  * Module for the form image zoom and pan.
  */
-var ImageZoom = (function(exports) {
-    'use strict';
-
+$.fn.imagezoom = function() {
     /* Vars. */
-    var canvas = document.getElementById('image-zoom'),
-        formImg = new Image,
+    var formImg = new Image,
         scaleFactor = 1.1,
         dragStart, dragged;
 
     /**
-     * Initialise image zoom.
+     * Constructor.
      */
-    function initialise() {
+    function ImageZoom(canvas) {
         var ctx = canvas.getContext('2d'),
             lastX = canvas.width / 2,
             lastY = canvas.height / 2;
@@ -89,7 +92,7 @@ var ImageZoom = (function(exports) {
         trackTransforms(ctx);
 
         // Redraw canvas.
-        redraw(ctx);
+        redraw(ctx, canvas);
 
         canvas.addEventListener('mousedown',function(evt) {
             document.body.style.mozUserSelect = document.body.style.webkitUserSelect = document.body.style.userSelect = 'none';
@@ -109,7 +112,7 @@ var ImageZoom = (function(exports) {
             if (dragStart) {
                 var pt = ctx.transformedPoint(lastX,lastY);
                 ctx.translate(pt.x-dragStart.x,pt.y-dragStart.y);
-                redraw(ctx);
+                redraw(ctx, canvas);
             }
         },false);
 
@@ -132,7 +135,7 @@ var ImageZoom = (function(exports) {
                 ctx.translate(-pt.x, -pt.y);
             }
 
-            redraw(ctx);
+            redraw(ctx, canvas);
         }
 
         function handleScroll(evt) {
@@ -148,7 +151,7 @@ var ImageZoom = (function(exports) {
     /**
      * Redraw the canvas.
      */
-    function redraw(ctx) {
+    function redraw(ctx, canvas) {
         // Clear the entire canvas
         var p1 = ctx.transformedPoint(0, 0);
         var p2 = ctx.transformedPoint(canvas.width, canvas.height);
@@ -228,13 +231,8 @@ var ImageZoom = (function(exports) {
         }
     }
 
-    /**
-     * Event handler for initialisation
-     */
-    window.onload = function() {
-        // Initialise the zoom panel if it's present on the page.
-        if (canvas) initialise();
-    }
-
-  return exports;
-}(ImageZoom || {}));
+    return this.each(function() {
+        // Initialise each image.
+        ImageZoom(this);
+    });
+}

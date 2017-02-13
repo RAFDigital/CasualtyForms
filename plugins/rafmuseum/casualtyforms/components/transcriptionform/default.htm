@@ -1,4 +1,4 @@
-{% partial '@imagezoom' %}
+{% partial "@imagezoom" imgSrc=url ~ config.cms.storage.media.path ~ form.filename %}
 
 <form data-request="onSave">
 
@@ -69,6 +69,11 @@
 
     </div>
 
+    <div id="parentPage" class="form-group row" style="display: none">
+        <img class="col-md-6" src="{{ url }}{{ config.cms.storage.media.path }}{{ form.filename }}" />
+        <img class="col-md-6" src="{{ url }}{{ config.cms.storage.media.path }}{{ form.filename }}" />
+    </div>
+
     <div class="row">
         <div class="form-group col-sm-4">
             {% partial 'transcriptionform::datefield'
@@ -107,7 +112,7 @@
     <div class="form-group">
         <input id="additionalPage" type="checkbox" name="additional_page"
             value="1" data-toggle="toggle" data-on="Yes" data-off="No"
-            onchange="$('#additionalHidden').slideToggle()"
+            onchange="$('#additionalHidden, #parentPage').slideToggle()"
             {% if form.additional_page %}checked{% endif %} />
         <label class="m-l" for="additionalPage"data-toggle="tooltip" data-placement="top"
             title="Some of these forms are additional pages, or back-pages, to other forms.
