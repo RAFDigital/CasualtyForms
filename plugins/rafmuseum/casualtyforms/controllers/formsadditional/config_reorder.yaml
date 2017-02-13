@@ -1,0 +1,4 @@
+title: Additional Forms
+modelClass: RafMuseum\CasualtyForms\Models\CasualtyForm
+toolbar:
+    buttons: reorder_toolbar

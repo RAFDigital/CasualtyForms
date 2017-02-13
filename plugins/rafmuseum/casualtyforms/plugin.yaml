@@ -18,6 +18,10 @@ navigation:
                 label: 'Illegible Forms'
                 url: rafmuseum/casualtyforms/formsillegible
                 icon: icon-eye-slash
+            side-menu-item4:
+                label: 'Additional Forms'
+                url: rafmuseum/casualtyforms/formsadditional
+                icon: icon-files-o
             side-menu-item3:
                 label: 'Approved Forms'
                 url: rafmuseum/casualtyforms/formsapproved
