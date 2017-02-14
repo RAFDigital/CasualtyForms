@@ -20,6 +20,6 @@ class FormsAdditional extends Controller
     public function listExtendQuery($query)
     {
         // We just want forms that are additional
-        $query->where('additional_page', true)->get();
+        $query->additional()->get();
     }
 }

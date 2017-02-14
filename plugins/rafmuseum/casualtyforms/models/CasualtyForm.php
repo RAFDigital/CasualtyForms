@@ -100,6 +100,28 @@ class CasualtyForm extends Model
     }
 
     /**
+     * Scope a query to only include forms marked as additional.
+     */
+    public function scopeAdditional($query)
+    {
+        return $query->where('additional_page', true);
+    }
+
+    /**
+     * Scope a query to only include forms marked with illegible fields.
+     */
+    public function scopeIllegible($query)
+    {
+        return $query->where('rank', '?')
+                     ->orWhere('first_names', '?')
+                     ->orWhere('surname', '?')
+                     ->orWhere('regiment_corps', '?')
+                     ->orWhere('report_date_first', '0001-01-01')
+                     ->orWhere('report_date_last', '0001-01-01')
+                     ->orWhere('death_date', '0001-01-01');
+    }
+
+    /**
      * Scope a query to only include approved forms.
      */
     public function scopeApprovedByCompletor($query)

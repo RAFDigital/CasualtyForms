@@ -26,6 +26,6 @@ class FormsApproved extends Controller
     public function listExtendQuery($query)
     {
         // We just want forms with illegible fields here.
-        $query->whereNotNull('approved_by_id')->get();
+        $query->approved()->get();
     }
 }
