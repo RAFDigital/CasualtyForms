@@ -58,11 +58,17 @@ fields:
         label: 'Additional Page'
         span: auto
         type: checkbox
+    parent_page:
+        label: 'Parent Page ID'
+        oc.commentPosition: ''
+        nameFrom: id
+        emptyOption: 'Not a child page'
+        span: auto
+        type: relation
     started_by:
         label: 'Started By'
         oc.commentPosition: ''
         nameFrom: name
-        descriptionFrom: description
         emptyOption: 'Not yet approved'
         span: auto
         type: relation
@@ -70,7 +76,6 @@ fields:
         label: 'Completed By'
         oc.commentPosition: ''
         nameFrom: name
-        descriptionFrom: description
         emptyOption: 'Not yet complete'
         span: auto
         type: relation
@@ -78,7 +83,6 @@ fields:
         label: 'Approved By'
         oc.commentPosition: ''
         nameFrom: name
-        descriptionFrom: description
         emptyOption: 'Not yet approved'
-        span: full
+        span: auto
         type: relation

@@ -48,7 +48,9 @@ class CasualtyForm extends Model
         // `completed_by_id` in table.
         'completed_by' => ['RainLab\User\Models\User', 'table' => 'users'],
         // `approved_by_id` in table.
-        'approved_by' => ['RainLab\User\Models\User', 'table' => 'users']
+        'approved_by' => ['RainLab\User\Models\User', 'table' => 'users'],
+        // `parent_page_id` in table.
+        'parent_page' => ['RafMuseum\CasualtyForms\Models\CasualtyForm', 'table' => 'rafmuseum_casualtyforms_forms'],
     ];
 
     /**
