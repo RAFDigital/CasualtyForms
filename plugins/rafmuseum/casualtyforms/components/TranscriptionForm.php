@@ -139,5 +139,8 @@ class TranscriptionForm extends ComponentBase
 
         // Add js libs for the transcription form component.
         $this->addJs('assets/javascript/transcriptionform.js');
+
+        // This is how you include backend form styles.
+        //$this->addCss('/modules/system/assets/ui/storm.css', 'core');
     }
 }

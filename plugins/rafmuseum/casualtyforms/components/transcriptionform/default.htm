@@ -69,10 +69,15 @@
 
     </div>
 
-    <div id="parentPage" class="form-group row" style="display: none">
-        <img class="col-md-6" src="{{ url }}{{ config.cms.storage.media.path }}{{ form.filename }}" />
-        <img class="col-md-6" src="{{ url }}{{ config.cms.storage.media.path }}{{ form.filename }}" />
-    </div>
+    <!-- <div id="parentPage" class="form-group row" style="display: none">
+        <a href="{{ url ~ config.cms.storage.media.path ~ '/Forms/_1CF0008.jpg' }}" target="_blank" class="col-md-6">
+            <img style="width:100%" src="{{ url ~ config.cms.storage.media.path ~ '/Forms/_1CF0008.jpg' }}"/>
+        </a>
+
+        <a href="{{ url ~ config.cms.storage.media.path ~ '/Forms/_1CF0010.jpg' }}" target="_blank" class="col-md-6">
+            <img style="width:100%" src="{{ url ~ config.cms.storage.media.path ~ '/Forms/_1CF0010.jpg' }}"/>
+        </a>
+    </div> -->
 
     <div class="row">
         <div class="form-group col-sm-4">
@@ -112,7 +117,7 @@
     <div class="form-group">
         <input id="additionalPage" type="checkbox" name="additional_page"
             value="1" data-toggle="toggle" data-on="Yes" data-off="No"
-            onchange="$('#additionalHidden, #parentPage').slideToggle()"
+            onchange="$('#additionalHidden').slideToggle()"
             {% if form.additional_page %}checked{% endif %} />
         <label class="m-l" for="additionalPage"data-toggle="tooltip" data-placement="top"
             title="Some of these forms are additional pages, or back-pages, to other forms.
