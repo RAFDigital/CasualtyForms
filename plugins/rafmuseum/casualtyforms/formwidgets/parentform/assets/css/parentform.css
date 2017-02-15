@@ -5,6 +5,7 @@
 .image-radio {
     width: calc(50% - 2px);
     display: inline-block;
+    text-align: center;
 }
 
 .image-radio img {

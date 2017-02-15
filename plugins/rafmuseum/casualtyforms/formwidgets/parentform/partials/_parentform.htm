@@ -12,19 +12,27 @@
         </p>
 
         <?php foreach($options as $key => $option): ?>
+            <?php if($option): ?>
 
-            <div class="image-radio">
-                <input
-                    name="<?= $name ?>"
-                    value="<?= $option->id ?>"
-                    type="<?= $inputType ?>"
-                    id="image-radio-<?= $key ?>"
-                    <?= $value === $option->id ? 'checked' : '' ?> />
-                <label for="image-radio-<?= $key ?>">
-                    <img src="<?= url() . config('cms.storage.media.path') . $option->filename ?>" />
-                </label>
-            </div>
+                <div class="image-radio">
+                    <input
+                        name="<?= $name ?>"
+                        value="<?= $option->id ?>"
+                        type="<?= $inputType ?>"
+                        id="image-radio-<?= $key ?>"
+                        <?= $value === $option->id ? 'checked' : '' ?> />
+                    <label for="image-radio-<?= $key ?>">
+                        <img src="<?= url() . config('cms.storage.media.path') . $option->filename ?>" />
+                    </label>
+                </div>
 
+            <?php else: ?>
+
+                <div class="image-radio">
+                    No neighbouring form.
+                </div>
+
+            <?php endif; ?>
         <?php endforeach; ?>
 
     <?php else: ?>
