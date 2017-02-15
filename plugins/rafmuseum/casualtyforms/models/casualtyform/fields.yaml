@@ -58,11 +58,11 @@ fields:
         label: 'Additional Page'
         span: auto
         type: checkbox
-    parent_page:
-        label: 'Parent Page ID'
+    parent_form:
+        label: 'Parent Form ID'
         oc.commentPosition: ''
         nameFrom: id
-        emptyOption: 'Not a child page'
+        emptyOption: 'Not a child form'
         span: auto
         type: relation
     started_by:
@@ -86,3 +86,10 @@ fields:
         emptyOption: 'Not yet approved'
         span: auto
         type: relation
+    # parent_page:
+    #     label: 'Record finder'
+    #     oc.commentPosition: ''
+    #     nameFrom: id
+    #     list: $/rafmuseum/casualtyforms/models/casualtyform/columns.yaml
+    #     span: auto
+    #     type: recordfinder

@@ -18,7 +18,7 @@ class TranscriptionForm extends ComponentBase
     public function onRun()
     {
         // Add necessary files for this page.
-        $this->addComponentAssets();
+        $this->addAssets();
 
         // Get the transcription stage ('new' or 'approve').
         $stage = $this->property('stage');
@@ -127,7 +127,7 @@ class TranscriptionForm extends ComponentBase
     /**
      * Adds the css and js files required for the transcription form.
      */
-    protected function addComponentAssets()
+    protected function addAssets()
     {
         // Add the toggle control for this page.
         $this->addCss('assets/vendor/bootstrap-toggle/css/bootstrap-toggle.min.css');
