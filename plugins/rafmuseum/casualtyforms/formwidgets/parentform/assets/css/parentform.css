@@ -15,6 +15,7 @@
 .image-radio label {
     border-radius: 3px;
     border: 1px solid #d1d6d9;
+    margin-bottom: 0;
 }
 
 .image-radio input {
