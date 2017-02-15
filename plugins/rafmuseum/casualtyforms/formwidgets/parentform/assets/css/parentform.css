@@ -1,0 +1,25 @@
+/*
+ * These are the styles used by the ParentForm form widget.
+ */
+
+.image-radio {
+    width: calc(50% - 2px);
+    display: inline-block;
+}
+
+.image-radio img {
+    width: 100%;
+}
+
+.image-radio label {
+    border-radius: 3px;
+    border: 1px solid #d1d6d9;
+}
+
+.image-radio input {
+    display: none;
+}
+
+.image-radio input:checked + label {
+    border: 1px solid #1f99dc;
+}

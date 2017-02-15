@@ -52,3 +52,6 @@ columns:
     additional_page:
         label: 'Additional Page'
         type: switch
+    parent_form_id:
+        label: 'Parent Form ID'
+        type: number

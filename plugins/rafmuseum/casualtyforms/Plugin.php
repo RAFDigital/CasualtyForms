@@ -40,6 +40,16 @@ class Plugin extends PluginBase
         ];
     }
 
+    public function registerFormWidgets()
+    {
+        return [
+            'RafMuseum\CasualtyForms\FormWidgets\ParentForm' => [
+                'label' => 'Parent Form',
+                'code' => 'parentform'
+            ],
+        ];
+    }
+
     public function register()
     {
         // Register global vars for email template.

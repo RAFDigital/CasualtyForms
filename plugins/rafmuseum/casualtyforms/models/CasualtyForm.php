@@ -106,7 +106,8 @@ class CasualtyForm extends Model
      */
     public function scopeAdditional($query)
     {
-        return $query->where('additional_page', true);
+        return $query->where('additional_page', true)
+                     ->whereNull('parent_form_id');
     }
 
     /**

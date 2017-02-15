@@ -1,0 +1,38 @@
+<?php if ($this->previewMode): ?>
+
+    <div class="form-control">
+        <?= $value ?>
+    </div>
+
+<?php else: ?>
+    <?php if($additionalPage): ?>
+
+        <p class="help-block before-field">
+            Select the form which looks like the current form's parent.
+        </p>
+
+        <?php foreach($options as $key => $option): ?>
+
+            <div class="image-radio">
+                <input
+                    name="<?= $name ?>"
+                    value="<?= $option->id ?>"
+                    type="<?= $inputType ?>"
+                    id="image-radio-<?= $key ?>"
+                    <?= $value === $option->id ? 'checked' : '' ?> />
+                <label for="image-radio-<?= $key ?>">
+                    <img src="<?= url() . config('cms.storage.media.path') . $option->filename ?>" />
+                </label>
+            </div>
+
+        <?php endforeach; ?>
+
+    <?php else: ?>
+
+        <p class="help-block">
+            This form is not marked as an "Additional Page" so does not have a parent form.
+        </p>
+
+    <?php endif; ?>
+
+<?php endif ?>
