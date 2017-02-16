@@ -18,6 +18,10 @@
     margin-bottom: 0;
 }
 
+.image-radio label:hover {
+    cursor: pointer;
+}
+
 .image-radio input {
     display: none;
 }
