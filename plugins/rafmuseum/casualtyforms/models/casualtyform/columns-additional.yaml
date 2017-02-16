@@ -1,0 +1,41 @@
+columns:
+    id:
+        label: ID
+        type: number
+        sortable: true
+    report_date_first:
+        label: 'Report Date First'
+        type: date
+    report_date_last:
+        label: 'Report Date Last'
+        type: date
+    death_date:
+        label: 'Date of Death'
+        type: date
+    medical_information:
+        label: 'Medical Information'
+        type: switch
+    started_by:
+        label: 'Started By'
+        type: text
+        select: name
+        relation: started_by
+    completed_by:
+        label: 'Completed By'
+        type: text
+        select: name
+        relation: completed_by
+    approved_by:
+        label: 'Approved By'
+        type: text
+        select: name
+        relation: approved_by
+    filename:
+        label: Filename
+        type: text
+    additional_page:
+        label: 'Additional Page'
+        type: switch
+    parent_form_id:
+        label: 'Parent Form ID'
+        type: number
