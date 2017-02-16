@@ -9,6 +9,9 @@ columns:
         searchable: true
         select: name
         relation: user
+    session_id:
+        label: 'Session ID'
+        type: text
     signin_time:
         label: 'Sign in time'
         type: datetime

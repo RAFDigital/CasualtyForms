@@ -16,15 +16,6 @@ class Page extends ComponentBase
 
     public function onRun()
     {
-        // Assign the project config vars.
-        $this->page['config'] = array(
-            'casualtyforms' => config('casualtyforms'),
-            'cms' => config('cms')
-        );
-
-        // Get some global page vars going.
-        $this->page['url'] = url();
-
         // Get the current user.
         $user = $this->page['user'];
 
@@ -54,5 +45,22 @@ class Page extends ComponentBase
                 }
             }
         }
+
+        $this->prepareVars();
+    }
+
+    /**
+     * Prepares the page vars
+     */
+    public function prepareVars()
+    {
+        // Assign the project config vars.
+        $this->page['config'] = array(
+            'casualtyforms' => config('casualtyforms'),
+            'cms' => config('cms')
+        );
+
+        // Get some global page vars going.
+        $this->page['url'] = url();
     }
 }

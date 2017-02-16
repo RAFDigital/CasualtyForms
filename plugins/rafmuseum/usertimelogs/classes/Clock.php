@@ -21,6 +21,7 @@ class Clock
         // Build the timelog object and save it.
         $timeLog = new UserTimelog();
         $timeLog->user_id = $user['id'];
+        $timeLog->session_id = $_SERVER['HTTP_USER_AGENT']; // This is to check for the login errors.
         $timeLog->save();
 
         // Update the user `last_activity` to now.

@@ -12,7 +12,8 @@ class BuilderTableCreateRafmuseumUsertimelogsLogs extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->integer('user_id');
-            $table->timestamp('signin_time')->nullable(false)->useCurrent();
+            $table->string('session_id')->unique();
+            $table->timestamp('signin_time')->useCurrent();
             $table->timestamp('signout_time')->nullable();
         });
     }
