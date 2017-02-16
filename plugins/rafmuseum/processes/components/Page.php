@@ -20,7 +20,14 @@ class Page extends ComponentBase
         $user = $this->page['user'];
 
         if ($user) {
-            // Get the timeout limit from config.
+            // First check if user is banned.
+            foreach ($user->groups as $group) {
+                if ($group->code == 'banned') {
+                    return Redirect::to('/volunteer/signout/banned');
+                }
+            }
+
+            // Now get the timeout limit from config.
             $timeoutLimit = config('casualtyforms.timeoutLimit');
 
             // Calculate the time since the user's "last seen" date.
@@ -36,13 +43,6 @@ class Page extends ComponentBase
                 // If not, update the last activity to now.
                 $user->last_activity = date("Y-m-d H:i:s");
                 $user->update();
-            }
-
-            // Checked if user is banned.
-            foreach($user->groups as $group) {
-                if ($group->code == 'banned') {
-                    return Redirect::to('/volunteer/signout/banned');
-                }
             }
         }
 

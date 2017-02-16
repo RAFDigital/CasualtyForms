@@ -49,18 +49,13 @@ class Clock
         $activeTimeLog = UserTimeLog::where('user_id', $user['id'])
                          ->whereNull('signout_time')->first();
 
-        if( ! $activeTimeLog) {
-            // Error avoidence, create a new timelog if there is no active one.
-            $activeTimeLog = new UserTimelog();
-            $activeTimeLog->user_id = $user['id'];
-            $activeTimeLog->session_id = 'ERROR RECOVERY: ' . $_SERVER['HTTP_USER_AGENT'];
+        if ($activeTimeLog) {
+            // Update it with logout time (or last activity time if timedout).
+            $activeTimeLog->signout_time = $type
+                ? $user->last_activity
+                : date('Y-m-d H:i:s');
+            $activeTimeLog->save();
         }
-
-        // Update it with logout time (or last activity time if timedout).
-        $activeTimeLog->signout_time = $type
-            ? $user->last_activity
-            : date('Y-m-d H:i:s');
-        $activeTimeLog->save();
 
         // Use session onLogout to logout.
         $session->onLogout();
