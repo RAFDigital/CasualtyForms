@@ -12,6 +12,7 @@ use RainLab\User\Components\Session;
 class CasualtyForm extends Model
 {
     use \October\Rain\Database\Traits\Validation;
+    use \October\Rain\Database\Traits\Nullable;
 
     /*
      * Validation
@@ -37,6 +38,18 @@ class CasualtyForm extends Model
         'approved_by_id'
     ];
 
+    /**
+     * @var array The attributes that are able to be saved as null.
+     */
+    protected $nullable = [
+        'report_date_first',
+        'report_date_last',
+        'death_date'
+    ];
+
+    /**
+     * @var array The attributes that can be stored as a JSON string.
+     */
     protected $jsonable = ['rank'];
 
     /*

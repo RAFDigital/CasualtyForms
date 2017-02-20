@@ -76,7 +76,7 @@ class TranscriptionForm extends ComponentBase
         $casualtyForm = CasualtyForm::find(post('id'));
 
         // Update the values.
-        $casualtyForm->fill(array_filter(post()));
+        $casualtyForm->fill(post());
 
         // Stupid case for the checkbox.
         if (! post('medical_information')) {
