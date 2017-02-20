@@ -500,6 +500,22 @@ body {
   text-align: center;
   width: 600px;
 }
+.search-form {
+  width: 60%;
+  margin: auto;
+  border-top: 1px solid #ffffff;
+  padding: 20px 40px;
+}
+.search-form .form-control,
+.search-form .btn {
+  border-radius: 0;
+  border: 1px solid transparent;
+}
+@media (max-width: 767px) {
+  .search-form {
+    width: 100%;
+  }
+}
 .search-result {
   color: #000000;
   display: block;

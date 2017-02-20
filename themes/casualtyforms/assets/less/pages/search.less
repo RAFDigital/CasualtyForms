@@ -4,6 +4,24 @@
 // Styles specific to the search page
 //
 
+// Input form.
+.search-form {
+    width: 60%;
+    margin: auto;
+    border-top: 1px solid #ffffff;
+    padding: @spacer (@spacer * 2);
+
+    .form-control, .btn {
+        border-radius: 0;
+        border: 1px solid transparent;
+    }
+
+    @media (max-width: @screen-xs-max) {
+      width: 100%;
+    }
+}
+
+// Results
 .search-result {
     color: #000000;
     display: block;
