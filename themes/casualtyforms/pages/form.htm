@@ -14,14 +14,33 @@ notFoundMessage = "Record not found"
     <div class="container">
         {% if record %}
             <h1>{{ record.first_names }} {{ record.surname }}</h1>
+            <p>{{ record.rank|join(', ') }}, {{ record.regiment_corps }}</p>
         {% else %}
-            {{ notFoundMessage }}
+            <h1>{{ notFoundMessage }}</h1>
         {% endif %}
     </div>
 </div>
 
 <div class="container">
     {% if record %}
-        Details
+        <div class="row">
+            <div class="col-md-4">
+                First report: {{ record.report_date_first|date('M d, Y') }}
+            </div>
+
+            <div class="col-md-4">
+                Last report: {{ record.report_date_last|date('M d, Y') }}
+            </div>
+
+            <div class="col-md-4">
+                Date of death: {{ record.death_date|date('M d, Y') }}
+            </div>
+        </div>
+
+        {{ record.parent_form }}
+
+        <img width="100%" src="{{ url ~ config.cms.storage.media.path ~ record.filename }}" />
+    {% else %}
+        <p>Go back <a href="{{ 'home'|page }}">home</a>.</p>
     {% endif %}
 </div>

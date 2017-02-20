@@ -75,6 +75,7 @@ class TranscriptionForm extends ComponentBase
         // Get the right Casualty Form to update.
         $casualtyForm = CasualtyForm::find(post('id'));
 
+trace_log('post data', post());
         // Update the values.
         $casualtyForm->fill(post());
 
