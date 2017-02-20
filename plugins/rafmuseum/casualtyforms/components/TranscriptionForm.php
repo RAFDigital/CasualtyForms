@@ -75,7 +75,6 @@ class TranscriptionForm extends ComponentBase
         // Get the right Casualty Form to update.
         $casualtyForm = CasualtyForm::find(post('id'));
 
-trace_log('post data', post());
         // Update the values.
         $casualtyForm->fill(post());
 
@@ -87,9 +86,9 @@ trace_log('post data', post());
         $formsCompleted = null;
 
         // Now get the number of any forms completed by the user.
-        if (post('completed_by')) {
+        if (post('completed_by_id')) {
             $formsCompleted = CasualtyForm::where(
-                'completed_by_id', post('completed_by')
+                'completed_by_id', post('completed_by_id')
             )->count() + 1; // Add one to include this one.
         }
 
