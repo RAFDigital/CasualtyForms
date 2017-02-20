@@ -13,8 +13,18 @@ notFoundMessage = "Record not found"
 <div class="jumbotron">
     <div class="container">
         {% if record %}
-            <h1>{{ record.first_names }} {{ record.surname }}</h1>
-            <p>{{ record.rank|join(', ') }}, {{ record.regiment_corps }}</p>
+            <h1>
+                {% if record.rank %}
+                    <small>{{ record.rank|join(', ') }}</small><br />
+                {% endif %}
+
+                {{ record.first_names }} {{ record.surname }}
+            </h1>
+
+            {% if record.regiment_corps %}
+                <p>{{ record.regiment_corps }}</p>
+            {% endif %}
+
         {% else %}
             <h1>{{ notFoundMessage }}</h1>
         {% endif %}
@@ -23,6 +33,8 @@ notFoundMessage = "Record not found"
 
 <div class="container">
     {% if record %}
+        <img width="100%" src="{{ url ~ config.cms.storage.media.path ~ record.filename }}" />
+
         <div class="row">
             <div class="col-md-4">
                 First report: {{ record.report_date_first|date('M d, Y') }}
@@ -36,10 +48,6 @@ notFoundMessage = "Record not found"
                 Date of death: {{ record.death_date|date('M d, Y') }}
             </div>
         </div>
-
-        {{ record.parent_form }}
-
-        <img width="100%" src="{{ url ~ config.cms.storage.media.path ~ record.filename }}" />
     {% else %}
         <p>Go back <a href="{{ 'home'|page }}">home</a>.</p>
     {% endif %}
