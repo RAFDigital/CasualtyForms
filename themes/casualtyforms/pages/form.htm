@@ -1,0 +1,27 @@
+title = "Form"
+url = "/form/:id"
+layout = "default"
+is_hidden = 0
+
+[builderDetails]
+modelClass = "RafMuseum\CasualtyForms\Models\CasualtyForm"
+identifierValue = "{{ :id }}"
+modelKeyColumn = "id"
+displayColumn = "first_names"
+notFoundMessage = "Record not found"
+==
+<div class="jumbotron">
+    <div class="container">
+        {% if record %}
+            <h1>{{ record.first_names }} {{ record.surname }}</h1>
+        {% else %}
+            {{ notFoundMessage }}
+        {% endif %}
+    </div>
+</div>
+
+<div class="container">
+    {% if record %}
+        Details
+    {% endif %}
+</div>

@@ -3,17 +3,25 @@
     <div class="row">
         {% for result in results %}
             <div class="col-md-6">
-                <div class="search-result">
-                    <h2>{{ result.first_names }} {{ result.surname }}</h2>
+                <a href="{{ 'form'|page({ id: result.id }) }}" class="search-result">
+                    <h2 class="search-result__header">
+                        {{ result.first_names }} {{ result.surname }}
+                    </h2>
 
-                    {% if result.rank %}
-                        <p>Rank: {{ result.rank|join(', ') }}</p>
-                    {% endif %}
+                    <div class="search-result__details">
+                        {% if result.rank %}
+                            <p>Rank: {{ result.rank|join(', ') }}</p>
+                        {% endif %}
 
-                    {% if result.regiment_corps %}
-                        <p>Reginent: {{ result.regiment_corps }}</p>
-                    {% endif %}
-                </div>
+                        {% if result.regiment_corps %}
+                            <p>Reginent: {{ result.regiment_corps }}</p>
+                        {% endif %}
+                    </div>
+
+                    <div class="search-result__footer">
+                        <p><em>View full record</em></p>
+                    </div>
+                </a>
             </div>
         {% endfor %}
     </div>
