@@ -34,9 +34,22 @@
                         {% endif %}
                     </ul>
                 </li>
+
+                {% if user %}
+                    <li class="dropdown {% if this.page.id == 'account' %}active{% endif %} visible-xs">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="icon-user"></i> {{ user.name }}
+                        </a>
+
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ 'account'|page }}">Account</a></li>
+                            <li><a href="{{ 'signout'|page }}">Sign out</a></li>
+                        </ul>
+                    </li>
+                {% endif %}
             </ul>
 
-            <ul class="nav navbar-nav pull-right">
+            <ul class="nav navbar-nav pull-right hidden-xs">
                 {% if user %}
                     <li class="dropdown {% if this.page.id == 'account' %}active{% endif %}">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -49,7 +62,6 @@
                         </ul>
                     </li>
                 {% endif %}
-
             </ul>
         </div>
     </div>

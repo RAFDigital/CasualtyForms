@@ -1,0 +1,26 @@
+//
+// Animation
+// --------------------------------------------------
+
+.slide-hover {
+    &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 0;
+        width: 100%;
+        transition: height 0.3s 0s;
+        z-index: -1;
+    }
+
+    &:hover:before {
+        height: 100%;
+    }
+
+    &.btn-primary {
+        &:before { background-color: darken(@btn-primary-bg, 10%); }
+        &:hover { background-color: @btn-primary-bg; }
+    }
+}
