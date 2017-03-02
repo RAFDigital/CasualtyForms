@@ -39,3 +39,5 @@ columns:
     parent_form_id:
         label: 'Parent Form ID'
         type: number
+        select: id
+        relation: parent_form

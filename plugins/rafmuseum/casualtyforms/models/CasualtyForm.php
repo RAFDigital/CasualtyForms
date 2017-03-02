@@ -28,6 +28,7 @@ class CasualtyForm extends Model
         'rank',
         'first_names',
         'surname',
+        'birth_date',
         'regiment_corps',
         'report_date_first',
         'report_date_last',
@@ -35,13 +36,16 @@ class CasualtyForm extends Model
         'medical_information',
         'started_by_id',
         'completed_by_id',
-        'approved_by_id'
+        'approved_by_id',
+        'flagged',
+        'flagged_notes'
     ];
 
     /**
      * @var array The attributes that are able to be saved as null.
      */
     protected $nullable = [
+        'birth_date',
         'report_date_first',
         'report_date_last',
         'death_date'
@@ -135,6 +139,14 @@ class CasualtyForm extends Model
                      ->orWhere('report_date_first', '0001-01-01')
                      ->orWhere('report_date_last', '0001-01-01')
                      ->orWhere('death_date', '0001-01-01');
+    }
+
+    /**
+     * Scope a query to only include user flagged forms.
+     */
+    public function scopeFlagged($query)
+    {
+        return $query->where('flagged', true);
     }
 
     /**

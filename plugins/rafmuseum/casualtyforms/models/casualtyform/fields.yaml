@@ -17,6 +17,11 @@ fields:
             Colonel: Colonel
         span: full
         type: checkboxlist
+    regiment_corps:
+        label: Regiment/Corps
+        oc.commentPosition: ''
+        span: full
+        type: text
     first_names:
         label: 'Christian Names'
         oc.commentPosition: ''
@@ -27,11 +32,18 @@ fields:
         oc.commentPosition: ''
         span: auto
         type: text
-    regiment_corps:
-        label: Regiment/Corps
+    birth_date:
+        label: 'Date of Birth'
         oc.commentPosition: ''
-        span: full
-        type: text
+        mode: date
+        span: auto
+        type: datepicker
+    death_date:
+        label: 'Date of Death'
+        oc.commentPosition: ''
+        mode: date
+        span: auto
+        type: datepicker
     report_date_first:
         label: 'Date of First Report'
         oc.commentPosition: ''
@@ -43,12 +55,6 @@ fields:
         oc.commentPosition: ''
         mode: date
         span: auto
-        type: datepicker
-    death_date:
-        label: 'Date of Death'
-        oc.commentPosition: ''
-        mode: date
-        span: full
         type: datepicker
     medical_information:
         label: 'Medical Information'
@@ -85,3 +91,13 @@ fields:
         emptyOption: 'Not yet approved'
         span: auto
         type: relation
+    flagged:
+        label: Flagged
+        span: full
+        type: checkbox
+    flagged_notes:
+        label: 'Flagged Notes'
+        size: ''
+        oc.commentPosition: ''
+        span: full
+        type: textarea

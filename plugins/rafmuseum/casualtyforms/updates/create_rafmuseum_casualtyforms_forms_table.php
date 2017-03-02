@@ -3,7 +3,7 @@
 use Schema;
 use October\Rain\Database\Updates\Migration;
 
-class BuilderTableCreateRafmuseumCasualtyformsForm extends Migration
+class CreateRafmuseumCasualtyformsFormTable extends Migration
 {
     public function up()
     {
@@ -14,6 +14,7 @@ class BuilderTableCreateRafmuseumCasualtyformsForm extends Migration
             $table->string('rank')->nullable();
             $table->string('first_names')->nullable();
             $table->string('surname')->nullable();
+            $table->date('birth_date')->nullable();
             $table->string('regiment_corps')->nullable();
             $table->date('report_date_first')->nullable();
             $table->date('report_date_last')->nullable();
@@ -25,6 +26,8 @@ class BuilderTableCreateRafmuseumCasualtyformsForm extends Migration
             $table->string('filename')->nullable();
             $table->boolean('additional_page')->default(0);
             $table->integer('parent_form_id')->nullable();
+            $table->boolean('flagged')->default(0);
+            $table->text('flagged_notes')->nullable();
             $table->timestamps();
         });
     }

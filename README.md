@@ -1,5 +1,15 @@
 # RAF Museum's Casualty Forms
 
+Casualty Forms is a volunteer transcription platform and consumer front-end. It
+allows for volunteer users to engage in a transcription effort of over 30,000
+medical forms from World War I.
+
+The platform is build on [OctoberCMS](octobercms.com), all volunteer user
+administration and other administrative activities are handled by the OctoberCMS
+"back end". To access the back end, go to `/backend` from your application and
+enter your admin username and password. Admin users are set up by the Superadmin,
+owner, or developer.
+
 ## Installation
 
 ### Core
@@ -8,7 +18,7 @@ First clone the repo.
 
     git clone git@gitlab.com:DannyEdwards/casualty-forms.git
 
-Now cd into the project's directory and install October CMS, then run the php
+Now `cd` into the project's directory and install October CMS, then run the PHP
 installer.
 
     cd casualty-forms/
@@ -22,7 +32,7 @@ in the next stage. Run the set up command, then update and migrate database.
 
 ### Permissions
 
-Set the correct file and directory owner to the apache user (www-data) if
+Set the correct file and directory owner to the apache user (`www-data`) if
 required.
 
     sudo chown -R www-data:[your user] *
@@ -42,6 +52,7 @@ line to the end of the file.
 
 ### Mail
 
-The mail is currently being sent with `sendmail`. Install on the server using your `apt-get` package manager.
+The mail is currently being sent with `sendmail`. Install on the server using
+your `apt-get` package manager.
 
     sudo apt-get install sendmail

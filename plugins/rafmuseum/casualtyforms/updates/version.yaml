@@ -2,4 +2,4 @@
     - 'Initialize plugin.'
 1.0.2:
     - 'Created table rafmuseum_casualtyforms_forms'
-    - builder_table_create_rafmuseum_casualtyforms_forms.php
+    - create_rafmuseum_casualtyforms_forms_table.php
