@@ -16,8 +16,8 @@ class Dashboard extends ComponentBase
 
     public function onRun()
     {
-        // Total progress.
-        $this->page['progress'] = $this->getProgress();
+        // Total progress, send in a `flushcache` get var if present.
+        $this->page['progress'] = $this->getProgress(get('flushcache'));
 
         // Forms approved leaderboard (top 10).
         $this->page['leadApprovals'] = CasualtyForm::approvedByCompletor()
@@ -33,12 +33,12 @@ class Dashboard extends ComponentBase
     /**
      * Get the overview totals for transcriptions.
      */
-    protected function getProgress()
+    protected function getProgress($flushCache = false)
     {
         $progress = array('approved' => 0, 'completed' => 0, 'total' => 0);
 
         // Get all the progress attributes.
-        $progress['total'] = CasualtyForm::countFiles();
+        $progress['total'] = CasualtyForm::countFiles($flushCache);
         $progress['completed'] = CasualtyForm::completed()->count();
         $progress['approved'] = CasualtyForm::approved()->count();
 

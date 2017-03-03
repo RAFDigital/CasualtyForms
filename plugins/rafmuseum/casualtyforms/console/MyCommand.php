@@ -1,5 +1,6 @@
 <?php namespace RafMuseum\CasualtyForms\Console;
 
+use Cache;
 use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
@@ -22,7 +23,9 @@ class MyCommand extends Command
      */
     public function fire()
     {
-        trace_log('rafmuseum:mycommand executing!');
+        echo "rafmuseum:mycommand executing!\n";
+        
+        Cache::flush();
     }
 
     /**
