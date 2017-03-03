@@ -31,14 +31,20 @@
     font-family: sans-serif;
   }
 }
+.btn {
+  transition: all 0.2s;
+}
 .table {
   table-layout: fixed;
 }
 .table tr:first-child td {
   border-top: none;
 }
+.table tr {
+  transition: background-color 0.2s;
+}
 .table tr:hover {
-  background: #f9f9f9;
+  background-color: #f9f9f9;
 }
 .alert {
   margin-bottom: 0;
@@ -58,11 +64,21 @@
   color: transparent;
 }
 .progress {
+  background-color: #eeeeee;
+  box-shadow: none;
   margin-bottom: 0;
 }
+.progress .progress-bar {
+  box-shadow: none;
+}
 .progress-labels {
-  font-size: 20px;
+  font-size: 14px;
   width: 100%;
+}
+@media screen and (min-width: 480px) {
+  .progress-labels {
+    font-size: 20px;
+  }
 }
 [data-toggle="tooltip"] {
   border-bottom: 1px dashed #555555;
@@ -490,7 +506,7 @@
   left: 0;
   height: 0;
   width: 100%;
-  transition: height 0.3s 0s;
+  transition: height 0.2s ease-out;
   z-index: -1;
 }
 .slide-hover:hover:before {
@@ -528,7 +544,6 @@ body {
 }
 .search-form .form-control,
 .search-form .btn {
-  border-radius: 0;
   border: 1px solid transparent;
 }
 @media (max-width: 767px) {

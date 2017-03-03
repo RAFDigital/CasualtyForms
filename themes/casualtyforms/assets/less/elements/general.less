@@ -2,6 +2,11 @@
 // General page elements
 // --------------------------------------------------
 
+// Buttons
+.btn {
+    transition: all @transition-speed-base;
+}
+
 // Tables
 .table {
     table-layout: fixed;
@@ -10,8 +15,12 @@
         border-top: none;
     }
 
+    tr {
+        transition: background-color @transition-speed-base;
+    }
+
     tr:hover {
-        background: @gray-lightest;
+        background-color: @gray-lightest;
     }
 }
 
@@ -31,12 +40,22 @@
 
 // Progress bar and labels
 .progress {
+    background-color: @gray-lighter;
+    box-shadow: none;
     margin-bottom: 0;
+
+    .progress-bar {
+        box-shadow: none;
+    }
 }
 
 .progress-labels {
-    font-size: @font-size-large;
+    font-size: @font-size-small;
     width: 100%;
+
+    @media screen and (min-width: @screen-xs-min) {
+        font-size: @font-size-large;;
+    }
 }
 
 // Icons
