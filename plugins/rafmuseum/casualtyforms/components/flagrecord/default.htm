@@ -1,0 +1,36 @@
+<div id="flagRecordComponent" class="flag-record">
+
+    <a href="javascript:;" class="btn pull-right"
+       onclick="$('#flagRecordForm').slideToggle()">
+       <i class="icon-flag"></i>
+    </a>
+
+    <div id="flagRecordForm" class="flag-record__form clearfix" style="display: none">
+        {{ form_ajax('onFlagRecord') }}
+            <hr />
+
+            <h3>Flag this record</h3>
+
+            <p>
+                If you notice something wrong about this record, help us by
+                flagging it for the attention of the staff. Issues may include
+                typing errors, incorrect transcriptions, or technical issues.
+            </p>
+
+            <div class="form-group">
+                <label for="flaggedNotes">Explain why you think this record needs attention:</label>
+                <textarea name="flagged_notes" class="form-control" id="flaggedNotes" required></textarea>
+                <input type="hidden" name="flagged" value="1" />
+            </div>
+
+            <button type="submit" class="btn btn-danger">
+                Flag Record
+            </button>
+
+            <a href="javascript:;" onclick="$('#flagRecordForm').slideToggle()">
+                Close
+            </a>
+        {{ form_close() }}
+    </div>
+
+</div>

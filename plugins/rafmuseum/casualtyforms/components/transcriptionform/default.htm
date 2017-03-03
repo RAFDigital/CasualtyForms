@@ -7,7 +7,7 @@
             onchange="$('#childHidden').slideToggle()"
             {% if form.child_form %}checked{% endif %} />
         <label class="m-l" data-toggle="tooltip" data-placement="right"
-            title="Checking this box marks this page as a `child_form` of another.">
+            title="Checking this box marks this page as a 'child form' of another.">
             Does this form contain name data?
         </label>
     </div>
@@ -59,7 +59,7 @@
         </div>
 
         <div class="form-group">
-            {% partial 'transcriptionform::textfield'
+            {% partial '@textfield'
                 id="casualtyRegimentCorps"
                 name="regiment_corps"
                 label="Regiment/Corps"
@@ -68,7 +68,7 @@
 
         <div class="row">
             <div class="form-group col-sm-4">
-                {% partial 'transcriptionform::textfield'
+                {% partial '@textfield'
                     id="casualtyFnames"
                     name="first_names"
                     label="Christian names"
@@ -76,7 +76,7 @@
             </div>
 
             <div class="form-group col-sm-4">
-                {% partial 'transcriptionform::textfield'
+                {% partial '@textfield'
                     id="casualtySurname"
                     name="surname"
                     label="Surname"
@@ -84,7 +84,7 @@
             </div>
 
             <div class="form-group col-sm-4">
-                {% partial 'transcriptionform::datefield'
+                {% partial '@datefield'
                     id="casualtyBirthDate"
                     name="birth_date"
                     label="Date of birth"
@@ -106,7 +106,7 @@
 
     <div class="row">
         <div class="form-group col-sm-4">
-            {% partial 'transcriptionform::datefield'
+            {% partial '@datefield'
                 id="casualtyReportDateFirst"
                 name="report_date_first"
                 label="Date of first report"
@@ -114,7 +114,7 @@
         </div>
 
         <div class="form-group col-sm-4">
-            {% partial 'transcriptionform::datefield'
+            {% partial '@datefield'
                 id="casualtyReportDateLast"
                 name="report_date_last"
                 label="Date of last report"
@@ -122,7 +122,7 @@
         </div>
 
         <div class="form-group col-sm-4">
-            {% partial 'transcriptionform::datefield'
+            {% partial '@datefield'
                 id="casualtyDeathDate"
                 name="death_date"
                 label="Date of death"

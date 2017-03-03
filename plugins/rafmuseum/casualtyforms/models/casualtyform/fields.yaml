@@ -58,11 +58,11 @@ fields:
         type: datepicker
     medical_information:
         label: 'Medical Information'
-        span: auto
+        span: full
         type: checkbox
     child_form:
         label: 'Child Form'
-        span: auto
+        span: full
         type: checkbox
     parent_form:
         label: 'Parent Form'

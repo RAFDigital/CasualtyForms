@@ -7,7 +7,7 @@ is_hidden = 0
 security = "user"
 redirect = "account"
 
-[transcriptionform]
+[transcriptionForm]
 stage = "{{ :stage }}"
 ==
 <div class="jumbotron">
@@ -24,7 +24,7 @@ stage = "{{ :stage }}"
 
 <div class="container">
     {% if form %}
-        {% component 'transcriptionform' %}
+        {% component 'transcriptionForm' %}
     {% else %}
         There are no forms queued for approval at the moment, feel free to go
         and <a href="{{ 'transcribe'|page({ stage: 'new' }) }}">transcribe</a> some new ones.
