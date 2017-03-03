@@ -23,8 +23,8 @@ navigation:
                 url: rafmuseum/casualtyforms/formsflagged
                 icon: icon-flag
             side-menu-item4:
-                label: 'Additional Forms'
-                url: rafmuseum/casualtyforms/formsadditional
+                label: 'Child Forms'
+                url: rafmuseum/casualtyforms/formschildren
                 icon: icon-files-o
             side-menu-item3:
                 label: 'Approved Forms'

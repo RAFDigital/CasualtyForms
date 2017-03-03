@@ -1,6 +1,6 @@
-list: $/rafmuseum/casualtyforms/models/casualtyform/columns-additional.yaml
+list: $/rafmuseum/casualtyforms/models/casualtyform/columns-children.yaml
 modelClass: RafMuseum\CasualtyForms\Models\CasualtyForm
-title: Additional Forms
+title: Child Forms
 noRecordsMessage: 'backend::lang.list.no_records'
 showSetup: true
 showCheckboxes: true
@@ -8,4 +8,4 @@ toolbar:
     buttons: list_toolbar
     search:
         prompt: 'backend::lang.list.search_prompt'
-recordUrl: 'rafmuseum/casualtyforms/formsadditional/update/:id'
+recordUrl: 'rafmuseum/casualtyforms/formschildren/update/:id'

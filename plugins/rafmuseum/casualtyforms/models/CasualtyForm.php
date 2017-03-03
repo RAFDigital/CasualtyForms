@@ -21,7 +21,7 @@ class CasualtyForm extends Model
     ];
 
     /**
-     * @var array The attributes that are mass assignable.
+     * @var array The attributes that are mass assignable (in the front end).
      */
     protected $fillable = [
         'id',
@@ -37,6 +37,7 @@ class CasualtyForm extends Model
         'started_by_id',
         'completed_by_id',
         'approved_by_id',
+        'child_form',
         'flagged',
         'flagged_notes'
     ];
@@ -119,11 +120,11 @@ class CasualtyForm extends Model
     }
 
     /**
-     * Scope a query to only include forms marked as additional.
+     * Scope a query to only include forms marked as child forms.
      */
-    public function scopeAdditional($query)
+    public function scopeChildren($query)
     {
-        return $query->where('additional_page', true)
+        return $query->where('child_form', true)
                      ->whereNull('parent_form_id');
     }
 

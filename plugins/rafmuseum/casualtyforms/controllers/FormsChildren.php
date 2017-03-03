@@ -3,7 +3,7 @@
 use Backend\Classes\Controller;
 use BackendMenu;
 
-class FormsAdditional extends Controller
+class FormsChildren extends Controller
 {
     public $implement = ['Backend\Behaviors\ListController','Backend\Behaviors\FormController','Backend\Behaviors\ReorderController'];
 
@@ -19,7 +19,7 @@ class FormsAdditional extends Controller
 
     public function listExtendQuery($query)
     {
-        // We just want forms that are additional
-        $query->additional()->get();
+        // We just want forms that are children
+        $query->children()->get();
     }
 }

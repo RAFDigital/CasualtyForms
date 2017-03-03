@@ -1,4 +1,4 @@
-title: Additional Forms
+title: Child Forms
 modelClass: RafMuseum\CasualtyForms\Models\CasualtyForm
 toolbar:
     buttons: reorder_toolbar

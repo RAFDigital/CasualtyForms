@@ -5,7 +5,7 @@
     </div>
 
 <?php else: ?>
-    <?php if($additionalPage): ?>
+    <?php if($childForm): ?>
 
         <p class="help-block before-field">
             Select the form which looks like the current form's parent.
@@ -38,7 +38,7 @@
     <?php else: ?>
 
         <p class="help-block">
-            This form is not marked as an "Additional Page" so does not have a parent form.
+            This form is not marked as a "Child Form" so does not have a parent form.
         </p>
 
     <?php endif; ?>

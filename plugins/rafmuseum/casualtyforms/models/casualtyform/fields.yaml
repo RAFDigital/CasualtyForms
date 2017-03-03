@@ -60,8 +60,8 @@ fields:
         label: 'Medical Information'
         span: auto
         type: checkbox
-    additional_page:
-        label: 'Additional Page'
+    child_form:
+        label: 'Child Form'
         span: auto
         type: checkbox
     parent_form:

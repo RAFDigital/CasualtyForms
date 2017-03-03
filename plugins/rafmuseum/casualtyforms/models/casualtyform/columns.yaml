@@ -53,8 +53,8 @@ columns:
     filename:
         label: Filename
         type: text
-    additional_page:
-        label: 'Additional Page'
+    child_form:
+        label: 'Child Form'
         type: switch
     parent_form_id:
         label: 'Parent Form ID'

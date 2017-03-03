@@ -70,7 +70,7 @@ class ParentForm extends FormWidgetBase
         $this->vars['name'] = $this->formField->getName();
         $this->vars['value'] = $this->getLoadValue();
         $this->vars['model'] = $this->model;
-        $this->vars['additionalPage'] = $this->model->additional_page;
+        $this->vars['childForm'] = $this->model->child_form;
         $this->vars['options'] = $this->getOptions();
     }
 

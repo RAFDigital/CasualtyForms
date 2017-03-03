@@ -1,8 +1,20 @@
-{% partial "@imagezoom" imgSrc=url ~ config.cms.storage.media.path ~ form.filename %}
-
 <form data-request="onSave">
 
-    <div id="additionalHidden" {% if form.additional_page %}style="display: none"{% endif %}>
+    <div class="form-group">
+        <input id="childForm" type="checkbox" name="child_form"
+            value="1" data-toggle="toggle" data-on="No" data-off="Yes"
+            data-onstyle="danger"
+            onchange="$('#childHidden').slideToggle()"
+            {% if form.child_form %}checked{% endif %} />
+        <label class="m-l" data-toggle="tooltip" data-placement="right"
+            title="Checking this box marks this page as a `child_form` of another.">
+            Does this form contain name data?
+        </label>
+    </div>
+
+    {% partial "@imagezoom" imgSrc=url ~ config.cms.storage.media.path ~ form.filename %}
+
+    <div id="childHidden" {% if form.child_form %}style="display: none"{% endif %}>
 
         <div class="form-group">
             <label for="casualtyRank">Rank</label>
@@ -10,35 +22,40 @@
             <div class="checkbox">
                 <label class="checkbox-inline">
                     <input type="checkbox" name="rank[]" value="2nd Lieut."
-                        {% if "2nd Lieut." in form.rank %}checked{% endif %} />2nd Lieut.
+                        {% if "2nd Lieut." in form.rank %}checked{% endif %} />
+                        2nd Lieut.
                 </label>
 
                 <label class="checkbox-inline">
                     <input type="checkbox" name="rank[]" value="Lieut."
-                        {% if "Lieut." in form.rank %}checked{% endif %} />Lieut.
+                        {% if "Lieut." in form.rank %}checked{% endif %} />
+                        Lieut.
                 </label>
 
                 <label class="checkbox-inline">
                     <input type="checkbox" name="rank[]" value="Captain"
-                        {% if "Captain" in form.rank %}checked{% endif %} />Captain
+                        {% if "Captain" in form.rank %}checked{% endif %} />
+                        Captain
                 </label>
 
                 <label class="checkbox-inline">
                     <input type="checkbox" name="rank[]" value="Major"
-                        {% if "Major" in form.rank %}checked{% endif %} />Major
+                        {% if "Major" in form.rank %}checked{% endif %} />
+                        Major
                 </label>
 
                 <label class="checkbox-inline">
                     <input type="checkbox" name="rank[]" value="Lt.-Col."
-                        {% if "Lt.-Col." in form.rank %}checked{% endif %} />Lt.-Col.
+                        {% if "Lt.-Col." in form.rank %}checked{% endif %} />
+                        Lt.-Col.
                 </label>
 
                 <label class="checkbox-inline">
                     <input type="checkbox" name="rank[]" value="Colonel"
-                        {% if "Colonel" in form.rank %}checked{% endif %} />Colonel
+                        {% if "Colonel" in form.rank %}checked{% endif %} />
+                        Colonel
                 </label>
             </div>
-
         </div>
 
         <div class="form-group">
@@ -50,7 +67,7 @@
         </div>
 
         <div class="row">
-            <div class="form-group col-sm-8">
+            <div class="form-group col-sm-4">
                 {% partial 'transcriptionform::textfield'
                     id="casualtyFnames"
                     name="first_names"
@@ -64,6 +81,14 @@
                     name="surname"
                     label="Surname"
                     recordValue=form.surname %}
+            </div>
+
+            <div class="form-group col-sm-4">
+                {% partial 'transcriptionform::datefield'
+                    id="casualtyBirthDate"
+                    name="birth_date"
+                    label="Date of birth"
+                    recordValue=form.birth_date %}
             </div>
         </div>
 
@@ -111,18 +136,6 @@
             {% if form.medical_information %}checked{% endif %} />
         <label class="m-l" for="medicalInfo">
             Is there any additional medical information on the form?
-        </label>
-    </div>
-
-    <div class="form-group">
-        <input id="additionalPage" type="checkbox" name="additional_page"
-            value="1" data-toggle="toggle" data-on="Yes" data-off="No"
-            onchange="$('#additionalHidden').slideToggle()"
-            {% if form.additional_page %}checked{% endif %} />
-        <label class="m-l" for="additionalPage"data-toggle="tooltip" data-placement="top"
-            title="Some of these forms are additional pages, or back-pages, to other forms.
-            Check this box if the form looks like it's an addition to a previous form.">
-            Is this an additional page?
         </label>
     </div>
 
