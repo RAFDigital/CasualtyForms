@@ -78,11 +78,6 @@ class TranscriptionForm extends ComponentBase
         // Update the values.
         $casualtyForm->fill(post());
 
-        // Stupid case for the checkbox.
-        if (! post('medical_information')) {
-            $casualtyForm['medical_information'] = 0;
-        }
-
         $formsCompleted = null;
 
         // Now get the number of any forms completed by the user.
@@ -95,7 +90,11 @@ class TranscriptionForm extends ComponentBase
         // Update model.
         $casualtyForm->update();
 
-        Flash::success('Form transcribed.');
+        // Appropriate flash message.
+        $this->property('stage') == 'new' ?
+            Flash::success('Form transcribed.') :
+            Flash::success('Form approved.');
+
 
         if (in_array($formsCompleted, array_keys(config('casualtyforms.surveys')))) {
             // Redirect to survey page if based on config settings.
