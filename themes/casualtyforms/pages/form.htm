@@ -54,7 +54,7 @@ identifierValue = "{{ :id }}"
             </tr>
             <tr>
                 <td>Date of birth</td>
-                <td>{{ record.birth_date|date('M d, Y') }}</td>
+                <td>{{ record.birth_date is empty ? '' : record.birth_date|date('M d, Y') }}</td>
             </tr>
             <tr>
                 <td>Rank</td><td>{{ record.rank|join(', ') }}</td>
@@ -64,15 +64,15 @@ identifierValue = "{{ :id }}"
             </tr>
             <tr>
                 <td>Date of first report</td>
-                <td>{{ record.report_date_first|date('M d, Y') }}</td>
+                <td>{{ record.report_date_first is empty ? '' : record.report_date_first|date('M d, Y') }}</td>
             </tr>
             <tr>
                 <td>Date of last report</td>
-                <td>{{ record.report_date_last|date('M d, Y') }}</td>
+                <td>{{ record.report_date_last is empty ? '' : record.report_date_last|date('M d, Y') }}</td>
             </tr>
             <tr>
                 <td>Date of death</td>
-                <td>{{ record.death_date|date('M d, Y') }}</td>
+                <td>{{ record.death_date is empty ? '' : record.death_date|date('M d, Y') }}</td>
             </tr>
         </table>
 
