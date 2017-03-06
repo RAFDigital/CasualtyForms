@@ -1,11 +1,10 @@
 <div id="flagRecordComponent" class="flag-record">
 
-    <a href="javascript:;" class="btn pull-right"
-       onclick="$('#flagRecordForm').slideToggle()">
+    <a href="#flagRecordForm" class="btn pull-right" data-toggle="collapse">
        <i class="icon-flag"></i>
     </a>
 
-    <div id="flagRecordForm" class="flag-record__form clearfix" style="display: none">
+    <div id="flagRecordForm" class="flag-record__form collapse clearfix">
         {{ form_ajax('onFlagRecord') }}
             <hr />
 
@@ -27,7 +26,7 @@
                 Flag Record
             </button>
 
-            <a href="javascript:;" onclick="$('#flagRecordForm').slideToggle()">
+            <a href="#flagRecordForm" data-toggle="collapse">
                 Close
             </a>
         {{ form_close() }}

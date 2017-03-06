@@ -10,13 +10,36 @@
 
 // Brands
 // --------------------------------------------------
-@brand-primary: #3097d1;
-@brand-success: #4eb76e;
-@brand-info:    #8eb4cb;
-@brand-warning: #cbb956;
-@brand-danger:  #bf5329;
+
+/*
+RAF Colour reference:
+Muted roundel blue: 425871
+Muted roundel red: c83322
+Flag blue: 00247d
+Flag red: cf142b
+Flag light blue: 6399ab
+*/
+
+@brand-primary: #6399ab; // RAF Flag light blue *
+@brand-success: #6EC38B;
+@brand-info:    #717EB8;
+@brand-warning: #E5BE61;
+@brand-danger:  #c83322; // Red from muted roundel
 
 @gray-lightest: lighten(@gray-base, 97.5%);
+
+// States and alerts
+@state-success-bg:     @brand-success;
+@state-success-border: @btn-success-border;
+
+@state-info-bg:        @brand-info;
+@state-info-border:    @btn-info-border;
+
+@state-warning-bg:     @brand-warning;
+@state-warning-border: @btn-warning-border;
+
+@state-danger-bg:      @brand-danger;
+@state-danger-border:  @btn-danger-border;
 
 // Typography
 // --------------------------------------------------
@@ -50,7 +73,7 @@
 @navbar-inverse-link-color: rgba(255,255,255,0.6);
 
 @navbar-link-stripe-color-active: #000;
-@navbar-link-stripe-color-hover: #ce1126;
+@navbar-link-stripe-color-hover: @brand-primary;
 
 // Callouts
 // --------------------------------------------------

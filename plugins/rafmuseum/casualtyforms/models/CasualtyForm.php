@@ -59,16 +59,19 @@ class CasualtyForm extends Model
 
     /*
      * Relationships
+     * These assume the foreign key is the relationship name affixed by `_id`.
+     * For example, the `started_by` relationship is referenced by the
+     * `started_by_id` column in the table.
      */
     public $belongsTo = [
-        // `started_by_id` in table.
-        'started_by' => ['RainLab\User\Models\User', 'table' => 'users'],
-        // `completed_by_id` in table.
-        'completed_by' => ['RainLab\User\Models\User', 'table' => 'users'],
-        // `approved_by_id` in table.
-        'approved_by' => ['RainLab\User\Models\User', 'table' => 'users'],
-        // `parent_form_id` in table.
-        'parent_form' => ['RafMuseum\CasualtyForms\Models\CasualtyForm', 'table' => 'rafmuseum_casualtyforms_forms'],
+        'started_by' => 'RainLab\User\Models\User',
+        'completed_by' => 'RainLab\User\Models\User',
+        'approved_by' => 'RainLab\User\Models\User',
+        'parent_form' => 'RafMuseum\CasualtyForms\Models\CasualtyForm',
+    ];
+
+    public $hasMany = [
+        'child_forms' => ['RafMuseum\CasualtyForms\Models\CasualtyForm', 'key' => 'parent_form_id']
     ];
 
     /**

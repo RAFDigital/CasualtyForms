@@ -48,3 +48,33 @@
         color: @callout-success-text;
     }
 }
+
+// Alerts
+.alert {
+    color: #fff;
+}
+
+// Flash messages
+body > p.flash-message {
+    border-radius: @border-radius-base !important;
+
+    &.success {
+        background: @brand-success !important;
+        border: 1px  solid @btn-success-border;
+    }
+
+    &.info {
+        background: @brand-info !important;
+        border: 1px  solid @btn-info-border;
+    }
+
+    &.warning {
+        background: @brand-warning !important;
+        border: 1px  solid @btn-warning-border;
+    }
+
+    &.error, &.danger {
+        background: @brand-danger !important;
+        border: 1px  solid @btn-danger-border;
+    }
+}

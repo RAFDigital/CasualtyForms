@@ -38,14 +38,45 @@ identifierValue = "{{ :id }}"
     {% if record %}
         {% partial 'casualtyforms/social' %}
 
-        <img width="100%" src="{{ url ~ config.cms.storage.media.path ~ record.filename }}" />
+        <div>
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane fade in active" id="parent-form">
+                    <img width="100%" src="{{ url ~ config.cms.storage.media.path ~ record.filename }}" />
+                </div>
+
+                {% for child_form in record.child_forms %}
+                    <div role="tabpanel" class="tab-pane fade" id="child-form-{{ child_form.id }}">
+                        <img width="100%" src="{{ url ~ config.cms.storage.media.path ~ child_form.filename }}" />
+                    </div>
+                {% endfor %}
+            </div>
+
+            <!-- Nav tabs -->
+            <ul class="nav nav-pills nav-pills--forms" role="tablist">
+                {% for key, child_form in record.child_forms %}
+                    {% if key == 0 %}
+                        <li role="presentation" class="active">
+                            <a href="#parent-form" class="" aria-controls="parent-form" role="tab" data-toggle="tab">
+                                Name form
+                            </a>
+                        </li>
+                    {% endif %}
+
+                    <li role="presentation">
+                        <a href="#child-form-{{ child_form.id }}" aria-controls="child-form-{{ child_form.id }}" role="tab" data-toggle="tab">
+                            Additional form {{ key + 1 }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
 
         <h2>All record data</h2>
 
         <table class="table">
-            <tr>
-                <th>Field</th><th>Value</th>
-            </tr>
+            <tr><th>Field</th><th>Value</th></tr>
+
             <tr>
                 <td>Christian names</td><td>{{ record.first_names }}</td>
             </tr>
@@ -74,6 +105,23 @@ identifierValue = "{{ :id }}"
                 <td>Date of death</td>
                 <td>{{ record.death_date is empty ? '' : record.death_date|date('M d, Y') }}</td>
             </tr>
+
+            {% for key, child_form in record.child_forms %}
+                <tr><th colspan="2">Additional form {{ key + 1 }}</th></tr>
+
+                <tr>
+                    <td>Date of first report</td>
+                    <td>{{ child_form.report_date_first is empty ? '' : child_form.report_date_first|date('M d, Y') }}</td>
+                </tr>
+                <tr>
+                    <td>Date of last report</td>
+                    <td>{{ child_form.report_date_last is empty ? '' : child_form.report_date_last|date('M d, Y') }}</td>
+                </tr>
+                <tr>
+                    <td>Date of death</td>
+                    <td>{{ child_form.death_date is empty ? '' : child_form.death_date|date('M d, Y') }}</td>
+                </tr>
+            {% endfor %}
         </table>
 
         {% if record.flagged %}
