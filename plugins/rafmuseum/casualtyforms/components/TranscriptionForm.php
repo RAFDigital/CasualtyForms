@@ -129,10 +129,6 @@ class TranscriptionForm extends ComponentBase
         $this->addCss('assets/vendor/bootstrap-toggle/css/bootstrap-toggle.min.css');
         $this->addJs('assets/vendor/bootstrap-toggle/js/bootstrap-toggle.min.js');
 
-        // Add the datepicker.
-        $this->addCss('assets/vendor/bootstrap-datepicker/css/bootstrap-datepicker3.css');
-        $this->addJs('assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js');
-
         // Add js libs for the transcription form component.
         $this->addJs('assets/javascript/transcriptionform.js');
 

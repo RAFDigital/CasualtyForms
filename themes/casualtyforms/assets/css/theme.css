@@ -608,14 +608,26 @@ body {
   color: #cccccc;
 }
 .jumbotron-home {
-  height: 92vh;
+  height: 93vh;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/rfc_6.jpg');
   background-position: left;
+  margin-bottom: 0;
 }
 .jumbotron-home .container {
   margin-top: 50px;
   text-align: center;
   width: 600px;
+}
+.jumbotron-home h1 {
+  margin-top: 12.5px;
+}
+.advanced-link,
+.advanced-link:hover {
+  color: #fff;
+}
+.rfc-flag-icon {
+  height: 2em;
+  margin: 0 20px;
 }
 .search-form {
   width: 60%;
@@ -627,9 +639,63 @@ body {
 .search-form .btn {
   border: 1px solid transparent;
 }
-@media (max-width: 767px) {
+@media (max-width: 480px) {
   .search-form {
     width: 100%;
+  }
+}
+.search-form--personnel,
+.search-form--regiment-corps {
+  border-top: 0;
+  padding: 0 20px 20px;
+}
+.search-form--personnel .input-group,
+.search-form--regiment-corps .input-group {
+  margin-bottom: 10px;
+  width: 100%;
+}
+.advanced-search {
+  position: relative;
+}
+.advanced-search__or {
+  background: #6399ab;
+  border-radius: 100%;
+  color: #fff;
+  font-size: 20px;
+  position: absolute;
+  left: 50%;
+  padding: 0.5em 0.9em;
+  margin: -1.3em 0 0 -1.3em;
+  z-index: 1;
+}
+@media (min-width: 767px) {
+  .advanced-search__or {
+    top: 50%;
+  }
+}
+.advanced-search__personnel,
+.advanced-search__regiment-corps {
+  color: #fff;
+  text-align: center;
+  padding: 40px 0;
+}
+.advanced-search__personnel h2,
+.advanced-search__regiment-corps h2 {
+  color: #fff;
+}
+.advanced-search__personnel {
+  background: linear-gradient(rgba(51, 79, 88, 0.6), rgba(51, 79, 88, 0.6)), url('../images/rfc_1.jpg') no-repeat top;
+  background-size: cover;
+}
+.advanced-search__regiment-corps {
+  background: linear-gradient(rgba(51, 79, 88, 0.6), rgba(51, 79, 88, 0.6)), url('../images/rfc_4.jpg') no-repeat top;
+  background-size: cover;
+}
+@media (min-width: 767px) {
+  .advanced-search__regiment-corps {
+    position: absolute;
+    left: 50%;
+    height: 100%;
   }
 }
 .search-result {

@@ -3,9 +3,6 @@
  * All the scripts for the transcription form component.
  */
 jQuery(document).ready(function($) {
-    // Initialise the bootstrap components.
-    $('input[type="datepicker"]').datepicker({ format: "yyyy-mm-dd" });
-
     // This one needs to be done when all images are loaded.
     window.onload = function() {
         // Instantiate the image zooms.

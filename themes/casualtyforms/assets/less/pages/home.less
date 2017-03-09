@@ -1,0 +1,113 @@
+//
+// Home
+//
+// Styles specific to the home page
+//
+
+// Jumbotron
+.jumbotron-home {
+    height: 93vh;
+    background-image: @jumbotron-overlay, url('../images/rfc_6.jpg');
+    background-position: left;
+    margin-bottom: 0;
+
+    .container {
+        margin-top: 50px;
+        text-align: center;
+        width: 600px;
+    }
+
+    h1 {
+        margin-top: (@line-height-computed / 2);
+    }
+}
+
+.advanced-link, .advanced-link:hover {
+    color: #fff;
+}
+
+// Flag icon
+.rfc-flag-icon {
+    height: 2em;
+    margin: 0 @spacer;
+}
+
+// Input form
+.search-form {
+    width: 60%;
+    margin: auto;
+    border-top: 1px solid #ffffff;
+    padding: @spacer (@spacer * 2);
+
+    .form-control, .btn {
+        border: 1px solid transparent;
+    }
+
+    @media (max-width: @screen-xs) {
+      width: 100%;
+    }
+
+    &--personnel, &--regiment-corps {
+        border-top: 0;
+        padding: 0 @spacer @spacer;
+
+        .input-group {
+            margin-bottom: (@spacer / 2);
+            width: 100%;
+        }
+    }
+}
+
+// Advanced search section
+@advanced-search-overlay-opacity: 0.6;
+@advanced-search-overlay: linear-gradient(
+    rgba(51, 79, 88, @advanced-search-overlay-opacity),
+    rgba(51, 79, 88, @advanced-search-overlay-opacity)
+); // 99, 153, 171
+
+
+.advanced-search {
+    position: relative;
+
+    &__or {
+        background: @brand-primary;
+        border-radius: 100%;
+        color: #fff;
+        font-size: @font-size-large;
+        position: absolute;
+        left: 50%;
+        padding: 0.5em 0.9em;
+        margin: -1.3em 0 0 -1.3em;
+        z-index: 1;
+
+        @media (min-width: @screen-xs-max) {
+            top: 50%;
+        }
+    }
+
+    &__personnel, &__regiment-corps {
+        color: #fff;
+        text-align: center;
+        padding: (@spacer * 2) 0;
+
+        h2 {
+            color: #fff;
+        }
+    }
+
+    &__personnel {
+        background: @advanced-search-overlay, url('../images/rfc_1.jpg') no-repeat top;
+        background-size: cover;
+    }
+
+    &__regiment-corps {
+        background: @advanced-search-overlay, url('../images/rfc_4.jpg') no-repeat top;
+        background-size: cover;
+
+        @media (min-width: @screen-xs-max) {
+            position: absolute;
+            left: 50%;
+            height: 100%;
+        }
+    }
+}

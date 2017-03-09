@@ -5,10 +5,33 @@ is_hidden = 0
 ==
 <div class="jumbotron jumbotron-home">
     <div class="container">
+        <small>1912 <img class="rfc-flag-icon" src="{{ 'assets/images/rfc-flag.png'|theme }}" />2017</small>
         <h1>Casualty Forms</h1>
         <p>Of the Royal Flying Corps</p>
 
         {% partial 'casualtyforms/search-form' %}
+
+        <a class="advanced-link" href="#advanced-search">Go to advanced search</a>
+    </div>
+</div>
+
+<div id="advanced-search" class="container-fluid advanced-search">
+    <div class="row">
+        <div class="col-sm-6 clearfix advanced-search__personnel">
+            <h2><small>Search for</small><br />Personnel</h2>
+
+            {% partial 'casualtyforms/search-form' type='personnel' %}
+        </div>
+
+        <div class="advanced-search__or">
+            <i>or</i>
+        </div>
+
+        <div class="col-sm-6 clearfix advanced-search__regiment-corps">
+            <h2><small>Search by</small><br />Regiment/Corps</h2>
+
+            {% partial 'casualtyforms/search-form' type='regiment-corps' %}
+        </div>
     </div>
 </div>
 

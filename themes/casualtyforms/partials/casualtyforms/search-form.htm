@@ -1,11 +1,52 @@
-<form action="search" class="search-form">
-    <div class="input-group">
-        <input class="form-control" type="text" name="surname" placeholder="Search for a surname here." />
+<form action="search" class="search-form {{ type ? 'search-form--' ~ type : '' }}">
+    {% if type == 'personnel' %}
 
-        <div class="input-group-btn">
-            <button type="submit" class="btn btn-primary">
-                <i class="icon-search"></i>
+        <div class="input-group">
+            <input class="form-control" type="text" name="first_names"
+                placeholder="Enter christian names." />
+        </div>
+
+        <div class="input-group">
+            <input class="form-control" type="text" name="surname"
+                placeholder="Enter surname." />
+        </div>
+
+        <div class="input-group">
+            <input class="form-control" type="datepicker" name="birth_date"
+                data-date-end-date="1950-01-31" placeholder="Enter date of birth." />
+        </div>
+
+        <div class="input-group">
+            <button type="submit" class="btn btn-primary pull-right">
+                <i class="icon-search"></i> Search
             </button>
         </div>
-    </div>
+
+    {% elseif type == 'regiment-corps' %}
+
+        <div class="input-group">
+            <input class="form-control" type="text" name="regiment_corps"
+            placeholder="Enter regiment/corps." />
+        </div>
+
+        <div class="input-group">
+            <button type="submit" class="btn btn-primary pull-right">
+                <i class="icon-search"></i> Search
+            </button>
+        </div>
+
+    {% else %}
+
+        <div class="input-group">
+            <input class="form-control" type="text" name="surname"
+                placeholder="Enter a surname here." />
+
+            <div class="input-group-btn">
+                <button type="submit" class="btn btn-primary">
+                    <i class="icon-search"></i>
+                </button>
+            </div>
+        </div>
+        
+    {% endif %}
 </form>

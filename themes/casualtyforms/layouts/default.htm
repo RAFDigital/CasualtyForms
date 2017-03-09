@@ -15,9 +15,11 @@ description = "Default layout"
         <meta name="generator" content="OctoberCMS">
         <link rel="icon" type="image/png" href="{{ 'assets/images/raf-roundel_muted.png'|theme }}">
         <link href="{{ [
-            '@framework.extras',
-            'assets/css/vendor.css',
-            'assets/css/theme.css']|theme }}"
+                '@framework.extras',
+                'assets/css/vendor.css',
+                'assets/css/theme.css',
+                'assets/vendor/bootstrap-datepicker/css/bootstrap-datepicker3.css'
+            ]|theme }}"
             rel="stylesheet">
         {% styles %}
     </head>
@@ -43,6 +45,7 @@ description = "Default layout"
         <!-- Scripts -->
         <script src="{{ 'assets/vendor/jquery.js'|theme }}"></script>
         <script src="{{ 'assets/vendor/bootstrap.js'|theme }}"></script>
+        <script src="{{ 'assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js'|theme }}"></script>
         <script src="{{ 'assets/javascript/app.js'|theme }}"></script>
         {% framework extras %}
         {% scripts %}

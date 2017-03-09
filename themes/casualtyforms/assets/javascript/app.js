@@ -21,6 +21,13 @@ jQuery(document).ready(function($) {
     });
 
     /*
+     * Initialise datepicker.
+     */
+    $('input[type="datepicker"]').datepicker({
+        format: "yyyy-mm-dd"
+    });
+
+    /*
      * Auto hide navbar and other jQuery objects.
      */
     $(window).on('scroll', function(){
