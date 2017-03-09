@@ -1,6 +1,7 @@
 <form data-request="onSave">
 
     <div class="form-group">
+        <input type="hidden" name="child_form" value="0" />
         <input id="childForm" type="checkbox" name="child_form"
             value="1" data-toggle="toggle" data-on="No" data-off="Yes"
             data-onstyle="danger"
@@ -27,7 +28,7 @@
                     id="image-radio-before"
                     {{ form.parent_form_id == form.id - 1 ? 'checked' : '' }} />
                 <label for="image-radio-before">
-                    <img width="40%" src="{{ form.filenameBefore|media  }}" />
+                    <img src="{{ form.filenameBefore|media  }}" />
                 </label>
 
                 <a href="{{ form.filenameBefore|media  }}" target="_blank">
@@ -49,7 +50,7 @@
                     id="image-radio-after"
                     {{ form.parent_form_id == form.id + 1 ? 'checked' : '' }} />
                 <label for="image-radio-after">
-                    <img width="40%" src="{{ form.filenameAfter|media }}" />
+                    <img src="{{ form.filenameAfter|media }}" />
                 </label>
 
                 <a href="{{ form.filenameAfter|media  }}" target="_blank">
@@ -170,8 +171,9 @@
     </div>
 
     <div class="form-group">
+        <input type="hidden" name="medical_information" value="0" />
         <input id="medicalInfo" type="checkbox" name="medical_information"
-            value="1" data-toggle="toggle"  data-on="Yes" data-off="No"
+            value="1" data-toggle="toggle" data-on="Yes" data-off="No"
             {% if form.medical_information %}checked{% endif %} />
         <label class="m-l" for="medicalInfo">
             Is there any additional medical information on the form?

@@ -98,7 +98,7 @@ Flag light blue: 6399ab
   display: block;
   margin: 1em auto;
   background: #eeeeee url('../images/ajax-loader.gif') no-repeat center;
-  border: 1px solid #ccc;
+  border: 1px solid #cccccc;
   width: 100%;
 }
 .callout {

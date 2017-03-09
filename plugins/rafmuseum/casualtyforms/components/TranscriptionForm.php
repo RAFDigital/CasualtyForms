@@ -90,6 +90,9 @@ class TranscriptionForm extends ComponentBase
         // Update the values.
         $casualtyForm->fill(post());
 
+        // Nullify the parent_form_id if the form is no longer a child form.
+        if( ! post('child_form')) $casualtyForm->parent_form_id = null;
+
         $formsCompleted = null;
 
         // Now get the number of any forms completed by the user.
