@@ -5,42 +5,47 @@
     </div>
 
 <?php else: ?>
-    <?php if($childForm): ?>
+    <div class="image-radio-group">
+        <?php if($childForm): ?>
 
-        <p class="help-block before-field">
-            Select the form which looks like the current form's parent.
-        </p>
+            <p class="help-block before-field">
+                Select the form which looks like the current form's parent.
+            </p>
 
-        <?php foreach($options as $key => $option): ?>
-            <?php if($option): ?>
+            <?php foreach($options as $key => $option): ?>
+                <?php if($option): ?>
 
-                <div class="image-radio">
-                    <input
-                        name="<?= $name ?>"
-                        value="<?= $option->id ?>"
-                        type="<?= $inputType ?>"
-                        id="image-radio-<?= $key ?>"
-                        <?= $value === $option->id ? 'checked' : '' ?> />
-                    <label for="image-radio-<?= $key ?>">
-                        <img src="<?= url() . config('cms.storage.media.path') . $option->filename ?>" />
-                    </label>
-                </div>
+                    <div class="image-radio">
+                        <input
+                            name="<?= $name ?>"
+                            value="<?= $option->id ?>"
+                            type="<?= $inputType ?>"
+                            id="image-radio-<?= $key ?>"
+                            <?= $value === $option->id ? 'checked' : '' ?> />
+                        <label for="image-radio-<?= $key ?>">
+                            <img src="<?= url() . config('cms.storage.media.path') . $option->filename ?>" />
+                        </label>
 
-            <?php else: ?>
+                        <a href="<?= url() . config('cms.storage.media.path') . $option->filename ?>" target="_blank">
+                            See image full size <i class="icon-external-link"></i>
+                        </a>
+                    </div>
 
-                <div class="image-radio">
-                    No neighbouring form.
-                </div>
+                <?php else: ?>
 
-            <?php endif; ?>
-        <?php endforeach; ?>
+                    <div class="image-radio alert-warning">
+                        No neighbouring form
+                    </div>
 
-    <?php else: ?>
+                <?php endif; ?>
+            <?php endforeach; ?>
 
-        <p class="help-block">
-            This form is not marked as a "Child Form" so does not have a parent form.
-        </p>
+        <?php else: ?>
 
-    <?php endif; ?>
+            <p class="help-block">
+                This form is not marked as a "Child Form" so does not have a parent form.
+            </p>
 
+        <?php endif; ?>
+    </div>
 <?php endif ?>

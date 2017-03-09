@@ -13,18 +13,23 @@ jQuery(document).ready(function($) {
         scrollDelta = 10,
         scrollOffset = 150;
 
-    /*
-     * Initialise tooltips.
-     */
+    // Initialise tooltips.
     $(this).tooltip({
         selector: '[data-toggle="tooltip"]'
     });
 
-    /*
-     * Initialise datepicker.
-     */
+    // Initialise datepicker.
     $('input[type="datepicker"]').datepicker({
         format: "yyyy-mm-dd"
+    });
+
+    // Initialise image zoom.
+    $('.image-zoom').elevateZoom({
+        zoomType: "inner",
+        cursor: "crosshair",
+        zoomWindowFadeIn: 200,
+        zoomWindowFadeOut: 200,
+        //scrollZoom : true
     });
 
     /*

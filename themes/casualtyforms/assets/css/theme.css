@@ -71,6 +71,9 @@ Flag light blue: 6399ab
 .form-control[readonly] {
   color: transparent;
 }
+.form-control:focus {
+  border-color: #6399ab;
+}
 .progress {
   background-color: #eeeeee;
   box-shadow: none;
@@ -90,6 +93,13 @@ Flag light blue: 6399ab
 }
 [data-toggle="tooltip"] {
   border-bottom: 1px dashed #555555;
+}
+.image-zoom {
+  display: block;
+  margin: 1em auto;
+  background: #eeeeee url('../images/ajax-loader.gif') no-repeat center;
+  border: 1px solid #ccc;
+  width: 100%;
 }
 .callout {
   margin-bottom: 25px;

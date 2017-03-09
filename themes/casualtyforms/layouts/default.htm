@@ -43,10 +43,13 @@ description = "Default layout"
         </footer>
 
         <!-- Scripts -->
-        <script src="{{ 'assets/vendor/jquery.js'|theme }}"></script>
-        <script src="{{ 'assets/vendor/bootstrap.js'|theme }}"></script>
-        <script src="{{ 'assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js'|theme }}"></script>
-        <script src="{{ 'assets/javascript/app.js'|theme }}"></script>
+        <script src="{{ [
+                'assets/vendor/jquery.js',
+                'assets/vendor/bootstrap.js',
+                'assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js',
+                'assets/vendor/elevatezoom-master/jquery.elevateZoom-3.0.8.min.js',
+                'assets/javascript/app.js'
+            ]|theme }}"></script>
         {% framework extras %}
         {% scripts %}
 

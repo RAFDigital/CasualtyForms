@@ -17,6 +17,8 @@ class TranscriptionForm extends ComponentBase
 
     public function onRun()
     {
+        $formsPath = base_path() . config('cms.storage.media.path');
+
         // Add necessary files for this page.
         $this->loadAssets();
 
@@ -41,7 +43,7 @@ class TranscriptionForm extends ComponentBase
             $form->filename = $this->idToFilename($form->id);
 
             // Get the full file path.
-            $filePath = base_path() . config('cms.storage.media.path') . $form->filename;
+            $filePath = $formsPath . $form->filename;
 
             // Check if it exists.
             if ( ! file_exists($filePath)) {
@@ -60,6 +62,16 @@ class TranscriptionForm extends ComponentBase
             }
 
             $form->update();
+        }
+
+        if ($form) {
+            // Get the neighbouring form filenames.
+            $form->filenameBefore = $this->idToFilename($form->id - 1);
+            $form->filenameAfter = $this->idToFilename($form->id + 1);
+
+            // Check if the files even exist.
+            if ( ! file_exists($formsPath . $form->filenameBefore)) $form->filenameBefore = false;
+            if ( ! file_exists($formsPath . $form->filenameAfter)) $form->filenameAfter = false;
         }
 
         // Make some vars available in the front end.
@@ -131,6 +143,9 @@ class TranscriptionForm extends ComponentBase
 
         // Add js libs for the transcription form component.
         $this->addJs('assets/javascript/transcriptionform.js');
+
+        // Add the css for the image radio selector.
+        $this->addCss('formwidgets/parentform/assets/css/parentform.css');
 
         // This is how you include backend form styles.
         //$this->addCss('/modules/system/assets/ui/storm.css', 'core');

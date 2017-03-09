@@ -4,7 +4,7 @@
         <input id="childForm" type="checkbox" name="child_form"
             value="1" data-toggle="toggle" data-on="No" data-off="Yes"
             data-onstyle="danger"
-            onchange="$('#childHidden').slideToggle()"
+            onchange="$('#childHidden, #childShow').slideToggle()"
             {% if form.child_form %}checked{% endif %} />
         <label class="m-l" data-toggle="tooltip" data-placement="right"
             title="Checking this box marks this page as a 'child form' of another.">
@@ -12,7 +12,56 @@
         </label>
     </div>
 
-    {% partial "@imagezoom" imgSrc=url ~ config.cms.storage.media.path ~ form.filename %}
+    <img class="image-zoom" src="{{ form.filename|media }}" />
+
+    <div id="childShow" class="form-group image-radio-group"
+        {% if form.child_form == false %}style="display: none"{% endif %}>
+        <label>Select the form which looks like the current form's parent</label><br />
+
+        {% if form.filenameBefore %}
+            <div class="image-radio">
+                <input
+                    name="parent_form_id"
+                    value="{{ form.id - 1 }}"
+                    type="radio"
+                    id="image-radio-before"
+                    {{ form.parent_form_id == form.id - 1 ? 'checked' : '' }} />
+                <label for="image-radio-before">
+                    <img width="40%" src="{{ form.filenameBefore|media  }}" />
+                </label>
+
+                <a href="{{ form.filenameBefore|media  }}" target="_blank">
+                    See image full size <i class="icon-external-link"></i>
+                </a>
+            </div>
+        {% else %}
+            <div class="image-radio alert-warning">
+                No neighbouring form
+            </div>
+        {% endif %}
+
+        {% if form.filenameAfter %}
+            <div class="image-radio">
+                <input
+                    name="parent_form_id"
+                    value="{{ form.id + 1 }}"
+                    type="radio"
+                    id="image-radio-after"
+                    {{ form.parent_form_id == form.id + 1 ? 'checked' : '' }} />
+                <label for="image-radio-after">
+                    <img width="40%" src="{{ form.filenameAfter|media }}" />
+                </label>
+
+                <a href="{{ form.filenameAfter|media  }}" target="_blank">
+                    See image full size <i class="icon-external-link"></i>
+                </a>
+            </div>
+        {% else %}
+            <div class="image-radio alert-warning">
+                No neighbouring form
+            </div>
+        {% endif %}
+    </div>
 
     <div id="childHidden" {% if form.child_form %}style="display: none"{% endif %}>
 
@@ -93,16 +142,6 @@
         </div>
 
     </div>
-
-    <!-- <div id="parentPage" class="form-group row" style="display: none">
-        <a href="{{ url ~ config.cms.storage.media.path ~ '/Forms/_1CF0008.jpg' }}" target="_blank" class="col-md-6">
-            <img style="width:100%" src="{{ url ~ config.cms.storage.media.path ~ '/Forms/_1CF0008.jpg' }}"/>
-        </a>
-
-        <a href="{{ url ~ config.cms.storage.media.path ~ '/Forms/_1CF0010.jpg' }}" target="_blank" class="col-md-6">
-            <img style="width:100%" src="{{ url ~ config.cms.storage.media.path ~ '/Forms/_1CF0010.jpg' }}"/>
-        </a>
-    </div> -->
 
     <div class="row">
         <div class="form-group col-sm-4">

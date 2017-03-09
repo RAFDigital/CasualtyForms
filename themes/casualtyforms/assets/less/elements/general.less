@@ -38,6 +38,10 @@
     color: transparent;
 }
 
+.form-control:focus {
+    border-color: @brand-primary;
+}
+
 // Progress bar and labels
 .progress {
     background-color: @gray-lighter;
@@ -61,4 +65,13 @@
 // Icons
 [data-toggle="tooltip"] {
     border-bottom: 1px dashed @gray;
+}
+
+// Image zoom
+.image-zoom {
+    display: block;
+    margin: 1em auto;
+    background: #eee url('../images/ajax-loader.gif') no-repeat center;
+    border: 1px solid #ccc;
+    width: 100%;
 }
