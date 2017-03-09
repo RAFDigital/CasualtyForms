@@ -38,6 +38,7 @@ class CasualtyForm extends Model
         'completed_by_id',
         'approved_by_id',
         'child_form',
+        'parent_form_id',
         'flagged',
         'flagged_notes'
     ];
@@ -174,8 +175,8 @@ class CasualtyForm extends Model
      */
     public function scopeSearch($query, $tags)
     {
-        // All results have to be approved.
-        $query->whereNotNull('approved_by_id');
+        // All results have to be approved and not child forms.
+        $query->approved()->where('child_form', false);
 
         // WHERE `approved_by_id` NOT NULL AND (x OR y OR ...)
         $query->where(function($query)use($tags) {
