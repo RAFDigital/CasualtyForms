@@ -515,7 +515,7 @@ body > p.flash-message.danger {
   height: 4px;
   bottom: -1px;
   content: '';
-  border-radius: 4px;
+  border-radius: 0px;
   z-index: 5;
   width: 0;
   left: 50%;
@@ -523,7 +523,7 @@ body > p.flash-message.danger {
 }
 .navbar-collapse:not(.in):not(.collapsing) .navbar-nav li.active > a:after,
 .navbar-collapse:not(.in):not(.collapsing) .navbar-nav li > a:hover:after {
-  background: #000000;
+  background: rgba(255, 255, 255, 0.6);
 }
 .navbar-collapse:not(.in):not(.collapsing) .navbar-nav li.active > a:after {
   width: 100% !important;
@@ -534,7 +534,7 @@ body > p.flash-message.danger {
   left: 0;
 }
 .navbar-collapse:not(.in):not(.collapsing) .navbar-nav li.active > a:hover:after {
-  background: #000000;
+  background: rgba(255, 255, 255, 0.6);
 }
 .navbar-collapse:not(.in):not(.collapsing) .navbar-nav li > a:hover:after {
   background: #6399ab;
