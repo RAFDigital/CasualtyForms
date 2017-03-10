@@ -5,7 +5,8 @@
 */
 window.wheelzoom = (function(){
 	var defaults = {
-		zoom: 0.10
+		zoom: 0.10,
+		maxZoom: 5
 	};
 
 	var canvas = document.createElement('canvas');
@@ -22,6 +23,7 @@ window.wheelzoom = (function(){
 		var bgPosY;
 		var previousEvent;
 		var cachedDataUrl;
+		var zoomed = false;
 
 		function setSrcToBackground(img) {
 			img.style.backgroundImage = 'url("'+img.src+'")';
@@ -67,6 +69,10 @@ window.wheelzoom = (function(){
 				deltaY = -e.wheelDelta;
 			}
 
+			// Cancel if zoomed to maxZoom and trying to zoom more
+			if (deltaY < 0 && zoomed) return;
+ 			zoomed = false;
+
 			// As far as I know, there is no good cross-browser way to get the cursor position relative to the event target.
 			// We have to calculate the target element's position relative to the document, and subtrack that from the
 			// cursor's position relative to the document.
@@ -98,6 +104,8 @@ window.wheelzoom = (function(){
 			// Prevent zooming out beyond the starting size
 			if (bgWidth <= width || bgHeight <= height) {
 				reset();
+			} else if (bgWidth >= width*settings.maxZoom || bgHeight >= height*settings.maxZoom){
+				zoomed = true;
 			} else {
 				updateBgStyle();
 			}
