@@ -13,18 +13,23 @@
         </label>
     </div>
 
-    <img class="image-zoom" src="{{ form.filename|media }}" data-toggle="tooltip"
-        data-placement="bottom" title="Use scroll wheel to zoom." />
-    <a class="zoom-reset btn btn-link pull-right"><i class="icon-undo"></i></a>
-    <!-- <a class="zoom-zoomout btn btn-link pull-right"><i class="icon-minus"></i></a>
-    <a class="zoom-zoomin btn btn-link pull-right"><i class="icon-plus"></i></a> -->
+    <div class="image-zoom-controls">
+        <img class="image-zoom" src="{{ form.filename|media }}" data-toggle="tooltip"
+            data-placement="bottom" title="Use scroll wheel to zoom." />
 
-    <div id="childShow" class="form-group image-radio-group"
+        <a class="zoom-reset btn btn-link pull-right"><i class="icon-undo"></i></a>
+        <!-- <a class="zoom-zoomout btn btn-link pull-right"><i class="icon-minus"></i></a>
+        <a class="zoom-zoomin btn btn-link pull-right"><i class="icon-plus"></i></a> -->
+    </div>
+
+    <div id="childShow" class="form-group image-radio-group row"
         {% if form.child_form == false %}style="display: none"{% endif %}>
-        <label>Select the form which looks like the current form's parent</label><br />
+        <div class="col-sm-12">
+            <label>Select the form which looks like the current form's parent</label>
+        </div>
 
         {% if form.filenameBefore %}
-            <div class="image-radio">
+            <div class="image-radio col-sm-6">
                 <input
                     name="parent_form_id"
                     value="{{ form.id - 1 }}"
@@ -40,13 +45,13 @@
                 </a>
             </div>
         {% else %}
-            <div class="image-radio alert-warning">
+            <div class="image-radio alert-warning col-sm-6">
                 No neighbouring form
             </div>
         {% endif %}
 
         {% if form.filenameAfter %}
-            <div class="image-radio">
+            <div class="image-radio col-sm-6">
                 <input
                     name="parent_form_id"
                     value="{{ form.id + 1 }}"
@@ -62,7 +67,7 @@
                 </a>
             </div>
         {% else %}
-            <div class="image-radio alert-warning">
+            <div class="image-radio alert-warning col-sm-6">
                 No neighbouring form
             </div>
         {% endif %}

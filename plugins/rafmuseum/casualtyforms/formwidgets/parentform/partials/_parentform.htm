@@ -5,17 +5,17 @@
     </div>
 
 <?php else: ?>
-    <div class="image-radio-group">
+    <div class="image-radio-group row">
         <?php if($childForm): ?>
 
-            <p class="help-block before-field">
+            <p class="help-block before-field col-sm-12">
                 Select the form which looks like the current form's parent.
             </p>
 
             <?php foreach($options as $key => $option): ?>
                 <?php if($option): ?>
 
-                    <div class="image-radio">
+                    <div class="image-radio col-sm-6">
                         <input
                             name="<?= $name ?>"
                             value="<?= $option->id ?>"
@@ -33,7 +33,7 @@
 
                 <?php else: ?>
 
-                    <div class="image-radio alert-warning">
+                    <div class="image-radio alert-warning col-sm-6">
                         No neighbouring form
                     </div>
 
@@ -42,7 +42,7 @@
 
         <?php else: ?>
 
-            <p class="help-block">
+            <p class="help-block col-sm-12">
                 This form is not marked as a "Child Form" so does not have a parent form.
             </p>
 

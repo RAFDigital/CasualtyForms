@@ -68,6 +68,10 @@
 }
 
 // Image zoom
+.image-zoom-controls {
+    position: relative;
+}
+
 .image-zoom {
     display: block;
     margin: 1em auto;
@@ -89,8 +93,9 @@
 .zoom-reset,
 .zoom-zoomin,
 .zoom-zoomout {
-    position: relative;
-    top: -3.5em;
+    position: absolute;
+    bottom: 0;
+    right: 0;
     z-index: 1;
 
     &:hover {

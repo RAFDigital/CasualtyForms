@@ -94,6 +94,9 @@ Flag light blue: 6399ab
 [data-toggle="tooltip"] {
   border-bottom: 1px dashed #555555;
 }
+.image-zoom-controls {
+  position: relative;
+}
 .image-zoom {
   display: block;
   margin: 1em auto;
@@ -112,8 +115,9 @@ Flag light blue: 6399ab
 .zoom-reset,
 .zoom-zoomin,
 .zoom-zoomout {
-  position: relative;
-  top: -3.5em;
+  position: absolute;
+  bottom: 0;
+  right: 0;
   z-index: 1;
 }
 .zoom-reset:hover,
@@ -633,12 +637,14 @@ body {
   padding-top: 70px;
 }
 .jumbotron {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/rfc_3.jpg') no-repeat top;
+  background: url('../images/rfc_3.jpg') no-repeat top;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/rfc_3.jpg');
   background-size: cover;
   color: #cccccc;
 }
 .jumbotron-home {
   height: 93vh;
+  background-image: url('../images/rfc_6.jpg');
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/rfc_6.jpg');
   background-position: left;
   margin-bottom: 0;
