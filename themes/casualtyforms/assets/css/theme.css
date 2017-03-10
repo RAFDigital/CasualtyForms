@@ -638,15 +638,14 @@ body {
 }
 .jumbotron {
   background: url('../images/rfc_3.jpg') no-repeat top;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/rfc_3.jpg');
-  background-image: -ms-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/rfc_3.jpg');
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII=), url('../images/rfc_3.jpg');
   background-size: cover;
-  color: #cccccc;
+  color: #ccc;
 }
 .jumbotron-home {
   height: 93vh;
   background-image: url('../images/rfc_6.jpg');
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/rfc_6.jpg');
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII=), url('../images/rfc_6.jpg');
   background-position: left;
   margin-bottom: 0;
 }
@@ -721,11 +720,13 @@ body {
   color: #fff;
 }
 .advanced-search__personnel {
-  background: linear-gradient(rgba(51, 79, 88, 0.6), rgba(51, 79, 88, 0.6)), url('../images/rfc_1.jpg') no-repeat top;
+  background: url('../images/rfc_1.jpg') no-repeat top;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mM09o+YCQADDAF1CqFIaAAAAABJRU5ErkJggg==), url('../images/rfc_1.jpg');
   background-size: cover;
 }
 .advanced-search__regiment-corps {
-  background: linear-gradient(rgba(51, 79, 88, 0.6), rgba(51, 79, 88, 0.6)), url('../images/rfc_4.jpg') no-repeat top;
+  background: url('../images/rfc_4.jpg') no-repeat top;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mM09o+YCQADDAF1CqFIaAAAAABJRU5ErkJggg==), url('../images/rfc_4.jpg');
   background-size: cover;
 }
 @media (min-width: 767px) {

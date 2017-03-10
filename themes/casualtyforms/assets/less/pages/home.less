@@ -60,12 +60,8 @@
 }
 
 // Advanced search section
-@advanced-search-overlay-opacity: 0.6;
-@advanced-search-overlay: linear-gradient(
-    rgba(51, 79, 88, @advanced-search-overlay-opacity),
-    rgba(51, 79, 88, @advanced-search-overlay-opacity)
-); // 99, 153, 171
-
+// http://png-pixel.com/
+@advanced-search-overlay: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mM09o+YCQADDAF1CqFIaAAAAABJRU5ErkJggg==);
 
 .advanced-search {
     position: relative;
@@ -97,12 +93,14 @@
     }
 
     &__personnel {
-        background: @advanced-search-overlay, url('../images/rfc_1.jpg') no-repeat top;
+        background: url('../images/rfc_1.jpg') no-repeat top;
+        background-image: @advanced-search-overlay, url('../images/rfc_1.jpg');
         background-size: cover;
     }
 
     &__regiment-corps {
-        background: @advanced-search-overlay, url('../images/rfc_4.jpg') no-repeat top;
+        background: url('../images/rfc_4.jpg') no-repeat top;
+        background-image: @advanced-search-overlay, url('../images/rfc_4.jpg');
         background-size: cover;
 
         @media (min-width: @screen-xs-max) {
