@@ -13,7 +13,11 @@
         </label>
     </div>
 
-    <img class="image-zoom" src="{{ form.filename|media }}" />
+    <img class="image-zoom" src="{{ form.filename|media }}" data-toggle="tooltip"
+        data-placement="bottom" title="Use scroll wheel to zoom." />
+    <a class="zoom-reset btn btn-link pull-right"><i class="icon-undo"></i></a>
+    <!-- <a class="zoom-zoomout btn btn-link pull-right"><i class="icon-minus"></i></a>
+    <a class="zoom-zoomin btn btn-link pull-right"><i class="icon-plus"></i></a> -->
 
     <div id="childShow" class="form-group image-radio-group"
         {% if form.child_form == false %}style="display: none"{% endif %}>

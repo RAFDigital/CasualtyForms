@@ -74,4 +74,26 @@
     background: @gray-lighter url('../images/ajax-loader.gif') no-repeat center;
     border: 1px solid @input-border;
     width: 100%;
+
+    &:hover {
+        cursor: -webkit-grab;
+        cursor: grab;
+    }
+
+    &:active {
+        cursor: -webkit-grabbing;
+        cursor: grabbing;
+    }
+}
+
+.zoom-reset,
+.zoom-zoomin,
+.zoom-zoomout {
+    position: relative;
+    top: -3.5em;
+    z-index: 1;
+
+    &:hover {
+        text-decoration: none;
+    }
 }

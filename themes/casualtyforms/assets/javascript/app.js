@@ -24,12 +24,11 @@ jQuery(document).ready(function($) {
     });
 
     // Initialise image zoom.
-    $('.image-zoom').elevateZoom({
-        zoomType: "inner",
-        cursor: "crosshair",
-        zoomWindowFadeIn: 200,
-        zoomWindowFadeOut: 200,
-        //scrollZoom : true
+    wheelzoom(document.querySelectorAll('img.image-zoom'));
+
+    $('.zoom-reset').on('click', function(event) {
+        event.preventDefault();
+        document.querySelector('img.image-zoom').dispatchEvent(new CustomEvent('wheelzoom.reset'));
     });
 
     /*

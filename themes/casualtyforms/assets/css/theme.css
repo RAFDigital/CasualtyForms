@@ -101,6 +101,26 @@ Flag light blue: 6399ab
   border: 1px solid #cccccc;
   width: 100%;
 }
+.image-zoom:hover {
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+.image-zoom:active {
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
+}
+.zoom-reset,
+.zoom-zoomin,
+.zoom-zoomout {
+  position: relative;
+  top: -3.5em;
+  z-index: 1;
+}
+.zoom-reset:hover,
+.zoom-zoomin:hover,
+.zoom-zoomout:hover {
+  text-decoration: none;
+}
 .callout {
   margin-bottom: 25px;
   padding: 20px;
