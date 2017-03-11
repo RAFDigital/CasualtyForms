@@ -642,6 +642,34 @@ body {
   background-size: cover;
   color: #ccc;
 }
+body.four-oh-four {
+  padding-top: 0;
+}
+.jumbotron-404 {
+  background: url('../images/aireal_1.jpg') no-repeat top;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII=), url('../images/aireal_1.jpg');
+  background-size: cover;
+  color: #ccc;
+  text-align: center;
+  height: 100vh;
+  margin-bottom: 0;
+}
+.jumbotron-404 h1,
+.jumbotron-404 p {
+  color: rgba(255, 255, 255, 0.7);
+}
+.jumbotron-404 .big-404 {
+  font-size: 200px;
+  line-height: 200px;
+  margin-bottom: 0;
+  margin-top: 20vh;
+}
+@media (max-width: 480px) {
+  .jumbotron-404 .big-404 {
+    font-size: 140px;
+    line-height: 140px;
+  }
+}
 .jumbotron-home {
   height: 93vh;
   background-image: url('../images/rfc_6.jpg');
@@ -658,7 +686,9 @@ body {
   margin-top: 12.5px;
 }
 .advanced-link,
-.advanced-link:hover {
+.advanced-link:hover,
+.advanced-link:active,
+.advanced-link:focus {
   color: #fff;
 }
 .rfc-flag-icon {

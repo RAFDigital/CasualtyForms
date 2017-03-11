@@ -1,0 +1,47 @@
+description = "Bare layout"
+
+[session]
+[page]
+==
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Casualty Forms - {{ this.page.title }}</title>
+        <meta name="description" content="{{ this.page.meta_description }}">
+        <meta name="title" content="{{ this.page.meta_title }}">
+        <meta name="author" content="OctoberCMS">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="generator" content="OctoberCMS">
+        <link rel="icon" type="image/png" href="{{ 'assets/images/raf-roundel_muted.png'|theme }}">
+        <link href="{{ [
+                '@framework.extras',
+                'assets/css/vendor.css',
+                'assets/css/theme.css',
+                'assets/vendor/bootstrap-datepicker/css/bootstrap-datepicker3.min.css'
+            ]|theme }}"
+            rel="stylesheet">
+        {% styles %}
+    </head>
+    <body class="four-oh-four">
+        <!-- Flash -->
+        {% partial 'site/flash' %}
+
+        <!-- Content -->
+        <section id="layout-content">
+            {% page %}
+        </section>
+
+        <!-- Scripts -->
+        <script src="{{ [
+                'assets/vendor/jquery.js',
+                'assets/vendor/bootstrap.js',
+                'assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js',
+                'assets/vendor/wheelzoom-master/wheelzoom.js',
+                'assets/javascript/app.js'
+            ]|theme }}"></script>
+        {% framework extras %}
+        {% scripts %}
+
+    </body>
+</html>

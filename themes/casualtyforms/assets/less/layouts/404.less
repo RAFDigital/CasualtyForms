@@ -1,0 +1,38 @@
+//
+// Layouts
+//
+// Styles specific to the 404 page layout.
+//
+
+// Used by the fixed navbar
+body.four-oh-four {
+    padding-top: 0;
+}
+
+// 404 jumbotron
+.jumbotron-404 {
+    background: url('../images/aireal_1.jpg') no-repeat top;
+    background-image: @jumbotron-overlay, url('../images/aireal_1.jpg');
+    background-size: cover;
+    color: #ccc;
+    text-align: center;
+    height: 100vh;
+    margin-bottom: 0;
+
+    h1, p {
+        color: rgba(255,255,255,0.7);
+    }
+
+    .big-404 {
+        // font-weight: bold;
+        font-size: @font-size-large * 10;
+        line-height: @font-size-large * 10;
+        margin-bottom: 0;
+        margin-top: 20vh;
+
+        @media (max-width: @screen-xs) {
+            font-size: @font-size-large * 7;
+            line-height: @font-size-large * 7;
+        }
+    }
+}

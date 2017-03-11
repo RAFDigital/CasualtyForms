@@ -1,10 +1,16 @@
 title = "Page not found (404)"
 url = "/404"
-layout = "default"
+layout = "404"
+is_hidden = 0
 ==
-<div class="jumbotron">
+<div class="jumbotron jumbotron-404">
     <div class="container">
-        <h1>Page not found</h1>
-        <p>We're sorry, but the page you requested cannot be found.</p>
+        <p class="big-404">404</p>
+
+        <h1>Target not found</h1>
+
+        <a href="javascript:history.back()" class="btn btn-primary">
+            Return to base <i class="icon-plane"></i>
+        </a>
     </div>
 </div>

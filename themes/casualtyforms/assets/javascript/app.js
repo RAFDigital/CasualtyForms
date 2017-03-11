@@ -23,7 +23,15 @@ jQuery(document).ready(function($) {
         format: "yyyy-mm-dd"
     });
 
-    // Initialise image zoom.
+    // Scroll animation.
+    $('a[href^="#"]').on('click', function(event) {
+        event.preventDefault();
+        $('html, body').animate({
+            scrollTop: $(this.hash).offset().top
+        }, 400);
+    });
+
+    // Initialise image zoom and controls.
     wheelzoom(document.querySelectorAll('img.image-zoom'));
 
     $('.zoom-reset').on('click', function(event) {
@@ -36,30 +44,30 @@ jQuery(document).ready(function($) {
      */
     $(window).on('scroll', function(){
         if (!scrolling) {
-            scrolling = true
+            scrolling = true;
 
             if (!window.requestAnimationFrame) {
-                setTimeout(autoHideHeader, 250)
+                setTimeout(autoHideHeader, 250);
             }
             else {
-                requestAnimationFrame(autoHideHeader)
+                requestAnimationFrame(autoHideHeader);
             }
         }
-    })
+    }), 'swing'
 
     function autoHideHeader() {
-        var currentTop = $(window).scrollTop()
+        var currentTop = $(window).scrollTop();
 
         // Scrolling up
         if (previousTop - currentTop > scrollDelta) {
-            $header.removeClass('is-hidden')
+            $header.removeClass('is-hidden');
         }
         else if (currentTop - previousTop > scrollDelta && currentTop > scrollOffset) {
             // Scrolling down
-            $header.addClass('is-hidden')
+            $header.addClass('is-hidden');
         }
 
-        previousTop = currentTop
-        scrolling = false
+        previousTop = currentTop;
+        scrolling = false;
     }
 });
