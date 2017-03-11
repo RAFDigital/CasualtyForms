@@ -13,6 +13,7 @@ class AddNewFields extends Migration
             $table->string('age')->nullable();
             $table->string('sex')->nullable();
             $table->string('country_id')->nullable();
+            $table->string('state_id')->nullable();
             $table->string('ethnicity')->nullable();
             $table->timestamp('last_activity')->nullable();
         });
