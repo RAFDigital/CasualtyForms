@@ -1,0 +1,4 @@
+export:
+    title: Export Volunteers
+    modelClass: RafMuseum\Volunteers\Models\VolunteerExport
+    list: $/rainlab/user/models/user/columns.yaml

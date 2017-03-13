@@ -3,6 +3,9 @@
 use Yaml;
 use File;
 use Page;
+use Event;
+use Backend;
+use BackendMenu;
 use System\Classes\PluginBase;
 use Rainlab\User\Controllers\Users as UsersController;
 use Rainlab\User\Models\User as UsersModel;
@@ -48,6 +51,25 @@ class Plugin extends PluginBase
             $configFile = __DIR__ . '/config/volunteer_fields.yaml';
             $config = Yaml::parse(File::get($configFile));
             $form->addTabFields($config);
+        });
+
+        Event::listen('backend.menu.extendItems', function($manager) {
+            $manager->addSideMenuItems('RainLab.User', 'user', [
+                'users' => [
+                    'label'       => 'Volunteers',
+                    'url'         => Backend::url('rainlab/user/users'),
+                    'icon'        => 'icon-user',
+                    'permissions' => ['rainlab.users.*'],
+                    'order'       => 100,
+                ],
+                'export' => [
+                    'label'       => 'Export',
+                    'url'         => Backend::url('rafmuseum/volunteers/volunteers/export'),
+                    'icon'        => 'icon-sign-out',
+                    'permissions' => ['rafmuseum.volunteers.*'],
+                    'order'       => 200,
+                ]
+            ]);
         });
     }
 }
