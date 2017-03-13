@@ -65,7 +65,7 @@ class Plugin extends PluginBase
                 'export' => [
                     'label'       => 'Export',
                     'url'         => Backend::url('rafmuseum/volunteers/volunteers/export'),
-                    'icon'        => 'icon-sign-out',
+                    'icon'        => 'icon-download',
                     'permissions' => ['rafmuseum.volunteers.*'],
                     'order'       => 200,
                 ]
