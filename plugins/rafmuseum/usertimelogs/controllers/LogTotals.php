@@ -18,7 +18,7 @@ class LogTotals extends Controller
     public function __construct()
     {
         parent::__construct();
-        BackendMenu::setContext('RafMuseum.UserTimelogs', 'main-menu-item');
+        BackendMenu::setContext('RafMuseum.UserTimelogs', 'main-menu-item', 'side-menu-item2');
     }
 
     public function listExtendQuery($query)

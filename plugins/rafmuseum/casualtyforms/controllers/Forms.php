@@ -20,6 +20,6 @@ class Forms extends Controller
     public function __construct()
     {
         parent::__construct();
-        BackendMenu::setContext('RafMuseum.CasualtyForms', 'main-menu-item');
+        BackendMenu::setContext('RafMuseum.CasualtyForms', 'main-menu-item', 'side-menu-item');
     }
 }
