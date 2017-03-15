@@ -50,7 +50,7 @@ class Plugin extends PluginBase
         UsersController::extendFormFields(function($form, $model, $context) {
             $configFile = __DIR__ . '/config/volunteer_fields.yaml';
             $config = Yaml::parse(File::get($configFile));
-            $form->addTabFields($config);
+            $form->addTabFields($config['fields']);
         });
 
         Event::listen('backend.menu.extendItems', function($manager) {

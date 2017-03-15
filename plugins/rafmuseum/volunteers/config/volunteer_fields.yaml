@@ -1,55 +1,56 @@
 #  Extended Profile Field Definitions
-age:
-    label: Age
-    tab: Volunteers
-    span: left
-    type: dropdown
-    placeholder: Select age (optional)
-    options:
-        u18: Under 18
-        18-24: 18 - 24
-        25-34: 25 - 34
-        35-44: 35 - 44
-        45-59: 45 - 59
-        60+: 60 plus
-sex:
-    label: Sex
-    tab: Volunteers
-    span: right
-    type: dropdown
-    placeholder: Select sex (optional)
-    options:
-        male: Male
-        female: Female
-        other: Other
-country:
-    label: rainlab.location::lang.country.label
-    tab: Volunteers
-    type: dropdown
-    span: left
-    placeholder: Select country (optional)
-state:
-    label: County / State
-    tab: Volunteers
-    type: dropdown
-    span: right
-    dependsOn: country
-    placeholder: Select county/state (optional)
-ethnicity:
-    label: Ethnicity
-    tab: Volunteers
-    span: left
-    type: dropdown
-    placeholder: Select ethnicity (optional)
-    # https://en.wikipedia.org/wiki/Classification_of_ethnicity_in_the_United_Kingdom#Ethnicity_categories
-    options:
-        white: White
-        mixed: Mixed / multiple ethnic groups
-        asian: Asian / Asian British
-        black: Black / African / Caribbean / Black British
-        other: Other ethnic group
-last_activity:
-    label: Last activity
-    tab: Volunteers
-    span: right
-    disabled: true
+fields:
+    age:
+        label: Age
+        tab: Volunteers
+        span: left
+        type: dropdown
+        placeholder: Select age (optional)
+        options:
+            u18: Under 18
+            18-24: 18 - 24
+            25-34: 25 - 34
+            35-44: 35 - 44
+            45-59: 45 - 59
+            60+: 60 plus
+    sex:
+        label: Sex
+        tab: Volunteers
+        span: right
+        type: dropdown
+        placeholder: Select sex (optional)
+        options:
+            male: Male
+            female: Female
+            other: Other
+    country:
+        label: rainlab.location::lang.country.label
+        tab: Volunteers
+        type: dropdown
+        span: left
+        placeholder: Select country (optional)
+    state:
+        label: County / State
+        tab: Volunteers
+        type: dropdown
+        span: right
+        dependsOn: country
+        placeholder: Select county/state (optional)
+    ethnicity:
+        label: Ethnicity
+        tab: Volunteers
+        span: left
+        type: dropdown
+        placeholder: Select ethnicity (optional)
+        # https://en.wikipedia.org/wiki/Classification_of_ethnicity_in_the_United_Kingdom#Ethnicity_categories
+        options:
+            white: White
+            mixed: Mixed / multiple ethnic groups
+            asian: Asian / Asian British
+            black: Black / African / Caribbean / Black British
+            other: Other ethnic group
+    last_activity:
+        label: Last activity
+        tab: Volunteers
+        span: right
+        disabled: true

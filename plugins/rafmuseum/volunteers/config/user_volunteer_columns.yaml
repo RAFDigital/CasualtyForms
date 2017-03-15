@@ -1,0 +1,65 @@
+#  Extended User column definitions
+columns:
+    id:
+        label: rainlab.user::lang.user.id
+        invisible: true
+
+    username:
+        label: rainlab.user::lang.user.username
+        searchable: true
+        invisible: true
+
+    name:
+        label: rainlab.user::lang.user.name
+        searchable: true
+
+    surname:
+        label: rainlab.user::lang.user.surname
+        searchable: true
+        invisible: true
+
+    email:
+        label: rainlab.user::lang.user.email
+        searchable: true
+
+    created_at:
+        label: rainlab.user::lang.user.created_at
+        type: timetense
+
+    last_seen:
+        label: rainlab.user::lang.user.last_seen
+        type: timetense
+
+    is_guest:
+        label: rainlab.user::lang.user.is_guest
+        type: switch
+        invisible: true
+
+    age:
+        label: Age
+        type: dropdown
+        searchable: true
+
+    sex:
+        label: Sex
+        type: dropdown
+        searchable: true
+
+    country:
+        label: rainlab.location::lang.country.label
+        type: dropdown
+        searchable: true
+
+    state:
+        label: County / State
+        type: dropdown
+        searchable: true
+
+    ethnicity:
+        label: Ethnicity
+        type: dropdown
+        searchable: true
+
+    last_activity:
+        label: Last activity
+        searchable: true
