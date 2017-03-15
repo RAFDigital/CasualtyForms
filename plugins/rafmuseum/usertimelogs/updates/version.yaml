@@ -1,5 +1,5 @@
 1.0.1:
-    - 'Initialize plugin.'
+    - Initialise plugin.
 1.0.2:
-    - 'Created table rafmuseum_usertimelogs_logs'
-    - builder_table_create_rafmuseum_usertimelogs_logs.php
+    - Create rafmuseum_usertimelogs_logs table.
+    - create_usertimelogs_table.php

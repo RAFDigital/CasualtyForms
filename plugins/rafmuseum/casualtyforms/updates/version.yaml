@@ -1,5 +1,5 @@
 1.0.1:
-    - 'Initialize plugin.'
+    - Initialise plugin.
 1.0.2:
-    - 'Created table rafmuseum_casualtyforms_forms'
-    - create_rafmuseum_casualtyforms_forms_table.php
+    - Created table rafmuseum_casualtyforms_forms.
+    - create_casualtyforms_table.php
