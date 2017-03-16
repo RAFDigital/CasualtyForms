@@ -24,11 +24,19 @@ installer.
     cd casualty-forms/
     curl -s https://octobercms.com/api/installer | php
 
+*Note: Here you may get an error about a ZipArchive extention missing. To install it, run `apt-get install php7.0-zip`*
+
 Next you'll have to create an empty database, you will have to enter it's name
 in the next stage. Run the set up command, then update and migrate database.
 
     php artisan october:install
     php artisan october:update
+
+Check the site is up and running, and that links work. If you get errors you will probably have to install the mod_rewrite Apache module.
+
+    a2enmod rewrite
+    # Now restart Apache
+    service apache2 restart
 
 ### Permissions
 
