@@ -15,7 +15,7 @@
     </div>
 
     <div class="row">
-        <div class="form-group col-md-6">
+        <div class="form-group col-md-4">
             <label for="accountAge">Age</label>
             <select name="age" type="text" class="form-control" id="accountAge" value="{{ form_value('age') }}">
                 <option>Select age (optional)</option>
@@ -28,7 +28,7 @@
             </select>
         </div>
 
-        <div class="form-group col-md-6">
+        <div class="form-group col-md-4">
             <label for="accountSex">Sex</label>
             <select name="sex" type="text" class="form-control" id="accountSex">
                 <option>Select sex (optional)</option>
@@ -37,21 +37,8 @@
                 <option value="other" {% if form_value('sex') == 'other' %}selected{% endif %}>Other</option>
             </select>
         </div>
-    </div>
 
-    <div class="row">
-        <div class="form-group col-md-6">
-            {% set countryId = countryId|default(form_value('country_id')) %}
-
-            <label for="accountCountry">Country</label>
-            {{ form_select_country('country_id', countryId, {
-                id: 'accountCountry',
-                class: 'form-control',
-                emptyOption: 'Select country (optional)'
-            }) }}
-        </div>
-
-        <div class="form-group col-md-6">
+        <div class="form-group col-md-4">
             <label for="accountEthnicity">Ethnicity</label>
             <select name="ethnicity" type="text" class="form-control" id="accountEthnicity">
                 <option>Select ethnicity (optional)</option>
@@ -61,6 +48,12 @@
                 <option value="black" {% if form_value('ethnicity') == 'black' %}selected{% endif %}>Black / African / Caribbean / Black British</option>
                 <option value="other" {% if form_value('ethnicity') == 'other' %}selected{% endif %}>Other ethnic group</option>
             </select>
+        </div>
+    </div>
+
+    <div class="row">
+        <div id="partialCountryState">
+            {% partial '@country-state' countryId=user.country_id stateId=user.state_id %}
         </div>
     </div>
 

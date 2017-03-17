@@ -3,7 +3,7 @@
 use Schema;
 use October\Rain\Database\Updates\Migration;
 
-class AddNewFields extends Migration
+class ExtendUsersTable extends Migration
 {
 
     public function up()
@@ -25,6 +25,7 @@ class AddNewFields extends Migration
                 'age',
                 'sex',
                 'country_id',
+                'state_id',
                 'ethnicity',
                 'last_activity'
             ]);

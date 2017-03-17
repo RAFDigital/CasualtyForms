@@ -1,3 +1,5 @@
 1.0.1:
-    - 'Extend users table.'
-    - user_add_new_fields.php
+    - Initialise plugin.
+1.0.2:
+    - Extend users table.
+    - extend_users_table.php

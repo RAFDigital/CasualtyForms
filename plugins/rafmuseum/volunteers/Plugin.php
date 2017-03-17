@@ -9,7 +9,6 @@ use BackendMenu;
 use System\Classes\PluginBase;
 use Rainlab\User\Controllers\Users as UsersController;
 use Rainlab\User\Models\User as UsersModel;
-use RafMuseum\Volunteers\Models\Countries;
 
 class Plugin extends PluginBase
 {
@@ -23,18 +22,26 @@ class Plugin extends PluginBase
      */
     public $require = ['RainLab.User'];
 
-    public function registerComponents()
+    /**
+     * Returns information about this plugin.
+     *
+     * @return array
+     */
+    public function pluginDetails()
     {
         return [
-            'RafMuseum\Volunteers\Components\VolunteerAccount' => 'volunteeraccount',
-            'RafMuseum\Volunteers\Components\Dashboard' => 'dashboard'
+            'name'        => 'rafmuseum.volunteers::lang.plugin.name',
+            'description' => 'rafmuseum.volunteer::lang.plugin.description',
+            'author'      => 'RAF Museum',
+            'icon'        => 'icon-user'
         ];
     }
 
-    public function registerSettings()
-    {
-    }
-
+    /**
+     * Boot method, called right before the request route.
+     *
+     * @return array
+     */
     public function boot()
     {
         UsersModel::extend(function($model) {
@@ -71,5 +78,18 @@ class Plugin extends PluginBase
                 ]
             ]);
         });
+    }
+
+    /**
+     * Registers any front-end components implemented in this plugin.
+     *
+     * @return array
+     */
+    public function registerComponents()
+    {
+        return [
+            'RafMuseum\Volunteers\Components\VolunteerAccount' => 'volunteeraccount',
+            'RafMuseum\Volunteers\Components\Dashboard' => 'dashboard'
+        ];
     }
 }

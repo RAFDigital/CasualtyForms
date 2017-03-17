@@ -7,7 +7,7 @@ class Plugin extends PluginBase
     /**
      * @var array Plugin dependencies
      */
-    public $require = ['RafMuseum.Volunteer'];
+    public $require = ['RafMuseum.Volunteers'];
 
     /**
      * Registers any front-end components implemented in this plugin.
