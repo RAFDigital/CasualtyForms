@@ -25,7 +25,7 @@ use Backend\Models\ExportModel;
 
         // Let's include the related columns.
         $logs = $logs->with([
-            'user' => function($query){ $query->addSelect(['id', 'name']); }
+            'user' => function($query){ $query->addSelect('*'); }
         ]);
 
         // From date and to date.
@@ -53,7 +53,8 @@ use Backend\Models\ExportModel;
             if (is_array($item)){
                 foreach($item as $key => $value) {
                     if (is_array($value)) {
-                        $item[$key] = json_encode($value);
+                        // Only display the name.
+                        $item[$key] = $value['name'];
                     }
                 }
             }

@@ -21,8 +21,8 @@ use Backend\Models\ExportModel;
 
         // Let's include the related columns.
         $forms = $forms->with([
-            'completed_by' => function($query){ $query->addSelect(['id', 'name']); },
-            'approved_by' => function($query){ $query->addSelect(['id', 'name']); }
+            'completed_by' => function($query){ $query->addSelect('*'); },
+            'approved_by' => function($query){ $query->addSelect('*'); }
         ]);
 
         // Do a different query based on options.
@@ -43,7 +43,8 @@ use Backend\Models\ExportModel;
             if (is_array($item)){
                 foreach($item as $key => $value) {
                     if (is_array($value)) {
-                        $item[$key] = json_encode($value);
+                        // We want to only display the name.
+                        $item[$key] = $value['name'];
                     }
                 }
             }

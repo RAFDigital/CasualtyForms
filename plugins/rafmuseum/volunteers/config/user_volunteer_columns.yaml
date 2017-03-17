@@ -39,17 +39,19 @@ columns:
         label: Sex
         searchable: true
 
-    country_id:
+    country:
         label: rainlab.location::lang.country.label
         searchable: true
-        select: name
         relation: country
-
-    state_id:
-        label: County / State
-        type: text
         select: name
+        sortable: false
+
+    state:
+        label: rainlab.location::lang.state.label
+        searchable: true
         relation: state
+        select: name
+        sortable: false
 
     ethnicity:
         label: Ethnicity
