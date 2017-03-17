@@ -2,7 +2,6 @@
 
 use BackendMenu;
 use Backend\Classes\Controller;
-//use RainLab\User\Controllers\Users; //**********get rid**
 
 class Volunteers extends Controller
 {

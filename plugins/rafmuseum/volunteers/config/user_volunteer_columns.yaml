@@ -2,12 +2,10 @@
 columns:
     id:
         label: rainlab.user::lang.user.id
-        invisible: true
 
     username:
         label: rainlab.user::lang.user.username
         searchable: true
-        invisible: true
 
     name:
         label: rainlab.user::lang.user.name
@@ -16,7 +14,6 @@ columns:
     surname:
         label: rainlab.user::lang.user.surname
         searchable: true
-        invisible: true
 
     email:
         label: rainlab.user::lang.user.email
@@ -33,31 +30,29 @@ columns:
     is_guest:
         label: rainlab.user::lang.user.is_guest
         type: switch
-        invisible: true
 
     age:
         label: Age
-        type: dropdown
         searchable: true
 
     sex:
         label: Sex
-        type: dropdown
         searchable: true
 
-    country:
+    country_id:
         label: rainlab.location::lang.country.label
-        type: dropdown
         searchable: true
+        select: name
+        relation: country
 
-    state:
+    state_id:
         label: County / State
-        type: dropdown
-        searchable: true
+        type: text
+        select: name
+        relation: state
 
     ethnicity:
         label: Ethnicity
-        type: dropdown
         searchable: true
 
     last_activity:

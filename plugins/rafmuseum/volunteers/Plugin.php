@@ -60,23 +60,11 @@ class Plugin extends PluginBase
             $form->addTabFields($config['fields']);
         });
 
-        Event::listen('backend.menu.extendItems', function($manager) {
-            $manager->addSideMenuItems('RainLab.User', 'user', [
-                'users' => [
-                    'label'       => 'Volunteers',
-                    'url'         => Backend::url('rainlab/user/users'),
-                    'icon'        => 'icon-user',
-                    'permissions' => ['rainlab.users.*'],
-                    'order'       => 100,
-                ],
-                'export' => [
-                    'label'       => 'Export',
-                    'url'         => Backend::url('rafmuseum/volunteers/volunteers/export'),
-                    'icon'        => 'icon-download',
-                    'permissions' => ['rafmuseum.volunteers.*'],
-                    'order'       => 200,
-                ]
-            ]);
+        Event::listen('backend.page.beforeDisplay', function($controller, $action, $params) {
+            if (get_class($controller) === 'RainLab\User\Controllers\Users') {
+                // We want to inject some JS if we are in the Users controller.
+                $controller->addJs('/plugins/rafmuseum/volunteers/assets/javascript/exportbutton.js');
+            }
         });
     }
 
