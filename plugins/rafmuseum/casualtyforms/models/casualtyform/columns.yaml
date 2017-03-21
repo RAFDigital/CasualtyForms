@@ -50,6 +50,15 @@ columns:
         type: text
         select: name
         relation: approved_by
+    started_at:
+        label: 'Started at'
+        type: datetime
+    completed_at:
+        label: 'Completed at'
+        type: datetime
+    approved_at:
+        label: 'Approved at'
+        type: datetime
     filename:
         label: Filename
         type: text

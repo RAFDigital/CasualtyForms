@@ -15,10 +15,8 @@ class VolunteerExport extends ExportModel
     {
         $users = new User;
 
-        $users = $users->with([
-            'country' => function($query){ $query->addSelect('*'); },
-            'state' => function($query){ $query->addSelect('*'); }
-        ]);
+        // Include the country and state relationships.
+        $users = $users->with(['country', 'state']);
 
         $users = $users->get();
 

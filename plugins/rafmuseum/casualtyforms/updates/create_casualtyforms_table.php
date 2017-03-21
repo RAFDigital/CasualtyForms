@@ -23,6 +23,9 @@ class CreateRafmuseumCasualtyformsFormTable extends Migration
             $table->integer('started_by_id')->nullable();
             $table->integer('completed_by_id')->nullable();
             $table->integer('approved_by_id')->nullable();
+            $table->timestamp('started_at')->nullable();
+            $table->timestamp('completed_at')->nullable();
+            $table->timestamp('approved_at')->nullable();
             $table->string('filename')->nullable();
             $table->boolean('child_form')->default(0);
             $table->integer('parent_form_id')->nullable();

@@ -37,6 +37,7 @@ class TranscriptionForm extends ComponentBase
             // If there are no started forms, create a new one.
             $form = new CasualtyForm();
             $form->started_by_id = $this->page['user']['id'];
+            $form->started_at = date("Y-m-d H:i:s");
             $form->save();
 
             // Create the expected filename.
@@ -95,11 +96,16 @@ class TranscriptionForm extends ComponentBase
 
         $formsCompleted = null;
 
-        // Now get the number of any forms completed by the user.
+        // Add the right timestamps for each of the stages.
         if (post('completed_by_id')) {
+            $casualtyForm->completed_at = date("Y-m-d H:i:s");
+
+            // Get the number of any forms completed by the user.
             $formsCompleted = CasualtyForm::where(
                 'completed_by_id', post('completed_by_id')
             )->count() + 1; // Add one to include this one.
+        } else if (post('approved_by_id')) {
+            $casualtyForm->approved_at = date("Y-m-d H:i:s");
         }
 
         // Update model.

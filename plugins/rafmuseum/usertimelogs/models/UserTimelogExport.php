@@ -24,9 +24,7 @@ use Backend\Models\ExportModel;
         $logs = new UserTimelog;
 
         // Let's include the related columns.
-        $logs = $logs->with([
-            'user' => function($query){ $query->addSelect('*'); }
-        ]);
+        $logs = $logs->with(['user']);
 
         // From date and to date.
         if ($this->from_date && $this->to_date) {

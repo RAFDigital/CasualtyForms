@@ -20,10 +20,7 @@ use Backend\Models\ExportModel;
         $forms = new CasualtyForm;
 
         // Let's include the related columns.
-        $forms = $forms->with([
-            'completed_by' => function($query){ $query->addSelect('*'); },
-            'approved_by' => function($query){ $query->addSelect('*'); }
-        ]);
+        $forms = $forms->with(['completed_by', 'approved_by']);
 
         // Do a different query based on options.
         if ($this->approved_forms_only) {
