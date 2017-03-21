@@ -3,11 +3,11 @@ url = "/volunteer"
 layout = "default"
 is_hidden = 0
 
-[dashboard]
+[totaliser]
 ==
 <div class="jumbotron">
     <div class="container">
-        <h1>Dashboard</h1>
+        <h1>Totaliser</h1>
 
         {% if user %}
             <a href="{{ 'transcribe'|page({ stage: 'new' }) }}" class="btn btn-primary">Transcribe</a>
@@ -17,5 +17,5 @@ is_hidden = 0
 </div>
 
 <div class="container">
-    {% component 'dashboard' %}
+    {% component 'totaliser' %}
 </div>

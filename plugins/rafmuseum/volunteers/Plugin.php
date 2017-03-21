@@ -77,7 +77,7 @@ class Plugin extends PluginBase
     {
         return [
             'RafMuseum\Volunteers\Components\VolunteerAccount' => 'volunteeraccount',
-            'RafMuseum\Volunteers\Components\Dashboard' => 'dashboard'
+            'RafMuseum\Volunteers\Components\Totaliser' => 'totaliser'
         ];
     }
 }

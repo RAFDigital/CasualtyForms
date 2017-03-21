@@ -4,12 +4,12 @@ use Cms\Classes\ComponentBase;
 use RafMuseum\CasualtyForms\Models\CasualtyForm;
 use RafMuseum\UserTimelogs\Models\UserTimelog;
 
-class Dashboard extends ComponentBase
+class Totaliser extends ComponentBase
 {
     public function componentDetails()
     {
         return [
-            'name' => 'Dashboard Component',
+            'name' => 'Totaliser Component',
             'description' => 'Overview of volunteer progress.'
         ];
     }
