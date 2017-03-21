@@ -71,6 +71,8 @@ var TransriptionForm = (function(exports) {
             .removeClass('btn-success')
             .addClass('btn-primary');
 
+        $(input.form).find('.alert-approval').show();
+
         // We only want to do all this once.
         backToApproval = true;
     }

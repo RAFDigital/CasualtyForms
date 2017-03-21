@@ -52,6 +52,14 @@
 // Alerts
 .alert {
     color: #fff;
+
+    &.alert-approval {
+        display: none;
+    }
+}
+
+.alert-error {
+    .alert-variant(@alert-danger-bg; @alert-danger-border; @alert-danger-text);
 }
 
 // Flash messages

@@ -54,20 +54,6 @@ Flag light blue: 6399ab
 .table tr:hover {
   background-color: #f9f9f9;
 }
-.alert {
-  margin-bottom: 0;
-}
-.alert-error {
-  background-color: #c83322;
-  border-color: #b22d1e;
-  color: #a94442;
-}
-.alert-error hr {
-  border-top-color: #9c281b;
-}
-.alert-error .alert-link {
-  color: #843534;
-}
 .form-control[readonly] {
   color: transparent;
 }
@@ -167,6 +153,20 @@ Flag light blue: 6399ab
 }
 .alert {
   color: #fff;
+}
+.alert.alert-approval {
+  display: none;
+}
+.alert-error {
+  background-color: #c83322;
+  border-color: #b22d1e;
+  color: #a94442;
+}
+.alert-error hr {
+  border-top-color: #9c281b;
+}
+.alert-error .alert-link {
+  color: #843534;
 }
 body > p.flash-message {
   border-radius: 0px !important;
