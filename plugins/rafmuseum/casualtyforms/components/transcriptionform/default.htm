@@ -193,10 +193,7 @@
 
     <div class="alert alert-warning alert-approval" role="alert">
         This form is going back to the copmletion state after saving due to edits
-        in the approval stage.
-
-        <a href="javascript:window.location.href=window.location.href"
-            class="pull-right">Undo</a>
+        in the approval stage. <a href=""class="pull-right">Undo</a>
     </div>
 
     <div class="form-group pull-right">
@@ -208,8 +205,4 @@
             <button type="submit" class="btn btn-success">Approve</button>
         {% endif %}
     </div>
-
-    {% flash success %}
-        <p>{{ message }}</p>
-    {% endflash %}
 </form>
