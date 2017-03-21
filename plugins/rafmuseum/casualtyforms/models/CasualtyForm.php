@@ -200,6 +200,18 @@ class CasualtyForm extends Model
     }
 
     /**
+     * Counts the number of forms completed by a certain user.
+     * @param array $userId The user ID to query.
+     */
+    public static function completedByUser($userId) {
+        $casualtyForms = new static;
+        $count = $casualtyForms->where('completed_by_id', $userId)->count();
+
+        // Return just the count number.
+        return $count;
+    }
+
+    /**
      * Scope a query to only include approved forms.
      * @param  bool $flush To flush the cache or not.
      */

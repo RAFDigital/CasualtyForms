@@ -96,26 +96,22 @@ class TranscriptionForm extends ComponentBase
 
         $formsCompleted = null;
 
-        // Add the right timestamps for each of the stages.
-        if (post('completed_by_id')) {
-            $casualtyForm->completed_at = date("Y-m-d H:i:s");
+        trace_log('POST', post());
 
-            // Get the number of any forms completed by the user.
-            $formsCompleted = CasualtyForm::where(
-                'completed_by_id', post('completed_by_id')
-            )->count() + 1; // Add one to include this one.
+        // Add the right timestamps and messages for each of the stages.
+        if ($userId = post('completed_by_id')) {
+            $casualtyForm->completed_at = date("Y-m-d H:i:s");
+            Flash::success('Form transcribed.');
+
+            // Get number of forms completed by the user (+1 to include this one).
+            $formsCompleted = CasualtyForm::completedByUser($userId) + 1;
         } else if (post('approved_by_id')) {
             $casualtyForm->approved_at = date("Y-m-d H:i:s");
+            Flash::success('Form approved.');
         }
 
         // Update model.
         $casualtyForm->update();
-
-        // Appropriate flash message.
-        $this->property('stage') == 'new' ?
-            Flash::success('Form transcribed.') :
-            Flash::success('Form approved.');
-
 
         if (in_array($formsCompleted, array_keys(config('casualtyforms.surveys')))) {
             // Redirect to survey page if based on config settings.
