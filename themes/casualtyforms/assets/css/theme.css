@@ -636,6 +636,80 @@ body > p.flash-message.danger {
 .chart-line-style {
   height: 300px;
 }
+.title-value h4 {
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #666666;
+  margin: 0;
+}
+.title-value p {
+  color: #666666;
+  margin: 0;
+  font-size: 28px;
+  line-height: 41px;
+}
+.title-value p:before {
+  color: #e5a91a;
+  font-size: 22px;
+}
+.title-value p.negative:after,
+.title-value p.positive:after {
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  text-decoration: inherit;
+  -webkit-font-smoothing: antialiased;
+  *margin-right: .3em;
+  font-size: 17px;
+  vertical-align: top;
+  position: relative;
+  top: -3px;
+  left: 5px;
+}
+.title-value p.negative {
+  color: #cc3300;
+}
+.title-value p.negative:after {
+  content: "\f103";
+}
+.title-value p.positive {
+  color: #95b753;
+}
+.title-value p.positive:after {
+  content: "\f102";
+}
+.title-value p.description {
+  color: #999999;
+  font-weight: 300;
+  line-height: 100%;
+  font-size: 13px;
+}
+.scoreboard {
+  margin-top: 80px;
+  position: relative;
+  padding: 0;
+  text-align: center;
+}
+.scoreboard:after,
+.scoreboard:before {
+  margin-top: -10px;
+  display: none;
+  position: absolute;
+  top: 50%;
+  margin-top: -7px;
+  height: 9px;
+  font-size: 10px;
+  color: #bbbbbb;
+}
+.scoreboard .scoreboard-item {
+  display: inline-block;
+  margin-right: 40px;
+  margin-bottom: 20px;
+  vertical-align: top;
+}
+.scoreboard .scoreboard-item:last-child {
+  margin-right: 0;
+}
 body {
   padding-top: 70px;
 }

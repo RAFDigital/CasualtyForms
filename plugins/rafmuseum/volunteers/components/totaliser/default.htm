@@ -1,4 +1,4 @@
-<h2>Total progress</h2>
+<h2>Progress</h2>
 
 {% set percentComplete = progress.completed / progress.total * 100 %}
 {% set percentApproved = progress.approved / progress.total * 100 %}
@@ -21,8 +21,45 @@
     </tr>
 </table>
 
+<div class="scoreboard">
+    <div data-control="toolbar">
+        <div class="scoreboard-item title-value">
+            <h4>Volunteers</h4>
+            <p>{{ volunteers }}</p>
+            <p class="description">Registered</p>
+        </div>
+
+        <div class="scoreboard-item title-value">
+            <h4>Weekly transcriptions</h4>
+            <p class="{{ weekStats.completed.change }}">{{ weekStats.completed.this }}</p>
+            <p class="description">previous week: {{ weekStats.completed.last }}</p>
+        </div>
+
+        <div class="scoreboard-item title-value">
+            <h4>Weekly approvals</h4>
+            <p class="{{ weekStats.approved.change }}">{{ weekStats.approved.this }}</p>
+            <p class="description">previous week: {{ weekStats.approved.last }}</p>
+        </div>
+    </div>
+</div>
+
+
+
 {#
 // Nuking this for now.
+
+<div
+    data-control="chart-line"
+    data-time-mode="weeks"
+    class="chart-line-style"
+    data-chart-options="xaxis: {mode: 'time'}">
+    <span
+        data-chart="dataset"
+        data-set-color="#6399ab"
+        data-set-data="{% for unit in data %}{{ unit|json_encode }}{% if not loop.last %}, {% endif %}{% endfor %}"
+        data-set-name="Visits">
+    </span>
+</div>
 
 {% if leadApprovals is not empty %}
     <h2>Form approvals</h2>
