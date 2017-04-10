@@ -24,12 +24,12 @@ jQuery(document).ready(function($) {
     });
 
     // Scroll animation.
-    // $('a[href^="#"]').on('click', function(event) {
-    //     event.preventDefault();
-    //     $('html, body').animate({
-    //         scrollTop: $(this.hash).offset().top
-    //     }, 400);
-    // });
+    $('a[href^="#"].smooth-scroll').on('click', function(event) {
+        event.preventDefault();
+        $('html, body').animate({
+            scrollTop: $(this.hash).offset().top
+        }, 400);
+    });
 
     // Initialise image zoom and controls.
     wheelzoom(document.querySelectorAll('img.image-zoom'));
