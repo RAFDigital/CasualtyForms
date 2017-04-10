@@ -62,6 +62,8 @@ class Clock
 
         if ($type == 'timeout') {
             Flash::warning("You have been logged out due to inactivity.");
+        } else {
+            Flash::warning("You have been logged out.");
         }
 
         // Done, redirect home.
