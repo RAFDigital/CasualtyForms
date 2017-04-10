@@ -64,10 +64,6 @@ class Clock
             Flash::warning("You have been logged out due to inactivity.");
         }
 
-        if ($type == 'banned') {
-            Flash::error("Your user has been banned from transcribing.");
-        }
-
         // Done, redirect home.
         return  Redirect::to('/');
     }

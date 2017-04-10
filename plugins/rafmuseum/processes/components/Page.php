@@ -20,13 +20,6 @@ class Page extends ComponentBase
         $user = $this->page['user'];
 
         if ($user) {
-            // First check if user is banned.
-            foreach ($user->groups as $group) {
-                if ($group->code == 'banned') {
-                    return Redirect::to('/volunteer/signout/banned');
-                }
-            }
-
             // Now get the timeout limit from config.
             $timeoutLimit = config('casualtyforms.timeoutLimit');
 
