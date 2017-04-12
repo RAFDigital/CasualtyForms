@@ -70,4 +70,7 @@ jQuery(document).ready(function($) {
         previousTop = currentTop;
         scrolling = false;
     }
+
+    // Ready.
+    console.log("System Security Interface\nVersion 4.0.5, Alpha E\nReady...");
 });

@@ -60,6 +60,9 @@ class Totaliser extends ComponentBase
         return $progress;
     }
 
+    /**
+     * A few more wee stats for the page.
+     */
     protected function getWeekStats()
     {
         $weekStats = array('completed' => array(), 'approved' => array());
