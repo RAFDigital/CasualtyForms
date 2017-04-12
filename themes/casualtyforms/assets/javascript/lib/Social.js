@@ -29,7 +29,7 @@ var Social = (function(exports) {
      */
     function facebookShare(event) {
         window.open(
-            FACEBOOK_URL + '?u=' + event.currentTarget.href + '&p[images][0]=' + FACEBOOK_IMG,
+            FACEBOOK_URL + '?u=' + window.location.href + '&p[images][0]=' + FACEBOOK_IMG,
             'pop', popupConfig(POPUP_CONFIG)
         );
         return false;
@@ -41,7 +41,7 @@ var Social = (function(exports) {
      */
     function twitterTweet(event) {
         window.open(
-            TWITTER_URL + '?url=' + event.currentTarget.href +
+            TWITTER_URL + '?url=' + window.location.href +
             '&text=' + event.currentTarget.dataset.text,
             'pop', popupConfig(POPUP_CONFIG)
         );
