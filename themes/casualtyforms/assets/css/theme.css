@@ -762,6 +762,10 @@ body.four-oh-four {
 .jumbotron-home h1 {
   margin-top: 12.5px;
 }
+.jumbotron-home h1 span {
+  display: block;
+  font-size: 0.4em;
+}
 .advanced-link,
 .advanced-link:hover,
 .advanced-link:active,
