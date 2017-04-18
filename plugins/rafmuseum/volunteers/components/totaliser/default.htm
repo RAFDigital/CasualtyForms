@@ -15,9 +15,15 @@
 
 <table class="progress-labels">
     <tr>
-        <td class="text-left text-success">{{ progress.approved }} approved</td>
-        <td class="text-center text-primary">{{ progress.completed }} transcribed</td>
-        <td class="text-right text-muted">{{ progress.total - progress.completed }} remaining</td>
+        <td class="text-left text-success">
+            {{ progress.approved|number_format(0, '.', ',') }} approved
+        </td>
+        <td class="text-center text-primary">
+            {{ progress.completed|number_format(0, '.', ',') }} transcribed
+        </td>
+        <td class="text-right text-muted">
+            {{ (progress.total - progress.completed)|number_format(0, '.', ',') }} remaining
+        </td>
     </tr>
 </table>
 
