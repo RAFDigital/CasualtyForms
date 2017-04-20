@@ -57,6 +57,16 @@ class CasualtyForm extends Model
      */
     protected $jsonable = ['rank'];
 
+    /**
+     * @var array The date columns, this is different to October's $dates.
+     */
+    protected $dateFields = [
+        'birth_date',
+        'death_date',
+        'report_date_first',
+        'report_date_last'
+    ];
+
     /*
      * Relationships
      * These assume the foreign key is the relationship name affixed by `_id`.
@@ -78,6 +88,13 @@ class CasualtyForm extends Model
      * @var string The database table used by the model.
      */
     public $table = 'rafmuseum_casualtyforms_forms';
+
+    /**
+     * Return the date fields.
+     */
+    public function getDateFields() {
+        return $this->dateFields;
+    }
 
     /**
      * Scope a query to only include forms that have been created but not complete.

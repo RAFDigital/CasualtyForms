@@ -37,7 +37,7 @@ class TranscriptionForm extends ComponentBase
             // If there are no started forms, create a new one.
             $form = new CasualtyForm();
             $form->started_by_id = $this->page['user']['id'];
-            $form->started_at = date("Y-m-d H:i:s");
+            $form->started_at = date('Y-m-d H:i:s');
             $form->save();
 
             // Create the expected filename.
@@ -91,22 +91,28 @@ class TranscriptionForm extends ComponentBase
         // Update the values.
         $casualtyForm->fill(post());
 
+        // Get the date fields and convert them before submitting to the DB.
+        foreach ($casualtyForm->getDateFields() as $dateField) {
+            if (post($dateField)) {
+                $time = strtotime(post($dateField));
+                $casualtyForm[$dateField] = date('Y-m-d H:i:s', $time);
+            }
+        }
+
         // Nullify the parent_form_id if the form is no longer a child form.
         if( ! post('child_form')) $casualtyForm->parent_form_id = null;
 
         $formsCompleted = null;
 
-        trace_log('POST', post());
-
         // Add the right timestamps and messages for each of the stages.
         if ($userId = post('completed_by_id')) {
-            $casualtyForm->completed_at = date("Y-m-d H:i:s");
+            $casualtyForm->completed_at = date('Y-m-d H:i:s');
             Flash::success('Form transcribed.');
 
             // Get number of forms completed by the user (+1 to include this one).
             $formsCompleted = CasualtyForm::completedByUser($userId) + 1;
         } else if (post('approved_by_id')) {
-            $casualtyForm->approved_at = date("Y-m-d H:i:s");
+            $casualtyForm->approved_at = date('Y-m-d H:i:s');
             Flash::success('Form approved.');
         }
 

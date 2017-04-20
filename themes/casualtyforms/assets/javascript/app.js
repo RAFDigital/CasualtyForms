@@ -20,7 +20,13 @@ jQuery(document).ready(function($) {
 
     // Initialise datepicker.
     $('input[type="datepicker"]').datepicker({
-        format: "yyyy-mm-dd"
+        format: "d MM yyyy",
+        autoclose: true,
+        defaultViewDate: {
+            year: '1914',
+            month: '06',
+            day: '01'
+        }
     });
 
     // Scroll animation.

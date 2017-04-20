@@ -2,7 +2,7 @@
 
 <div class="input-group">
     <input id="{{ id }}" name="{{ name }}" type="datepicker" class="form-control"
-        placeholder="Enter the date on the form" data-date-end-date="1920-01-31"
+        placeholder="Enter the date on the form"
         value="{% if recordValue != '0001-01-01' %}{{ recordValue }}{% endif %}"
         onchange="TransriptionForm.checkDates(this)"
         {% if recordValue == '0001-01-01' %}readonly{% endif %}/>
