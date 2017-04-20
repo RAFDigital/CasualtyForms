@@ -17,8 +17,7 @@ class CasualtyForm extends Model
     /*
      * Validation
      */
-    public $rules = [
-    ];
+    public $rules = [];
 
     /**
      * @var array The attributes that are mass assignable (in the front end).

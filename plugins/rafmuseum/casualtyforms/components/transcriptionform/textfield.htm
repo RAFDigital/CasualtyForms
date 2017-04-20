@@ -3,7 +3,8 @@
 <div class="input-group">
     <input id="{{ id }}" name="{{ name }}" type="text" class="form-control"
         placeholder="Enter the {{ label }} on the form" value="{{ recordValue }}"
-        {% if recordValue == '?' %}readonly{% endif %}/>
+        {% if recordValue == '?' %}readonly{% endif %}
+        {% if required %}required{% endif %} />
 
     <div class="input-group-btn">
         <button type="button" class="btn btn-default dropdown-toggle"
