@@ -80,8 +80,8 @@ Flag light blue: 6399ab
 .progress-labels td {
   width: 33.33333333%;
 }
-[data-toggle="tooltip"] {
-  border-bottom: 1px dashed #555555;
+.icon-info-sign:hover {
+  cursor: help;
 }
 .image-zoom-controls {
   position: relative;

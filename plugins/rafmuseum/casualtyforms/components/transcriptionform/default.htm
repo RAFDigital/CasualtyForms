@@ -7,9 +7,10 @@
             data-onstyle="danger"
             onchange="$('#childHidden, #childShow').slideToggle()"
             {% if form.child_form %}checked{% endif %} />
-        <label class="m-l" data-toggle="tooltip" data-placement="right"
-            title="Checking this box marks this page as a 'child form' of another.">
+        <label class="m-l">
             Does this form contain name data?
+            <i class="icon-info-sign" data-toggle="tooltip" data-placement="right"
+                title="Checking this box marks this page as an additional form to another."></i>
         </label>
     </div>
 
@@ -25,7 +26,11 @@
     <div id="childShow" class="form-group image-radio-group row"
         {% if form.child_form == false %}style="display: none"{% endif %}>
         <div class="col-sm-12">
-            <label>Select the form which looks like the current form's parent</label>
+            <label>
+                Select the form which looks like the current form's parent
+                <i class="icon-info-sign" data-toggle="tooltip" data-placement="right"
+                    title="The 'parent form' is the first page to this accompanying form"></i>
+            </label>
         </div>
 
         {% if form.filenameBefore %}
