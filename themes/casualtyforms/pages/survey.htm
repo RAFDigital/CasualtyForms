@@ -13,13 +13,17 @@ function onStart() {
     <div class="container">
         <h1>Survey</h1>
         <p>You have completed {{ completed }} transcription{% if completed > 1 %}s{% endif %}
-            for us! fancy filling out this survey?</p>
+            for us! Fancy filling out this survey?</p>
         </p>
     </div>
 </div>
 
 <div class="container">
-    {% if surveyLink %}
-        <a href="{{ surveyLink }}" target="_new">Survey link here.</a>
-    {% endif %}
+    <a href="{{ surveyLink }}" class="btn btn-primary" target="_new">
+        Take me to the survey
+    </a>
+
+    <a href="{{ 'transcribe'|page({ stage: 'new' }) }}" class="btn btn-default">
+        No thanks, go back to transcribing
+    </a>
 </div>
