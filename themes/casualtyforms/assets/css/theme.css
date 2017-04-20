@@ -207,6 +207,9 @@ body > p.flash-message.danger {
 .pos-f {
   position: fixed !important;
 }
+.clear {
+  clear: both;
+}
 .w-sm {
   width: 25% !important;
 }

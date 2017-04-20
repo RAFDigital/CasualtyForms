@@ -1,4 +1,6 @@
-<label for="{{ id }}">{{ label }}</label>
+<label for="{{ id }}">
+    {{ label }}{% if required %}<span class="text-danger">*</span>{% endif %}
+</label>
 
 <div class="input-group">
     <input id="{{ id }}" name="{{ name }}" type="text" class="form-control"
