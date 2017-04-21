@@ -10,13 +10,13 @@
         <label class="m-l">
             Does this form contain name data?
             <i class="icon-info-sign" data-toggle="tooltip" data-placement="right"
-                title="Checking this box marks this page as an additional form to another."></i>
+                title="Checking this box marks this page as an additional form to another"></i>
         </label>
     </div>
 
     <div class="image-zoom-controls">
         <img class="image-zoom" src="{{ form.filename|media }}" data-toggle="tooltip"
-            data-placement="bottom" title="Use scroll wheel to zoom." />
+            data-placement="bottom" title="Use scroll wheel to zoom" />
 
         <a class="zoom-reset btn btn-link pull-right"><i class="icon-undo"></i></a>
         <!-- <a class="zoom-zoomout btn btn-link pull-right"><i class="icon-minus"></i></a>
@@ -81,7 +81,11 @@
     <div id="childHidden" {% if form.child_form %}style="display: none"{% endif %}>
 
         <div class="form-group">
-            <label for="casualtyRank">Rank</label>
+            <label for="casualtyRank">
+                Rank
+                <i class="icon-info-sign" data-toggle="tooltip" data-placement="right"
+                    title="There may be multiple ranks listed on the page, tick all that are present"></i>
+            </label>
 
             <div class="checkbox">
                 <label class="checkbox-inline">
@@ -214,5 +218,5 @@
     </div>
 
     <p class="clear">Fields marked with an asterisk<span class="text-danger">*</span>
-        are required, all others may be left blank as there is not always data present.</p>
+        are required, all other fields may be left blank as there is not always data present.</p>
 </form>
