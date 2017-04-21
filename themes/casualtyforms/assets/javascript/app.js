@@ -22,6 +22,7 @@ jQuery(document).ready(function($) {
     $('input[type="datepicker"]').datepicker({
         format: "d MM yyyy",
         autoclose: true,
+        startView: 'years',
         defaultViewDate: {
             year: '1914',
             month: '06',
