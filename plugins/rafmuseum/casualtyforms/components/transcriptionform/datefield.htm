@@ -4,7 +4,7 @@
     <input id="{{ id }}" name="{{ name }}" type="datepicker" class="form-control"
         placeholder="Enter the date on the form"
         value="{% if recordValue != '0001-01-01' %}{{ recordValue }}{% endif %}"
-        onchange="TransriptionForm.checkDates(this)"
+        onchange="TranscriptionForm.checkDates(this)"
         {% if recordValue == '0001-01-01' %}readonly{% endif %}/>
     <div class="input-group-btn">
         <button type="button" class="btn btn-default dropdown-toggle"

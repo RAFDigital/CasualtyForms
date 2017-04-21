@@ -5,7 +5,7 @@
         <input id="childForm" type="checkbox" name="child_form"
             value="1" data-toggle="toggle" data-on="No" data-off="Yes"
             data-onstyle="danger"
-            onchange="$('#childHidden, #childShow').slideToggle()"
+            onchange="TranscriptionForm.toggleChildForm()"
             {% if form.child_form %}checked{% endif %} />
         <label class="m-l">
             Does this form contain name data?
@@ -40,9 +40,11 @@
                     value="{{ form.id - 1 }}"
                     type="radio"
                     id="image-radio-before"
-                    {{ form.parent_form_id == form.id - 1 ? 'checked' : '' }} />
+                    {{ form.parent_form_id == form.id - 1 ? 'checked' : '' }}
+                    {% if form.child_form == false %}disabled{% endif %}
+                    required />
                 <label for="image-radio-before">
-                    <img src="{{ form.filenameBefore|media  }}" />
+                    <img class="image-zoom-retard" src="{{ form.filenameBefore|media  }}" />
                 </label>
 
                 <a href="{{ form.filenameBefore|media  }}" target="_blank">
@@ -62,9 +64,11 @@
                     value="{{ form.id + 1 }}"
                     type="radio"
                     id="image-radio-after"
-                    {{ form.parent_form_id == form.id + 1 ? 'checked' : '' }} />
+                    {{ form.parent_form_id == form.id + 1 ? 'checked' : '' }}
+                    {% if form.child_form == false %}disabled{% endif %}
+                    required />
                 <label for="image-radio-after">
-                    <img src="{{ form.filenameAfter|media }}" />
+                    <img class="image-zoom-retard" src="{{ form.filenameAfter|media }}" />
                 </label>
 
                 <a href="{{ form.filenameAfter|media  }}" target="_blank">
@@ -149,7 +153,8 @@
                     name="surname"
                     label="Surname"
                     recordValue=form.surname
-                    required=1 %}
+                    required=1
+                    disabled=form.child_form %}
             </div>
 
             <div class="form-group col-sm-4">

@@ -21,11 +21,26 @@
 }
 
 .image-radio input {
-    display: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: -1;
 }
 
 .image-radio input:checked + label {
     border: 1px solid #6399ab;
+}
+
+.image-radio input:checked + label:after {
+    background: #6399ab;
+    content: 'Selected';
+    color: #fff;
+    display: block;
+    font-weight: normal;
+    margin-top: -1.5em;
+    height: 1.5em;
+    position: relative;
+    z-index: 7;
 }
 
 .alert-warning {

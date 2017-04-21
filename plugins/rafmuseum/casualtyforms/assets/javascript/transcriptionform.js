@@ -2,7 +2,7 @@
  * TranscriptionForm.js
  * All the scripts for the transcription form component.
  */
-var TransriptionForm = (function(exports) {
+var TranscriptionForm = (function(exports) {
     'use strict';
 
     /* Consts */
@@ -11,11 +11,15 @@ var TransriptionForm = (function(exports) {
         ILLEGIBLE_CHAR = { text: '?', datepicker: '0001-01-01' },
         FORM_TAG = 'form',
         INPUT_SELECTOR = 'input',
+        REQUIRED_INPUT_SELCTOR = INPUT_SELECTOR + '[required]',
         SUBMIT_BUTTON = '[type="submit"]',
         INPUT_GROUP_CLASS = '.input-group',
         FORM_CONTROL_CLASS = '.form-control',
+        CHILD_TOGGLE_SECTIONS = '#childHidden, #childShow',
+        RETARD_IMAGE_ZOOM_SELECTOR = 'img.image-zoom-retard',
     /* Vars */
-        backToApproval = false;
+        backToApproval = false,
+        imageZoomsInitialised = false;
 
     /**
      * Function to action the user logout.
@@ -128,6 +132,26 @@ var TransriptionForm = (function(exports) {
     }
 
     /**
+     * Exposed function for toggling the child selection section.
+     */
+    exports.toggleChildForm = function() {
+        var $toggleSections = $(CHILD_TOGGLE_SECTIONS),
+            $requiredInputs = $toggleSections.find(REQUIRED_INPUT_SELCTOR);
+
+        // Show and hide the right sections.
+        $toggleSections.slideToggle();
+        // Toggle the required inputs so they don't block the form submission.
+        $requiredInputs.prop('disabled', function(i, v) { return !v; });
+
+        if (!imageZoomsInitialised) {
+            // Initialise image zoom and controls for the new stuff.
+            wheelzoom(document.querySelectorAll(RETARD_IMAGE_ZOOM_SELECTOR));
+            // (Only once)
+            imageZoomsInitialised = true;
+        }
+    }
+
+    /**
      * Event handler for mousemove to detect inactivity.
      */
     jQuery(document).ready(function($) {
@@ -151,4 +175,4 @@ var TransriptionForm = (function(exports) {
     });
 
     return exports;
-}(TransriptionForm || {}));
+}(TranscriptionForm || {}));
