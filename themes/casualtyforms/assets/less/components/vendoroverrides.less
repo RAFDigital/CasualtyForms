@@ -3,10 +3,12 @@
 // --------------------------------------------------
 
 // Datepicker
-.datepicker table tr td.active.active,
-.datepicker table tr td.active.highlighted.active,
-.datepicker table tr td.active.highlighted:active,
-.datepicker table tr td.active:active {
-    background-color: @brand-primary !important;
-    border-color: @brand-primary !important;
+.datepicker table tr td.active,
+.datepicker table tr td span.active {
+    &.active, &:active, &:hover.active, &:hover:active,
+    &.disabled:hover.active, &.disabled:hover:active,
+    &.highlighted.active, &.highlighted:active {
+        background-color: @brand-primary !important;
+        border-color: @brand-primary !important;
+    }
 }

@@ -640,9 +640,21 @@ body > p.flash-message.danger {
   clear: both;
 }
 .datepicker table tr td.active.active,
+.datepicker table tr td span.active.active,
+.datepicker table tr td.active:active,
+.datepicker table tr td span.active:active,
+.datepicker table tr td.active:hover.active,
+.datepicker table tr td span.active:hover.active,
+.datepicker table tr td.active:hover:active,
+.datepicker table tr td span.active:hover:active,
+.datepicker table tr td.active.disabled:hover.active,
+.datepicker table tr td span.active.disabled:hover.active,
+.datepicker table tr td.active.disabled:hover:active,
+.datepicker table tr td span.active.disabled:hover:active,
 .datepicker table tr td.active.highlighted.active,
+.datepicker table tr td span.active.highlighted.active,
 .datepicker table tr td.active.highlighted:active,
-.datepicker table tr td.active:active {
+.datepicker table tr td span.active.highlighted:active {
   background-color: #6399ab !important;
   border-color: #6399ab !important;
 }
