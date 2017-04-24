@@ -10,7 +10,7 @@
         <label class="m-l">
             Does this form contain name data?
             <i class="icon-info-sign" data-toggle="tooltip" data-placement="right"
-                title="Checking this box marks this page as an additional form to another"></i>
+                title="Checking this box marks this page as the reverse of another"></i>
         </label>
     </div>
 
@@ -27,9 +27,10 @@
         {% if form.child_form == false %}style="display: none"{% endif %}>
         <div class="col-sm-12">
             <label>
-                Select the form which looks like the current form's parent
+                Select the image which looks like the front of the current form
                 <i class="icon-info-sign" data-toggle="tooltip" data-placement="right"
-                    title="The 'parent form' is the first page to this accompanying form"></i>
+                    title="You have marked this form as a reverse side since their is no name date.
+                    Select the form which looks like the front."></i>
             </label>
         </div>
 
@@ -144,7 +145,8 @@
                     id="casualtyFnames"
                     name="first_names"
                     label="Christian names"
-                    recordValue=form.first_names %}
+                    recordValue=form.first_names
+                    required=1 %}
             </div>
 
             <div class="form-group col-sm-4">

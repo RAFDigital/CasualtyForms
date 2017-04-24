@@ -65,7 +65,7 @@ identifierValue = "{{ :id }}"
 
                     <li role="presentation">
                         <a href="#child-form-{{ child_form.id }}" aria-controls="child-form-{{ child_form.id }}" role="tab" data-toggle="tab">
-                            Additional form {{ key + 1 }}
+                            Form reverse {# key + 1 #}
                         </a>
                     </li>
                 {% endfor %}
@@ -107,7 +107,7 @@ identifierValue = "{{ :id }}"
             </tr>
 
             {% for key, child_form in record.child_forms %}
-                <tr><th colspan="2">Additional form {{ key + 1 }}</th></tr>
+                <tr><th colspan="2">Form reverse {# key + 1 #}</th></tr>
 
                 <tr>
                     <td>Date of first report</td>
