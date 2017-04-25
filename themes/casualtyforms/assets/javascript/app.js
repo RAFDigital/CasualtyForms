@@ -11,24 +11,31 @@ jQuery(document).ready(function($) {
         previousTop = 0,
         currentTop = 0,
         scrollDelta = 10,
-        scrollOffset = 150;
+        scrollOffset = 150,
+        datepickerConfig = {
+            format: "d MM yyyy",
+            autoclose: true,
+            startView: 'years',
+            defaultViewDate: {
+                year: '1914',
+                month: '06',
+                day: '01'
+            }
+        };
 
     // Initialise tooltips.
     $(this).tooltip({
         selector: '[data-toggle="tooltip"]'
     });
 
-    // Initialise datepicker.
-    $('input[type="datepicker"]').datepicker({
-        format: "d MM yyyy",
-        autoclose: true,
-        startView: 'years',
-        defaultViewDate: {
-            year: '1914',
-            month: '06',
-            day: '01'
-        }
-    });
+    // Initialise datepicker for DOB
+    datepickerConfig.defaultViewDate.year = '1890';
+    $('input[type="datepicker"][name="birth_date"]').datepicker(datepickerConfig);
+    // ...and the rest of them.
+    datepickerConfig.defaultViewDate.year = '1914';
+    $('input[type="datepicker"]').datepicker(datepickerConfig);
+
+
 
     // Scroll animation.
     $('a[href^="#"].smooth-scroll').on('click', function(event) {

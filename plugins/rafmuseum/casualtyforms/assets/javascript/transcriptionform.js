@@ -7,6 +7,7 @@ var TranscriptionForm = (function(exports) {
 
     /* Consts */
     var TOGGLE_ILLEGIBLE_CLASS = '.toggle-illegible',
+        TOGGLE_NODATA_CLASS = '.toggle-nodata',
         APPROVAL_STAGE_DATA_FIELD = '[name="approved_by_id"]',
         ILLEGIBLE_CHAR = { text: '?', datepicker: '0001-01-01' },
         FORM_TAG = 'form',
@@ -22,7 +23,7 @@ var TranscriptionForm = (function(exports) {
         imageZoomsInitialised = false;
 
     /**
-     * Function to action the user logout.
+     * Function to toggle the illegible action.
      * @param {object} event The click event.
      */
     function toggleIllegibleClick(event) {
@@ -110,7 +111,7 @@ var TranscriptionForm = (function(exports) {
 
             // Now do the check.
             if (firstDate >= lastDate) {
-                input.setCustomValidity('The last report date must be after the first.');
+                input.setCustomValidity('The `' + last + '` must be after the `' + first + '`.');
             } else {
                 input.setCustomValidity('');
             }
@@ -156,6 +157,7 @@ var TranscriptionForm = (function(exports) {
      */
     jQuery(document).ready(function($) {
         var $illegibleToggles = $(TOGGLE_ILLEGIBLE_CLASS),
+            $nodataToggles = $(TOGGLE_NODATA_CLASS),
             $approvedDataField = $(APPROVAL_STAGE_DATA_FIELD);
 
         if ($illegibleToggles.length > 0) {
