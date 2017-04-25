@@ -1,5 +1,11 @@
 <form data-request="onSave">
 
+    <p class="" role="alert">
+        Fill out the appropriate fields as best you can from what you see on the form.
+        Fields marked with an asterisk<span class="text-danger">*</span> are required, all
+        other fields may be left blank as there is not always data present.
+    </p>
+
     <div class="form-group">
         <input type="hidden" name="child_form" value="0" />
         <input id="childForm" type="checkbox" name="child_form"
@@ -223,7 +229,4 @@
             <button type="submit" class="btn btn-success">Approve</button>
         {% endif %}
     </div>
-
-    <p class="clear">Fields marked with an asterisk<span class="text-danger">*</span>
-        are required, all other fields may be left blank as there is not always data present.</p>
 </form>
