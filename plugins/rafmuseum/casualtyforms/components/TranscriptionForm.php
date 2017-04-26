@@ -153,7 +153,7 @@ class TranscriptionForm extends ComponentBase
         $this->addJs('assets/vendor/bootstrap-toggle/js/bootstrap-toggle.min.js');
 
         // Add js libs for the transcription form component.
-        $this->addJs('assets/javascript/config/tour.js');
+        $this->addJs('assets/javascript/tourconfig.js');
         $this->addJs('assets/javascript/transcriptionform.js');
 
         // Add the css for the image radio selector.

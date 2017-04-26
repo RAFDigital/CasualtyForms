@@ -123,10 +123,13 @@ var TranscriptionForm = (function(exports) {
      * @var {string} type The tour page type.
      */
     function startTour(type) {
+        if (!type) return;
+
         // Instance the tour
         var tour = new Tour({
+            name: 'tour-' + type,
             template: document.getElementById('tour-template').innerHTML,
-            storage: false,
+            //storage: false,
             steps: tourConfig[type],
             onEnd: function(tour) {
                 $('html, body').animate({scrollTop: 0}, 400);
