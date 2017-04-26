@@ -1,11 +1,5 @@
 <form data-request="onSave">
 
-    <p class="" role="alert">
-        Fill out the appropriate fields as best you can from what you see on the form.
-        Fields marked with an asterisk<span class="text-danger">*</span> are required, all
-        other fields may be left blank as there is not always data present.
-    </p>
-
     <div class="form-group">
         <input type="hidden" name="child_form" value="0" />
         <input id="childForm" type="checkbox" name="child_form"
@@ -16,7 +10,7 @@
         <label class="m-l">
             Does this form contain name data?
             <i class="icon-info-sign" data-toggle="tooltip" data-placement="right"
-                title="Checking this box marks this page as the reverse of another"></i>
+                title="Selecting 'No' for this box marks this page as the reverse of another"></i>
         </label>
     </div>
 
@@ -137,7 +131,7 @@
             </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group tour-matchfields">
             {% partial '@textfield'
                 id="casualtyRegimentCorps"
                 name="regiment_corps"
@@ -146,7 +140,7 @@
         </div>
 
         <div class="row">
-            <div class="form-group col-sm-4">
+            <div class="form-group col-sm-4 tour-requiredfields">
                 {% partial '@textfield'
                     id="casualtyFnames"
                     name="first_names"
@@ -155,7 +149,7 @@
                     required=1 %}
             </div>
 
-            <div class="form-group col-sm-4">
+            <div class="form-group col-sm-4 tour-illegible">
                 {% partial '@textfield'
                     id="casualtySurname"
                     name="surname"
@@ -193,7 +187,7 @@
                 recordValue=form.report_date_last %}
         </div>
 
-        <div class="form-group col-sm-4">
+        <div class="form-group col-sm-4 tour-nodata">
             {% partial '@datefield'
                 id="casualtyDeathDate"
                 name="death_date"
@@ -209,6 +203,9 @@
             {% if form.medical_information %}checked{% endif %} />
         <label class="m-l" for="medicalInfo">
             Is there any additional medical information on the form?
+            <i class="icon-info-sign" data-toggle="tooltip" data-placement="right"
+                title="This must be selected if there is anything noted in the 'Particulars'
+                    section on the lower half of the form."></i>
         </label>
     </div>
 
@@ -223,10 +220,31 @@
     <div class="form-group pull-right">
         {% if stage == 'new'%}
             <input type="hidden" name="completed_by_id" value="{{ user.id }}" />
-            <button type="submit" class="btn btn-primary">Save</button>
+            <button type="submit" class="btn btn-primary tour-save">Save</button>
         {% elseif stage == 'approve' %}
             <input type="hidden" name="approved_by_id" value="{{ user.id }}" />
-            <button type="submit" class="btn btn-success">Approve</button>
+            <button type="submit" class="btn btn-success tour-approve">Approve</button>
         {% endif %}
     </div>
+
+    <p class="clear" role="alert">
+        <span class="text-danger">*</span> Required fields are marked with an
+        asterisk, all other fields may be left blank as there is not always data present.
+    </p>
 </form>
+
+<template id="tour-template">
+    <div class='popover tour'>
+        <div class='arrow'></div>
+
+        <h3 class='popover-title'></h3>
+        <div class='popover-content'></div>
+
+        <div class='popover-navigation'>
+            <button class='btn btn-primary' data-role='prev'>«</button>
+            <button class='btn btn-primary' data-role='next'>»</button>
+
+            <button class='btn btn-danger' data-role='end'>End tour</button>
+        </div>
+    </div>
+</template>

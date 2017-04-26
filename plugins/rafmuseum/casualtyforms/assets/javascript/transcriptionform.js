@@ -97,7 +97,7 @@ var TranscriptionForm = (function(exports) {
     }
 
     /**
-     * Checks dates and sets custom validity
+     * Checks dates and sets custom validity.
      * @param {string} first First date name.
      * @param {string} last Last date name.
      * @param {object} data The form data.
@@ -116,6 +116,26 @@ var TranscriptionForm = (function(exports) {
                 input.setCustomValidity('');
             }
         }
+    }
+
+    /**
+     * Starts the JS tour.
+     * @var {string} type The tour page type.
+     */
+    function startTour(type) {
+        // Instance the tour
+        var tour = new Tour({
+            template: document.getElementById('tour-template').innerHTML,
+            storage: false,
+            steps: tourConfig[type],
+            onEnd: function(tour) {
+                $('html, body').animate({scrollTop: 0}, 400);
+            }
+        });
+
+        // Initialize and start the tour
+        tour.init();
+        tour.start();
     }
 
     /**
@@ -161,18 +181,25 @@ var TranscriptionForm = (function(exports) {
             $approvedDataField = $(APPROVAL_STAGE_DATA_FIELD);
 
         if ($illegibleToggles.length > 0) {
-            // If we have some toggles on the page add the event listeners.
+            // Add the event listeners to the illegible toggles.
             $illegibleToggles.each(function(index) {
                 $(this).click(toggleIllegibleClick);
             });
         }
 
+        // This means we're in the approval stage.
         if ($approvedDataField.length > 0) {
             // Listen for changed inputs when
             $(this).on('change', INPUT_SELECTOR, function(event) {
                 if (! backToApproval)
                     approvalChange(event, $approvedDataField);
             });
+
+            // Start the approval tour.
+            startTour('approve');
+        } else {
+            // Start the transcription tour.
+            startTour('transcribe');
         }
     });
 

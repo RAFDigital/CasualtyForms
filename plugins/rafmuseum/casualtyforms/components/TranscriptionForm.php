@@ -153,12 +153,14 @@ class TranscriptionForm extends ComponentBase
         $this->addJs('assets/vendor/bootstrap-toggle/js/bootstrap-toggle.min.js');
 
         // Add js libs for the transcription form component.
+        $this->addJs('assets/javascript/config/tour.js');
         $this->addJs('assets/javascript/transcriptionform.js');
 
         // Add the css for the image radio selector.
         $this->addCss('formwidgets/parentform/assets/css/parentform.css');
 
-        // This is how you include backend form styles.
-        //$this->addCss('/modules/system/assets/ui/storm.css', 'core');
+        // Add Bootstrap tour.
+        $this->addJs('assets/vendor/bootstrap-tour-0.11.0/build/js/bootstrap-tour.min.js');
+        $this->addCss('assets/vendor/bootstrap-tour-0.11.0/build/css/bootstrap-tour.min.css');
     }
 }

@@ -658,6 +658,12 @@ body > p.flash-message.danger {
   background-color: #6399ab !important;
   border-color: #6399ab !important;
 }
+.tour-step-background {
+  border-radius: 0 !important;
+}
+.tour-backdrop {
+  opacity: .5 !important;
+}
 .chart-line-style {
   height: 300px;
 }
