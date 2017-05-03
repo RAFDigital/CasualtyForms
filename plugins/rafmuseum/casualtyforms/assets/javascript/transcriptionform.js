@@ -8,6 +8,7 @@ var TranscriptionForm = (function(exports) {
     /* Consts */
     var TOGGLE_ILLEGIBLE_CLASS = '.toggle-illegible',
         TOGGLE_NODATA_CLASS = '.toggle-nodata',
+        TRANSCRIBE_STAGE_DATA_FIELD = '[name="completed_by_id"]',
         APPROVAL_STAGE_DATA_FIELD = '[name="approved_by_id"]',
         ILLEGIBLE_CHAR = { text: '?', datepicker: '0001-01-01' },
         FORM_TAG = 'form',
@@ -181,7 +182,8 @@ var TranscriptionForm = (function(exports) {
     jQuery(document).ready(function($) {
         var $illegibleToggles = $(TOGGLE_ILLEGIBLE_CLASS),
             $nodataToggles = $(TOGGLE_NODATA_CLASS),
-            $approvedDataField = $(APPROVAL_STAGE_DATA_FIELD);
+            $approvedDataField = $(APPROVAL_STAGE_DATA_FIELD),
+            $transcribeDataField = $(TRANSCRIBE_STAGE_DATA_FIELD);
 
         if ($illegibleToggles.length > 0) {
             // Add the event listeners to the illegible toggles.
@@ -200,7 +202,7 @@ var TranscriptionForm = (function(exports) {
 
             // Start the approval tour.
             startTour('approve');
-        } else {
+        } else if ($transcribeDataField.length > 0) {
             // Start the transcription tour.
             startTour('transcribe');
         }

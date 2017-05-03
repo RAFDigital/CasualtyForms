@@ -26,7 +26,9 @@ stage = "{{ :stage }}"
     {% if form %}
         {% component 'transcriptionForm' %}
     {% else %}
-        There are no forms queued for approval at the moment, feel free to go
-        and <a href="{{ 'transcribe'|page({ stage: 'new' }) }}">transcribe</a> some new ones.
+        <p>There are no forms left in the approval queue, go ahead
+        and transcribe some new ones.</p>
+
+        <p><a href="{{ 'transcribe'|page({ stage: 'new' }) }}" class="btn btn-primary">Transcribe</a></p>
     {% endif %}
 </div>

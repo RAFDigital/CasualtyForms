@@ -90,10 +90,18 @@ class CasualtyForm extends Model
     public $table = 'rafmuseum_casualtyforms_forms';
 
     /**
-     * Return the date fields.
+     * Converts front end date fields to format of choice.
+     * @var string The date format required.
      */
-    public function getDateFields() {
-        return $this->dateFields;
+    public function convertDates($format) {
+        // Loop through the date fields.
+        foreach ($this->dateFields as $dateField) {
+            if ($this[$dateField]) {
+                // Convert if it exists in the current model.
+                $date = strtotime($this[$dateField]);
+                $this[$dateField] = date($format, $date);
+            }
+        }
     }
 
     /**

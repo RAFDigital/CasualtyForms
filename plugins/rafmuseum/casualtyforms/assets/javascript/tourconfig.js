@@ -33,7 +33,6 @@ var tourConfig = {
             placement: 'top',
             backdrop: true,
             onShown: function() {
-                console.log('Clicking this', $('.tour-illegible .input-group-btn .btn'));
                 $('.tour-illegible .input-group-btn .btn').click();
             }
         },

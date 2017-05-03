@@ -1,5 +1,6 @@
 <?php namespace RafMuseum\CasualtyForms\Components;
 
+use DateTime;
 use Flash;
 use Redirect;
 use Cms\Classes\ComponentBase;
@@ -73,6 +74,9 @@ class TranscriptionForm extends ComponentBase
             // Check if the files even exist.
             if ( ! file_exists($formsPath . $form->filenameBefore)) $form->filenameBefore = false;
             if ( ! file_exists($formsPath . $form->filenameAfter)) $form->filenameAfter = false;
+
+            // Get the date fields and convert them to human redable.
+            $form->convertDates('j F Y');
         }
 
         // Make some vars available in the front end.
@@ -92,12 +96,7 @@ class TranscriptionForm extends ComponentBase
         $casualtyForm->fill(post());
 
         // Get the date fields and convert them before submitting to the DB.
-        foreach ($casualtyForm->getDateFields() as $dateField) {
-            if (post($dateField)) {
-                $time = strtotime(post($dateField));
-                $casualtyForm[$dateField] = date('Y-m-d H:i:s', $time);
-            }
-        }
+        $casualtyForm->convertDates('Y-m-d H:i:s');
 
         // Nullify the parent_form_id if the form is no longer a child form.
         if( ! post('child_form')) $casualtyForm->parent_form_id = null;
