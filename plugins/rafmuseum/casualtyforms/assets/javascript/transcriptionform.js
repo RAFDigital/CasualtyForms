@@ -11,6 +11,7 @@ var TranscriptionForm = (function(exports) {
         TRANSCRIBE_STAGE_DATA_FIELD = '[name="completed_by_id"]',
         APPROVAL_STAGE_DATA_FIELD = '[name="approved_by_id"]',
         ILLEGIBLE_CHAR = { text: '?', datepicker: '0001-01-01' },
+        NODATA_CHAR = { text: 'N/A', datepicker: '0001-01-02'},
         FORM_TAG = 'form',
         INPUT_SELECTOR = 'input',
         REQUIRED_INPUT_SELCTOR = INPUT_SELECTOR + '[required]',

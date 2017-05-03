@@ -1,12 +1,12 @@
 /*!
-	Wheelzoom 3.0.4
+	Wheelzoom 3.1.2
 	license: MIT
 	http://www.jacklmoore.com/wheelzoom
 */
 window.wheelzoom = (function(){
 	var defaults = {
 		zoom: 0.10,
-		maxZoom: 5
+		maxZoom: false,
 	};
 
 	var canvas = document.createElement('canvas');
@@ -23,7 +23,6 @@ window.wheelzoom = (function(){
 		var bgPosY;
 		var previousEvent;
 		var cachedDataUrl;
-		var zoomed = false;
 
 		function setSrcToBackground(img) {
 			img.style.backgroundImage = 'url("'+img.src+'")';
@@ -58,6 +57,11 @@ window.wheelzoom = (function(){
 			updateBgStyle();
 		}
 
+		function centerBg() {
+			bgPosX = -(bgWidth - width) / 2;
+			bgPosY = -(bgHeight - height) / 2;
+		}
+
 		function onwheel(e) {
 			var deltaY = 0;
 
@@ -69,10 +73,6 @@ window.wheelzoom = (function(){
 				deltaY = -e.wheelDelta;
 			}
 
-			// Cancel if zoomed to maxZoom and trying to zoom more
-			if (deltaY < 0 && zoomed) return;
- 			zoomed = false;
-
 			// As far as I know, there is no good cross-browser way to get the cursor position relative to the event target.
 			// We have to calculate the target element's position relative to the document, and subtrack that from the
 			// cursor's position relative to the document.
@@ -83,7 +83,7 @@ window.wheelzoom = (function(){
 			// Record the offset between the bg edge and cursor:
 			var bgCursorX = offsetX - bgPosX;
 			var bgCursorY = offsetY - bgPosY;
-
+			
 			// Use the previous offset to get the percent offset between the bg edge and cursor:
 			var bgRatioX = bgCursorX/bgWidth;
 			var bgRatioY = bgCursorY/bgHeight;
@@ -97,6 +97,11 @@ window.wheelzoom = (function(){
 				bgHeight -= bgHeight*settings.zoom;
 			}
 
+			if (settings.maxZoom) {
+				bgWidth = Math.min(width*settings.maxZoom, bgWidth);
+				bgHeight = Math.min(height*settings.maxZoom, bgHeight);
+			}
+
 			// Take the percent offset and apply it to the new size:
 			bgPosX = offsetX - (bgWidth * bgRatioX);
 			bgPosY = offsetY - (bgHeight * bgRatioY);
@@ -104,8 +109,37 @@ window.wheelzoom = (function(){
 			// Prevent zooming out beyond the starting size
 			if (bgWidth <= width || bgHeight <= height) {
 				reset();
-			} else if (bgWidth >= width*settings.maxZoom || bgHeight >= height*settings.maxZoom){
-				zoomed = true;
+			} else {
+				updateBgStyle();
+			}
+		}
+
+		function zoomIn() {
+			bgWidth += bgWidth*settings.zoom;
+			bgHeight += bgHeight*settings.zoom;
+
+			centerBg();
+
+			// Prevent zooming in beyond the max size
+			if (settings.maxZoom) {
+				bgWidth = Math.min(width*settings.maxZoom, bgWidth);
+				bgHeight = Math.min(height*settings.maxZoom, bgHeight);
+
+				centerBg();
+			}
+
+			updateBgStyle();
+		}
+
+		function zoomOut() {
+			bgWidth -= bgWidth*settings.zoom;
+			bgHeight -= bgHeight*settings.zoom;
+			
+			centerBg();
+			
+			// Prevent zooming out beyond the starting size
+			if (bgWidth <= width || bgHeight <= height) {
+				reset();
 			} else {
 				updateBgStyle();
 			}
@@ -152,6 +186,9 @@ window.wheelzoom = (function(){
 
 			img.addEventListener('wheel', onwheel);
 			img.addEventListener('mousedown', draggable);
+
+			img.addEventListener('zoomin', zoomIn);
+			img.addEventListener('zoomout', zoomOut);
 		}
 
 		var destroy = function (originalProperties) {
@@ -162,6 +199,8 @@ window.wheelzoom = (function(){
 			img.removeEventListener('mousemove', drag);
 			img.removeEventListener('mousedown', draggable);
 			img.removeEventListener('wheel', onwheel);
+			img.removeEventListener('zoomin', zoomIn);
+			img.removeEventListener('zoomout', zoomOut);
 
 			img.style.backgroundImage = originalProperties.backgroundImage;
 			img.style.backgroundRepeat = originalProperties.backgroundRepeat;

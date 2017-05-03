@@ -9,7 +9,7 @@ var tourConfig = {
         {
             element: '.image-zoom',
             title: 'Form scan',
-            content: 'This is the casualty form scan. Use your mouse to zoom and drag the image around.',
+            content: 'This is the casualty form scan. Use the controls in the bottom right to zoom the image in and out. You can drag the image around with your mouse.',
             placement: 'bottom',
             backdrop: true
         },

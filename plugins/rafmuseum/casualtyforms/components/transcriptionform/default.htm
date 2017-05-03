@@ -15,12 +15,19 @@
     </div>
 
     <div class="image-zoom-controls">
-        <img class="image-zoom" src="{{ form.filename|media }}" data-toggle="tooltip"
-            data-placement="bottom" title="Use scroll wheel to zoom" />
+        <img class="image-zoom" src="{{ form.filename|media }}" />
 
-        <a class="zoom-reset btn btn-link pull-right"><i class="icon-undo"></i></a>
-        <!-- <a class="zoom-zoomout btn btn-link pull-right"><i class="icon-minus"></i></a>
-        <a class="zoom-zoomin btn btn-link pull-right"><i class="icon-plus"></i></a> -->
+        <div class="zoom-controls">
+            <a class="zoom-controls__zoomin btn btn-link" title="Zoom in">
+                <i class="icon-plus"></i>
+            </a>
+            <a class="zoom-controls__zoomout btn btn-link" title="Zoom out">
+                <i class="icon-minus"></i>
+            </a>
+            <a class="zoom-controls__reset btn btn-link" title="Reset zoom">
+                <i class="icon-undo"></i>
+            </a>
+        </div>
     </div>
 
     <div id="childShow" class="form-group image-radio-group row"

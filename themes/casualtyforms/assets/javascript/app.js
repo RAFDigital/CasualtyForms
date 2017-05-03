@@ -7,6 +7,7 @@
  */
 jQuery(document).ready(function($) {
     var $header = $('.navbar-autohide'),
+        imageZoom = document.querySelector('img.image-zoom'),
         scrolling = false,
         previousTop = 0,
         currentTop = 0,
@@ -46,11 +47,22 @@ jQuery(document).ready(function($) {
     });
 
     // Initialise image zoom and controls.
-    wheelzoom(document.querySelectorAll('img.image-zoom'));
+    wheelzoom(imageZoom, { maxZoom: 5 });
 
-    $('.zoom-reset').on('click', function(event) {
+    // Add the zoom controls.
+    $('.zoom-controls__reset').on('click', function(event) {
         event.preventDefault();
-        document.querySelector('img.image-zoom').dispatchEvent(new CustomEvent('wheelzoom.reset'));
+        imageZoom.dispatchEvent(new CustomEvent('wheelzoom.reset'));
+    });
+
+    $('.zoom-controls__zoomin').on('click', function(event) {
+        event.preventDefault();
+        imageZoom.dispatchEvent(new CustomEvent('zoomin'));
+    });
+
+    $('.zoom-controls__zoomout').on('click', function(event) {
+        event.preventDefault();
+        imageZoom.dispatchEvent(new CustomEvent('zoomout'));
     });
 
     /*

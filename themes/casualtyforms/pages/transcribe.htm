@@ -12,7 +12,11 @@ stage = "{{ :stage }}"
 ==
 <div class="jumbotron">
     <div class="container">
-        <h1>Transcribe {{ stage }}</h1>
+        {% if stage == 'new' %}
+            <h1>New transcription</h1>
+        {% elseif stage == 'approve' %}
+            <h1>Transcription approval</h1>
+        {% endif %}
 
         {% if form %}
             <p>Form ID: {{ form.id }}</p>

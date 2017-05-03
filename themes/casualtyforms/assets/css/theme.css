@@ -101,17 +101,15 @@ Flag light blue: 6399ab
   cursor: -webkit-grabbing;
   cursor: grabbing;
 }
-.zoom-reset,
-.zoom-zoomin,
-.zoom-zoomout {
+.zoom-controls {
   position: absolute;
   bottom: 0;
   right: 0;
   z-index: 1;
 }
-.zoom-reset:hover,
-.zoom-zoomin:hover,
-.zoom-zoomout:hover {
+.zoom-controls__reset:hover,
+.zoom-controls__zoomin:hover,
+.zoom-controls__zoomout:hover {
   text-decoration: none;
 }
 .callout {

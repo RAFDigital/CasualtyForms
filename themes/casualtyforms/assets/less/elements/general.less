@@ -85,15 +85,17 @@
     }
 }
 
-.zoom-reset,
-.zoom-zoomin,
-.zoom-zoomout {
+.zoom-controls {
     position: absolute;
     bottom: 0;
     right: 0;
     z-index: 1;
 
-    &:hover {
-        text-decoration: none;
+    &__reset,
+    &__zoomin,
+    &__zoomout {
+        &:hover {
+            text-decoration: none;
+        }
     }
 }
