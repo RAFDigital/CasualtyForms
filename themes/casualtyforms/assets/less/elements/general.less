@@ -25,9 +25,11 @@
 }
 
 // Forms
-.form-control[readonly] {
-    color: transparent;
-}
+.form-control[readonly],
+.form-control[readonly]::-webkit-input-placeholder { color: transparent }
+.form-control[readonly]::-moz-placeholder { color: transparent }
+.form-control[readonly]:-moz-placeholder { color: transparent }
+.form-control[readonly]::-ms-input-placeholder { color: transparent }
 
 .form-control:focus {
     border-color: @brand-primary;

@@ -54,7 +54,17 @@ Flag light blue: 6399ab
 .table tr:hover {
   background-color: #f9f9f9;
 }
-.form-control[readonly] {
+.form-control[readonly],
+.form-control[readonly]::-webkit-input-placeholder {
+  color: transparent;
+}
+.form-control[readonly]::-moz-placeholder {
+  color: transparent;
+}
+.form-control[readonly]:-moz-placeholder {
+  color: transparent;
+}
+.form-control[readonly]::-ms-input-placeholder {
   color: transparent;
 }
 .form-control:focus {

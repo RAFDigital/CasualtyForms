@@ -36,8 +36,6 @@ jQuery(document).ready(function($) {
     datepickerConfig.defaultViewDate.year = '1914';
     $('input[type="datepicker"]').datepicker(datepickerConfig);
 
-
-
     // Scroll animation.
     $('a[href^="#"].smooth-scroll').on('click', function(event) {
         event.preventDefault();

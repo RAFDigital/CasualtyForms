@@ -1,22 +1,39 @@
+{% set inputStates = config.casualtyforms.specialInputStates %}
+{% set inputStateArray = [inputStates.illegible.datevalue, inputStates.nodata.datevalue] %}
+
 <label for="{{ id }}">{{ label }}</label>
 
 <div class="input-group">
     <input id="{{ id }}" name="{{ name }}" type="datepicker" class="form-control"
         placeholder="Enter the date on the form"
-        value="{% if recordValue != '0001-01-01' %}{{ recordValue }}{% endif %}"
+        value="{% if recordValue not in inputStateArray %}{{ recordValue }}{% endif %}"
         onchange="TranscriptionForm.checkDates(this)"
-        {% if recordValue == '0001-01-01' %}readonly{% endif %}/>
+        {% if recordValue in inputStateArray %}readonly{% endif %}/>
     <div class="input-group-btn">
         <button type="button" class="btn btn-default dropdown-toggle"
             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <span class="caret"></span>
+            <span class="{% if recordValue not in inputStateArray %}caret{% endif %}">
+                {% if recordValue == inputStates.illegible.datevalue %}
+                    {{ inputStates.illegible.label }}
+                {% elseif recordValue == inputStates.nodata.datevalue %}
+                    {{ inputStates.nodata.label }}
+                {% endif %}
+            </span>
         </button>
 
         <ul class="dropdown-menu dropdown-menu-right">
             <li>
-                <a class="toggle-illegible {% if recordValue == '0001-01-01' %}marked{% endif %}" href="#">
-                    <span class="{% if recordValue == '0001-01-01' %}hidden{% endif %}">Mark illegible</span>
-                    <span class="{% if recordValue != '0001-01-01' %}hidden{% endif %}">Enter details</span>
+                {% for inputState in inputStates %}
+                    <a class="toggle-field-props" href="#" data-readonly="true"
+                        data-value="{{ inputState.value }}"
+                        data-label="{{ inputState.label }}"
+                        {% if recordValue in inputStateArray %}style="display:none"{% endif %}>
+                        {{ inputState.label }}
+                    </a>
+                {% endfor %}
+                <a class="field-props-reset" href="#"
+                    {% if recordValue not in inputStateArray %}style="display:none"{% endif %}>
+                    Unmark field
                 </a>
             </li>
         </ul>

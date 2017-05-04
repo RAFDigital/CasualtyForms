@@ -161,13 +161,16 @@ class CasualtyForm extends Model
      */
     public function scopeIllegible($query)
     {
-        return $query->where('rank', '?')
-                     ->orWhere('first_names', '?')
-                     ->orWhere('surname', '?')
-                     ->orWhere('regiment_corps', '?')
-                     ->orWhere('report_date_first', '0001-01-01')
-                     ->orWhere('report_date_last', '0001-01-01')
-                     ->orWhere('death_date', '0001-01-01');
+        $illegibleState = config('casualtyforms.specialInputStates.illegible');
+
+        return $query->where('rank', $illegibleState['value'])
+                     ->orWhere('first_names', $illegibleState['value'])
+                     ->orWhere('surname', $illegibleState['value'])
+                     ->orWhere('regiment_corps', $illegibleState['value'])
+                     ->orWhere('report_date_first', $illegibleState['datevalraw'])
+                     ->orWhere('report_date_last', $illegibleState['datevalraw'])
+                     ->orWhere('birth_date', $illegibleState['datevalraw'])
+                     ->orWhere('death_date', $illegibleState['datevalraw']);
     }
 
     /**
