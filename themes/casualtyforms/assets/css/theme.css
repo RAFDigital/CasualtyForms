@@ -778,8 +778,8 @@ body.four-oh-four {
 }
 .jumbotron-home {
   height: 93vh;
-  background-image: url('../images/rfc_7.jpg');
-  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII=), url('../images/rfc_7.jpg');
+  background-image: url('../images/rfc_8.jpg');
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII=), url('../images/rfc_8.jpg');
   margin-bottom: 0;
 }
 .jumbotron-home .container {
