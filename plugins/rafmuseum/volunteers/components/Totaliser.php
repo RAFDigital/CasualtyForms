@@ -114,6 +114,6 @@ class Totaliser extends ComponentBase
     protected function loadAssets()
     {
         // This is how you include backend form styles/js.
-        $this->addJs('/modules/system/assets/ui/storm-min.js', 'core');
+        //$this->addJs('/modules/system/assets/ui/storm-min.js', 'core');
     }
 }
