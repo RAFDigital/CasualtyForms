@@ -1,5 +1,4 @@
-{% set inputStates = config.casualtyforms.specialInputStates %}
-{% set inputStateArray = [inputStates.illegible.value, inputStates.nodata.value] %}
+{% set inputStateArray = [fieldSpecialStates.illegible.value, fieldSpecialStates.nodata.value] %}
 
 <label for="{{ id }}">
     {{ label }}{% if required %}<span class="text-danger">*</span>{% endif %}
@@ -16,22 +15,22 @@
         <button type="button" class="btn btn-default dropdown-toggle"
             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <span class="{% if recordValue not in inputStateArray %}caret{% endif %}">
-                {% if recordValue == inputStates.illegible.value %}
-                    {{ inputStates.illegible.label }}
-                {% elseif recordValue == inputStates.nodata.value %}
-                    {{ inputStates.nodata.label }}
+                {% if recordValue == fieldSpecialStates.illegible.value %}
+                    {{ fieldSpecialStates.illegible.label }}
+                {% elseif recordValue == fieldSpecialStates.nodata.value %}
+                    {{ fieldSpecialStates.nodata.label }}
                 {% endif %}
             </span>
         </button>
 
         <ul class="dropdown-menu dropdown-menu-right">
             <li>
-                {% for inputState in inputStates %}
+                {% for fieldSpecialState in fieldSpecialStates %}
                     <a class="toggle-field-props" href="#" data-readonly="true"
-                        data-value="{{ inputState.value }}"
-                        data-label="{{ inputState.label }}"
+                        data-value="{{ fieldSpecialState.value }}"
+                        data-label="{{ fieldSpecialState.label }}"
                         {% if recordValue in inputStateArray %}style="display:none"{% endif %}>
-                        {{ inputState.label }}
+                        {{ fieldSpecialState.label }}
                     </a>
                 {% endfor %}
                 <a class="field-props-reset" href="#"

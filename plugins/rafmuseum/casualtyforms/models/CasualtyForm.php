@@ -67,6 +67,24 @@ class CasualtyForm extends Model
         'report_date_last'
     ];
 
+    /**
+     * @var array The optional states for transcription inputs.
+     */
+    protected $fieldSpecialStates = [
+        'illegible' => array(
+            'label' => 'Illegible',
+            'value' => '?',
+            'datevalue' => '1 January 0001',
+            'datevalraw' => '00001-01-01',
+        ),
+        'nodata' => array(
+            'label' => 'N/A',
+            'value' => 'N/A',
+            'datevalue' => '2 January 0001',
+            'datevalraw' => '00001-01-02',
+        ),
+    ];
+
     /*
      * Relationships
      * These assume the foreign key is the relationship name affixed by `_id`.
@@ -88,6 +106,13 @@ class CasualtyForm extends Model
      * @var string The database table used by the model.
      */
     public $table = 'rafmuseum_casualtyforms_forms';
+
+    /**
+     * Returns the `fieldSpecialStates` model.
+     */
+    public function getFieldSpecialStates() {
+        return $this->fieldSpecialStates;
+    }
 
     /**
      * Converts front end date fields to format of choice.
@@ -157,11 +182,11 @@ class CasualtyForm extends Model
     }
 
     /**
-     * Scope a query to only include forms marked with illegible fields.
+     * Scope a query to only include forms marked with special states.
      */
-    public function scopeIllegible($query)
+    public function scopeSpecialState($query, $state)
     {
-        $illegibleState = config('casualtyforms.specialInputStates.illegible');
+        $illegibleState = $this->fieldSpecialStates[$state];
 
         return $query->where('rank', $illegibleState['value'])
                      ->orWhere('first_names', $illegibleState['value'])

@@ -20,6 +20,6 @@ class FormsIllegible extends Controller
     public function listExtendQuery($query)
     {
         // We just want forms with illegible fields here.
-        $query->illegible()->get();
+        $query->specialState('illegible')->get();
     }
 }

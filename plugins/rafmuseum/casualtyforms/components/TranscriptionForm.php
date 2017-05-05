@@ -81,6 +81,8 @@ class TranscriptionForm extends ComponentBase
 
         // Make some vars available in the front end.
         $this->page['form'] = $form;
+        $this->page['fieldSpecialStates'] = $form->getFieldSpecialStates();
+        trace_log($form->getFieldSpecialStates());
         $this->page['stage'] = $stage;
     }
 
