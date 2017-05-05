@@ -77,12 +77,13 @@ class TranscriptionForm extends ComponentBase
 
             // Get the date fields and convert them to human redable.
             $form->convertDates('j F Y');
+
+            // Get the special states for the front end.
+            $this->page['fieldSpecialStates'] = $form->getFieldSpecialStates();
         }
 
         // Make some vars available in the front end.
         $this->page['form'] = $form;
-        $this->page['fieldSpecialStates'] = $form->getFieldSpecialStates();
-        trace_log($form->getFieldSpecialStates());
         $this->page['stage'] = $stage;
     }
 
