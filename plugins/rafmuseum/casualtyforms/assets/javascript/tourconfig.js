@@ -28,8 +28,8 @@ var tourConfig = {
         },
         {
             element: '.tour-illegible .input-group-btn',
-            title: 'Illegible data',
-            content: 'If you are struggling to read the handwriting for a particular field, click on the dropdown and select "Mark illegible".',
+            title: 'Illegible',
+            content: 'If you are struggling to read the handwriting for a particular field, click on the dropdown and mark "Illegible".',
             placement: 'top',
             backdrop: true,
             onShown: function() {
@@ -39,9 +39,12 @@ var tourConfig = {
         {
             element: '.tour-nodata',
             title: 'No data',
-            content: 'Unrequired fields may not necessarily have data present on the form. In this case, leave the inputs blank.',
+            content: 'Unrequired fields may not necessarily have data present on the form. In this case, you can mark the field "N/A".',
             placement: 'left',
-            backdrop: true
+            backdrop: true,
+            onShown: function() {
+                $('.tour-nodata .input-group-btn .btn').click();
+            }
         },
         {
             element: '.tour-save',
