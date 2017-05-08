@@ -234,11 +234,17 @@
         {% endif %}
     </div>
 
-    <p class="clear" role="alert">
+    <p class="clear">
         <span class="text-danger">*</span>
         Required fields are marked with an asterisk.
     </p>
 </form>
+
+<button class="btn btn-default help-email"
+    data-sendemail data-recipient="iain.duncan" data-subject="Help!"
+    data-toggle="tooltip" data-placement="left" title="Need help?">
+    ?
+</button>
 
 <template id="tour-template">
     <div class='popover tour'>
