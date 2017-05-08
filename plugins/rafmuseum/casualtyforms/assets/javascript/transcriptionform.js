@@ -21,7 +21,8 @@ var TranscriptionForm = (function(exports) {
         RETARD_IMAGE_ZOOM_SELECTOR = 'img.image-zoom-retard',
     /* Vars */
         backToApproval = false,
-        imageZoomsInitialised = false;
+        imageZoomsInitialised = false,
+        fieldSpecialStates = [];
 
     /**
      * Function to toggle the illegible action.
@@ -116,7 +117,11 @@ var TranscriptionForm = (function(exports) {
                 lastDate = new Date(data[last]);
 
             // Now do the check.
-            if (firstDate >= lastDate) {
+            if (fieldSpecialStates.indexOf(data[first]) !== -1 ||
+                fieldSpecialStates.indexOf(data[last]) !== -1) {
+                input.setCustomValidity('');
+            } else if(firstDate >= lastDate) {
+                // Here is the error state.
                 input.setCustomValidity('The `' + last + '` must be after the `' + first + '`.');
             } else {
                 input.setCustomValidity('');
@@ -152,8 +157,18 @@ var TranscriptionForm = (function(exports) {
      * @param {object} input The current input element.
      */
     exports.checkDates = function(input) {
-        var $form = $(input.form),
+        var i = 0,
+            $form = $(input.form),
+            toggleBtns = input.nextElementSibling.querySelectorAll('.toggle-field-props'),
             data = $form.serializeArray().reduce(translateSeriasedData, {});
+
+        // We want to get the special states from the DOM.
+        if (!fieldSpecialStates.length) {
+            // Only if not cached.
+            for (i; i < toggleBtns.length; i++) {
+                fieldSpecialStates.push(toggleBtns[i].dataset.value);
+            }
+        }
 
         // Check the birth/death dates.
         compareDates('birth_date', 'death_date', data, input);
