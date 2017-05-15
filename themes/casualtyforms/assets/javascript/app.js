@@ -104,11 +104,18 @@ jQuery(document).ready(function($) {
      * @param {object} event The click event.
      */
     function sendEmail(event) {
-        var recipient = event.target.dataset.recipient || 'info',
-            subject = event.target.dataset.subject || 'Hello';
+        var recipient = event.target.dataset.recipient
+                ? event.target.dataset.recipient.split(',') : ['info'],
+            subject = event.target.dataset.subject || 'Hello',
+            recipients = '', i;
+
+        // Concatenate all the emails together.
+        for (i in recipient) {
+            recipients += recipient[i] + '@' + EMAIL_HOST + ',';
+        }
 
         // Open email client.
-        window.location.href = 'mailto:' + recipient + '@' + EMAIL_HOST + '?subject=' + subject;
+        window.location.href = 'mailto:' + recipients + '?subject=' + subject;
 
         event.preventDefault();
     }
