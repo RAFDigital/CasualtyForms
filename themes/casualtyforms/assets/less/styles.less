@@ -2,7 +2,19 @@
 // Boot theme
 //
 
-@import "theme/boot";
+//
+// Vendor
+//
+
+@import "../vendor/bootstrap/less/bootstrap";
+@import "../vendor/font-awesome/less/font-awesome";
+
+//
+// Vars and mixins
+//
+
+@import "theme/mixins";
+@import "theme/variables";
 
 //
 // Fonts
@@ -38,8 +50,8 @@
 //
 
 @import "components/flagrecord";
-@import "components/vendoroverrides";
 @import "components/storm";
+@import "components/vendoroverrides";
 
 //
 // Layouts

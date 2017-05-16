@@ -8,16 +8,63 @@
     &.active, &:active, &:hover.active, &:hover:active,
     &.disabled:hover.active, &.disabled:hover:active,
     &.highlighted.active, &.highlighted:active {
-        background-color: @brand-primary !important;
-        border-color: @brand-primary !important;
+        background-color: @brand-primary;
+        border-color: @brand-primary;
     }
 }
 
 // Bootstrap tour
 .tour-step-background {
-    border-radius: 0 !important;
+    border-radius: 0;
 }
 
 .tour-backdrop {
-    opacity: .5 !important;
+    opacity: .5;
+}
+
+// Feedback.js
+.feedback-btn {
+    .btn;
+    .btn-primary;
+    text-shadow: none;
+    box-shadow: none;
+    z-index: 2;
+
+    &:hover, &:active {
+        text-shadow: none
+    }
+    
+    &.feedback-bottom-right {
+        .btn-info;
+        bottom: 9em;
+        right: 0;
+        padding: 6px 11px;
+        transform: rotate(-90deg) translateY(150%);
+
+        &:after {
+            margin-left: @spacer / 2;
+            font-family: FontAwesome;
+            content: "\f075";
+        }
+    }
+}
+
+.feedback-btn-small {
+    .btn-default;
+}
+
+.feedback-modal {
+    border-radius: 0;
+    border: 0;
+}
+
+.feedback-footer {
+    padding: 5px 14px;
+    height: auto;
+}
+
+.feedback-highlight-element,
+.feedback-highlighted {
+    box-shadow: 0px 0px 0px 4px @brand-info;
+    border-radius: 0;
 }

@@ -67,8 +67,8 @@ jQuery(document).ready(function($) {
 
      // Initialise the feedback widget.
     // Feedback({
-    //     h2cPath:'/casualty-forms/themes/casualtyforms/assets/vendor/feedback-js-master/examples/js/html2canvas.js',
-    //     url:'send.php'
+    //     h2cPath:'/casualty-forms/themes/casualtyforms/assets/vendor/feedback-js-master/html2canvas.js',
+    //     url:'feedback'
     // });
 
     // Auto hide navbar.
