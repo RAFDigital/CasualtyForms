@@ -3,8 +3,10 @@
 use DateTime;
 use Flash;
 use Redirect;
+use Session;
 use Cms\Classes\ComponentBase;
 use RafMuseum\CasualtyForms\Models\CasualtyForm;
+use RainLab\User\Models\User;
 
 class TranscriptionForm extends ComponentBase
 {
@@ -82,6 +84,9 @@ class TranscriptionForm extends ComponentBase
             $this->page['fieldSpecialStates'] = $form->getFieldSpecialStates();
         }
 
+        // Check for survey
+        $this->surveyCheck($this->page['user']->id);
+
         // Make some vars available in the front end.
         $this->page['form'] = $form;
         $this->page['stage'] = $stage;
@@ -104,15 +109,12 @@ class TranscriptionForm extends ComponentBase
         // Nullify the parent_form_id if the form is no longer a child form.
         if( ! post('child_form')) $casualtyForm->parent_form_id = null;
 
-        $formsCompleted = null;
-
         // Add the right timestamps and messages for each of the stages.
         if ($userId = post('completed_by_id')) {
             $casualtyForm->completed_at = date('Y-m-d H:i:s');
             Flash::success('Form transcribed.');
-
-            // Get number of forms completed by the user (+1 to include this one).
-            $formsCompleted = CasualtyForm::completedByUser($userId) + 1;
+            // And check if survey criteria met.
+            $this->surveyCheck(post('completed_by_id'));
         } else if (post('approved_by_id')) {
             $casualtyForm->approved_at = date('Y-m-d H:i:s');
             Flash::success('Form approved.');
@@ -120,11 +122,6 @@ class TranscriptionForm extends ComponentBase
 
         // Update model.
         $casualtyForm->update();
-
-        if (in_array($formsCompleted, array_keys(config('casualtyforms.surveys')))) {
-            // Redirect to survey page if based on config settings.
-            return Redirect::to('/volunteer/survey/' . $formsCompleted);
-        }
 
         return Redirect::to('/volunteer');
     }
@@ -143,6 +140,38 @@ class TranscriptionForm extends ComponentBase
 
         return $imageFile['dir'] . DIRECTORY_SEPARATOR . $imageFile['prefix'] .
                $group . $imageFile['separator'] . $sequence . $imageFile['type'];
+    }
+
+    /**
+     * For checking if any surveys need to be presented.
+     * @param int $userId The user ID
+     */
+    protected function surveyCheck($userId)
+    {
+        // Get the survey config.
+        $surveyConfig = config('casualtyforms.surveys');
+        // Get checks for both types of survey.
+        $surveyChecks = array(
+            'transcriptions' => CasualtyForm::completedByUser($userId),
+            'sessions' => User::find($userId)->sessions
+        );
+
+        foreach ($surveyChecks as $type => $check) {
+            // Do the check.
+            if (in_array($check, array_keys($surveyConfig[$type]))
+                && Session::get("surveys.$type.$check") === null) {
+
+                // Trigger survey popup and set vars.
+                $this->page['survey'] = array(
+                    'link' => $surveyConfig[$type][$check],
+                    'copy' => 'Thanks for taking the time to transcribe  for us.'
+                        . ' Would you take some time to complete a survey?'
+                );
+
+                // Don't ask again.
+                Session::push("surveys.$type.$check", true);
+            }
+        }
     }
 
     /**

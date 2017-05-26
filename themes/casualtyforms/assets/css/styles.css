@@ -8937,6 +8937,9 @@ body > p.flash-message.danger {
 .scoreboard .scoreboard-item:last-child {
   margin-right: 0;
 }
+.modal-footer {
+  border-top: none;
+}
 .datepicker table tr td.active.active,
 .datepicker table tr td span.active.active,
 .datepicker table tr td.active:active,

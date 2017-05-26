@@ -19,6 +19,7 @@ var TranscriptionForm = (function(exports) {
         DROPDOWN_TOGGLE_CLASS = '.dropdown-toggle',
         CHILD_TOGGLE_SECTIONS = '#childHidden, #childShow',
         RETARD_IMAGE_ZOOM_SELECTOR = 'img.image-zoom-retard',
+        SURVEY_TRIGGER = '[data-target="#survey-modal"]',
     /* Vars */
         backToApproval = false,
         imageZoomsInitialised = false,
@@ -201,7 +202,8 @@ var TranscriptionForm = (function(exports) {
      */
     jQuery(document).ready(function($) {
         var $approvedDataField = $(APPROVAL_STAGE_DATA_FIELD),
-            $transcribeDataField = $(TRANSCRIBE_STAGE_DATA_FIELD);
+            $transcribeDataField = $(TRANSCRIBE_STAGE_DATA_FIELD),
+            $surveyTrigger = $(SURVEY_TRIGGER);
 
         // Listen to the field state buttons.
         $(TOGGLE_FIELD_PROPS_CLASS).each(function(index) {
@@ -226,6 +228,9 @@ var TranscriptionForm = (function(exports) {
             // Start the transcription tour.
             startTour('transcribe');
         }
+
+        // Trigger the survey popup if the trigger is present.
+        if ($surveyTrigger.length > 0) $surveyTrigger.click();
     });
 
     return exports;
