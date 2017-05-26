@@ -28,6 +28,9 @@ class Clock
         $user->last_activity = date("Y-m-d H:i:s");
         $user->update();
 
+        // Increment the sessions.
+        $user->increment('sessions');
+
         // Return the default sign in object.
         return $signIn;
     }

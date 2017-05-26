@@ -1,4 +1,4 @@
 export:
     title: Export Volunteers
     modelClass: RafMuseum\Volunteers\Models\VolunteerExport
-    list: $/rafmuseum/volunteers/config/user_volunteer_columns.yaml
+    list: $/rafmuseum/volunteers/config/volunteer_columns.yaml
