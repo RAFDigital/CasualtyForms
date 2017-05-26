@@ -24,8 +24,8 @@ return [
 
     // Survey links and thresholds.
     'surveys' => array(
-        1 => 'https://www.surveymonkey.com/#first',
-        50 => 'https://www.surveymonkey.com/#fiftyth',
+        10 => 'https://www.surveymonkey.co.uk/r/casualtyformsecondsession',
+        100 => 'https://www.surveymonkey.co.uk/r/100casultyforms',
     ),
 
 ];

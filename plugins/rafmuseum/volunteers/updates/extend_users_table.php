@@ -15,6 +15,7 @@ class ExtendUsersTable extends Migration
             $table->string('state_id')->nullable();
             $table->string('ethnicity')->nullable();
             $table->timestamp('last_activity')->nullable();
+            $table->integer('sessions')->default(0);
         });
     }
 
@@ -27,7 +28,8 @@ class ExtendUsersTable extends Migration
                 'country_id',
                 'state_id',
                 'ethnicity',
-                'last_activity'
+                'last_activity',
+                'sessions'
             ]);
         });
     }

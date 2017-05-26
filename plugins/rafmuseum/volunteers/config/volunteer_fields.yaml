@@ -54,3 +54,8 @@ fields:
         tab: Volunteers
         span: right
         disabled: true
+    sessions:
+        label: Sessions
+        tab: Volunteers
+        span: left
+        disabled: true
