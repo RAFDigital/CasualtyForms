@@ -29,7 +29,7 @@ class Page extends ComponentBase
             $interval = ($now - $lastActivity);
 
             // Check if user has exeeded time limit.
-            if ($interval >= $timeoutLimit) {
+            if ($lastActivity && $interval >= $timeoutLimit) {
                 // Sign them out.
                 return Redirect::to('/volunteer/signout/timeout');
             } else {
