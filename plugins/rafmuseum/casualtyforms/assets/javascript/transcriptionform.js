@@ -121,7 +121,7 @@ var TranscriptionForm = (function(exports) {
             if (fieldSpecialStates.indexOf(data[first]) !== -1 ||
                 fieldSpecialStates.indexOf(data[last]) !== -1) {
                 input.setCustomValidity('');
-            } else if(firstDate >= lastDate) {
+            } else if(firstDate > lastDate) {
                 // Here is the error state.
                 input.setCustomValidity('The `' + last + '` must be after the `' + first + '`.');
             } else {
