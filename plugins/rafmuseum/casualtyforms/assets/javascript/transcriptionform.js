@@ -8,6 +8,7 @@ var TranscriptionForm = (function(exports) {
     /* Consts */
     var TOGGLE_FIELD_PROPS_CLASS = '.toggle-field-props',
         FIELD_PROPS_RESET_CLASS = '.field-props-reset',
+        TOGGLE_DATEPICKER_MODE_CLASS = '.toggle-datepicker-mode',
         TRANSCRIBE_STAGE_DATA_FIELD = '[name="completed_by_id"]',
         APPROVAL_STAGE_DATA_FIELD = '[name="approved_by_id"]',
         FORM_TAG = 'form',
@@ -65,6 +66,16 @@ var TranscriptionForm = (function(exports) {
         // Hide/show the right buttons.
         $inputGroup.find(TOGGLE_FIELD_PROPS_CLASS).show();
         $inputGroup.find(FIELD_PROPS_RESET_CLASS).hide();
+
+        event.preventDefault();
+    }
+
+    /**
+     * Function to toggle the illegible action.
+     * @param {object} event The click event.
+     */
+    function toggleTextDisplay(event) {
+        $(this).find('span').toggle();
 
         event.preventDefault();
     }
@@ -206,13 +217,10 @@ var TranscriptionForm = (function(exports) {
             $surveyTrigger = $(SURVEY_TRIGGER);
 
         // Listen to the field state buttons.
-        $(TOGGLE_FIELD_PROPS_CLASS).each(function(index) {
-            $(this).click(toggleFieldProps);
-        });
-
-        $(FIELD_PROPS_RESET_CLASS).each(function(index) {
-            $(this).click(fieldPropsReset);
-        })
+        $(TOGGLE_FIELD_PROPS_CLASS).on('click', toggleFieldProps);
+        $(FIELD_PROPS_RESET_CLASS).on('click', fieldPropsReset);
+        // And the datepicker mode (separate, see app.js)
+        $(TOGGLE_DATEPICKER_MODE_CLASS).on('click', toggleTextDisplay);
 
         // This means we're in the approval stage.
         if ($approvedDataField.length > 0) {

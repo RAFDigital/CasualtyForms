@@ -7,6 +7,13 @@
  */
 jQuery(document).ready(function($) {
     var EMAIL_HOST = 'rafmuseum.org',
+        DATEPICKER_SELECTOR = 'input[type="datepicker"]',
+        SMOOTHSCROLL_SELECTOR = 'a[href^="#"].smooth-scroll',
+        SENDEMAIL_SELECTOR = '[data-sendemail]',
+        TOOLTIP_SELECTOR = '[data-toggle="tooltip"]',
+        TOGGLE_DATEPICKER_MODE_CLASS = '.toggle-datepicker-mode',
+        INPUT_GROUP_CLASS = '.input-group',
+        FORM_CONTROL_CLASS = '.form-control',
         $header = $('.navbar-autohide'),
         imageZoom = document.querySelector('img.image-zoom'),
         scrolling = false,
@@ -26,25 +33,23 @@ jQuery(document).ready(function($) {
         };
 
     // Email link.
-    $('[data-sendemail]').on('click', sendEmail);
+    $(SENDEMAIL_SELECTOR).on('click', sendEmail);
 
     // Initialise tooltips.
-    $(this).tooltip({selector: '[data-toggle="tooltip"]'});
+    $(this).tooltip({selector: TOOLTIP_SELECTOR});
 
     // Initialise datepicker for DOB
     datepickerConfig.defaultViewDate.year = '1890';
-    $('input[type="datepicker"][name="birth_date"]').datepicker(datepickerConfig);
+    $(DATEPICKER_SELECTOR + '[name="birth_date"]').datepicker(datepickerConfig);
     // ...and the rest of them.
     datepickerConfig.defaultViewDate.year = '1914';
-    $('input[type="datepicker"]').datepicker(datepickerConfig);
+    $(DATEPICKER_SELECTOR).datepicker(datepickerConfig);
+
+    // Datepicker mode change.
+    $(TOGGLE_DATEPICKER_MODE_CLASS).on('click', toggleDatepickerMode);
 
     // Scroll animation.
-    $('a[href^="#"].smooth-scroll').on('click', function(event) {
-        event.preventDefault();
-        $('html, body').animate({
-            scrollTop: $(this.hash).offset().top
-        }, 400);
-    });
+    $(SMOOTHSCROLL_SELECTOR).on('click', smoothScroll);
 
     // Initialise image zoom.
     wheelzoom(imageZoom, { maxZoom: 5 });
@@ -84,6 +89,9 @@ jQuery(document).ready(function($) {
         }
     }), 'swing'
 
+    /**
+     * Auto hides the top header section.
+     */
     function autoHideHeader() {
         var currentTop = $(window).scrollTop();
 
@@ -116,6 +124,50 @@ jQuery(document).ready(function($) {
 
         // Open email client.
         window.location.href = 'mailto:' + recipients + '?subject=' + subject;
+
+        event.preventDefault();
+    }
+
+    /**
+     * Triggers a smooth scroll to target.
+     * @param {object} event The scroll event.
+     */
+    function smoothScroll(event) {
+        $('html, body').animate({
+            scrollTop: $(this.hash).offset().top
+        }, 400);
+
+        event.preventDefault();
+    }
+
+    /**
+     * Toggles the "month only" mode for the datepicker.
+     * @param {object} event The event obj.
+     */
+    function toggleDatepickerMode(event) {
+        // Find the datepicker.
+        var $datepicker = $(this).parents(INPUT_GROUP_CLASS).find(DATEPICKER_SELECTOR);
+
+        // Switch on this data attribute.
+        if($datepicker.data('mode') === 'month') {
+            // Use default config to switch back.
+            $datepicker.val('').datepicker('destroy').datepicker(datepickerConfig);
+
+            // Get rid of the flag.
+            $datepicker.data('mode', false);
+        } else {
+            // Adjust the config to fit the month only mode.
+            var datepickerConfigMonthOnly = $.extend({}, datepickerConfig, {
+                minViewMode: 1, format: "MM yyyy"
+            });
+
+            // Destroy then rebuild with the right config.
+            $datepicker.val('').datepicker('destroy')
+                .datepicker(datepickerConfigMonthOnly);
+
+            // Add the data 'mode' flag.
+            $datepicker.data('mode', 'month');
+        }
 
         event.preventDefault();
     }

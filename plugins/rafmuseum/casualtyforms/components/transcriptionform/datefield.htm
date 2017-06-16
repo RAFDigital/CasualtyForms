@@ -22,6 +22,10 @@
 
         <ul class="dropdown-menu dropdown-menu-right">
             <li>
+                <a class="toggle-datepicker-mode" href="#" data-readonly="true"}>
+                    <span>Select month only</span>
+                    <span style="display:none">Select day</span>                    
+                </a>
                 {% for fieldSpecialState in fieldSpecialStates %}
                     <a class="toggle-field-props" href="#" data-readonly="true"
                         data-value="{{ fieldSpecialState.datevalue }}"
