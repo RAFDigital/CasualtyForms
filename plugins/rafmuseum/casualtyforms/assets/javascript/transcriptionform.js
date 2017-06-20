@@ -184,8 +184,6 @@ var TranscriptionForm = (function(exports) {
 
         // Check the birth/death dates.
         compareDates('birth_date', 'death_date', data, input);
-        // Check the report dates.
-        compareDates('report_date_first', 'report_date_last', data, input)
     }
 
     /**

@@ -15,26 +15,17 @@ columns:
         label: Surname
         type: text
         searchable: true
-    birth_date:
-        label: 'Date of Birth'
-        type: date
-        searchable: true
     regiment_corps:
         label: Regiment/Corps
         type: text
         searchable: true
-    report_date_first:
-        label: 'Report Date First'
+    birth_date:
+        label: 'Date of Birth'
         type: date
-    report_date_last:
-        label: 'Report Date Last'
-        type: date
+        searchable: true
     death_date:
         label: 'Date of Death'
         type: date
-    medical_information:
-        label: 'Medical Information'
-        type: switch
     started_by:
         label: 'Started By'
         type: text

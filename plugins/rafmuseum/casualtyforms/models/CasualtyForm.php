@@ -47,8 +47,6 @@ class CasualtyForm extends Model
      */
     protected $nullable = [
         'birth_date',
-        'report_date_first',
-        'report_date_last',
         'death_date'
     ];
 
@@ -63,8 +61,6 @@ class CasualtyForm extends Model
     protected $dateFields = [
         'birth_date',
         'death_date',
-        'report_date_first',
-        'report_date_last'
     ];
 
     /**
@@ -192,8 +188,6 @@ class CasualtyForm extends Model
                      ->orWhere('first_names', $illegibleState['value'])
                      ->orWhere('surname', $illegibleState['value'])
                      ->orWhere('regiment_corps', $illegibleState['value'])
-                     ->orWhere('report_date_first', $illegibleState['datevalraw'])
-                     ->orWhere('report_date_last', $illegibleState['datevalraw'])
                      ->orWhere('birth_date', $illegibleState['datevalraw'])
                      ->orWhere('death_date', $illegibleState['datevalraw']);
     }

@@ -44,22 +44,6 @@ fields:
         mode: date
         span: auto
         type: datepicker
-    report_date_first:
-        label: 'Date of First Report'
-        oc.commentPosition: ''
-        mode: date
-        span: auto
-        type: datepicker
-    report_date_last:
-        label: 'Date of Last Report'
-        oc.commentPosition: ''
-        mode: date
-        span: auto
-        type: datepicker
-    medical_information:
-        label: 'Medical Information'
-        span: full
-        type: checkbox
     child_form:
         label: 'Child Form'
         span: full

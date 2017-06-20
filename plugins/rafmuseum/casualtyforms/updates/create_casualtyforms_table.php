@@ -16,10 +16,10 @@ class CreateRafmuseumCasualtyformsFormTable extends Migration
             $table->string('surname')->nullable();
             $table->date('birth_date')->nullable();
             $table->string('regiment_corps')->nullable();
-            $table->date('report_date_first')->nullable();
-            $table->date('report_date_last')->nullable();
+            $table->date('report_date_first')->nullable(); // Not used
+            $table->date('report_date_last')->nullable(); // Not used
             $table->date('death_date')->nullable();
-            $table->boolean('medical_information')->default(0);
+            $table->boolean('medical_information')->default(0); // Not used
             $table->integer('started_by_id')->nullable();
             $table->integer('completed_by_id')->nullable();
             $table->integer('approved_by_id')->nullable();

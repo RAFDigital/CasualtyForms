@@ -93,17 +93,6 @@ identifierValue = "{{ :id }}"
             <tr>
                 <td>Regiment / Corps</td><td>{{ record.regiment_corps }}</td>
             </tr>
-            <tr>
-                <td>Date of first report</td>
-                <td>{{ record.report_date_first ? record.report_date_first|date('M d, Y') : '' }}</td>
-            </tr>
-
-            {% if record.child_forms is empty %}
-                <tr>
-                    <td>Date of last report</td>
-                    <td>{{ record.report_date_last ? record.report_date_last|date('M d, Y') : '' }}</td>
-                </tr>
-            {% endif %}
 
             {% if record.death_date %}
                 <tr>

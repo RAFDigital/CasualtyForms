@@ -3,18 +3,9 @@ columns:
         label: ID
         type: number
         sortable: true
-    report_date_first:
-        label: 'Report Date First'
-        type: date
-    report_date_last:
-        label: 'Report Date Last'
-        type: date
     death_date:
         label: 'Date of Death'
         type: date
-    medical_information:
-        label: 'Medical Information'
-        type: switch
     started_by:
         label: 'Started By'
         type: text

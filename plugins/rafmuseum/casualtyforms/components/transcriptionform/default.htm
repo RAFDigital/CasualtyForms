@@ -147,7 +147,7 @@
         </div>
 
         <div class="row">
-            <div class="form-group col-sm-4 tour-requiredfields">
+            <div class="form-group col-sm-6 tour-requiredfields">
                 {% partial '@textfield'
                     id="casualtyFnames"
                     name="first_names"
@@ -157,7 +157,7 @@
                     disabled=form.child_form %}
             </div>
 
-            <div class="form-group col-sm-4 tour-illegible">
+            <div class="form-group col-sm-6 tour-illegible">
                 {% partial '@textfield'
                     id="casualtySurname"
                     name="surname"
@@ -166,36 +166,20 @@
                     required=1
                     disabled=form.child_form %}
             </div>
-
-            <div class="form-group col-sm-4">
-                {% partial '@datefield'
-                    id="casualtyBirthDate"
-                    name="birth_date"
-                    label="Date of birth"
-                    recordValue=form.birth_date %}
-            </div>
         </div>
 
     </div>
 
     <div class="row">
-        <div class="form-group col-sm-4">
+        <div class="form-group col-sm-6">
             {% partial '@datefield'
-                id="casualtyReportDateFirst"
-                name="report_date_first"
-                label="Date of first report"
-                recordValue=form.report_date_first %}
+                id="casualtyBirthDate"
+                name="birth_date"
+                label="Date of birth"
+                recordValue=form.birth_date %}
         </div>
 
-        <div class="form-group col-sm-4">
-            {% partial '@datefield'
-                id="casualtyReportDateLast"
-                name="report_date_last"
-                label="Date of last report"
-                recordValue=form.report_date_last %}
-        </div>
-
-        <div class="form-group col-sm-4 tour-nodata">
+        <div class="form-group col-sm-6 tour-nodata">
             {% partial '@datefield'
                 id="casualtyDeathDate"
                 name="death_date"
