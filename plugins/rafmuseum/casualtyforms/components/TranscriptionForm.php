@@ -134,12 +134,11 @@ class TranscriptionForm extends ComponentBase
     {
         // Get the imagefile config.
         $imageFile = config('casualtyforms.imagefile');
-        // Get first number group and sequence number.
-        $group = floor($id / 10000) + 1;
-        $sequence = sprintf('%04d', $id);
+        // Get sequence number (to 5 chars).
+        $sequence = sprintf('%05d', $id);
 
-        return $imageFile['dir'] . DIRECTORY_SEPARATOR . $imageFile['prefix'] .
-               $group . $imageFile['separator'] . $sequence . $imageFile['type'];
+        return $imageFile['dir'] . DIRECTORY_SEPARATOR .
+               $imageFile['prefix'] . $sequence . $imageFile['type'];
     }
 
     /**

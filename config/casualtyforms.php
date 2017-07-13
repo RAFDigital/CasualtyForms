@@ -14,8 +14,7 @@ return [
     // Image file contruction info.
     'imagefile' => array(
         'dir' => '/Forms',
-        'prefix' => '_',
-        'separator' => 'CF',
+        'prefix' => 'CF',
         'type' => '.jpg'
     ),
 
