@@ -30,7 +30,12 @@
         </div>
     </div>
 
-    <div id="childShow" class="form-group image-radio-group row"
+    <div class="child-show" {% if form.child_form == false %}style="display: none"{% endif %}>
+        <p><strong>No further transcription required.</strong></p>
+    </div>
+
+    {# Not to process >>>
+    <!-- <div class="child-show form-group image-radio-group row"
         {% if form.child_form == false %}style="display: none"{% endif %}>
         <div class="col-sm-12">
             <label>
@@ -88,9 +93,10 @@
                 No neighbouring form
             </div>
         {% endif %}
-    </div>
+    </div> -->
+    <<< end #}
 
-    <div id="childHidden" {% if form.child_form %}style="display: none"{% endif %}>
+    <div class="child-hidden" {% if form.child_form %}style="display: none"{% endif %}>
 
         <div class="form-group">
             <label for="casualtyRank">
@@ -168,24 +174,24 @@
             </div>
         </div>
 
-    </div>
-
-    <div class="row">
-        <div class="form-group col-sm-6">
-            {% partial '@datefield'
-                id="casualtyBirthDate"
-                name="birth_date"
-                label="Date of birth"
-                recordValue=form.birth_date %}
+        <div class="row">
+            <div class="form-group col-sm-6">
+                {% partial '@datefield'
+                    id="casualtyBirthDate"
+                    name="birth_date"
+                    label="Date of birth"
+                    recordValue=form.birth_date %}
+            </div>
+    
+            <div class="form-group col-sm-6 tour-nodata">
+                {% partial '@datefield'
+                    id="casualtyDeathDate"
+                    name="death_date"
+                    label="Date of death"
+                    recordValue=form.death_date %}
+            </div>
         </div>
 
-        <div class="form-group col-sm-6 tour-nodata">
-            {% partial '@datefield'
-                id="casualtyDeathDate"
-                name="death_date"
-                label="Date of death"
-                recordValue=form.death_date %}
-        </div>
     </div>
 
     <!--<div class="form-group">
@@ -218,7 +224,7 @@
         {% endif %}
     </div>
 
-    <p class="clear">
+    <p class="child-hidden clear" {% if form.child_form %}style="display: none"{% endif %}>
         <span class="text-danger">*</span>
         Required fields are marked with an asterisk.
     </p>

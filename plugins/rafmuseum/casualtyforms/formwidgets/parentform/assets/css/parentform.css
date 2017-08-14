@@ -44,5 +44,7 @@
 }
 
 .alert-warning {
-    color: #fff;
+    background-color: #e5be61;
+    border-color: #e1b54b;
+    color: #8a6d3b;
 }

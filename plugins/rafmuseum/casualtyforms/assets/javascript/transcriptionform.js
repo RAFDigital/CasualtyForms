@@ -18,7 +18,7 @@ var TranscriptionForm = (function(exports) {
         INPUT_GROUP_CLASS = '.input-group',
         FORM_CONTROL_CLASS = '.form-control',
         DROPDOWN_TOGGLE_CLASS = '.dropdown-toggle',
-        CHILD_TOGGLE_SECTIONS = '#childHidden, #childShow',
+        CHILD_TOGGLE_SECTIONS = '.child-hidden, .child-show',
         RETARD_IMAGE_ZOOM_SELECTOR = 'img.image-zoom-retard',
         SURVEY_TRIGGER = '[data-target="#survey-modal"]',
     /* Vars */
