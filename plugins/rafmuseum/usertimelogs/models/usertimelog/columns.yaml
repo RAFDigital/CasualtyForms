@@ -12,6 +12,9 @@ columns:
     session_id:
         label: 'Session ID'
         type: text
+    user_agent:
+        label: 'User agent'
+        type: text
     signin_time:
         label: 'Sign in time'
         type: datetime

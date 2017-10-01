@@ -13,6 +13,7 @@ class BuilderTableCreateRafmuseumUsertimelogsLogs extends Migration
             $table->increments('id');
             $table->integer('user_id');
             $table->string('session_id');
+            $table->string('user_agent');
             $table->timestamp('signin_time')->useCurrent();
             $table->timestamp('signout_time')->nullable();
         });

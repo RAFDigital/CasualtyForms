@@ -9,6 +9,11 @@ fields:
         label: 'Session ID'
         span: full
         type: text
+        disabled: true
+    user_agent:
+        label: 'User agent'
+        span: full
+        type: text
     signin_time:
         label: 'Sign in time'
         mode: datetime
