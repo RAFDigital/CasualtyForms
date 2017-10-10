@@ -15,6 +15,7 @@ fields:
             Major: Major
             Lt.-Col.: Lt.-Col.
             Colonel: Colonel
+            Sergeant: Sergeant
         span: full
         type: checkboxlist
     regiment_corps:

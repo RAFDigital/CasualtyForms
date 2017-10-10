@@ -141,6 +141,12 @@
                         {% if "Colonel" in form.rank %}checked{% endif %} />
                         Colonel
                 </label>
+
+                <label class="checkbox-inline">
+                    <input type="checkbox" name="rank[]" value="Sergeant"
+                        {% if "Sergeant" in form.rank %}checked{% endif %} />
+                        Sergeant
+                </label>
             </div>
         </div>
 
@@ -148,7 +154,7 @@
             {% partial '@textfield'
                 id="casualtyRegimentCorps"
                 name="regiment_corps"
-                label="Regiment/Corps"
+                label="Regiment/Corps/Branch of Service"
                 recordValue=form.regiment_corps %}
         </div>
 
@@ -225,8 +231,10 @@
     </div>
 
     <p class="child-hidden clear" {% if form.child_form %}style="display: none"{% endif %}>
-        <span class="text-danger">*</span>
-        Required fields are marked with an asterisk.
+        <strong>
+            <span class="text-danger">*</span>
+            Required fields are marked with an asterisk.
+        </strong>
     </p>
 </form>
 

@@ -28,7 +28,7 @@
                         <li role="separator" class="divider"></li>
 
                         {% if not user %}
-                            <li><a href="{{ 'transcribe'|page({ stage: 'new' }) }}">Sign In</a></li>
+                            <li><a href="{{ 'transcribe'|page({ stage: 'new' }) }}">Sign In / Register</a></li>
                         {% else %}
                             <li><a href="{{ 'transcribe'|page({ stage: 'new' }) }}">Transcribe</a></li>
                             <li><a href="{{ 'transcribe'|page({ stage: 'approve' }) }}">Approve</a></li>
