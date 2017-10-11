@@ -8977,6 +8977,10 @@ body > p.flash-message.danger {
 .datepicker table tr td span.active.highlighted:active:hover {
   background-color: #717eb8;
 }
+.datepicker table tr td.new,
+.datepicker table tr td.old {
+  color: #eeeeee;
+}
 .tour-step-background {
   border-radius: 0;
 }
