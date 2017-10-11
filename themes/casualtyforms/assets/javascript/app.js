@@ -145,29 +145,30 @@ jQuery(document).ready(function($) {
      * @param {object} event The event obj.
      */
     function toggleDatepickerMode(event) {
-        // Find the datepicker.
-        var $datepicker = $(this).parents(INPUT_GROUP_CLASS).find(DATEPICKER_SELECTOR);
+        // Find the datepicker and get the mode.
+        var $datepicker = $(this).parents(INPUT_GROUP_CLASS).find(DATEPICKER_SELECTOR),
+            mode = event.currentTarget.dataset.datepickerMode,
+            datepickerModeConfig = {}, newDatepickerConfig = {};
 
-        // Switch on this data attribute.
-        if($datepicker.data('mode') === 'month') {
-            // Use default config to switch back.
-            $datepicker.val('').datepicker('destroy').datepicker(datepickerConfig);
-
-            // Get rid of the flag.
-            $datepicker.data('mode', false);
-        } else {
-            // Adjust the config to fit the month only mode.
-            var datepickerConfigMonthOnly = $.extend({}, datepickerConfig, {
-                minViewMode: 1, format: "MM yyyy"
-            });
-
-            // Destroy then rebuild with the right config.
-            $datepicker.val('').datepicker('destroy')
-                .datepicker(datepickerConfigMonthOnly);
-
-            // Add the data 'mode' flag.
-            $datepicker.data('mode', 'month');
+        switch(mode) {
+            case 'year': // Just year.
+                datepickerModeConfig = {minViewMode: 2, format: "yyyy"};
+                break;
+            case 'month': // Just month and year.
+                datepickerModeConfig = {minViewMode: 1, format: "MM yyyy"};
+                break;
+            case 'day': // Just day (default)
+            default:
+                newDatepickerConfig = datepickerConfig;
+                break;
         }
+
+        // Merge in the new config with original.
+        newDatepickerConfig = $.extend({}, datepickerConfig, datepickerModeConfig);
+
+        // Destroy then rebuild with the right config.
+        $datepicker.val('').datepicker('destroy')
+            .datepicker(newDatepickerConfig);
 
         event.preventDefault();
     }

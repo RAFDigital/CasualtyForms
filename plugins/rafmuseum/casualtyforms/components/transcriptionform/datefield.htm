@@ -22,10 +22,23 @@
 
         <ul class="dropdown-menu dropdown-menu-right">
             <li>
-                <a class="toggle-datepicker-mode" href="#" data-readonly="true"}>
-                    <span>Select month only</span>
-                    <span style="display:none">Select day</span>                    
+                <a class="toggle-datepicker-mode datepicker-mode-default"
+                    style="display:none"
+                    data-datepicker-mode="day" href="#"
+                    data-readonly="true"}>
+                    <span>Select year/month/day</span>                    
                 </a>
+                <a class="toggle-datepicker-mode"
+                    data-datepicker-mode="month" href="#"
+                    data-readonly="true"}>
+                    <span>Select year/month only</span>                   
+                </a>
+                <a class="toggle-datepicker-mode"
+                    data-datepicker-mode="year" href="#"
+                    data-readonly="true"}>
+                    <span>Select year only</span>                   
+                </a>
+                
                 {% for fieldSpecialState in fieldSpecialStates %}
                     <a class="toggle-field-props" href="#" data-readonly="true"
                         data-value="{{ fieldSpecialState.datevalue }}"

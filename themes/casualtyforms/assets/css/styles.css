@@ -8959,6 +8959,24 @@ body > p.flash-message.danger {
   background-color: #6399ab;
   border-color: #6399ab;
 }
+.datepicker table tr td.active.active:hover,
+.datepicker table tr td span.active.active:hover,
+.datepicker table tr td.active:active:hover,
+.datepicker table tr td span.active:active:hover,
+.datepicker table tr td.active:hover.active:hover,
+.datepicker table tr td span.active:hover.active:hover,
+.datepicker table tr td.active:hover:active:hover,
+.datepicker table tr td span.active:hover:active:hover,
+.datepicker table tr td.active.disabled:hover.active:hover,
+.datepicker table tr td span.active.disabled:hover.active:hover,
+.datepicker table tr td.active.disabled:hover:active:hover,
+.datepicker table tr td span.active.disabled:hover:active:hover,
+.datepicker table tr td.active.highlighted.active:hover,
+.datepicker table tr td span.active.highlighted.active:hover,
+.datepicker table tr td.active.highlighted:active:hover,
+.datepicker table tr td span.active.highlighted:active:hover {
+  background-color: #717eb8;
+}
 .tour-step-background {
   border-radius: 0;
 }

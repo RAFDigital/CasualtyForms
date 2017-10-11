@@ -9,6 +9,7 @@ var TranscriptionForm = (function(exports) {
     var TOGGLE_FIELD_PROPS_CLASS = '.toggle-field-props',
         FIELD_PROPS_RESET_CLASS = '.field-props-reset',
         TOGGLE_DATEPICKER_MODE_CLASS = '.toggle-datepicker-mode',
+        DATEPICKER_MODE_DEFAULT_CLASS = '.datepicker-mode-default',
         TRANSCRIBE_STAGE_DATA_FIELD = '[name="completed_by_id"]',
         APPROVAL_STAGE_DATA_FIELD = '[name="approved_by_id"]',
         FORM_TAG = 'form',
@@ -42,7 +43,8 @@ var TranscriptionForm = (function(exports) {
             .prop(this.dataset).trigger('change');
 
         // Hide/show the right buttons.
-        $inputGroup.find(TOGGLE_FIELD_PROPS_CLASS).hide();
+        $inputGroup.find(TOGGLE_FIELD_PROPS_CLASS +
+            ', ' + TOGGLE_DATEPICKER_MODE_CLASS).hide();
         $inputGroup.find(FIELD_PROPS_RESET_CLASS).show();
 
         event.preventDefault();
@@ -64,18 +66,20 @@ var TranscriptionForm = (function(exports) {
             .prop({readonly: false, value: ''}).trigger('change');
 
         // Hide/show the right buttons.
-        $inputGroup.find(TOGGLE_FIELD_PROPS_CLASS).show();
+        $inputGroup.find(TOGGLE_FIELD_PROPS_CLASS +
+            ', ' + TOGGLE_DATEPICKER_MODE_CLASS).show();
         $inputGroup.find(FIELD_PROPS_RESET_CLASS).hide();
 
         event.preventDefault();
     }
 
     /**
-     * Function to toggle the illegible action.
+     * Function to toggle the datepicker mode action.
      * @param {object} event The click event.
      */
-    function toggleTextDisplay(event) {
-        $(this).find('span').toggle();
+    function toggleDatepickerModeDisplay(event) {
+        $(TOGGLE_DATEPICKER_MODE_CLASS).show();
+        $(this).hide();
 
         event.preventDefault();
     }
@@ -218,7 +222,7 @@ var TranscriptionForm = (function(exports) {
         $(TOGGLE_FIELD_PROPS_CLASS).on('click', toggleFieldProps);
         $(FIELD_PROPS_RESET_CLASS).on('click', fieldPropsReset);
         // And the datepicker mode (separate, see app.js)
-        $(TOGGLE_DATEPICKER_MODE_CLASS).on('click', toggleTextDisplay);
+        $(TOGGLE_DATEPICKER_MODE_CLASS).on('click', toggleDatepickerModeDisplay);
 
         // This means we're in the approval stage.
         if ($approvedDataField.length > 0) {
