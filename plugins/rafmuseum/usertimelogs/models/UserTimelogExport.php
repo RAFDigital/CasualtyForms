@@ -1,7 +1,8 @@
 <?php namespace RafMuseum\UserTimelogs\Models;
 
 use Backend\Models\ExportModel;
-use Log;
+use DB;
+
 /**
  * Model
  */
@@ -24,7 +25,7 @@ use Log;
         $logs = new UserTimelog;
 
         // Let's include the related columns.
-        $logs = $logs->with(['user']);
+        $logs = $logs->with(['user'])->select('*');
 
         // From date and to date.
         if ($this->from_date && $this->to_date) {
@@ -34,10 +35,9 @@ use Log;
             ]);
         }
 
-        Log::debug($columns);
-
         // Do a different query based on options.
         if ($this->log_totals) $logs = $logs->logTotals();
+        else $logs->addSelect(DB::raw('TIMEDIFF(signout_time, signin_time) as `time_logged`'));
 
         // Ok send the query.
         $logs = $logs->get();
