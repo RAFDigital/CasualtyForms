@@ -1,7 +1,7 @@
 <?php namespace RafMuseum\UserTimelogs\Models;
 
 use Backend\Models\ExportModel;
-
+use Log;
 /**
  * Model
  */
@@ -34,6 +34,8 @@ use Backend\Models\ExportModel;
             ]);
         }
 
+        Log::debug($columns);
+
         // Do a different query based on options.
         if ($this->log_totals) $logs = $logs->logTotals();
 
@@ -58,6 +60,7 @@ use Backend\Models\ExportModel;
             }
             return $item;
         });
+
 
         return $data->toArray();
     }

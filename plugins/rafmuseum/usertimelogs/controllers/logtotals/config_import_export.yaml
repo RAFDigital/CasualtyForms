@@ -1,5 +1,9 @@
 export:
     title: Export Log Totals
     modelClass: RafMuseum\UserTimelogs\Models\UserTimelogExport
-    list: $/rafmuseum/usertimelogs/models/usertimelog/columns.yaml
+    list: # We just want these three columns for this export.
+        columns:
+            user_id: 'User ID'
+            user: 'Volunteer name'
+            time_logged: 'Time Logged'
     form: $/rafmuseum/usertimelogs/models/usertimelogexport/options.yaml
