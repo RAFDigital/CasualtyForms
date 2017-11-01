@@ -39,7 +39,7 @@ var tourConfig = {
         {
             element: '.tour-nodata',
             title: 'No data',
-            content: 'Unrequired fields may not necessarily have data present on the form. In this case, you can mark the field "N/A".',
+            content: 'Unrequired fields may not necessarily have data present on the form. In this case, you can mark the field "Blank".',
             placement: 'left',
             backdrop: true,
             onShown: function() {

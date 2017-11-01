@@ -74,7 +74,7 @@ class CasualtyForm extends Model
             'datevalraw' => '00001-01-01',
         ),
         'nodata' => array(
-            'label' => 'N/A',
+            'label' => 'Blank',
             'value' => 'N/A',
             'datevalue' => '2 January 0001',
             'datevalraw' => '00001-01-02',
