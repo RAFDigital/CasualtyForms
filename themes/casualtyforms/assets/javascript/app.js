@@ -14,6 +14,8 @@ jQuery(document).ready(function($) {
         TOGGLE_DATEPICKER_MODE_CLASS = '.toggle-datepicker-mode',
         INPUT_GROUP_CLASS = '.input-group',
         FORM_CONTROL_CLASS = '.form-control',
+        IMAGE_ZOOM_SELECTOR = 'img.image-zoom',
+        ZOOM_CONTROLS_SELECTOR = '.zoom-controls',
         $header = $('.navbar-autohide'),
         imageZoom = document.querySelector('img.image-zoom'),
         scrolling = false,
@@ -52,23 +54,7 @@ jQuery(document).ready(function($) {
     $(SMOOTHSCROLL_SELECTOR).on('click', smoothScroll);
 
     // Initialise image zoom.
-    wheelzoom(imageZoom, { maxZoom: 5 });
-
-    // ...add the zoom controls.
-    $('.zoom-controls__reset').on('click', function(event) {
-        event.preventDefault();
-        imageZoom.dispatchEvent(new CustomEvent('wheelzoom.reset'));
-    });
-
-    $('.zoom-controls__zoomin').on('click', function(event) {
-        event.preventDefault();
-        imageZoom.dispatchEvent(new CustomEvent('zoomin'));
-    });
-
-    $('.zoom-controls__zoomout').on('click', function(event) {
-        event.preventDefault();
-        imageZoom.dispatchEvent(new CustomEvent('zoomout'));
-    });
+    initImageZoom(IMAGE_ZOOM_SELECTOR, ZOOM_CONTROLS_SELECTOR);
 
      // Initialise the feedback widget.
     // Feedback({
@@ -88,6 +74,57 @@ jQuery(document).ready(function($) {
             }
         }
     }), 'swing'
+
+    /**
+     * Initialises the image zoom.
+     * @param {string} selector Selector for actual image.
+     * @param {string} controlsSel Selector for controls.
+     */
+    function initImageZoom(selector, controlsSel) {
+        var imageZoom = document.querySelector(selector);
+
+        if (imageZoom) {
+            wheelzoom(imageZoom, { maxZoom: 5 });
+            addImageZoomListeners(imageZoom, controlsSel);
+        }
+    }
+
+    /**
+     * Adds listeners for loading and controls.
+     * @param {object} imageZoom The image zoom object.
+     * @param {string} controlsSel The selector for the controls.
+     */
+    function addImageZoomListeners(imageZoom, controlsSel) {
+        var imgLoaded = false, imageZoomLoaded = false;
+
+        // Add some checks.
+        imageZoom.addEventListener('load', function(event) {
+            console.log('imageZoom Loaded.', event);
+        });
+        imageZoom.addEventListener('error', function(error) {
+            console.error('imageZoom Error.', error);
+        });
+
+        // ...add the zoom controls.
+        $(controlsSel + '__reset').on('click', function(event) {
+            event.preventDefault();
+            imageZoom.dispatchEvent(new CustomEvent('wheelzoom.reset'));
+        });
+
+        $(controlsSel + '__zoomin').on('click', function(event) {
+            event.preventDefault();
+            imageZoom.dispatchEvent(new CustomEvent('zoomin'));
+        });
+
+        $(controlsSel + '__zoomout').on('click', function(event) {
+            event.preventDefault();
+            imageZoom.dispatchEvent(new CustomEvent('zoomout'));
+        });
+
+        // window.setTimeout(function(event) {
+        //     console.log('Tiemout');
+        // }, 2000);
+    }
 
     /**
      * Auto hides the top header section.
