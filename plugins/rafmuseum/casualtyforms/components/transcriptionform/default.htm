@@ -106,47 +106,13 @@
             </label>
 
             <div class="checkbox">
-                <label class="checkbox-inline">
-                    <input type="checkbox" name="rank[]" value="2nd Lieut."
-                        {% if "2nd Lieut." in form.rank %}checked{% endif %} />
-                        2nd Lieut.
-                </label>
-
-                <label class="checkbox-inline">
-                    <input type="checkbox" name="rank[]" value="Lieut."
-                        {% if "Lieut." in form.rank %}checked{% endif %} />
-                        Lieut.
-                </label>
-
-                <label class="checkbox-inline">
-                    <input type="checkbox" name="rank[]" value="Captain"
-                        {% if "Captain" in form.rank %}checked{% endif %} />
-                        Captain
-                </label>
-
-                <label class="checkbox-inline">
-                    <input type="checkbox" name="rank[]" value="Major"
-                        {% if "Major" in form.rank %}checked{% endif %} />
-                        Major
-                </label>
-
-                <label class="checkbox-inline">
-                    <input type="checkbox" name="rank[]" value="Lt.-Col."
-                        {% if "Lt.-Col." in form.rank %}checked{% endif %} />
-                        Lt.-Col.
-                </label>
-
-                <label class="checkbox-inline">
-                    <input type="checkbox" name="rank[]" value="Colonel"
-                        {% if "Colonel" in form.rank %}checked{% endif %} />
-                        Colonel
-                </label>
-
-                <label class="checkbox-inline">
-                    <input type="checkbox" name="rank[]" value="Sergeant"
-                        {% if "Sergeant" in form.rank %}checked{% endif %} />
-                        Sergeant
-                </label>
+                {% for rank in formFields.rank.options %}
+                    <label class="checkbox-inline">
+                        <input type="checkbox" name="rank[]" value="{{ rank }}"
+                            {% if rank in form.rank %}checked{% endif %} />
+                            {{ rank }}
+                    </label>
+                {% endfor %}
             </div>
         </div>
 

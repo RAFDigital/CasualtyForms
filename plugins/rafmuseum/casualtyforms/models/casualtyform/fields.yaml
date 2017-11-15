@@ -9,13 +9,14 @@ fields:
         label: Rank
         oc.commentPosition: ''
         options:
+            Sergeant: Sergeant
             '2nd Lieut.': '2nd Lieut.'
             Lieut.: Lieut.
             Captain: Captain
             Major: Major
             Lt.-Col.: Lt.-Col.
             Colonel: Colonel
-            Sergeant: Sergeant
+            'Pilot Officer': 'Pilot Officer'
         span: full
         type: checkboxlist
     regiment_corps:

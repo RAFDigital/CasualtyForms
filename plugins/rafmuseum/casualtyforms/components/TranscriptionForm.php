@@ -4,6 +4,7 @@ use DateTime;
 use Flash;
 use Redirect;
 use Session;
+use Yaml;
 use Cms\Classes\ComponentBase;
 use RafMuseum\CasualtyForms\Models\CasualtyForm;
 use RainLab\User\Models\User;
@@ -20,6 +21,9 @@ class TranscriptionForm extends ComponentBase
 
     public function onRun()
     {
+        // Get the form fields from the config.
+        $formFields = Yaml::parseFile('plugins/rafmuseum/casualtyforms/models/casualtyform/fields.yaml');
+
         $formsPath = base_path() . config('cms.storage.media.path');
 
         // Add necessary files for this page.
@@ -89,6 +93,7 @@ class TranscriptionForm extends ComponentBase
 
         // Make some vars available in the front end.
         $this->page['form'] = $form;
+        $this->page['formFields'] = $formFields['fields'];
         $this->page['stage'] = $stage;
     }
 
