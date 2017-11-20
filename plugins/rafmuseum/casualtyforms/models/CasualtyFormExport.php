@@ -41,7 +41,8 @@ use Backend\Models\ExportModel;
                 foreach($item as $key => $value) {
                     if (is_array($value)) {
                         // We want to only display the name.
-                        $item[$key] = $value['name'];
+                        $item[$key] = isset($value['name']) ?
+                            $value['name'] : json_encode($value);
                     }
                 }
             }
