@@ -2,6 +2,7 @@ list: $/rafmuseum/casualtyforms/models/casualtyform/columns.yaml
 modelClass: RafMuseum\CasualtyForms\Models\CasualtyForm
 title: Approved Forms
 noRecordsMessage: 'backend::lang.list.no_records'
+recordsPerPage: '50'
 showSetup: true
 showCheckboxes: true
 toolbar:

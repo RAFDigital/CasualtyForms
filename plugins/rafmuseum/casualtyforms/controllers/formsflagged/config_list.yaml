@@ -2,6 +2,7 @@ list: $/rafmuseum/casualtyforms/models/casualtyform/columns-flagged.yaml
 modelClass: RafMuseum\CasualtyForms\Models\CasualtyForm
 title: Flagged Forms
 noRecordsMessage: 'backend::lang.list.no_records'
+recordsPerPage: '50'
 showSetup: true
 showCheckboxes: true
 toolbar:
