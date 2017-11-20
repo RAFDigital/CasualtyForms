@@ -54,6 +54,6 @@ class Page extends ComponentBase
         );
 
         // Get some global page vars going.
-        $this->page['url'] = url();
+        $this->page['url'] = url('');
     }
 }
