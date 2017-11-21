@@ -226,19 +226,12 @@ class CasualtyForm extends Model
 
         // WHERE `approved_by_id` NOT NULL AND (x OR y OR ...)
         $query->where(function($query)use($tags) {
-            $firstField = true; // First flag.
-
             // Go through each of the fields and search.
             foreach($tags as $field => $tag) {
-                if($firstField) {
-                    // The first field query needs to be a plain where.
-                    $query->where($field, 'LIKE', "%$tag%");
-
-                    $firstField = false;
-                } else {
-                    $query->orWhere($field, 'LIKE', "%$tag%");
-                }
-
+                if (strstr($field, 'date'))
+                    $tag = date('Y-m-d', strtotime($tag));
+                
+                $query->where($field, 'LIKE', "%$tag%");
             }
         });
 
