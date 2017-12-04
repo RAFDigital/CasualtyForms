@@ -52,6 +52,12 @@ var tourConfig = {
             content: 'Be as thorough as you can and try not to miss anything. When you are happy everything is transcribed, click "Save".',
             placement: 'left',
             backdrop: true
+        },
+        {
+            title: 'Further help',
+            content: 'If you have any problems or require any further help, please visit our <a href="/volunteer/help">help page</a>.',
+            orphan: true,
+            backdrop: true
         }
     ],
     approve: [
@@ -79,6 +85,12 @@ var tourConfig = {
             title: 'Finish',
             content: 'Be as thorough as you can and try not to miss anything. If everything looks good to you, click "Approve".',
             placement: 'left',
+            backdrop: true
+        },
+        {
+            title: 'Further help',
+            content: 'If you have any problems or require any further help, please visit our <a href="/volunteer/help">help page</a>.',
+            orphan: true,
             backdrop: true
         }
     ]
