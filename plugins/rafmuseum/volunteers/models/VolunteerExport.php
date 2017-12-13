@@ -15,8 +15,11 @@ class VolunteerExport extends ExportModel
     {
         $users = new User;
 
-        // Include the country and state relationships.
-        $users = $users->with(['country', 'state']);
+        // Include the country, state, and form count relationships.
+        $users = $users->with([
+            'country', 'state',
+            'forms_completed', 'forms_approved'
+        ]);
 
         $users = $users->get();
 
@@ -27,17 +30,22 @@ class VolunteerExport extends ExportModel
         // Here we convert the relations into json for export.
         $collection = collect($users->toArray());
 
-        trace_log('$collection', $collection);
-
         $data = $collection->map(function ($item) {
-            if (is_array($item)) {
-                foreach($item as $key => $value) {
-                    if (is_array($value)) {
-                        // We want to only display the name of the field.
+            foreach($item as $key => $value) {
+                if (is_array($value)) {
+                    // Need to map the right values to the item.
+                    if ($key == 'forms_completed' || $key == 'forms_approved') {
+                        if(isset($value[0])) {
+                            $item[$key] = $value[0]['count'];
+                        } else {
+                            $item[$key] = 0;
+                        }
+                    } else {
                         $item[$key] = $value['name'];
                     }
                 }
             }
+            
             return $item;
         });
 

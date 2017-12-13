@@ -64,3 +64,13 @@ columns:
     sessions:
         label: Sessions
         searchable: true
+    
+    forms_completed:
+        label: Forms completed
+        sortable: false
+        searchable: false
+
+    forms_approved:
+        label: Forms approved
+        sortable: false
+        searchable: false

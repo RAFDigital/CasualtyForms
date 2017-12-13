@@ -52,12 +52,42 @@ class Plugin extends PluginBase
                 'sex',
                 'ethnicity'
             ]);
+
+            $model->hasMany = [
+                'forms_completed' => [
+                    'RafMuseum\CasualtyForms\Models\CasualtyForm',
+                    'key' => 'completed_by_id',
+                    'count' => true
+                ],
+                'forms_approved' => [
+                    'RafMuseum\CasualtyForms\Models\CasualtyForm',
+                    'key' => 'approved_by_id',
+                    'count' => true
+                ]
+            ];
         });
 
         UsersController::extendFormFields(function($form, $model, $context) {
             $configFile = __DIR__ . '/config/volunteer_fields.yaml';
             $config = Yaml::parse(File::get($configFile));
             $form->addTabFields($config['fields']);
+        });
+
+        UsersController::extendListColumns(function($list, $model) {
+            $list->addColumns([
+                'forms_completed' => [
+                    'label' => 'Forms Completed',
+                    'relation' => 'forms_completed',
+                    'valueFrom' => 'count',
+                    'default' => 0
+                ],
+                'forms_approved' => [
+                    'label' => 'Forms Approved',
+                    'relation' => 'forms_approved',
+                    'valueFrom' => 'count',
+                    'default' => 0
+                ]
+            ]);
         });
 
         Event::listen('backend.page.beforeDisplay', function($controller, $action, $params) {
