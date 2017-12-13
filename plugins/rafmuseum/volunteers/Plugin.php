@@ -79,13 +79,15 @@ class Plugin extends PluginBase
                     'label' => 'Forms Completed',
                     'relation' => 'forms_completed',
                     'valueFrom' => 'count',
-                    'default' => 0
+                    'default' => 0,
+                    'sortable' => false
                 ],
                 'forms_approved' => [
                     'label' => 'Forms Approved',
                     'relation' => 'forms_approved',
                     'valueFrom' => 'count',
-                    'default' => 0
+                    'default' => 0,
+                    'sortable' => false
                 ]
             ]);
         });
