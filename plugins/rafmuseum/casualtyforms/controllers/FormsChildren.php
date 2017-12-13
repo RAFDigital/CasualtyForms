@@ -18,7 +18,7 @@ class FormsChildren extends Controller
     public function __construct()
     {
         parent::__construct();
-        BackendMenu::setContext('RafMuseum.CasualtyForms', 'main-menu-item', 'side-menu-item4');
+        BackendMenu::setContext('RafMuseum.CasualtyForms', 'casualtyforms', 'childforms');
     }
 
     public function listExtendQuery($query)

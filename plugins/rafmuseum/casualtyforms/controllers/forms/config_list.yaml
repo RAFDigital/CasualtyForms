@@ -3,7 +3,7 @@ modelClass: RafMuseum\CasualtyForms\Models\CasualtyForm
 list: $/rafmuseum/casualtyforms/models/casualtyform/columns.yaml
 recordUrl: 'rafmuseum/casualtyforms/forms/update/:id'
 noRecordsMessage: 'backend::lang.list.no_records'
-recordsPerPage: '50'
+recordsPerPage: 50
 showSetup: true
 showCheckboxes: true
 toolbar:

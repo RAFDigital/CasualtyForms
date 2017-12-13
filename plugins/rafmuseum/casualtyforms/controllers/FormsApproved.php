@@ -20,7 +20,7 @@ class FormsApproved extends Controller
     public function __construct()
     {
         parent::__construct();
-        BackendMenu::setContext('RafMuseum.CasualtyForms', 'main-menu-item', 'side-menu-item3');
+        BackendMenu::setContext('RafMuseum.CasualtyForms', 'casualtyforms', 'approvedforms');
     }
 
     public function listExtendQuery($query)

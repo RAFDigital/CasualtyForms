@@ -18,7 +18,7 @@ class FormsFlagged extends Controller
     public function __construct()
     {
         parent::__construct();
-        BackendMenu::setContext('RafMuseum.CasualtyForms', 'main-menu-item', 'side-menu-item5');
+        BackendMenu::setContext('RafMuseum.CasualtyForms', 'casualtyforms', 'flaggedforms');
     }
 
     public function listExtendQuery($query)

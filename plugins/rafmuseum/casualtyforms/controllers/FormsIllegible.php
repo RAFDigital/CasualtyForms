@@ -18,7 +18,7 @@ class FormsIllegible extends Controller
     public function __construct()
     {
         parent::__construct();
-        BackendMenu::setContext('RafMuseum.CasualtyForms', 'main-menu-item', 'side-menu-item2');
+        BackendMenu::setContext('RafMuseum.CasualtyForms', 'casualtyforms', 'illegibleforms');
     }
 
     public function listExtendQuery($query)

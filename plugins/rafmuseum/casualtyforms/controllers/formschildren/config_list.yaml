@@ -2,7 +2,7 @@ list: $/rafmuseum/casualtyforms/models/casualtyform/columns-children.yaml
 modelClass: RafMuseum\CasualtyForms\Models\CasualtyForm
 title: Child Forms
 noRecordsMessage: 'backend::lang.list.no_records'
-recordsPerPage: '50'
+recordsPerPage: 50
 showSetup: true
 showCheckboxes: true
 toolbar:
