@@ -29,9 +29,9 @@
         </div>
 
         <div class="form-group col-md-4">
-            <label for="accountSex">Sex</label>
+            <label for="accountSex">Gender</label>
             <select name="sex" type="text" class="form-control" id="accountSex">
-                <option>Select sex (optional)</option>
+                <option>Select gender (optional)</option>
                 <option value="male" {% if form_value('sex') == 'male' %}selected{% endif %}>Male</option>
                 <option value="female" {% if form_value('sex') == 'female' %}selected{% endif %}>Female</option>
                 <option value="other" {% if form_value('sex') == 'other' %}selected{% endif %}>Other</option>

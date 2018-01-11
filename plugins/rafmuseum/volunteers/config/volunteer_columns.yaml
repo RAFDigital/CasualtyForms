@@ -36,7 +36,7 @@ columns:
         searchable: true
 
     sex:
-        label: Sex
+        label: Gender
         searchable: true
 
     country:

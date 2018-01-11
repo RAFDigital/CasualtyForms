@@ -14,11 +14,11 @@ fields:
             45-59: 45 - 59
             60+: 60 plus
     sex:
-        label: Sex
+        label: Gender
         tab: Volunteers
         span: right
         type: dropdown
-        placeholder: Select sex (optional)
+        placeholder: Select gender (optional)
         options:
             male: Male
             female: Female
