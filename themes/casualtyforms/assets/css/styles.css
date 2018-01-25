@@ -8431,6 +8431,12 @@ body > p.flash-message.danger {
 .clear {
   clear: both;
 }
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
 .w-sm {
   width: 25% !important;
 }
