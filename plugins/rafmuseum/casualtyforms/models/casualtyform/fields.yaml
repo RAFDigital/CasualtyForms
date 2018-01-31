@@ -50,12 +50,12 @@ fields:
         label: 'Child Form'
         span: full
         type: checkbox
-    parent_form:
-        label: 'Parent Form'
-        span: full
-        type: parentform
-        selectFrom: id
-        pattern: radio
+    # parent_form: // Disabled beacause it causes errors.
+    #     label: 'Parent Form'
+    #     span: full
+    #     type: parentform
+    #     selectFrom: id
+    #     pattern: radio
     started_by:
         label: 'Started By'
         oc.commentPosition: ''
