@@ -228,10 +228,13 @@ class CasualtyForm extends Model
         $query->where(function($query)use($tags) {
             // Go through each of the fields and search.
             foreach($tags as $field => $tag) {
-                if (strstr($field, 'date'))
+                // Date specific.
+                if (strstr($field, 'date') && $tag)
                     $tag = date('Y-m-d', strtotime($tag));
                 
-                $query->where($field, 'LIKE', "%$tag%");
+                if ($tag) {
+                    $query->where($field, 'LIKE', "%$tag%");
+                }
             }
         });
 
