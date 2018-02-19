@@ -41,6 +41,10 @@
                     <a href="{{ 'help'|page }}">Help</a>
                 </li>
 
+                <li class="{% if this.page.id == 'news' %}active{% endif %}">
+                    <a href="{{ 'news'|page }}">News</a>
+                </li>
+
                 {% if user %}
                     <li class="dropdown {% if this.page.id == 'account' %}active{% endif %} visible-xs">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
