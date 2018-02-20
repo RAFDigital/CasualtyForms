@@ -12,6 +12,10 @@
 themes/demo/
 plugins/october/
 
+# Ignore casualtyforms content files
+
+themes/casualtyforms/content/*.htm
+
 # Ignore some dev plugins.
 
 plugins/bedard/debugbar/

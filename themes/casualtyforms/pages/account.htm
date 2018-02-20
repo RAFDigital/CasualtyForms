@@ -22,4 +22,9 @@ paramCode = "code"
 
 <div class="container">
     {% component 'volunteeraccount' %}
+
+    {% if user == false %}
+        <hr>
+        {% content "news.htm" %}
+    {% endif %}
 </div>
