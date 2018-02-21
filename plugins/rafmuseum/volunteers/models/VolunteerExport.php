@@ -28,10 +28,10 @@ class VolunteerExport extends ExportModel
 
         // Do a different query based on options.
         if ($this->subscribed_users_only) {
-            $users = $users->where('subscriber', true)->get();
-        } else {
-            $users = $users->get();
+            $users = $users->where('subscriber', true);
         }
+
+        $users = $users->get();
 
         $users->each(function($user) use ($columns) {
             $user->addVisible($columns);
