@@ -19,16 +19,21 @@ class VolunteerAccount extends AccountComponent
     }
 
     /**
-     * Register the user
-     */
-    public function onRegister()
-    {
-    }
-
-    /**
      * Update the user
      */
     public function onUpdate()
     {
+        $user = $this->user();
+
+        if( ! post('subscriber')) $user->subscriber = 0;
+
+        parent::onUpdate();
+
+        /*
+         * Redirect
+         */
+        if ($redirect = $this->makeRedirection()) {
+            return $redirect;
+        }
     }
 }
