@@ -57,6 +57,17 @@
         </div>
     </div>
 
+    <!-- <div class="row">
+        <div class="form-group">
+                {{ form_value('subscriber') }}
+            <label>Recieve email updates</label>
+            <select name="subscriber" type="text" class="form-control" id="accountSubscriber">
+                <option value="1" {% if form_value('subscriber') == '1' %}selected{% endif %}>Yes</option>
+                <option value="0" {% if form_value('subscriber') == '0' %}selected{% endif %}>No</option>
+            </select>
+        </div>
+    </div> -->
+
     <p>
         <a href="javascript:;" onclick="$('#changePassword').slideToggle()">
             Change password

@@ -16,6 +16,7 @@ class ExtendUsersTable extends Migration
             $table->string('ethnicity')->nullable();
             $table->timestamp('last_activity')->nullable();
             $table->integer('sessions')->default(0);
+            $table->boolean('subscriber')->default(false);
         });
     }
 
@@ -29,7 +30,8 @@ class ExtendUsersTable extends Migration
                 'state_id',
                 'ethnicity',
                 'last_activity',
-                'sessions'
+                'sessions',
+                'subscriber'
             ]);
         });
     }

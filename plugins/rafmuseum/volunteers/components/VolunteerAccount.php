@@ -17,4 +17,18 @@ class VolunteerAccount extends AccountComponent
     {
         return Clock::in($this);
     }
+
+    /**
+     * Register the user
+     */
+    public function onRegister()
+    {
+    }
+
+    /**
+     * Update the user
+     */
+    public function onUpdate()
+    {
+    }
 }

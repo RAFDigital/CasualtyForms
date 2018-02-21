@@ -50,7 +50,8 @@ class Plugin extends PluginBase
             $model->addFillable([
                 'age',
                 'sex',
-                'ethnicity'
+                'ethnicity',
+                'subscriber'
             ]);
 
             $model->hasMany = [

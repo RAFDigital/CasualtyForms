@@ -49,13 +49,18 @@ fields:
             asian: Asian / Asian British
             black: Black / African / Caribbean / Black British
             other: Other ethnic group
+    subscriber:
+        label: Subscriber
+        tab: Volunteers
+        type: checkbox
+        span: left
     last_activity:
         label: Last activity
         tab: Volunteers
-        span: right
+        span: left
         disabled: true
     sessions:
         label: Sessions
         tab: Volunteers
-        span: left
+        span: right
         disabled: true

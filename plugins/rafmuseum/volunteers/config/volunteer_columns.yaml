@@ -57,6 +57,10 @@ columns:
         label: Ethnicity
         searchable: true
 
+    subscriber:
+        label: Subscriber
+        searchable: true
+
     last_activity:
         label: Last activity
         searchable: true
