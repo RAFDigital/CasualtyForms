@@ -9,6 +9,11 @@ use RainLab\User\Models\User;
 class VolunteerExport extends ExportModel
 {
     /**
+     * @var array Fillable fields
+     */
+    protected $fillable = ['subscribed_users_only'];
+
+    /**
      * Export the data.
      */
     public function exportData($columns, $sessionKey = null)
@@ -21,7 +26,12 @@ class VolunteerExport extends ExportModel
             'forms_completed', 'forms_approved'
         ]);
 
-        $users = $users->get();
+        // Do a different query based on options.
+        if ($this->subscribed_users_only) {
+            $users = $users->where('subscriber', true)->get();
+        } else {
+            $users = $users->get();
+        }
 
         $users->each(function($user) use ($columns) {
             $user->addVisible($columns);

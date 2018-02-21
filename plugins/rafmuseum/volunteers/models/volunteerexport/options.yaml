@@ -1,0 +1,5 @@
+fields:
+    subscribed_users_only:
+        label: Export only email subscribers
+        type: checkbox
+        default: false
