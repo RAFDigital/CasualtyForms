@@ -43,7 +43,7 @@ class UserTimelog extends Model
         return $query->select(
             'user_id',
             DB::raw('(select name from `users` where `rafmuseum_usertimelogs_logs`.`user_id` = `users`.`id`) as `name`'),
-            DB::raw('SEC_TO_TIME(SUM(TIME_TO_SEC(signout_time) - TIME_TO_SEC(signin_time))) as `time_logged`')
+            DB::raw('SEC_TO_TIME(SUM(UNIX_TIMESTAMP(signout_time) - UNIX_TIMESTAMP(signin_time))) as `time_logged`')
         )->groupBy('user_id');
     }
 }
