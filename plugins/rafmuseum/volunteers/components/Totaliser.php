@@ -25,15 +25,15 @@ class Totaliser extends ComponentBase
         // Total progress, send in a `flushcache` get var if present.
         $this->page['progress'] = $this->getProgress(get('flushcache'));
 
-        // Forms approved leaderboard (top 10).
-        $this->page['leadApprovals'] = CasualtyForm::approvedByCompletor()
-                                       ->orderBy('total', 'DESC')
-                                       ->limit(10)->get();
+        // // Forms approved leaderboard (top 10).
+        // $this->page['leadApprovals'] = CasualtyForm::approvedByCompletor()
+        //                                ->orderBy('total', 'DESC')
+        //                                ->limit(10)->get();
 
-        // Hours logged leaderboard (top 10).
-        $this->page['leadHours'] = UserTimelog::logTotals()
-                                   ->orderBy('time_logged', 'DESC')
-                                   ->limit(10)->get();
+        // // Hours logged leaderboard (top 10).
+        // $this->page['leadHours'] = UserTimelog::logTotals()
+        //                            ->orderBy('time_logged', 'DESC')
+        //                            ->limit(10)->get();
 
         // Get no of volunteers.
         $this->page['volunteers'] = User::all()->count();
@@ -73,12 +73,12 @@ class Totaliser extends ComponentBase
         $weekStats['completed']['this'] = CasualtyForm::completed()
             ->where('completed_at', '>', $thisWeek)->count();
         $weekStats['completed']['last'] = CasualtyForm::completed()
-            ->whereBetween('completed_at', $lastWeek)->count();
+            ->whereBetween('completed_at', [$lastWeek[1], $thisWeek])->count();
 
         $weekStats['approved']['this'] = CasualtyForm::approved()
             ->where('approved_at', '>',  $thisWeek)->count();
         $weekStats['approved']['last'] = CasualtyForm::approved()
-            ->whereBetween('approved_at', $lastWeek)->count();
+            ->whereBetween('approved_at', [$lastWeek[1], $thisWeek])->count();
 
         // Get the change.
         if($weekStats['completed']['this'] > $weekStats['completed']['last']) {
