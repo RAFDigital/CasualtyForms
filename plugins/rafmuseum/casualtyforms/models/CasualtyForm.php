@@ -4,6 +4,7 @@ use FilesystemIterator;
 use DB;
 use Model;
 use Cache;
+use Carbon\Carbon;
 use RainLab\User\Components\Session;
 
 /**
@@ -126,6 +127,14 @@ class CasualtyForm extends Model
     }
 
     /**
+     * Strips whitespace and common punctuation from first names,
+     * @var string The string to convert.
+     */
+    protected function normaliseFirstName($string) {
+        return trim(str_replace('  ', ' ', str_replace(['.', ','], ' ', $string)));
+    }
+
+    /**
      * Scope a query to only include forms that have been created but not complete.
      */
     public function scopeToFinish($query)
@@ -136,6 +145,17 @@ class CasualtyForm extends Model
         // Get the forms that have been started but not finished.
         return $query->where('started_by_id', $user->id)
                      ->whereNull('completed_by_id');
+    }
+
+    /**
+     * Scope query to find "abandoned" forms; Any form that has been
+     * started and not finished for a couplea' days.
+     */
+    public function scopeAbandoned($query)
+    {
+        return $query->whereNotNull('started_by_id')
+                     ->whereNull('completed_by_id')
+                     ->where('started_at', '<', Carbon::now()->subDays(2));
     }
 
     /**
@@ -231,10 +251,13 @@ class CasualtyForm extends Model
                 // Date specific.
                 if (strstr($field, 'date') && $tag)
                     $tag = date('Y-m-d', strtotime($tag));
+
+                // First name specific.
+                // if ($field === 'first_names')
+                //     $tag = $this->normaliseFirstName($tag);
                 
-                if ($tag) {
-                    $query->where($field, 'LIKE', "%$tag%");
-                }
+                // Basic search.
+                if ($tag) $query->where($field, 'LIKE', "%$tag%");
             }
         });
 

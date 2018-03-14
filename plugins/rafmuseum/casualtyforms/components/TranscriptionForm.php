@@ -34,7 +34,11 @@ class TranscriptionForm extends ComponentBase
 
         if ($stage == 'new') {
             // See if there are any started forms to finish.
-            $form = CasualtyForm::toFinish()->first();
+            $formToFinish = CasualtyForm::toFinish()->first();
+
+            // Assign a form to finish or an abandoned form.
+            $form = $formToFinish ? $formToFinish
+                : CasualtyForm::abandoned()->first();
         } elseif ($stage == 'approve') {
             // Get a form that needs approving.
             $form = CasualtyForm::toApprove()->first();
