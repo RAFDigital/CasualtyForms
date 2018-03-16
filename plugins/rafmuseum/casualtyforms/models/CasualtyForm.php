@@ -155,7 +155,7 @@ class CasualtyForm extends Model
     {
         return $query->whereNotNull('started_by_id')
                      ->whereNull('completed_by_id')
-                     ->where('started_at', '<', Carbon::now()->subDays(2));
+                     ->where('started_at', '<', Carbon::now()->subHour());
     }
 
     /**
