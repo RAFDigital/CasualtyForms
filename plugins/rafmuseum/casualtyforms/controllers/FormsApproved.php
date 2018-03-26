@@ -29,6 +29,6 @@ class FormsApproved extends Controller
         // $query->approved()->get();
         // $query->whereNotNull('approved_by_id');
         $query->where('approved_by_id', '!=', null);
-        var_dump($query->toSql());
+        // var_dump($query->toSql());
     }
 }
