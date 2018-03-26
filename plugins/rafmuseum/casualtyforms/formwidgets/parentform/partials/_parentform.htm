@@ -23,10 +23,10 @@
                             id="image-radio-<?= $key ?>"
                             <?= $value === $option->id ? 'checked' : '' ?> />
                         <label for="image-radio-<?= $key ?>">
-                            <img src="<?= url() . config('cms.storage.media.path') . $option->filename ?>" />
+                            <img src="<?= url('') . config('cms.storage.media.path') . $option->filename ?>" />
                         </label>
 
-                        <a href="<?= url() . config('cms.storage.media.path') . $option->filename ?>" target="_blank">
+                        <a href="<?= url('') . config('cms.storage.media.path') . $option->filename ?>" target="_blank">
                             See image full size <i class="icon-external-link"></i>
                         </a>
                     </div>
