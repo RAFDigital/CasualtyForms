@@ -9,6 +9,8 @@ navigation:
         label: 'Volunteer Timelogs'
         url: rafmuseum/usertimelogs/logs
         icon: icon-clock-o
+        permissions:
+            - rafmuseum.usertimelogs.access_logs
         sideMenu:
             side-menu-item:
                 label: Logs

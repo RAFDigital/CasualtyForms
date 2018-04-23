@@ -51,6 +51,37 @@ class Plugin extends PluginBase
         ];
     }
 
+    public function registerPermissions()
+    {
+        return [
+            'rafmuseum.casualtyforms.forms' => [
+                'label' => 'Access all forms',
+                'tab' => 'Casualty Forms',
+                'roles' => ['developer', 'owner', 'museum-staff']
+            ],
+            'rafmuseum.casualtyforms.formsapproved' => [
+                'label' => 'Access approved forms',
+                'tab' => 'Casualty Forms',
+                'roles' => ['developer', 'owner', 'museum-staff']
+            ],
+            'rafmuseum.casualtyforms.formschildren' => [
+                'label' => 'Access child forms',
+                'tab' => 'Casualty Forms',
+                'roles' => ['developer', 'owner', 'museum-staff']
+            ],
+            'rafmuseum.casualtyforms.formsflagged' => [
+                'label' => 'Access flagged forms',
+                'tab' => 'Casualty Forms',
+                'roles' => ['developer', 'owner', 'museum-staff']
+            ],
+            'rafmuseum.casualtyforms.formsillegible' => [
+                'label' => 'Access illegible forms',
+                'tab' => 'Casualty Forms',
+                'roles' => ['developer', 'owner', 'museum-staff']
+            ]
+        ];
+    }
+
     public function register()
     {
         // Register global vars for email template.

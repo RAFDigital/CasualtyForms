@@ -14,19 +14,29 @@ navigation:
                 label: 'All Forms'
                 url: rafmuseum/casualtyforms/forms
                 icon: icon-file-text-o
+                permissions:
+                    - rafmuseum.casualtyforms.forms
             illegibleforms:
                 label: 'Illegible Forms'
                 url: rafmuseum/casualtyforms/formsillegible
                 icon: icon-eye-slash
+                permissions:
+                    - rafmuseum.casualtyforms.formsillegible
             flaggedforms:
                 label: 'Flagged Forms'
                 url: rafmuseum/casualtyforms/formsflagged
                 icon: icon-flag
+                permissions:
+                    - rafmuseum.casualtyforms.formsflagged
             childforms:
                 label: 'Child Forms'
                 url: rafmuseum/casualtyforms/formschildren
                 icon: icon-files-o
+                permissions:
+                    - rafmuseum.casualtyforms.formschildren
             approvedforms:
                 label: 'Approved Forms'
                 url: rafmuseum/casualtyforms/formsapproved
                 icon: icon-check
+                permissions:
+                    - rafmuseum.casualtyforms.formsapproved

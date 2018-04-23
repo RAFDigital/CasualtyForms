@@ -15,6 +15,8 @@ class FormsIllegible extends Controller
     public $formConfig = 'config_form.yaml';
     public $reorderConfig = 'config_reorder.yaml';
 
+    public $requiredPermissions = ['rafmuseum.casualtyforms.formsillegible'];
+
     public function __construct()
     {
         parent::__construct();

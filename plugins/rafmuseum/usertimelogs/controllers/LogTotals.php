@@ -15,6 +15,8 @@ class LogTotals extends Controller
     public $reorderConfig = 'config_reorder.yaml';
     public $importExportConfig = 'config_import_export.yaml';
 
+    public $requiredPermissions = ['rafmuseum.usertimelogs.access_logs'];
+
     public function __construct()
     {
         parent::__construct();
