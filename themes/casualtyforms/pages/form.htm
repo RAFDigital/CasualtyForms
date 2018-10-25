@@ -13,6 +13,18 @@ notFoundMessage = "Record not found"
 [flagRecord]
 identifierValue = "{{ :id }}"
 ==
+<?
+function onEnd()
+{
+    $record = $this['record'];
+
+    if($record['child_form'] && $record['parent_form_id']) {
+        Flash::info("You cannot view a child form directly.");
+        return Redirect::to('form/'.$record['parent_form_id']);
+    }
+}
+?>
+==
 <div class="jumbotron">
     <div class="container">
         {% if record %}
