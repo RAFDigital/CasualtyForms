@@ -9283,18 +9283,20 @@ body {
   padding-top: 70px;
 }
 .jumbotron {
-  background: url('../images/rfc_3.jpg') no-repeat top;
+  background-image: url('../images/rfc_3.jpg');
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII=), url('../images/rfc_3.jpg');
-  background-size: cover;
+  background-repeat: repeat, no-repeat;
+  background-size: 1px 1px, cover;
   color: #ccc;
 }
 body.four-oh-four {
   padding-top: 0;
 }
 .jumbotron-404 {
-  background: url('../images/aireal_1.jpg') no-repeat top;
+  background-image: url('../images/aireal_1.jpg');
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII=), url('../images/aireal_1.jpg');
-  background-size: cover;
+  background-repeat: repeat, no-repeat;
+  background-size: 1px 1px, cover;
   color: #ccc;
   text-align: center;
   height: 100vh;
@@ -9320,6 +9322,8 @@ body.four-oh-four {
   height: 93vh;
   background-image: url('../images/rfc_8.jpg');
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII=), url('../images/rfc_8.jpg');
+  background-repeat: repeat, no-repeat;
+  background-size: 1px 1px, cover;
   margin-bottom: 0;
 }
 .jumbotron-home .container {
@@ -9399,14 +9403,16 @@ body.four-oh-four {
   color: #fff;
 }
 .advanced-search__personnel {
-  background: url('../images/rfc_1.jpg') no-repeat top;
+  background-image: url('../images/rfc_1.jpg');
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mM09o+YCQADDAF1CqFIaAAAAABJRU5ErkJggg==), url('../images/rfc_1.jpg');
-  background-size: cover;
+  background-repeat: repeat, no-repeat;
+  background-size: 1px 1px, cover;
 }
 .advanced-search__regiment-corps {
-  background: url('../images/rfc_4.jpg') no-repeat top;
+  background-image: url('../images/rfc_4.jpg');
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mM09o+YCQADDAF1CqFIaAAAAABJRU5ErkJggg==), url('../images/rfc_4.jpg');
-  background-size: cover;
+  background-repeat: repeat, no-repeat;
+  background-size: 1px 1px, cover;
 }
 @media (min-width: 767px) {
   .advanced-search__regiment-corps {

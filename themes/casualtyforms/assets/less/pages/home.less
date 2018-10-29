@@ -7,9 +7,7 @@
 // Jumbotron
 .jumbotron-home {
     height: 93vh;
-    background-image: url('../images/rfc_8.jpg');
-    background-image: @jumbotron-overlay, url('../images/rfc_8.jpg');
-    // background-position: left;
+    .background-overlay('../images/rfc_8.jpg');
     margin-bottom: 0;
 
     .container {
@@ -101,15 +99,11 @@
     }
 
     &__personnel {
-        background: url('../images/rfc_1.jpg') no-repeat top;
-        background-image: @advanced-search-overlay, url('../images/rfc_1.jpg');
-        background-size: cover;
+        .background-overlay('../images/rfc_1.jpg', @advanced-search-overlay);
     }
 
     &__regiment-corps {
-        background: url('../images/rfc_4.jpg') no-repeat top;
-        background-image: @advanced-search-overlay, url('../images/rfc_4.jpg');
-        background-size: cover;
+        .background-overlay('../images/rfc_4.jpg', @advanced-search-overlay);
 
         @media (min-width: @screen-xs-max) {
             position: absolute;

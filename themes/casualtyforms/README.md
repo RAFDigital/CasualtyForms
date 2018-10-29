@@ -11,14 +11,14 @@ This theme doesn't combine assets for performance reasons. To combine the styles
 Uncombined stylesheets:
 
     <link href="{{ 'assets/css/vendor.css'|theme }}" rel="stylesheet">
-    <link href="{{ 'assets/css/theme.css'|theme }}" rel="stylesheet">
+    <link href="{{ 'assets/css/styles.css'|theme }}" rel="stylesheet">
 
 Combined stylesheets:
 
     <link href="{{ [
         '@framework.extras',
         'assets/less/vendor.less',
-        'assets/less/theme.less'
+        'assets/less/styles.less'
     ]|theme }}" rel="stylesheet">
 
 > **Note**: October also includes an SCSS compiler, if you prefer.

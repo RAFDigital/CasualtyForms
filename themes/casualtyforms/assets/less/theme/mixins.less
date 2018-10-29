@@ -3,3 +3,9 @@
 //
 // Space for any custom mixins used by this application
 //
+.background-overlay(@background, @overlay: @jumbotron-overlay) {
+    background-image: url(@background);
+    background-image: @overlay, url(@background);
+    background-repeat: repeat, no-repeat;
+    background-size: 1px 1px, cover;
+  }
