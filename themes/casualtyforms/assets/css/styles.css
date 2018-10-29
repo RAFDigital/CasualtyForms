@@ -8335,6 +8335,14 @@ Flag light blue: 6399ab
 .zoom-controls__zoomout:hover {
   text-decoration: none;
 }
+.download-link {
+  font-size: 2em;
+  line-height: 1em;
+}
+.download-link:hover,
+.download-link:active {
+  text-decoration: none;
+}
 .callout {
   margin-bottom: 25px;
   padding: 20px;
@@ -9317,6 +9325,15 @@ body.four-oh-four {
     font-size: 140px;
     line-height: 140px;
   }
+}
+.tab-pane {
+  position: relative;
+}
+.download-link {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin: 0.5em;
 }
 .jumbotron-home {
   height: 93vh;
