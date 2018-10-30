@@ -55,11 +55,17 @@ function onEnd()
             <div class="tab-content">
                 <div role="tabpanel" class="tab-pane fade in active" id="parent-form">
                     <img width="100%" src="{{ url ~ config.cms.storage.media.path ~ record.filename }}" />
+                    <a class="download-link" title="Download" href="{{ url ~ config.cms.storage.media.path ~ record.filename }}"download="{{ record.filename }}">
+                        <i class="icon-download"></i>
+                    </a>
                 </div>
 
                 {% for child_form in record.child_forms %}
                     <div role="tabpanel" class="tab-pane fade" id="child-form-{{ child_form.id }}">
                         <img width="100%" src="{{ url ~ config.cms.storage.media.path ~ child_form.filename }}" />
+                        <a class="download-link" title="Download" href="{{ url ~ config.cms.storage.media.path ~ child_form.filename }}"download="{{ child_form.filename }}">
+                            <i class="icon-download"></i>
+                        </a>
                     </div>
                 {% endfor %}
             </div>
