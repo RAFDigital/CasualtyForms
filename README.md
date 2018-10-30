@@ -16,7 +16,7 @@ owner, or developer.
 
 First clone the repo.
 
-    git clone git@gitlab.com:DannyEdwards/casualty-forms.git
+    git clone git@github.com:igneosaur/CasualtyForms.git
 
 Now `cd` into the project's directory and install October CMS, then run the PHP
 installer.
