@@ -8,7 +8,7 @@ class SeedAllTables extends Seeder
     public function run()
     {
         /*
-         * The countries and states table were previously seeded 
+         * The countries and states table were previously seeded
          * by RainLab.User so this occurance is detected and halt.
          * @deprecated Safe to remove if year >= 2017
          */
@@ -189,7 +189,7 @@ class SeedAllTables extends Seeder
             ['is_enabled' => 0, 'code' => 'OM', 'name' => 'Oman'],
             ['is_enabled' => 0, 'code' => 'PK', 'name' => 'Pakistan'],
             ['is_enabled' => 0, 'code' => 'PW', 'name' => 'Palau'],
-            ['is_enabled' => 0, 'code' => 'PS', 'name' => 'Palestinian Territory, Occupied'],
+            ['is_enabled' => 0, 'code' => 'PS', 'name' => 'Palestine'],
             ['is_enabled' => 0, 'code' => 'PA', 'name' => 'Panama'],
             ['is_enabled' => 0, 'code' => 'PG', 'name' => 'Papua New Guinea'],
             ['is_enabled' => 0, 'code' => 'PY', 'name' => 'Paraguay'],
@@ -227,7 +227,7 @@ class SeedAllTables extends Seeder
             ['is_enabled' => 0, 'code' => 'SO', 'name' => 'Somalia'],
             ['is_enabled' => 0, 'code' => 'ZA', 'name' => 'South Africa'],
             ['is_enabled' => 0, 'code' => 'GS', 'name' => 'South Georgia and the South Sandwich Islands'],
-            ['is_enabled' => 0, 'code' => 'ES', 'name' => 'Spain'],
+            ['is_enabled' => 1, 'code' => 'ES', 'name' => 'Spain'],
             ['is_enabled' => 0, 'code' => 'LK', 'name' => 'Sri Lanka'],
             ['is_enabled' => 0, 'code' => 'SD', 'name' => 'Sudan'],
             ['is_enabled' => 0, 'code' => 'SR', 'name' => 'Suriname'],
@@ -331,6 +331,37 @@ class SeedAllTables extends Seeder
             ['code' => 'WY', 'name' => 'Wyoming']
         ]);
 
+        $br = Country::whereCode('BR')->first();
+        $br->states()->createMany([
+            ['code' => 'AC', 'name' => 'Acre'],
+            ['code' => 'AL', 'name' => 'Alagoas'],
+            ['code' => 'AP', 'name' => 'Amapá'],
+            ['code' => 'AM', 'name' => 'Amazonas'],
+            ['code' => 'BA', 'name' => 'Bahia'],
+            ['code' => 'CE', 'name' => 'Ceará'],
+            ['code' => 'DF', 'name' => 'Distrito Federal'],
+            ['code' => 'ES', 'name' => 'Espírito Santo'],
+            ['code' => 'GO', 'name' => 'Goiás'],
+            ['code' => 'MA', 'name' => 'Maranhão'],
+            ['code' => 'MT', 'name' => 'Mato Grosso'],
+            ['code' => 'MS', 'name' => 'Mato Grosso do Sul'],
+            ['code' => 'MG', 'name' => 'Minas Gerais'],
+            ['code' => 'PA', 'name' => 'Pará'],
+            ['code' => 'PB', 'name' => 'Paraíba'],
+            ['code' => 'PR', 'name' => 'Paraná'],
+            ['code' => 'PE', 'name' => 'Pernambuco'],
+            ['code' => 'PI', 'name' => 'Piauí'],
+            ['code' => 'RJ', 'name' => 'Rio de Janeiro'],
+            ['code' => 'RN', 'name' => 'Rio Grande do Norte'],
+            ['code' => 'RS', 'name' => 'Rio Grande do Sul'],
+            ['code' => 'RO', 'name' => 'Rondônia'],
+            ['code' => 'RR', 'name' => 'Roraima'],
+            ['code' => 'SC', 'name' => 'Santa Catarina'],
+            ['code' => 'SP', 'name' => 'São Paulo'],
+            ['code' => 'SE', 'name' => 'Sergipe'],
+            ['code' => 'TO', 'name' => 'Tocantins']
+        ]);
+
         $ca = Country::whereCode('CA')->first();
         $ca->states()->createMany([
             ['code' => 'AB', 'name' => 'Alberta'],
@@ -347,6 +378,35 @@ class SeedAllTables extends Seeder
             ['code' => 'SK', 'name' => 'Saskatchewan'],
             ['code' => 'YT', 'name' => 'Yukon']
         ]);
+        
+        $ca = Country::whereCode('CH')->first();
+        $ca->states()->createMany([    
+            ['code' => 'AG', 'name' => 'Aargau'],
+            ['code' => 'AI', 'name' => 'Appenzell Innerrhoden'],
+            ['code' => 'AR', 'name' => 'Appenzell Ausserrhoden'],
+            ['code' => 'BE', 'name' => 'Bern'],
+            ['code' => 'BL', 'name' => 'Basel-Landschaft'],
+            ['code' => 'BS', 'name' => 'Basel-Stadt'],
+            ['code' => 'FR', 'name' => 'Fribourg'],
+            ['code' => 'GE', 'name' => 'Genève'],
+            ['code' => 'GL', 'name' => 'Glarus'],
+            ['code' => 'GR', 'name' => 'Graubünden'],
+            ['code' => 'JU', 'name' => 'Jura'],
+            ['code' => 'LU', 'name' => 'Luzern'],
+            ['code' => 'NE', 'name' => 'Neuchâtel'],
+            ['code' => 'NW', 'name' => 'Nidwalden'],
+            ['code' => 'OW', 'name' => 'Obwalden'],
+            ['code' => 'SG', 'name' => 'St. Gallen'],
+            ['code' => 'SO', 'name' => 'Solothurn'],
+            ['code' => 'SZ', 'name' => 'Schwyz'],
+            ['code' => 'TG', 'name' => 'Thurgau'],
+            ['code' => 'TI', 'name' => 'Ticino'],
+            ['code' => 'UR', 'name' => 'Uri'],
+            ['code' => 'VD', 'name' => 'Vaud'],
+            ['code' => 'VS', 'name' => 'Valais'],
+            ['code' => 'ZG', 'name' => 'Zug'],
+            ['code' => 'ZH', 'name' => 'Zürich']
+        ]);        
 
         $au = Country::whereCode('AU')->first();
         $au->states()->createMany([
@@ -378,6 +438,25 @@ class SeedAllTables extends Seeder
             ['code' => 'ST', 'name' => 'Saxony-Anhalt'],
             ['code' => 'SH', 'name' => 'Schleswig-Holstein'],
             ['code' => 'TH', 'name' => 'Thuringia']
+        ]);
+
+        $ee = Country::whereCode('EE')->first();
+        $ee->states()->createMany([
+            ['code' => 'HA', 'name' => 'Harju'],
+            ['code' => 'HI', 'name' => 'Hiiu'],
+            ['code' => 'IV', 'name' => 'Ida-Viru'],
+            ['code' => 'JR', 'name' => 'Jõgeva'],
+            ['code' => 'JN', 'name' => 'Järva'],
+            ['code' => 'LN', 'name' => 'Lääne'],
+            ['code' => 'LV', 'name' => 'Lääne-Viru'],
+            ['code' => 'PL', 'name' => 'Põlva'],
+            ['code' => 'PR', 'name' => 'Pärnu'],
+            ['code' => 'RA', 'name' => 'Rapla'],
+            ['code' => 'SA', 'name' => 'Saare'],
+            ['code' => 'TA', 'name' => 'Tartu'],
+            ['code' => 'VG', 'name' => 'Valga'],
+            ['code' => 'VD', 'name' => 'Viljandi'],
+            ['code' => 'VR', 'name' => 'Võru']
         ]);
 
         $ie = Country::whereCode('IE')->first();
@@ -482,7 +561,7 @@ class SeedAllTables extends Seeder
             ['code' => 'LON', 'name' => 'London'],
             ['code' => 'MAN', 'name' => 'Manchester'],
             ['code' => 'MER', 'name' => 'Merionethshire'],
-            ['code' => 'MER', 'name' => 'Merseyside'],
+            ['code' => 'MSY', 'name' => 'Merseyside'],
             ['code' => 'MDX', 'name' => 'Middlesex'],
             ['code' => 'MID', 'name' => 'Midlands'],
             ['code' => 'MLT', 'name' => 'Midlothian'],
@@ -674,6 +753,96 @@ class SeedAllTables extends Seeder
             ['code' => 'CAN', 'name' => "Canterbury"],
             ['code' => 'OTA', 'name' => "Otago Otago"],
             ['code' => 'STL', 'name' => "Southland"],
+        ]);
+        
+  $es = Country::whereCode('ES')->first();
+        $es->states()->createMany([
+            ['code' => 'ES-C'	, 'name' => "A Coruña (gl) [La Coruña]"],
+            ['code' => 'ES-VI'	, 'name' => "Araba (eu)"],
+            ['code' => 'ES-AB'	, 'name' => "Albacete"],
+            ['code' => 'ES-A'	, 'name' => "Alacant (ca)"],
+            ['code' => 'ES-AL'	, 'name' => "Almería"],
+            ['code' => 'ES-O'	, 'name' => "Asturias"],
+            ['code' => 'ES-AV'	, 'name' => "Ávila"],
+            ['code' => 'ES-BA'	, 'name' => "Badajoz"],
+            ['code' => 'ES-PM'	, 'name' => "Balears (ca) [Baleares]"],
+            ['code' => 'ES-B'	, 'name' => "Barcelona [Barcelona]"],
+            ['code' => 'ES-BU'	, 'name' => "Burgos"],
+            ['code' => 'ES-CC'	, 'name' => "Cáceres"],
+            ['code' => 'ES-CA'	, 'name' => "Cádiz"],
+            ['code' => 'ES-S'	, 'name' => "Cantabria"],
+            ['code' => 'ES-CS'	, 'name' => "Castelló (ca)"],
+            ['code' => 'ES-CR'	, 'name' => "Ciudad Real"],
+            ['code' => 'ES-CO'	, 'name' => "Córdoba"],
+            ['code' => 'ES-CU'	, 'name' => "Cuenca"],
+            ['code' => 'ES-GI'	, 'name' => "Girona (ca) [Gerona]"],
+            ['code' => 'ES-GR'	, 'name' => "Granada"],
+            ['code' => 'ES-GU'	, 'name' => "Guadalajara"],
+            ['code' => 'ES-SS'	, 'name' => "Gipuzkoa (eu)"],
+            ['code' => 'ES-H'	, 'name' => "Huelva"],
+            ['code' => 'ES-HU'	, 'name' => "Huesca"],
+            ['code' => 'ES-J'	, 'name' => "Jaén"],
+            ['code' => 'ES-LO'	, 'name' => "La Rioja"],
+            ['code' => 'ES-GC'	, 'name' => "Las Palmas"],
+            ['code' => 'ES-LE'	, 'name' => "León"],
+            ['code' => 'ES-L'	, 'name' => "Lleida (ca) [Lérida]"],
+            ['code' => 'ES-LU'	, 'name' => "Lugo (gl) [Lugo]"],
+            ['code' => 'ES-M'	, 'name' => "Madrid"],
+            ['code' => 'ES-MA'	, 'name' => "Málaga"],
+            ['code' => 'ES-MU'	, 'name' => "Murcia"],
+            ['code' => 'ES-NA'	, 'name' => "Nafarroa (eu)"],
+            ['code' => 'ES-OR'	, 'name' => "Ourense (gl) [Orense]"],
+            ['code' => 'ES-P'	, 'name' => "Palencia"],
+            ['code' => 'ES-PO'	, 'name' => "Pontevedra (gl) [Pontevedra]"],
+            ['code' => 'ES-SA'	, 'name' => "Salamanca"],
+            ['code' => 'ES-TF'	, 'name' => "Santa Cruz de Tenerife"],
+            ['code' => 'ES-SG'	, 'name' => "Segovia"],
+            ['code' => 'ES-SE'	, 'name' => "Sevilla"],
+            ['code' => 'ES-SO'	, 'name' => "Soria"],
+            ['code' => 'ES-T'	, 'name' => "Tarragona (ca) [Tarragona]"],
+            ['code' => 'ES-TE'	, 'name' => "Teruel"],
+            ['code' => 'ES-TO'	, 'name' => "Toledo"],
+            ['code' => 'ES-V'	, 'name' => "València (ca)"],
+            ['code' => 'ES-VA'	, 'name' => "Valladolid"],
+            ['code' => 'ES-BI'	, 'name' => "Bizkaia (eu)"],
+            ['code' => 'ES-ZA'	, 'name' => "Zamora"],
+            ['code' => 'ES-Z'	, 'name' => "Zaragoza"],
+        ]);
+
+  $mx = Country::whereCode('MX')->first();
+        $mx->states()->createMany([
+            ["code" => "MX-AGU", "name" => "Aguascalientes"],
+            ["code" => "MX-BCN", "name" => "Baja California"],
+            ["code" => "MX-BCS", "name" => "Baja California Sur"],
+            ["code" => "MX-CAM", "name" => "Campeche"],
+            ["code" => "MX-CHP", "name" => "Chiapas"],
+            ["code" => "MX-CHH", "name" => "Chihuahua"],
+            ["code" => "MX-COA", "name" => "Coahuila"],
+            ["code" => "MX-COL", "name" => "Colima"],
+            ["code" => "MX-CMX​", "name" => "Ciudad de México"],
+            ["code" => "MX-DUR", "name" => "Durango"],
+            ["code" => "MX-GUA", "name" => "Guanajuato"],
+            ["code" => "MX-GRO", "name" => "Guerrero"],
+            ["code" => "MX-HID", "name" => "Hidalgo"],
+            ["code" => "MX-JAL", "name" => "Jalisco"],
+            ["code" => "MX-MEX", "name" => "Estado de México"],
+            ["code" => "MX-MIC", "name" => "Michoacán"],
+            ["code" => "MX-MOR", "name" => "Morelos"],
+            ["code" => "MX-NAY", "name" => "Nayarit"],
+            ["code" => "MX-NLE", "name" => "Nuevo León"],
+            ["code" => "MX-OAX", "name" => "Oaxaca"],
+            ["code" => "MX-PUE", "name" => "Puebla"],
+            ["code" => "MX-QUE", "name" => "Querétaro"],
+            ["code" => "MX-ROO", "name" => "Quintana Roo"],
+            ["code" => "MX-SLP", "name" => "San Luis Potosí"],
+            ["code" => "MX-SIN", "name" => "Sinaloa"],
+            ["code" => "MX-SON", "name" => "Sonora"],
+            ["code" => "MX-TAB", "name" => "Tabasco"],
+            ["code" => "MX-TAM", "name" => "Tamaulipas"],
+            ["code" => "MX-TLA", "name" => "Tlaxcala"],
+            ["code" => "MX-VER", "name" => "Veracruz"],
+            ["code" => "MX-YUC", "name" => "Yucatán"],
+            ["code" => "MX-ZAC", "name" => "Zacatecas"]
         ]);
     }
 }
