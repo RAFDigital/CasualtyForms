@@ -11,67 +11,69 @@
 // Brands
 // --------------------------------------------------
 
-/*
-RAF Colour reference:
-Muted roundel blue: 425871
-Muted roundel red: c83322
-Flag blue: 00247d
-Flag red: cf142b
-Flag light blue: 6399ab
-*/
-
-@brand-primary: #6399ab; // RAF Flag light blue *
-@brand-success: #6EC38B;
-@brand-info:    #717EB8;
-@brand-warning: #E5BE61;
-@brand-danger:  #c83322; // Red from muted roundel
+@brand-primary: #cc092f;
+@brand-secondary: #0a5081;
+@brand-success: #6ec38b; // old
+@brand-info: #881761; // old
+@brand-warning: #f5a623;
+@brand-danger: @brand-primary; // old
 
 @gray-lightest: lighten(@gray-base, 97.5%);
 
 // States and alerts
-@state-success-bg:     @brand-success;
+@state-success-bg: @brand-success;
 @state-success-border: @btn-success-border;
 
-@state-info-bg:        @brand-info;
-@state-info-border:    @btn-info-border;
+@state-info-bg: @brand-info;
+@state-info-border: @btn-info-border;
 
-@state-warning-bg:     @brand-warning;
+@state-warning-bg: @brand-warning;
 @state-warning-border: @btn-warning-border;
 
-@state-danger-bg:      @brand-danger;
-@state-danger-border:  @btn-danger-border;
+@state-danger-bg: @brand-danger;
+@state-danger-border: @btn-danger-border;
 
 // Typography
 // --------------------------------------------------
-@font-family-sans-serif: "lato", sans-serif;
+@font-family-sans-serif: "Roboto", Arial, sans-serif;
+@headings-font-family: "Neo Sans W01 Medium", Arial, sans-serif;
 @line-height-base: 1.6;
-@font-size-base: 16px;
-@text-color: #586667;
-@headings-color: #1f3f50;
+@font-size-base: 18px;
+@font-size-large: 22px;
+@font-size-small: 12px;
+@text-color: #444444;
+@headings-color: @brand-secondary;
 @jumbotron-heading-color: #ffffff;
 
 @headings-small-color: @gray-lighter;
 
+@link-color: @brand-secondary;
+
 // Components
 // --------------------------------------------------
-@border-radius-base:  0px;
+@border-radius-base: 5px;
 @border-radius-large: 0px;
 @border-radius-small: 0px;
+@btn-primary-bg: @brand-primary;
+
+@progress-bar-bg: lighten(@brand-secondary, 10%);
+
+@input-border-focus: @brand-secondary;
 
 // Spacing
 // --------------------------------------------------
-@spacer:   20px;
+@spacer: 20px;
 @spacer-y: @spacer;
 @spacer-x: @spacer;
 
 // Navbar
 // --------------------------------------------------
-@navbar-height: 70px;
+@navbar-height: 94px;
 @navbar-margin-bottom: 0;
 
-@navbar-inverse-bg: #333;
+@navbar-inverse-bg: #fff;
 @navbar-inverse-border: none;
-@navbar-inverse-link-color: rgba(255,255,255,0.6);
+@navbar-inverse-link-color: rgba(255, 255, 255, 0.6);
 @navbar-inverse-link-active-bg: transparent;
 
 @navbar-link-stripe-color-active: @navbar-inverse-link-color;
@@ -101,7 +103,7 @@ Flag light blue: 6399ab
 
 // Animation
 // --------------------------------------------------
-@transition-speed-base: .2s;
+@transition-speed-base: 0.2s;
 
 // Jumbotron
 // --------------------------------------------------

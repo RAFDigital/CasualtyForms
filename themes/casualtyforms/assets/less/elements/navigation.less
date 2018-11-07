@@ -4,11 +4,9 @@
 
 // Navbar
 .navbar-header .navbar-brand {
-    padding-left: 55px;
-    background-image: url('../images/raf-roundel_muted.png');
-    background-size: auto 60%;
+    background-image: url('../images/logo-1.png');
+    background-size: 100%;
     background-repeat: no-repeat;
-    background-position: 7px 50%;
     transition: color 0.2s ease 0.05s;
     color: #ccc;
     &:hover {
@@ -16,12 +14,22 @@
     }
 }
 
-.navbar-nav li.separator {
-    width: 1px;
-    background: rgba(255, 255, 255, 0.3);
-    height: 30px;
-    margin: 20px 10px 0 10px;
+.navbar-brand {
+    height: 94px;
+    width: 120px;
 }
+
+.navbar-nav {
+    & .separator {
+        width: @spacer;
+        margin: 10px;
+    }
+
+    @media screen and (min-width: @screen-sm-min) {
+        float: right;
+    }
+}
+
 
 .navbar-autohide {
     transition: transform .5s;
@@ -31,45 +39,82 @@
     transform: translateY(-(@navbar-height + 2px));
 }
 
-.navbar-collapse:not(.in):not(.collapsing) .navbar-nav li {
+.navbar-inverse .navbar-nav > li {
+    &:nth-child(2) > a::before {
+        display: none;
+    }
 
     > a {
+        color: @text-color;
+        font-family: @headings-font-family;
+        font-size: 20px;
+        padding-top: 0;
+        padding-bottom: 0;
         transition: color 0.2s ease 0.05s;
+
+        &:hover {
+            color: @brand-secondary;
+
+            &::after {
+                visibility: visible;
+                opacity: 1;
+            }
+        }
+
+        @media screen and (min-width: @screen-sm-min) {
+            &::before {
+                position: absolute;
+                top: 50%;
+                left: 0;
+                width: 2px;
+                height: 30px;
+                margin-top: -15px;
+                background: #eee;
+                content: "";
+                transform: rotate(30deg);
+            }
+
+            &::after {
+                position: absolute;
+                left: 50%;
+                bottom: -1px;
+                margin-left: -13px;
+                border-left: 13px solid transparent;
+                border-right: 13px solid transparent;
+                border-bottom: 17px solid #0c2c43;
+                visibility: hidden;
+                opacity: 0;
+                content: "";
+                transition: all .3s;
+            }
+        }
+
+        @media screen and (min-width: @screen-sm-min) {
+            padding: 33px 20px;
+        }
     }
 
-    > a:after {
-        position: absolute;
-        height: 4px;
-        bottom: -1px;
-        content: '';
-        border-radius: @border-radius-base;
-        z-index: 5;
-        width: 0;
-        left: 50%;
-        transition: all 0.2s ease 0.05s;
+    &.active {
+        > a {
+            color: @brand-secondary;
+
+            &:hover {
+                color: @brand-secondary;
+            }
+
+            &::after,
+            &:hover::after {
+                background: @navbar-link-stripe-color-active;
+            }
+        }
     }
 
-    &.active > a:after,
-    > a:hover:after {
-        background: @navbar-link-stripe-color-active;
-    }
-
-    &.active > a:after {
-        width: 100% !important;
-        left: 0 !important;
-    }
-
-    &:hover > a:after {
-        width: 100%;
-        left: 0;
-    }
-
-    &.active > a:hover:after {
-        background: @navbar-link-stripe-color-active;
-    }
-
-    > a:hover:after {
-        background: @navbar-link-stripe-color-hover;
+    &.open {
+        > a,
+        > a:hover,
+        > a:focus {
+            color: @brand-secondary;
+        }
     }
 }
 

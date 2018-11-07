@@ -2,6 +2,22 @@
 // General page elements
 // --------------------------------------------------
 
+// Footer
+.footer {
+    background-image: linear-gradient(rgb(11, 43, 66) 0%, rgb(5, 21, 34) 100%);
+    color: #ffffff;
+    font-size: @font-size-small;
+    padding: (@spacer * 2) 0;
+
+    a {
+        color: #ffffff;
+
+        &:hover {
+            color: @brand-primary;
+        }
+    }
+}
+
 // Buttons
 .btn {
     transition: all @transition-speed-base;
@@ -40,10 +56,6 @@
 .form-control[readonly]::-moz-placeholder { color: transparent }
 .form-control[readonly]:-moz-placeholder { color: transparent }
 .form-control[readonly]::-ms-input-placeholder { color: transparent }
-
-.form-control:focus {
-    border-color: @brand-primary;
-}
 
 // Progress bar and labels
 .progress {

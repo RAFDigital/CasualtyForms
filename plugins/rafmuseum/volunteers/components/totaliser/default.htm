@@ -1,7 +1,10 @@
 <h2>Progress</h2>
 
-{% set percentComplete = progress.completed / progress.total * 100 %}
-{% set percentApproved = progress.approved / progress.total * 100 %}
+<!-- {% set percentComplete = progress.completed / progress.total * 100 %}
+{% set percentApproved = progress.approved / progress.total * 100 %} -->
+
+{% set percentComplete = 40 %}
+{% set percentApproved = 10 %}
 
 <div class="progress">
     <div class="progress-bar progress-bar-success" style="width: {{ percentApproved }}%">
@@ -18,7 +21,7 @@
         <td class="text-left text-success">
             {{ progress.approved|number_format(0, '.', ',') }} approved
         </td>
-        <td class="text-center text-primary">
+        <td class="text-center text-secondary">
             {{ progress.completed|number_format(0, '.', ',') }} transcribed
         </td>
         <td class="text-right text-muted">

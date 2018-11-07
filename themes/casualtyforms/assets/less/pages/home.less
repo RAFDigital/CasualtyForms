@@ -6,7 +6,7 @@
 
 // Jumbotron
 .jumbotron-home {
-    height: 93vh;
+    height: 90vh;
     .background-overlay('../images/rfc_8.jpg');
     margin-bottom: 0;
 
@@ -66,16 +66,12 @@
 }
 
 // Advanced search section
-// http://png-pixel.com/
-@advanced-search-overlay: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mM09o+YCQADDAF1CqFIaAAAAABJRU5ErkJggg==);
-
 .advanced-search {
     position: relative;
 
     &__or {
-        background: @brand-primary;
+        background: #fff;
         border-radius: 100%;
-        color: #fff;
         font-size: @font-size-large;
         position: absolute;
         left: 50%;
@@ -89,21 +85,44 @@
     }
 
     &__personnel, &__regiment-corps {
+        background-size: cover;
         color: #fff;
+        border: (@spacer / 4) solid #fff;
         text-align: center;
-        padding: (@spacer * 2) 0;
 
         h2 {
             color: #fff;
+            position: relative;
+        }
+
+        &::before {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            mix-blend-mode: multiply;
         }
     }
 
     &__personnel {
-        .background-overlay('../images/rfc_1.jpg', @advanced-search-overlay);
+        background-image: url(../images/rfc_1.jpg);
+        border-right-width: @spacer / 8;
+
+        &::before {
+            background: @brand-danger;
+        }
     }
 
     &__regiment-corps {
-        .background-overlay('../images/rfc_4.jpg', @advanced-search-overlay);
+        background-image: url(../images/rfc_4.jpg);
+        border-left-width: @spacer / 8;
+
+        &::before {
+            background: @brand-secondary;
+        }
 
         @media (min-width: @screen-xs-max) {
             position: absolute;
