@@ -8223,6 +8223,7 @@ a.text-secondary:focus {
   background-image: linear-gradient(#0b2b42 0%, #051522 100%);
   color: #ffffff;
   font-size: 12px;
+  margin-top: 1em;
   padding: 40px 0;
 }
 .footer a {
@@ -8890,7 +8891,6 @@ body > p.flash-message.danger {
 }
 .flag-record__form {
   clear: both;
-  margin-bottom: 1em;
 }
 .chart-line-style {
   height: 300px;
