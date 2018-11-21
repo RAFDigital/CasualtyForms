@@ -55,8 +55,8 @@ function onEnd()
             <div class="tab-content">
                 <div role="tabpanel" class="tab-pane fade in active" id="parent-form">
                     <img width="100%" src="{{ url ~ config.cms.storage.media.path ~ record.filename }}" />
-                    <a class="download-link" title="Download" href="{{ url ~ config.cms.storage.media.path ~ record.filename }}"download="{{ record.filename }}">
-                        <i class="icon-download"></i>
+                    <a class="download-link" href="{{ url ~ config.cms.storage.media.path ~ record.filename }}"download="{{ record.filename }}">
+                        <i class="icon-download"></i> Download image
                     </a>
                 </div>
 

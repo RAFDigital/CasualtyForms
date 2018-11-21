@@ -8321,12 +8321,7 @@ a.text-secondary:focus {
   text-decoration: none;
 }
 .download-link {
-  font-size: 2em;
   line-height: 1em;
-}
-.download-link:hover,
-.download-link:active {
-  text-decoration: none;
 }
 .callout {
   margin-bottom: 28px;
@@ -8895,6 +8890,7 @@ body > p.flash-message.danger {
 }
 .flag-record__form {
   clear: both;
+  margin-bottom: 1em;
 }
 .chart-line-style {
   height: 300px;
