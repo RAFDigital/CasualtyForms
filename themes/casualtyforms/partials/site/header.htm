@@ -16,11 +16,8 @@
         <div class="collapse navbar-collapse navbar-main-collapse">
             <ul class="nav navbar-nav">
                 <li class="separator hidden-xs"></li>
-                <li class="{% if this.page.id == 'home' %}active{% endif %}">
-                    <a href="{{ 'home'|page }}">Home</a>
-                </li>
 
-                <li class="dropdown {% if this.page.id == 'transcribe' or this.page.id == 'volunteer' %}active{% endif %}">
+                <!-- <li class="dropdown {% if this.page.id == 'transcribe' or this.page.id == 'volunteer' %}active{% endif %}">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         Volunteer <span class="caret"></span>
                     </a>
@@ -34,17 +31,17 @@
                         {% else %}
                             <li><a href="{{ 'transcribe'|page({ stage: 'new' }) }}">Transcribe</a></li>
                             <li><a href="{{ 'transcribe'|page({ stage: 'approve' }) }}">Approve</a></li>
-                            <!-- <li><a href="{{ 'help'|page }}">Help</a></li> -->
+                            <li><a href="{{ 'help'|page }}">Help</a></li>
                         {% endif %}
                     </ul>
+                </li> -->
+
+                <li class="{% if this.page.id == 'about' %}active{% endif %}">
+                    <a href="{{ 'about'|page }}">About</a>
                 </li>
 
                 <li class="{% if this.page.id == 'help' %}active{% endif %}">
                     <a href="{{ 'help'|page }}">Help</a>
-                </li>
-
-                <li class="{% if this.page.id == 'news' %}active{% endif %}">
-                    <a href="{{ 'news'|page }}">News</a>
                 </li>
 
                 {% if user %}
