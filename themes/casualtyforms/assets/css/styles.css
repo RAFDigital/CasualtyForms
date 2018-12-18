@@ -8219,6 +8219,9 @@ a.text-secondary:focus {
     font-family: sans-serif;
   }
 }
+.container img {
+  max-width: 100%;
+}
 .footer {
   background-image: linear-gradient(#0b2b42 0%, #051522 100%);
   color: #ffffff;
