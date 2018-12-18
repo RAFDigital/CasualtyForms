@@ -14,7 +14,7 @@ plugins/october/
 
 # Ignore casualtyforms content files
 
-themes/casualtyforms/content/*.htm
+# themes/casualtyforms/content/*.htm
 
 # Ignore some dev plugins.
 
