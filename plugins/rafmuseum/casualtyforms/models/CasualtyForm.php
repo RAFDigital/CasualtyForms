@@ -127,11 +127,11 @@ class CasualtyForm extends Model
     }
 
     /**
-     * Strips whitespace and common punctuation from first names,
+     * Strips whitespace and common punctuation from string,
      * @var string The string to convert.
      */
-    protected function normaliseFirstName($string) {
-        return trim(str_replace('  ', ' ', str_replace(['.', ','], ' ', $string)));
+    protected function stripPunctuation($string) {
+        return trim(str_replace([' ', '  '], '', str_replace(['.', ','], '', $string)));
     }
 
     /**
@@ -248,16 +248,22 @@ class CasualtyForm extends Model
         $query->where(function($query)use($tags) {
             // Go through each of the fields and search.
             foreach($tags as $field => $tag) {
+                // Basic search.
+                if ($tag) $query->where($field, 'LIKE', "%$tag%");
+
                 // Date specific.
                 if (strstr($field, 'date') && $tag)
                     $tag = date('Y-m-d', strtotime($tag));
 
                 // First name specific.
-                // if ($field === 'first_names')
-                //     $tag = $this->normaliseFirstName($tag);
-                
-                // Basic search.
-                if ($tag) $query->where($field, 'LIKE', "%$tag%");
+                if ($field === 'first_names') {
+                    $split = str_split($this->stripPunctuation($tag));
+                    // Loop through some delimiters.
+                    foreach(['', ' ', '.', '. '] as $glue) {
+                        $test = implode($glue, $split);
+                        $query->orWhere($field, 'LIKE', "%$test%");
+                    }
+                }
             }
         });
 
