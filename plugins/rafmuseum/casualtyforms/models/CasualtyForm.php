@@ -258,11 +258,14 @@ class CasualtyForm extends Model
                 // First name specific.
                 if ($field === 'first_names') {
                     $split = str_split($this->stripPunctuation($tag));
-                    // Loop through some delimiters.
-                    foreach(['', ' ', '.', '. '] as $glue) {
-                        $test = implode($glue, $split);
-                        $query->orWhere($field, 'LIKE', "%$test%");
-                    }
+
+                    $query->orWhere(function($query)use($field, $tag, $split) {
+                        // Loop through some delimiters.
+                        foreach(['', ' ', '.', '. '] as $glue) {
+                            $test = implode($glue, $split);
+                            $query->orWhere($field, 'LIKE', "%$test%");
+                        }
+                    });
                 }
             }
         });
