@@ -256,14 +256,15 @@ class CasualtyForm extends Model
                     $tag = date('Y-m-d', strtotime($tag));
 
                 // First name specific.
-                if ($field === 'first_names') {
+                if (in_array($field, ['first_names', 'regiment_corps'])) {
                     $split = str_split($this->stripPunctuation($tag));
 
                     $query->orWhere(function($query)use($field, $tag, $split) {
                         // Loop through some delimiters.
-                        foreach(['', ' ', '.', '. '] as $glue) {
+                        foreach(['', ' ', '.', '. ', '/'] as $glue) {
                             $test = implode($glue, $split);
                             $query->orWhere($field, 'LIKE', "%$test%");
+                            $query->orWhere($field, 'LIKE', "%$test.%");
                         }
                     });
                 }
