@@ -68,6 +68,7 @@ class CasualtyForm extends Model
      * @var array Any fields that have fulltext indexes set on them.
      */
     protected $fulltextFields = [
+        ['first_names'],
         ['first_names', 'surname'],
         ['regiment_corps']
     ];
