@@ -65,6 +65,14 @@ class CasualtyForm extends Model
     ];
 
     /**
+     * @var array Any fields that have fulltext indexes set on them.
+     */
+    protected $fulltextFields = [
+        ['first_names', 'surname'],
+        ['regiment_corps']
+    ];
+
+    /**
      * @var array The optional states for transcription inputs.
      */
     protected $fieldSpecialStates = [
@@ -244,34 +252,33 @@ class CasualtyForm extends Model
         // All results have to be approved and not child forms.
         $query->approved()->where('child_form', false);
 
-        // WHERE `approved_by_id` NOT NULL AND (x OR y OR ...)
-        $query->where(function($query)use($tags) {
-            // Go through each of the fields and search.
-            foreach($tags as $field => $tag) {
-                // Basic search.
-                if ($tag) $query->where($field, 'LIKE', "%$tag%");
+        // Prepare the fulltext search params
+        foreach($this->fulltextFields as $fieldGroup) {
+            $fulltextSearch = array_filter($tags, function($key)use($fieldGroup) {
+                return in_array($key, $fieldGroup);    
+            }, ARRAY_FILTER_USE_KEY);
 
-                // Date specific.
-                if (strstr($field, 'date') && $tag)
-                    $tag = date('Y-m-d', strtotime($tag));
-
-                // First name specific.
-                if (in_array($field, ['first_names', 'regiment_corps'])) {
-                    $split = str_split($this->stripPunctuation($tag));
-
-                    $query->orWhere(function($query)use($field, $tag, $split) {
-                        // Loop through some delimiters.
-                        foreach(['', ' ', '.', '. ', '/'] as $glue) {
-                            $test = implode($glue, $split);
-                            $query->orWhere($field, 'LIKE', "%$test%");
-                            $query->orWhere($field, 'LIKE', "%$test.%");
-                        }
-                    });
-                }
+            if ($fulltextSearch) {
+                // Exexute the search
+                $query->fulltext(
+                    join(',', array_keys($fulltextSearch)),
+                    join(' ', array_values($fulltextSearch))
+                );
             }
-        });
+        }
+
+        // WHERE `approved_by_id` NOT NULL AND (x OR y OR ...)
+        // $query->where(function($query)use($tags) { // DO OTHER SEARCHES });
 
         return $query;
+    }
+
+    public function scopeFulltext($query, $keys, $search) 
+    {        
+        $match = "MATCH($keys) AGAINST(?)";
+
+        return $query->whereRaw($match, [$search])
+            ->orderByRaw($match.' DESC', [$search]);  
     }
 
     /**
