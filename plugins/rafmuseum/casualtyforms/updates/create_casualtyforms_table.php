@@ -1,5 +1,6 @@
 <?php namespace RafMuseum\CasualtyForms\Updates;
 
+use DB;
 use Schema;
 use October\Rain\Database\Updates\Migration;
 
@@ -33,6 +34,8 @@ class CreateRafmuseumCasualtyformsFormTable extends Migration
             $table->text('flagged_notes')->nullable();
             $table->timestamps();
         });
+
+        DB::statement('ALTER TABLE rafmuseum_casualtyforms_forms ADD FULLTEXT fullname_index (first_names, surname)');
     }
 
     public function down()
