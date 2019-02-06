@@ -2,6 +2,7 @@
 
 use Cms\Classes\ComponentBase;
 use RafMuseum\CasualtyForms\Models\CasualtyForm;
+use Illuminate\Pagination\LengthAwarePaginator as Paginator;
 
 class Search extends ComponentBase
 {
@@ -18,20 +19,34 @@ class Search extends ComponentBase
      */
     public function onRun()
     {
-        // Get the search tags.
-        $tags = get();
+        // Get the search tags and remove empties.
+        $tags = array_filter(get());
 
         // Remove the page var before searching.
         unset($tags['page']);
 
-        // Get the search term.
-        $results = CasualtyForm::search($tags)->paginate(10);
+        $perPage = 10;
+        $page = get('page') ?: 1;
 
-        // Build the pagination links with the existing get vars.
-        $pagination = $results->appends($tags)->render();
+        // Carry out a couple of searches.
+        $default = CasualtyForm::search($tags)->get();
+        $soft = CasualtyForm::searchSoft($tags)->get();
 
-        // Add front end vars.
+        // Merge the two queries together.
+        $results = $default->merge($soft);
+        // $results = $soft;
+
+        // Get the number of results.
+        $count = $results->count();
+
+        // Mad pagination for the combined collections.
+        $pagination = new Paginator($results, $count, $perPage, $page, [
+            'path' => Paginator::resolveCurrentPath(),
+            'query' => get()
+        ]);
+
+        $this->page['count'] = $count;
         $this->page['pagination'] = $pagination;
-        $this->page['results'] = $results;
+        $this->page['results'] = $results->forPage($page, $perPage);
     }
 }
