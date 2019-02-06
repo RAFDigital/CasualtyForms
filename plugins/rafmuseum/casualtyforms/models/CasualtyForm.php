@@ -264,7 +264,6 @@ class CasualtyForm extends Model
 
                 // Regiment specific.
                 if (in_array($field, ['regiment_corps']) && $tag) {
-                    echo 'REG';
                     $split = str_split($this->stripPunctuation($tag));
 
                     $query->orWhere(function($query)use($field, $tag, $split) {
