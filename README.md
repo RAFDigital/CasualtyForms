@@ -64,3 +64,11 @@ The mail is currently being sent with `sendmail`. Install on the server using
 your `apt-get` package manager.
 
     sudo apt-get install sendmail
+
+To create an obfuscated `mailto` link use an anchor element with the following datasets.
+
+```html
+<a data-sendemail data-recipient="Info" data-subject="Hello">Email us</a>
+```
+
+This will open up the client's email client addressed to `Info@[email host]`. `EMAIL_HOST` is set in `themes/casualtyforms/assets/javascript/app.js`.
