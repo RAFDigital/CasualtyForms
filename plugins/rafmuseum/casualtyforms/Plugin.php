@@ -88,6 +88,6 @@ class Plugin extends PluginBase
         View::share('site_url', url());
 
         // Register a console command.
-        $this->registerConsoleCommand('rafmuseum.mycommand', 'RafMuseum\CasualtyForms\Console\MyCommand');
+        $this->registerConsoleCommand('rafmuseum.mycommand', 'RafMuseum\CasualtyForms\Console\ClearCache');
     }
 }
