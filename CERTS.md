@@ -18,7 +18,7 @@ It must be installed manually as follows:
 * Upload the zip file to the server and unzip it
 * There will be three files - a `something-bundle.crt`, a `foo.crt` and an identical `foo.pem`
 * Check that the file with bundle in the name is identical to `/etc/apache2/ssl.crt/intermediate.crt` on the server.
-* Replace `/etc/ssl/certs/www.casualtyforms.org.crt` with the contents of foo.crt
+* Replace `/etc/ssl/certs/www.casualtyforms.org.crt` with the contents of `foo.crt`
 * Run `sudo apachectl -t` to check Apache is happy with the new configuration
 * Run `sudo apachectl restart` to install the new certificate.
 * Visit https://www.casualtyforms.org/ to check the new cert works.
