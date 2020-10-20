@@ -23,5 +23,6 @@ plugins/bedard/debugbar/
 # Include some system files and theme config.
 
 !README.md
+!CERTS.md
 !.gitignore
 !config/casualtyforms.php
